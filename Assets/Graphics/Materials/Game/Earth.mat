@@ -1,0 +1,211 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Earth
+  m_Shader: {fileID: 4800000, guid: 67876efc47e90fd47af54178ce2821b0, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BathyShallow:
+        m_Texture: {fileID: 2800000, guid: af472164e319da34ab0818ed083f8e8a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Bathymetry:
+        m_Texture: {fileID: 2800000, guid: 93ffd940d6e9155499900a82ff503b45, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Chloro:
+        m_Texture: {fileID: 2800000, guid: 70dac2964e70a6748a0be1096de6cd38, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ColourMap:
+        m_Texture: {fileID: 2800000, guid: b7f39cee703c78a479744b570b3a5785, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CountryIndexMap:
+        m_Texture: {fileID: 2800000, guid: ad79a6a4f1dcccc46b1f36af1f3926d8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DstField:
+        m_Texture: {fileID: 2800000, guid: bf58a28824429524d908373baac515d7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamDir:
+        m_Texture: {fileID: 2800000, guid: 48befeb199e855144aeafb19a843d95b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamNoise:
+        m_Texture: {fileID: 2800000, guid: 19d28a4c72b950a48bb83527dc621994, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LakeMap:
+        m_Texture: {fileID: 2800000, guid: c1aaa42cac5135b4db8b4d982f4fc403, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Lights:
+        m_Texture: {fileID: 2800000, guid: fcb603f66b4423345867433eefdbbdc7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: a6a455ed7d2dfb643b6096ef726059d6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: 3b6b093e69b1feb4ea74c84913a54215, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: 19d28a4c72b950a48bb83527dc621994, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseB:
+        m_Texture: {fileID: 2800000, guid: c1afd2b25e1a58a46b7285a24ad669f7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OceanChloroTest:
+        m_Texture: {fileID: 2800000, guid: 25220f78c467bdd4d955ed612ab15b7f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OceanColTest:
+        m_Texture: {fileID: 2800000, guid: 8ad16d8c94a42fd4db114db80d62caf9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OceanHeightTest:
+        m_Texture: {fileID: 2800000, guid: 1dfe75dbc4216b344b9c188637528932, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShoreNoise:
+        m_Texture: {fileID: 2800000, guid: 19d28a4c72b950a48bb83527dc621994, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WaterDepthTexture:
+        m_Texture: {fileID: 2800000, guid: d97a0d4479e79d449a1ce841e65ac884, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WaveDstMap:
+        m_Texture: {fileID: 2800000, guid: 7bc5791cb5d92a64186c20a86da5c3ce, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WaveNormalA:
+        m_Texture: {fileID: 2800000, guid: 3030bb61c07a8bf4796a419e7e77dd99, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WaveNormalB:
+        m_Texture: {fileID: 2800000, guid: 5c3acfa5de7e76744a9bdaa676d4a5f4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - WaveNoiseAmplitude: 4
+    - WaveNoiseScale: 15
+    - WaveNoiseSpeed: 0.75
+    - WaveNoiseStretch: 1.5
+    - WaveShoreFalloff: 10
+    - _AmbientLight: 0.1
+    - _BumpScale: 1
+    - _CountryFadeTime: 0.5
+    - _CountryHighlightStrength: 1.5
+    - _Cutoff: 0.5
+    - _DepthFactor: 1.3
+    - _DetailNormalMapScale: 1
+    - _DetailNormalStrength: 0.743
+    - _DstBlend: 0
+    - _FoamDst: 0.839
+    - _FoamEdgeBlend: 8.71
+    - _FoamFrequency: 15
+    - _FoamMaskBlend: 10
+    - _FoamMaskScale: 1
+    - _FoamMaskThreshold: 0.4
+    - _FoamNoiseScale: 2.08
+    - _FoamNoiseSpeed: 1.2
+    - _FoamNoiseStrength: 32.8
+    - _FoamScale: 10.6
+    - _FoamSpeed: 0.75
+    - _FoamWidth: -0.75
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _HeightDarkness: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _OceanLandBlend: 0.02
+    - _Parallax: 0.02
+    - _Refraction: 10
+    - _SeaLevel: 0.192
+    - _ShoreFoamDst: 0.045
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SpecularSmoothness: 0.12
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _WaveNormalScale: 0.4
+    - _WaveSpeed: 0.81
+    - _WaveStrength: 0.657
+    - _ZWrite: 1
+    m_Colors:
+    - _AmbientCol: {r: 0.047169805, g: 0.014150941, b: 0, a: 1}
+    - _ChloroStrong: {r: 0.3820755, g: 1, b: 0.6837487, a: 1}
+    - _ChloroWeak: {r: 0.105909556, g: 0.5816129, b: 0.6415094, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _CountryLineCol: {r: 0, g: 0, b: 0, a: 0.3882353}
+    - _CountryOutlineColDay: {r: 0, g: 0, b: 0, a: 1}
+    - _CountryOutlineColNight: {r: 0.7735849, g: 0.41051087, b: 0.04743683, a: 1}
+    - _DeepBlue: {r: 0.02055892, g: 0.061752517, b: 0.20754719, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FoamColour: {r: 0.35292807, g: 0.56739706, b: 0.9716981, a: 1}
+    - _HighlightNightCol: {r: 0.08565584, g: 0, b: 0.6226415, a: 1}
+    - _OceanCol: {r: 0.17915626, g: 0.52049375, b: 0.6226415, a: 1}
+    - _OceanDeepCol: {r: 0.06755074, g: 0.09520433, b: 0.4339623, a: 1}
+    - _OceanParams: {r: 1.47, g: 1.64, b: 1.04, a: 1.56}
+    - _OceanShallowCol: {r: 0.990566, g: 0.35332292, b: 0, a: 1}
+    - _OceanTestParams: {r: 65.82, g: 3, b: 0, a: 0.02}
+    - _ShallowBlueA: {r: 1, g: 0.58431375, b: 0.2901961, a: 1}
+    - _ShallowBlueB: {r: 0.09789959, g: 0.5210726, b: 0.8301887, a: 1}
+    - _SpecularTint: {r: 1, g: 1, b: 1, a: 1}
+    - _TestParams: {r: 0.09, g: 54.23, b: 10.6, a: 0.4}
+  m_BuildTextureStacks: []

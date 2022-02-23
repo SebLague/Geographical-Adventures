@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!47 &1
+QualitySettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 5
+  m_CurrentQuality: 0
+  m_QualitySettings:
+  - serializedVersion: 2
+    name: Ultra
+    pixelLightCount: 4
+    shadows: 2
+    shadowResolution: 3
+    shadowProjection: 1
+    shadowCascades: 1
+    shadowDistance: 90
+    shadowNearPlaneOffset: 3
+    shadowCascade2Split: 0.65424013
+    shadowCascade4Split: {x: 0.3498565, y: 0.5619387, z: 0.8003372}
+    shadowmaskMode: 1
+    skinWeights: 255
+    textureQuality: 0
+    anisotropicTextures: 2
+    antiAliasing: 4
+    softParticles: 1
+    softVegetation: 1
+    realtimeReflectionProbes: 1
+    billboardsFaceCameraPosition: 1
+    vSyncCount: 1
+    lodBias: 2
+    maximumLODLevel: 0
+    streamingMipmapsActive: 0
+    streamingMipmapsAddAllCameras: 1
+    streamingMipmapsMemoryBudget: 512
+    streamingMipmapsRenderersPerFrame: 512
+    streamingMipmapsMaxLevelReduction: 2
+    streamingMipmapsMaxFileIORequests: 1024
+    particleRaycastBudget: 4096
+    asyncUploadTimeSlice: 2
+    asyncUploadBufferSize: 16
+    asyncUploadPersistentBuffer: 1
+    resolutionScalingFixedDPIFactor: 1
+    customRenderPipeline: {fileID: 0}
+    excludedTargetPlatforms: []
+  m_PerPlatformDefaultQuality:
+    Android: 0
+    CloudRendering: 0
+    GameCoreScarlett: 0
+    GameCoreXboxOne: 0
+    Lumin: 0
+    Nintendo Switch: 0
+    PS4: 0
+    PS5: 0
+    Stadia: 0
+    Standalone: 0
+    WebGL: 0
+    Windows Store Apps: 0
+    XboxOne: 0
+    iPhone: 0
+    tvOS: 0

@@ -1,0 +1,61 @@
+
+#pragma kernel CSMain
+#include "Assets/Scripts/Shader Common/GeoMath.hlsl"
+
+Texture2D<float> HeightWest;
+Texture2D<float> HeightEast;
+RWTexture2D<float4> Normals;
+int offset;
+static const int tileSize = 16384;
+static const int totalWidth = tileSize * 2;
+static const int totalHeight = tileSize;
+
+float worldRadius;
+float heightMultiplier;
+
+int2 wrapIndex(int2 index) {
+	index.y = max(min(tileSize-1,index.y), 0); // how to handle y?
+	index.x = (index.x + totalWidth) % (uint)totalWidth;
+	return index;
+}
+
+float sampleHeight(int2 index) {
+
+	if (index.x < tileSize) {
+		return HeightWest[index.xy];
+	}
+	else {
+		return HeightEast[index.xy - int2(tileSize,0)];
+	}
+}
+
+float calculateWorldHeight(int2 index) {
+	float h = sampleHeight(index);
+	return worldRadius + h * heightMultiplier;//
+}
+
+float3 calculateWorldPoint(int2 index) {
+	float height = calculateWorldHeight(index);
+	float2 uv = index / float2(totalWidth - 1, totalHeight - 1);
+	float3 p = longitudeLatitudeToPoint(uvToLongitudeLatitude(uv));
+	return p * height;
+}
+
+[numthreads(8,8,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	if ((int)id.x >= tileSize || (int)id.y >= tileSize) { return; }
+
+	int2 index = id.xy + int2(offset, 0);
+
+	float3 posNorth = calculateWorldPoint(wrapIndex(index + int2(0, 1)));
+	float3 posSouth = calculateWorldPoint(wrapIndex(index + int2(0, -1)));
+	float3 posWest = calculateWorldPoint(wrapIndex(index + int2(-1, 0)));
+	float3 posEast = calculateWorldPoint(wrapIndex(index + int2(1, 0)));
+
+	float3 dirNorth = normalize(posNorth - posSouth);
+	float3 dirEast = normalize(posEast - posWest);
+	float3 normal = normalize(cross(dirNorth, dirEast));
+
+	Normals[id.xy] = float4(normal.xyz,1);
+}

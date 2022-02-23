@@ -1,0 +1,20 @@
+#pragma kernel ReadWorldInfo
+#include "Assets/Scripts/Shader Common/GeoMath.hlsl"
+
+Texture2D<float> HeightMap;
+SamplerState height_linear_clamp;
+
+Texture2D<float> CountryIndices;
+SamplerState country_point_clamp;
+
+RWStructuredBuffer<float> Result;
+float2 uv;
+
+[numthreads(1,1,1)]
+void ReadWorldInfo (uint3 id : SV_DispatchThreadID)
+{
+	float heightT = HeightMap.SampleLevel(height_linear_clamp, uv, 0);
+	float countryIndexT = CountryIndices.SampleLevel(country_point_clamp, uv, 0);
+	Result[0] = heightT;
+	Result[1] = countryIndexT;
+}

@@ -1,0 +1,59 @@
+#pragma kernel Init
+#pragma kernel ComputePass
+
+#include "Assets/Scripts/Shader Common/GeoMath.hlsl"
+
+RWTexture2D<float4> Texture;
+uint width;
+uint height;
+
+[numthreads(8,8,1)]
+void Init (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= width || id.y >= height) { return; }
+
+	float maskVal = Texture[id.xy].r;
+	float4 initVal = float4(0,0, 1.#INF, 0);
+	if (maskVal > 0.1) {
+		initVal = float4(id.xy, 0, 0);
+	}
+
+	Texture[id.xy] = initVal;
+}
+
+int jumpSize;
+
+[numthreads(8,8,1)]
+void ComputePass (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= width || id.y >= height) { return; }
+
+	float2 p = id.xy;
+	float3 current = Texture[id.xy].xyz;
+	float bestDst = current.z;
+	float2 bestPos = current.xy;
+
+	for (int y = -1; y <= 1; y++) {
+		for (int x = -1; x <= 1; x++) {
+			if (x == 0 && y == 0) { continue; }
+
+			int2 jumpPos = id.xy + int2(x, y) * jumpSize;
+			jumpPos.x = (jumpPos.x + width) % width;
+			jumpPos.y = min(max(0, jumpPos.y), height - 1);
+
+			float2 nearestToJumpPos = Texture[jumpPos].xy;
+			bool hasData = dot(nearestToJumpPos, nearestToJumpPos) != 0;
+
+			float dst = length(p - nearestToJumpPos);
+			//float dst = distanceBetweenPointsOnUnitSphere(uvToPointOnSphere(p), uvToPointOnSphere(nearestToJumpPos));
+
+			if (hasData && dst < bestDst) {//
+				bestPos = nearestToJumpPos;
+				bestDst = dst;
+			}
+		}
+	}
+
+	Texture[id.xy] = float4(bestPos.xy, bestDst, 0);
+
+}

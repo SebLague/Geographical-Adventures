@@ -1,0 +1,54 @@
+#pragma kernel UpdateCountryDisplay
+
+Texture2D<float> CountryIndexMap;
+RWStructuredBuffer<float> CountryHighlights;
+uint width;
+uint height;
+float2 playerTexCoord; // player position converted to texture coordinate
+uint numCountries;
+
+float fadeInSpeed;
+float fadeOutSpeed;
+float deltaTime;
+
+int2 wrapTextureIndex(int2 index) {
+	index.x = (index.x + width) % width;
+	index.y = min(max(0, index.y), height-1);
+	return index;
+}
+
+[numthreads(64,1,1)]
+// Called for each country
+void UpdateCountryDisplay (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= numCountries) { return; }
+
+	float currentHighlightValue = CountryHighlights[id.x];
+	
+	int2 centreIndex = playerTexCoord * int2(width-1, height-1);
+	const int radius = 5;
+	bool inCountry = false;
+
+	for (int offsetY = -radius; offsetY <= radius; offsetY ++) {
+		for (int offsetX = -radius; offsetX <= radius; offsetX ++) {
+			int2 index = wrapTextureIndex(centreIndex + int2(offsetX, offsetY));
+			int playerCountryIndex = floor(CountryIndexMap[index]*255.0) - 1;
+
+			if ((int)id.x == playerCountryIndex) {
+				offsetY = radius + 1;
+				inCountry = true;
+				break;
+			}
+		}
+	}
+	// Fade highlight in if player is over this country
+	if (inCountry) {
+		currentHighlightValue += fadeInSpeed * deltaTime;
+	}
+	// Start fading out if player not over this country
+	else {
+		currentHighlightValue -= fadeOutSpeed * deltaTime;
+	}
+
+	CountryHighlights[id.x] = saturate(currentHighlightValue);
+}

@@ -1,0 +1,29 @@
+﻿#pragma kernel Swizzle
+
+RWTexture2D<float4> Source;
+uint width;
+uint height;
+
+// Masks
+float4 x;
+float4 y;
+float4 z;
+float4 w;
+
+[numthreads(8,8,1)]
+void Swizzle (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x < 0 || id.x >= width || id.y < 0 || id.y >= height) {
+		return;
+	}
+
+	float4 colour = Source[id.xy];
+
+	// Mask each channel
+	float red = dot(colour, x);
+	float green = dot(colour, y);
+	float blue = dot(colour, z);
+	float alpha = dot(colour, w);
+
+	Source[id.xy] = float4(red, green, blue, alpha);
+}

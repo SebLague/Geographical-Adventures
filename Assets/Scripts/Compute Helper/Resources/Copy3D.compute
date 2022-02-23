@@ -1,0 +1,16 @@
+#pragma kernel Copy
+
+Texture3D<float4> Source;
+RWTexture3D<float4> Target;
+
+int3 dimensions;
+
+[numthreads(8,8,8)]
+void Copy (int3 id : SV_DispatchThreadID)
+{
+	if (id.x >= dimensions.x || id.y >= dimensions.y || id.z >= dimensions.z) {
+		return;
+	}
+
+	Target[id] = Source[id];
+}
