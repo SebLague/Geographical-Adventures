@@ -1,8 +1,11 @@
+
+# Created by https://www.toptal.com/developers/gitignore/api/unity,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=unity,visualstudiocode
+
+### Unity ###
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
-#
-
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -71,3 +74,26 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# Support for Project snippet scope
+
+# End of https://www.toptal.com/developers/gitignore/api/unity,visualstudiocode
