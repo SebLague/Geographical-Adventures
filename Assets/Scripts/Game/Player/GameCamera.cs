@@ -4,127 +4,196 @@ using UnityEngine;
 
 public class GameCamera : MonoBehaviour
 {
-	public bool topDownMode;
-	public Player player;
+	public event System.Action<Camera> gameCameraUpdateComplete;
+	public enum ViewMode { TopDown, LookingForward, LookingBehind, MainMenu }
+	public ViewMode activeView = ViewMode.LookingForward;
 
-	[Header("Clipping")]
-
-	public float farClipTopView = 100;
-	public float farClipBehindView = 150;
-	public int layerExtraTerrestrial;
-	public float farClipExtraTerrestrial = 400;
+	public float fovSlow = 60;
+	public float fovFast = 65;
+	public float fovBoost = 75;
+	public float fovSmoothTime;
 
 	[Header("Top-Down Settings")]
-
 	public float distanceAbove = 2;
 	public float turnSpeed;
 	public float startAngle;
 
-	const KeyCode turnLeftKey = KeyCode.LeftArrow;
-	const KeyCode turnRightKey = KeyCode.RightArrow;
-	const KeyCode switchViewKey = KeyCode.Q;
 	float angle;
 
-	[Header("Behind-View Settings")]
+	[Header("Alternate View Settings")]
+	public ViewSettings lookingAheadView;
+	public ViewSettings lookingBehindView;
+	public ViewSettings menuView;
 
-	public float rotSmoothSpeed;
-	public Vector3 offset;
-	public Vector3 lookAheadOffset;
+	[Header("References")]
+	public Camera cam;
 
 
 	// Other
+	public Player player;
 	Transform target;
-	Camera cam;
+	float smoothFovVelocity;
+
+	float menuToGameViewTransitionT;
+
 
 	void Start()
 	{
-		cam = GetComponent<Camera>();
+		InitView();
+	}
+
+	void Update()
+	{
+		if (GameController.CurrentState == GameState.Playing)
+		{
+
+			if (Input.GetKeyDown(KeyBindings.CameraView1))
+			{
+				activeView = ViewMode.TopDown;
+			}
+			else if (Input.GetKeyDown(KeyBindings.CameraView2))
+			{
+				activeView = ViewMode.LookingForward;
+			}
+			else if (Input.GetKeyDown(KeyBindings.CameraView3))
+			{
+				activeView = ViewMode.LookingBehind;
+			}
+		}
+	}
+
+	public void InitView()
+	{
 		target = player.transform;
-
-		if (topDownMode)
-		{
-			transform.position = target.position + target.position.normalized * distanceAbove;
-			transform.LookAt(Vector3.zero);
-		}
-		else
-		{
-			transform.position = CalculatePos();
-		}
-
-		UpdateClippingPlane();
+		UpdateView();
+		cam.fieldOfView = CalculateFOV();
 	}
 
 
 	void LateUpdate()
 	{
+		if (!GameController.IsState(GameState.Paused))
+		{
+			UpdateView();
 
-		if (topDownMode)
+			cam.fieldOfView = Mathf.SmoothDamp(cam.fieldOfView, CalculateFOV(), ref smoothFovVelocity, fovSmoothTime);
+
+
+			gameCameraUpdateComplete?.Invoke(cam);
+		}
+	}
+
+	void UpdateView()
+	{
+		// Automatically swtich to menu cam if in main menu
+		if (GameController.CurrentState == GameState.InMainMenu)
+		{
+			menuToGameViewTransitionT = 0;
+			activeView = ViewMode.MainMenu;
+		}
+
+		// Set camera based on active view
+		switch (activeView)
+		{
+			case ViewMode.TopDown:
+				UpdateTopDownView();
+				break;
+			case ViewMode.LookingForward:
+				UpdateAlternateView(lookingAheadView);
+				break;
+			case ViewMode.LookingBehind:
+				UpdateAlternateView(lookingBehindView);
+				break;
+			case ViewMode.MainMenu:
+				ViewSettings view = menuView;
+				if (GameController.IsState(GameState.Playing))
+				{
+					// If started playing, transition from menu cam to forward cam
+					menuToGameViewTransitionT += Time.deltaTime * 1f;
+					view = ViewSettings.Lerp(menuView, lookingAheadView, Maths.Ease.Quadratic.Out(menuToGameViewTransitionT));
+					if (menuToGameViewTransitionT > 1)
+					{
+						activeView = ViewMode.LookingForward;
+					}
+				}
+				UpdateAlternateView(view);
+				break;
+		}
+	}
+
+	float CalculateFOV()
+	{
+		return (player.IsBoosting) ? fovBoost : Mathf.Lerp(fovSlow, fovFast, player.SpeedT);
+	}
+
+	void UpdateTopDownView()
+	{
+
+		if (player.worldIsSpherical)
 		{
 			transform.position = target.position.normalized * (player.Height + distanceAbove);
-
-			Vector3 gravityUp = transform.position.normalized;
-			transform.LookAt(target.position, target.forward);
-			transform.RotateAround(transform.position, gravityUp, -player.totalTurnAngle + angle + startAngle);
-
-			if (Input.GetKey(turnLeftKey))
-			{
-				angle -= turnSpeed * Time.smoothDeltaTime;
-			}
-			if (Input.GetKey(turnRightKey))
-			{
-				angle += turnSpeed * Time.smoothDeltaTime;
-			}
 		}
 		else
 		{
-			transform.position = CalculatePos();
-			Vector3 lookTarget = CalculateLookTarget();
-
-			Vector3 up = transform.position.normalized;
-			transform.LookAt(lookTarget, up);
+			transform.position = new Vector3(target.position.x, player.Height + distanceAbove, target.position.z);
 		}
 
-		if (Input.GetKeyDown(switchViewKey))
+		transform.position = target.position + player.GravityUp * distanceAbove;
+
+		Vector3 gravityUp = player.GravityUp;
+		transform.LookAt(target.position, target.forward);
+		transform.RotateAround(transform.position, gravityUp, -player.totalTurnAngle + angle + startAngle);
+
+		if (Input.GetKey(KeyBindings.TopDownCamTurnLeft))
 		{
-			topDownMode = !topDownMode;
-			UpdateClippingPlane();
+			angle -= turnSpeed * Time.smoothDeltaTime;
+		}
+		if (Input.GetKey(KeyBindings.TopDownCamTurnRight))
+		{
+			angle += turnSpeed * Time.smoothDeltaTime;
 		}
 	}
 
-
-
-	Vector3 CalculatePos()
+	void UpdateAlternateView(ViewSettings view)
 	{
-		Vector3 p = target.position + target.forward * offset.z;
-		return p.normalized * (player.Height + offset.y);
+		// Calculate new position
+		Vector3 newPos = target.position + target.forward * view.offset.z + player.GravityUp * view.offset.y;
+
+		//Calculate look target
+		Vector3 lookTarget = target.position;
+		lookTarget += target.right * view.lookTargetOffset.x;
+		lookTarget += target.up * view.lookTargetOffset.y;
+		lookTarget += target.forward * view.lookTargetOffset.z;
+
+		transform.position = newPos;
+		transform.LookAt(lookTarget, player.GravityUp);
 	}
 
-	Vector3 CalculateLookTarget()
+	public bool topDownMode
 	{
-		Vector3 p = target.position;
-		p += target.right * lookAheadOffset.x;
-		p += target.up * lookAheadOffset.y;
-		p += target.forward * lookAheadOffset.z;
-		return p;
-	}
-
-	void UpdateClippingPlane()
-	{
-		float[] layerClipDistances = new float[32];
-		for (int i = 0; i < layerClipDistances.Length; i++)
+		get
 		{
-			layerClipDistances[i] = (topDownMode) ? farClipTopView : farClipBehindView;
+			return activeView == ViewMode.TopDown;
 		}
-		layerClipDistances[layerExtraTerrestrial] = farClipExtraTerrestrial;
-		cam.farClipPlane = Mathf.Max(Mathf.Max(farClipBehindView, farClipTopView), farClipExtraTerrestrial);
-		cam.layerCullDistances = layerClipDistances;
 	}
 
-	void OnValidate()
+	[System.Serializable]
+	public struct ViewSettings
 	{
-		if (Application.isPlaying && cam != null)
+		public Vector3 offset;
+		public Vector3 lookTargetOffset;
+
+		public ViewSettings(Vector3 offset, Vector3 lookTargetOffset)
 		{
-			UpdateClippingPlane();
+			this.offset = offset;
+			this.lookTargetOffset = lookTargetOffset;
+		}
+
+		public static ViewSettings Lerp(ViewSettings a, ViewSettings b, float t)
+		{
+			Vector3 offset = Vector3.Lerp(a.offset, b.offset, t);
+			Vector3 lookTargetOffset = Vector3.Lerp(a.lookTargetOffset, b.lookTargetOffset, t);
+			return new ViewSettings(offset, lookTargetOffset);
 		}
 	}
 

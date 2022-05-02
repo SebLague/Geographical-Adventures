@@ -1,0 +1,61 @@
+#pragma kernel CSMain
+
+#include "Assets/Scripts/Shader Common/GeoMath.hlsl"
+
+Texture2D<float> LandMask;
+SamplerState linear_clamp_sampler;
+AppendStructuredBuffer<float3> Points;
+AppendStructuredBuffer<float3> EdgePoints;
+float3 axisA;
+float3 axisB;
+float3 normal;
+uint resolution;
+
+float2 startT;
+float2 endT;
+
+// From http://mathproofs.blogspot.com/2005/07/mapping-cube-to-sphere.html
+float3 pointOnCubeToPointOnSphere(float3 p)
+{
+	float x2 = p.x * p.x / 2;
+	float y2 = p.y * p.y / 2;
+	float z2 = p.z * p.z / 2;
+	float x = p.x * sqrt(1 - y2 - z2 + (p.y * p.y * p.z * p.z) / 3);
+	float y = p.y * sqrt(1 - z2 - x2 + (p.x * p.x * p.z * p.z) / 3);
+	float z = p.z * sqrt(1 - x2 - y2 + (p.x * p.x * p.y * p.y) / 3);
+	return float3(x, y, z);
+}
+
+[numthreads(8,8,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= resolution || id.y >= resolution) { return; }
+	
+	bool pointOnEdgeX = id.x == 0 || id.x == resolution - 1;
+	bool pointOnEdgeY = id.y == 0 || id.y == resolution - 1;
+	bool isCornerPoint = pointOnEdgeX && pointOnEdgeY;
+	bool isEdgePoint = pointOnEdgeX || pointOnEdgeY;
+
+
+	float gridStepSize = 1 / (resolution - 1.0);
+	float2 t = lerp(startT, endT, id.xy * gridStepSize);
+	float3 cubePoint = normal + (t.x - 0.5f) * 2 * axisA + (t.y - 0.5f) * 2 * axisB;
+	float3 spherePoint = pointOnCubeToPointOnSphere(cubePoint);
+	float2 texCoord = pointToUV(spherePoint);
+	
+
+	bool isOcean = LandMask.SampleLevel(linear_clamp_sampler, texCoord, 0) < 0.1;
+
+
+	if (isOcean || isCornerPoint)
+	{
+		// Return the point on cube since this is easier for the triangulator to handle
+		if (isEdgePoint) {
+			EdgePoints.Append(cubePoint);
+		}
+		else {
+			Points.Append(cubePoint);
+		}
+	}
+
+}

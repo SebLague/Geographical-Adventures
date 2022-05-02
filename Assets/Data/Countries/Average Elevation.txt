@@ -1,0 +1,172 @@
+Afghanistan, 1884
+Albania, 708
+Algeria, 800
+Andorra, 1996
+Angola, 1112
+Antarctica, 2300
+Argentina, 595
+Armenia, 1792
+Australia, 330
+Austria, 910
+Azerbaijan, 384
+Bangladesh, 85
+Belarus, 170
+Belgium, 181
+Belize, 173
+Benin, 273
+Bhutan, 3280
+Bolivia, 1192
+Bosnia and Herzegovina, 500
+Botswana, 1013
+Brazil, 320
+Brunei, 478
+Bulgaria, 470
+Burkina Faso, 297
+Burundi, 1504
+Cambodia, 126
+Cameroon, 667
+Canada, 487
+Central African Republic, 635
+Chad, 543
+Chile, 1871
+China, 1840
+Colombia, 593
+Costa Rica, 746
+Croatia, 331
+Cuba, 108
+Cyprus, 91
+Czech Republic, 430
+Democratic Republic of the Congo, 726
+Denmark, 34
+Djibouti, 430
+Dominican Republic, 424
+Ecuador, 1117
+Egypt, 321
+El Salvador, 442
+Equatorial Guinea, 577
+Eritrea, 853
+Estonia, 61
+Eswatini, 305
+Ethiopia, 1330
+Finland, 164
+France, 375
+French Guiana, 168
+Gabon, 377
+Gambia, 34
+Georgia, 1432
+Germany, 263
+Ghana, 190
+Greece, 498
+Greenland, 1792
+Guatemala, 759
+Guinea, 472
+Guinea-Bissau, 70
+Guyana, 207
+Haiti, 470
+Honduras, 684
+Hungary, 143
+Iceland, 557
+India, 621
+Indonesia, 367
+Iran, 1305
+Iraq, 312
+Ireland, 118
+Israel, 508
+Italy, 538
+Ivory Coast, 250
+Jamaica, 340
+Japan, 438
+Jordan, 920
+Kazakhstan, 387
+Kenya, 762
+Kiribati, 2
+Kosovo, 800
+Kuwait, 108
+Kyrgyzstan, 2989
+Laos, 710
+Latvia, 87
+Lebanon, 1250
+Lesotho, 2161
+Liberia, 243
+Libya, 423
+Lithuania, 110
+Luxembourg, 325
+Madagascar, 442
+Malawi, 779
+Malaysia, 538
+Maldives, 1.5
+Mali, 343
+Marshall Islands, 2
+Mauritania, 276
+Mexico, 1111
+Moldova, 139
+Mongolia, 1580
+Montenegro, 1086
+Morocco, 909
+Mozambique, 345
+Myanmar, 702
+Namibia, 1141
+Nepal, 3265
+Netherlands, 30
+New Zealand, 388
+Nicaragua, 298
+Niger, 474
+Nigeria, 380
+North Korea, 400
+North Macedonia, 741
+Norway, 460
+Oman, 310
+Pakistan, 900
+Panama, 360
+Papua New Guinea, 667
+Paraguay, 178
+Peru, 1555
+Philippines, 442
+Poland, 173
+Portugal, 372
+Qatar, 28
+Republic of the Congo, 430
+Romania, 414
+Russia, 600
+Rwanda, 1598
+Saudi Arabia, 665
+Senegal, 69
+Serbia, 473
+Sierra Leone, 279
+Singapore, 15
+Slovakia, 458
+Slovenia, 492
+Somalia, 410
+South Africa, 1034
+South Korea, 282
+Spain, 660
+Sri Lanka, 228
+Sudan, 568
+Suriname, 246
+Sweden, 320
+Switzerland, 1350
+Syria, 514
+Taiwan, 1150
+Tajikistan, 3186
+Tanzania, 1018
+Thailand, 287
+Togo, 236
+Trinidad and Tobago, 83
+Tunisia, 246
+Turkey, 1141
+Turkmenistan, 230
+Tuvalu, 1.8
+Uganda, 1100
+Ukraine, 175
+United Arab Emirates, 149
+United Kingdom, 75
+United States, 760
+Uruguay, 109
+Uzbekistan, 450
+Vanuatu, 398
+Venezuela, 450
+Vietnam, 398
+Western Sahara, 256
+Yemen, 999
+Zambia, 1138
+Zimbabwe, 961

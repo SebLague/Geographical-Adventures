@@ -34,7 +34,7 @@ void SetPositions (uint3 id : SV_DispatchThreadID)
 	float2 bestPosUV = 0;
 	float bestIntensity = 0;
 
-	const int minIterations = 10;
+	const int minIterations = 150;
 	const int maxIterations = 1000;
 
 	// Generate n random points on globe and choose the one with greatest brightness as spawn point for this light
@@ -46,7 +46,7 @@ void SetPositions (uint3 id : SV_DispatchThreadID)
 		if (intensity > bestIntensity) {
 			bestIntensity = intensity;
 			bestPos = randomPoint;
-			bestPosUV = uv;
+			bestPosUV = uv;//
 		}
 
 		// Exit early if a plausible position has been found (or if a very bright point has already been found)
@@ -76,7 +76,7 @@ void Partition (uint3 id : SV_DispatchThreadID)
 {
 
 	if (CityLights[id.x].inRenderGroup == 0) {
-		float3 pos = CityLights[id.x].pointOnSphere * CityLights[id.x].height;
+		float3 pos = CityLights[id.x].pointOnSphere * worldRadius;
 		float3 o = abs(pos - boundsCentre);
 
 		if (o.x < boundsSize.x / 2 && o.y < boundsSize.y / 2 && o.z < boundsSize.z / 2) {

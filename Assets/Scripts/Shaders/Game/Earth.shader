@@ -1,12 +1,17 @@
 Shader "Custom/Earth" {
 	Properties
 	{
+		
+		[NoScaleOffset] _MapWest ("East Map", 2D) = "white" {}
+		[NoScaleOffset] _MapEast ("West Map", 2D) = "white" {}
 
 		// Unorganized
 		_CountryIndexMap ("Country Index Map", 2D) = "white" {}
 		_Noise ("Noise", 2D) = "white" {}
 		_NoiseB ("Noise B", 2D) = "white" {}
 		_AmbientLight ("Ambient Light", Float) = 0
+		
+		_NormalMap("Normal Map", 2D) = "white" {}
 
 		_DetailNormalStrength ("Detail Normal Strength", Range(0,1)) = 0
 		
@@ -26,6 +31,7 @@ Shader "Custom/Earth" {
 		[NoScaleOffset] _WaveNormalA ("Wave Normal A", 2D) = "bump" {}
 		[NoScaleOffset] _WaveNormalB ("Wave Normal B", 2D) = "bump" {}
 		[NoScaleOffset] _WaveDstMap ("Wave Dst Map", 2D) = "white" {} // Note: used in Waves.hlsl include
+
 
 		_Refraction ("Refraction", Float) = -0.1
 
@@ -76,7 +82,11 @@ Shader "Custom/Earth" {
 
 			// Textures
 			sampler2D ColourMap;
+			sampler2D _NormalMap;
 			float4 ColourMap_TexelSize;
+
+			sampler2D _MapWest;
+			sampler2D _MapEast;
 
 			sampler2D _CountryIndexMap;
 			sampler2D NormalMap;
@@ -145,6 +155,7 @@ Shader "Custom/Earth" {
 				float4 pos : SV_POSITION;
 				float3 worldNormal : NORMAL;
 				float3 worldPos : TEXCOORD0;
+				float waveStr : TEXCOORD1;
 				LIGHTING_COORDS(4,5)
 			};
 
@@ -156,12 +167,13 @@ Shader "Custom/Earth" {
 				
 				float3 waveNormal = v.normal;
 				float3 wavePos = waveCalc(worldPos, waveNormal);
+				o.waveStr = waveCalc(worldPos, waveNormal).a;
 				v.normal = waveNormal;//
 				v.vertex = float4(wavePos, 1);
 	
 				o.pos = UnityObjectToClipPos (v.vertex);
 				o.worldPos = worldPos;
-				o.worldNormal = mul(unity_ObjectToWorld, float4(v.normal.xyz, 0)).xyz;
+				o.worldNormal = UnityObjectToWorldNormal(v.normal);
 
 				// hanks to https://alastaira.wordpress.com/2014/12/30/adding-shadows-to-a-unity-vertexfragment-shader-in-7-easy-steps/
 				// The TRANSFER_VERTEX_TO_FRAGMENT macro populates the chosen LIGHTING_COORDS in the v2f structure
@@ -220,11 +232,23 @@ Shader "Custom/Earth" {
 
 			float4 frag(v2f i) : COLOR
 			{
+			
 				// ------------------------ Texture coordinate stuff ------------------------
 				// * Calculate texture coordinates
 				const int2 tileCount = int2(4, 2);
 				float3 pointOnUnitSphere = normalize(i.worldPos);
 				float2 texCoord = pointToUV(pointOnUnitSphere);
+
+				float4 colTest = 0;
+				if (texCoord.x > 0.5) {
+					colTest = tex2D(_MapEast, float2((texCoord.x-0.5) * 2, texCoord.y));
+				}
+				else {
+					colTest = tex2D(_MapWest, float2((texCoord.x) * 2, texCoord.y));
+				}
+
+				float3 testNormal = tex2D(_NormalMap, texCoord);
+
 				float2 tileTexCoord = texCoord * tileCount - tileTexCoordOffset;
 				
 				// * Calculate mip level (doing manually to avoid mipmap seam where texture wraps on x axis -- there's probably a better way?)
@@ -255,6 +279,8 @@ Shader "Custom/Earth" {
 			
 				// * Sample maps
 				float4 colour = tex2Dlod(ColourMap, float4(tileTexCoord.xy, 0, mipLevel));
+				colour = lerp(colour, colTest, saturate(_TestParams.x));
+				//return colour;
 				float outlineDstData = colour.a;
 				//return colour;
 
@@ -279,17 +305,25 @@ Shader "Custom/Earth" {
 				float oceanT = (outlineDstData > 11/255.0) * (countryIndex < 0);
 
 				float3 detailNormal = tex2Dlod(NormalMap, float4(tileTexCoord, 0, mipLevel)).rgb;
+				detailNormal = lerp(detailNormal, testNormal, _DetailNormalStrength);
 				detailNormal = normalize(detailNormal * 2 - 1);
 				// Blend detail normal with mesh normal
 				float3 normal = normalize(i.worldNormal * 2 + detailNormal * 1);
 
 			
 				float shadows = LIGHT_ATTENUATION(i);
+				//shadows = lerp(0.2, 1, smoothstep(0.1,0.8,shadows));
+				//return shadows;
+				//shadows = lerp(0.2,1,shadows);
+				//shadows = 1;
 				// Manually add shadow of earth when sun far on opposite side of earth
 				// (increasing camera far clip plane would fix this, but is costly as fewer terrain chunks can be culled)
 				if (dot(dirToSun, pointOnUnitSphere) < -0.2) {
 					shadows = min (shadows, 1-shadowStrength);
 				}
+
+				//return shadows;
+				//return i.waveStr;
 
 				// Ocean col
 				float3 tang;
@@ -305,8 +339,12 @@ Shader "Custom/Earth" {
 				float3 specularNormal = lerp(normal, waveNormal, oceanT);
 				float specularHighlight = saturate(calculateSpecular(specularNormal, viewDir, dirToSun, _SpecularSmoothness));
 
-				float waveShading = max(saturate(dot(lerp(normal, waveNormal,0.2), _WorldSpaceLightPos0)),0.2);
+				float waveShading = max(saturate(dot(lerp(normal, waveNormal,0), _WorldSpaceLightPos0)),0.2);
 				waveShading = saturate(dot(normalize(i.worldNormal),_WorldSpaceLightPos0.xyz));
+				waveShading = dot(normalize(i.worldNormal),_WorldSpaceLightPos0.xyz) * 0.5 + 0.5;
+				waveShading *= waveShading;
+				waveShading = lerp(0.15, 1, waveShading);
+				//return waveShading;
 				
 
 				float4 foam = calculateFoam(texCoord, pointOnUnitSphere, dstFromShore);
@@ -318,14 +356,21 @@ Shader "Custom/Earth" {
 
 				// Reduce wave specular highlights on foam
 				float specularStrength = saturate(1-foam.a * 3);
+				specularStrength = lerp(0, specularStrength, saturate(shadows * 5));
+				//return shadows;
+				//return smoothstep(_TestParams.x,_TestParams.y,shadows);
 				specularStrength = lerp(0.05, specularStrength, oceanT);
+				specularStrength *=smoothstep(0.4f, 0.5, shadows);
 
 				specularHighlight *= specularStrength;
 				float4 sunCol = _LightColor0;
 				oceanCol = saturate(oceanCol * (1-specularHighlight) * waveShading);
 
 				float shading = max(saturate(dot(normal, _WorldSpaceLightPos0)), _AmbientLight);
+				shading = dot(normal, _WorldSpaceLightPos0) * 0.5 + 0.5;
+				shading = shading * shading;
 				//shading = pow(shading, 1/2.2);
+				//return shading;
 
 				oceanCol = lerp(oceanCol, foam, foam.a);
 
@@ -341,9 +386,9 @@ Shader "Custom/Earth" {
 				float4 finalCol = lerp(landCol, oceanCol, oceanT);
 				
 				finalCol *= shadows;
-				finalCol = lerp(finalCol, countryOutlineCol, outline);
+				//finalCol = lerp(finalCol, countryOutlineCol, outline);
 				finalCol += specularHighlight * sunCol;
-				float alpha = lerp(1,3,outlineNightT * outline);
+				float alpha = 1;
 				finalCol.a = alpha;
 				return finalCol;
 

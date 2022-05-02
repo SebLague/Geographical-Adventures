@@ -12,21 +12,21 @@ QualitySettings:
     shadows: 2
     shadowResolution: 3
     shadowProjection: 1
-    shadowCascades: 1
-    shadowDistance: 90
+    shadowCascades: 2
+    shadowDistance: 150
     shadowNearPlaneOffset: 3
-    shadowCascade2Split: 0.65424013
+    shadowCascade2Split: 0.35026044
     shadowCascade4Split: {x: 0.3498565, y: 0.5619387, z: 0.8003372}
     shadowmaskMode: 1
     skinWeights: 255
     textureQuality: 0
-    anisotropicTextures: 2
+    anisotropicTextures: 1
     antiAliasing: 4
     softParticles: 1
     softVegetation: 1
     realtimeReflectionProbes: 1
     billboardsFaceCameraPosition: 1
-    vSyncCount: 1
+    vSyncCount: 0
     lodBias: 2
     maximumLODLevel: 0
     streamingMipmapsActive: 0
@@ -51,6 +51,7 @@ QualitySettings:
     Nintendo Switch: 0
     PS4: 0
     PS5: 0
+    Server: 0
     Stadia: 0
     Standalone: 0
     WebGL: 0

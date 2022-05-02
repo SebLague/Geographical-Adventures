@@ -64,4 +64,20 @@ float3 getOrthogonal(float3 axis) {
 	return normalize(cross(axis, leastAligned));
 }
 
+float calculateMipLevel(float2 texCoord, int2 texSize) {
+	float2 dx = ddx(texCoord);
+	float2 dy = ddy(texCoord);
+	
+	float mipMapWeight = 1;
+	dx *= texSize * mipMapWeight;
+	dy *= texSize * mipMapWeight;
+
+	// Thanks to https://community.khronos.org/t/mipmap-level-calculation-using-dfdx-dfdy/67480/2
+	float maxSqrLength = max(dot(dx, dx), dot(dy, dy));
+	float mipLevel = 0.5 * log2(maxSqrLength); // 0.5 * log2(x^2) == log2(x)
+	return mipLevel;
+}
+
+
+
 #endif

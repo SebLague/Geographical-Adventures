@@ -8,6 +8,7 @@ public class CountryLoader : MonoBehaviour
 	public TextAsset countryFile;
 	public TextAsset cityFile;
 	public TextAsset extraInfoFile;
+	public TextAsset capitalsFile;
 
 	[SerializeField] Country[] countries;
 	bool loaded;
@@ -40,13 +41,18 @@ public class CountryLoader : MonoBehaviour
 	{
 		if (!loaded || !Application.isPlaying)
 		{
-			GeoReader geo = new GeoReader();
-			countries = geo.ReadCountries(countryFile);
+			if (countryFile != null)
+			{
+				CountryReader countryReader = new CountryReader();
+				countries = countryReader.ReadCountries(countryFile);
+			}
 
-			CityReader cityReader = new CityReader();
-			City[] allCities = cityReader.ReadCities(cityFile);
-
-			AddCitiesToCountries(allCities);
+			if (cityFile != null)
+			{
+				CityReader cityReader = new CityReader();
+				City[] allCities = cityReader.ReadCities(cityFile, capitalsFile);
+				AddCitiesToCountries(allCities);
+			}
 			loaded = true;
 		}
 	}
@@ -97,6 +103,7 @@ public class CountryLoader : MonoBehaviour
 		//Debug.Log("Num countries without a city: " + numCountriesWithoutCity + " Num cities without a country: " + numCitiesWithoutCountry);
 	}
 
+	/*
 	[ContextMenu("Create Country Info Template")]
 	void CreateCountryInfoJsonTemplate()
 	{
@@ -118,4 +125,5 @@ public class CountryLoader : MonoBehaviour
 		writer.Dispose();
 		Debug.Log("Template file saved to Assets folder");
 	}
+	*/
 }

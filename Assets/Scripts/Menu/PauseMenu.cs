@@ -1,54 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : Menu
 {
-	public GameObject pauseMenu;
-	public Button resumeButton;
-	public Button menuButton;
+
 	public Button quitButton;
-	public MenuStyle style;
-	bool paused;
 
 	void Start()
 	{
-		ApplyTheme();
-		resumeButton.onClick.AddListener(() => SetPauseState(false));
-		menuButton.onClick.AddListener(ReturnToMainMenu);
-		quitButton.onClick.AddListener(() => Application.Quit());
-		SetPauseState(false);
+		quitButton.onClick.AddListener(GameController.ExitToMainMenu);
 	}
 
-	void Update()
+
+	public void TogglePauseMenu()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+		if (IsOpen)
 		{
-			TogglePause();
+			CloseMenu();
+		}
+		else
+		{
+			OpenMenu();
 		}
 	}
 
-	void ReturnToMainMenu()
+
+	protected override void OnMenuOpened()
 	{
-		UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+		base.OnMenuOpened();
+		GameController.SetPauseState(true);
 	}
 
-	void TogglePause()
+	protected override void OnMenuClosed()
 	{
-		SetPauseState(!paused);
-	}
-
-	void SetPauseState(bool paused)
-	{
-		this.paused = paused;
-		Time.timeScale = (paused) ? 0 : 1;
-		pauseMenu.SetActive(paused);
-	}
-
-	void ApplyTheme()
-	{
-		style.ApplyButtonTheme(resumeButton, menuButton, quitButton);
+		base.OnMenuClosed();
+		GameController.SetPauseState(false);
 	}
 
 }

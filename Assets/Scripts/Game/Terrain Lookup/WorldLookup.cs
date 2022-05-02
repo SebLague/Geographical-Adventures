@@ -9,8 +9,6 @@ public class WorldLookup : MonoBehaviour
 	public TerrainGeneration.TerrainHeightSettings heightSettings;
 	public ComputeShader heightMapCompute;
 	public ComputeShader lookupShader;
-
-	public WorldMeshGenerator worldMeshGenerator;
 	public Texture2D countryIndices;
 
 	// Small map containing normalized height values
@@ -49,7 +47,7 @@ public class WorldLookup : MonoBehaviour
 
 	public void GetTerrainInfoAsync(Vector3 point, System.Action<TerrainInfo> callback)
 	{
-		Coordinate coord = CoordinateSystem.PointToCoordinate(point.normalized);
+		Coordinate coord = GeoMaths.PointToCoordinate(point.normalized);
 		GetTerrainInfoAsync(coord, callback);
 	}
 
@@ -88,6 +86,13 @@ public class WorldLookup : MonoBehaviour
 
 	void OnDestroy()
 	{
+		// Getting a warning when exiting playmode from menu scene after async loading game scene (but not activating).
+		// This stops the warning. TODO: investigate
+		if (RenderTexture.active == heightLookup)
+		{
+			RenderTexture.active = null;
+		}
+
 		ComputeHelper.Release(heightLookup);
 	}
 }

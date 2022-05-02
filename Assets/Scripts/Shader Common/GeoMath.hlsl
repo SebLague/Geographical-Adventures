@@ -71,4 +71,56 @@ uint2 WrapIndex(int2 index, uint2 size) {
 }
 
 
+// Test if point p is inside polygon defined by Points buffer
+// NOTE: last point in polygon is expected to be a duplicate of the first point
+bool pointInPolygon(float2 p, StructuredBuffer<float2> Points, int polygonStartIndex, int numPointsInPolygon) {
+	// Thanks to Dan Sunday
+	int windingNumber = 0;
+	for (int i = polygonStartIndex; i < polygonStartIndex + numPointsInPolygon - 1; i ++) {
+		
+		float2 a = Points[i];
+		float2 b = Points[i + 1];
+		bool lineTest = (b.x - a.x) * (p.y - a.y) - (p.x - a.x) * (b.y - a.y) > 0;
+
+		if (a.y <= p.y) {
+			if (b.y > p.y && lineTest) {
+				windingNumber ++;
+			}
+		}
+		else if (b.y <= p.y && !lineTest) {
+			windingNumber --;
+		}
+	}
+
+	return windingNumber != 0;
+}
+
+
+float calculateGeoMipLevel(float2 texCoord, int2 texSize) {
+	// * Calculate mip level (doing manually to avoid mipmap seam where texture wraps on x axis -- there's probably a better way?)
+	float2 dx, dy;
+	if (texCoord.x < 0.75 && texCoord.x > 0.25) {
+		dx = ddx(texCoord);
+		dy = ddy(texCoord);
+	}
+	else {
+		// Shift texCoord so seam is on other side of world
+		dx = ddx((texCoord + float2(0.5, 0)) % 1);
+		dy = ddy((texCoord + float2(0.5, 0)) % 1);
+	}
+	float mipMapWeight = 0.5f;
+	dx *= texSize * mipMapWeight;
+	dy *= texSize * mipMapWeight;
+
+	// Thanks to https://community.khronos.org/t/mipmap-level-calculation-using-dfdx-dfdy/67480/2
+	float maxSqrLength = max(dot(dx, dx), dot(dy, dy));
+	float mipLevel = 0.5 * log2(maxSqrLength); // 0.5 * log2(x^2) == log2(x)
+	// Clamp mip level to prevent value blowing up at poles
+	const int maxMipLevel = 8;
+	mipLevel = min(maxMipLevel, mipLevel);
+	return mipLevel;
+}
+
+
+
 #endif

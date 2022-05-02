@@ -79,7 +79,7 @@ TextureImporter:
     buildTarget: Standalone
     maxTextureSize: 16384
     resizeAlgorithm: 0
-    textureFormat: 63
+    textureFormat: 26
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0

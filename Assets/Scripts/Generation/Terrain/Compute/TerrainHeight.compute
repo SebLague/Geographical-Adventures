@@ -1,0 +1,52 @@
+// Takes raw height map [0, 1] and calculates actual world heights.
+// This includes smoothing out sharp peaks.
+// Saves result in texture.
+
+#pragma kernel ProcessHeights
+#include "Assets/Scripts/Shader Common/GeoMath.hlsl"
+
+Texture2D<float> RawHeightMap;
+SamplerState height_linear_clamp;
+RWTexture2D<float> WorldHeightMap;
+uint2 size;
+
+
+
+
+float sampleHeight(float2 uv) {
+	return RawHeightMap.SampleLevel(height_linear_clamp, uv, 0);
+}
+
+float calculateSmoothHeight(int2 index) {
+	float2 offset = float2(2, 1) / 16384 * 4.5;
+	float2 uv = index / float2(size.x - 1, size.y - 1);
+	float h0 = sampleHeight(uv);
+
+	if (h0 < 0.01) {
+		return h0;
+	}
+
+
+	float hN = sampleHeight(uv + float2(0,1) * offset);
+	float hS = sampleHeight(uv + float2(0,-1) * offset);
+	float hW = sampleHeight(uv + float2(-1,0) * offset);
+	float hE = sampleHeight(uv + float2(1,0) * offset);
+
+	float hNE = sampleHeight(uv + float2(1,1) * 0.707 * offset);
+	float hSW = sampleHeight(uv + float2(-1,-1) * 0.707 * offset);
+	float hNW = sampleHeight(uv + float2(-1,1) * 0.707 * offset);
+	float hSE = sampleHeight(uv + float2(1,-1) * 0.707 * offset);
+	
+	//return h0;
+	return lerp(h0, (hN + hS + hW + hE + hNE + hSW + hNW + hSE) / 8.0, 0.35);
+}
+
+[numthreads(8,8,1)]
+void ProcessHeights (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= size.x || id.y >= size.y) { return; }
+
+	float smoothHeight = calculateSmoothHeight(id.xy);
+	WorldHeightMap[id.xy] = smoothHeight;
+	//WorldHeightMap[id.xy] = RawHeightMap[id.xy];
+}

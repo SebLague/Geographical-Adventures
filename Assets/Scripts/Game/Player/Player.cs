@@ -7,36 +7,34 @@ public class Player : MonoBehaviour
 
 	public event System.Action<Package> packageDropped;
 
-	public Vector2 startCoordinate;
-	public float startAngle;
+	[Header("Startup Settings")]
+	public bool worldIsSpherical = true;
+	public PlayerStartPoint startPoint;
+
+	[Header("Elevation")]
 	public float minElevation;
 	public float maxElevation;
 	public float currentElevation;
 
 	[Header("Movement")]
-	public bool pauseMovement;
 	public float turnSpeedInTopDownView;
 	public float turnSpeedInBehindView;
-	public float normalSpeed;
-	public float fastSpeed;
+	public float minSpeed = 4;
+	public float maxSpeed = 12;
+	public float accelerateDuration = 2;
+	public float boostSpeed = 25;
 	public float speedSmoothing = 0.1f;
+	public float maxBoostTime = 30;
+	public float boostTimeAtStart = 5;
 
 	[HideInInspector]
 	public float totalTurnAngle;
-
-	const KeyCode turnLeftKey = KeyCode.A;
-	const KeyCode turnRightKey = KeyCode.D;
-	const KeyCode pitchUpKey = KeyCode.W;
-	const KeyCode pitchDownKey = KeyCode.S;
-	const KeyCode debug_toggleMovementKey = KeyCode.Tab;
-
 	public float smoothRollTime;
 	public float rollAngle;
 	public float smoothPitchTime;
 	public float maxPitchAngle;
 	public float changeElevationSpeed;
 	public float turnSmoothTime;
-	public GameCamera gameCamera;
 
 	[Header("Graphics")]
 	public Transform model;
@@ -51,12 +49,20 @@ public class Player : MonoBehaviour
 	public Package packagePrefab;
 	public Transform packageDropPoint;
 
+	[Header("Other References")]
+	public WorldLookup worldLookup;
+	public Transform sunLight;
+	public TerrainGeneration.TerrainHeightSettings heightSettings;
+
 	[Header("Debug")]
 	public float currentSpeed;
 	public bool debug_TestInitPos;
+	public bool debug_lockMovement;
 
 	// Private stuff
-	WorldLookup worldLookup;
+
+
+	GameCamera gameCamera;
 	float smoothedTurnSpeed;
 	float turnSmoothV;
 	float pitchSmoothV;
@@ -64,30 +70,48 @@ public class Player : MonoBehaviour
 
 	public float currentPitchAngle { get; private set; }
 	public float currentRollAngle { get; private set; }
-	public int turnInput { get; private set; }
+	public float turnInput { get; private set; }
+	bool boosting;
+	float boostTimeRemaining;
+	float boostTimeToAdd;
+	float baseTargetSpeed;
 
 	float worldRadius;
 
 
 	float pitchInput;
-	Transform sunLight;
+
+
 	float nextNavigationLightUpdateTime;
 	bool navigationLightsOn;
-	bool playerIsActive;
+
+	float recordPositionDstThreshold = 1;
+	int maxHistorySize = 10000;
+	public Queue<Vector3> positionHistory { get; private set; }
+	Vector3 lastRecordedPos;
+	Vector3 posLastFrame;
+
+
+	// Note: this is calculated as dst on surface of earth (meaning elevation has no effect)
+	public float distanceTravelledKM { get; private set; }
+
 
 	void Awake()
 	{
 		trailHolder.gameObject.SetActive(false);
 
-		var worldManager = FindObjectOfType<WorldManager>();
-		worldRadius = WorldManager.worldRadius;
-		sunLight = worldManager.sunLight.transform;
-		worldLookup = worldManager.worldLookup;
+		gameCamera = FindObjectOfType<GameCamera>();
 
-		SetStartPos();
+		worldRadius = heightSettings.worldRadius;
 
-		currentSpeed = normalSpeed;
+		SetStartPos(startPoint);
+
+		baseTargetSpeed = Mathf.Lerp(minSpeed, maxSpeed, 0.35f);
+		currentSpeed = baseTargetSpeed;
 		SetNavigationLightScale(0);
+
+		positionHistory = new Queue<Vector3>(maxHistorySize);
+		boostTimeRemaining = boostTimeAtStart;
 	}
 
 	void Start()
@@ -95,54 +119,78 @@ public class Player : MonoBehaviour
 		trailHolder.gameObject.SetActive(true);
 	}
 
-	public void Activate()
-	{
-		playerIsActive = true;
-	}
 
 	void Update()
 	{
-		if (playerIsActive)
+		if (GameController.IsState(GameState.Playing))
 		{
 			HandleInput();
 			HandleMovement();
-			UpdateGraphics();
+			UpdatePositionHistory();
+			UpdateBoostTimer();
 		}
+
+		UpdateGraphics();
+		UpdateDevMode();
+
 	}
 
 	void HandleInput()
 	{
 		turnInput = 0;
-		if (Input.GetKey(turnLeftKey))
+		if (Input.GetKey(KeyBindings.turnLeftKey))
 		{
 			turnInput -= 1;
 		}
-		if (Input.GetKey(turnRightKey))
+		if (Input.GetKey(KeyBindings.turnRightKey))
 		{
 			turnInput += 1;
 		}
 
+		//turnInput = Input.GetAxisRaw("Horizontal");
+
 		pitchInput = 0;
-		if (Input.GetKey(pitchUpKey))
+		if (Input.GetKey(KeyBindings.pitchUpKey))
 		{
 			pitchInput += 1;
 		}
-		if (Input.GetKey(pitchDownKey))
+		if (Input.GetKey(KeyBindings.pitchDownKey))
 		{
 			pitchInput -= 1;
 		}
 
+
+		float accelerateDir = 0;
+		if (Input.GetKey(KeyBindings.accelerateKey))
+		{
+			accelerateDir += 1;
+		}
+		if (Input.GetKey(KeyBindings.decelerateKey))
+		{
+			accelerateDir -= 1;
+		}
+		baseTargetSpeed += (maxSpeed - minSpeed) / accelerateDuration * accelerateDir * Time.deltaTime;
+		baseTargetSpeed = Mathf.Clamp(baseTargetSpeed, minSpeed, maxSpeed);
+
+		// Boost
+		boosting = Input.GetKey(KeyBindings.boostkey) && boostTimeRemaining > 0;
 
 		HandleDebugInput();
 	}
 
 	void HandleDebugInput()
 	{
-		if (Application.isEditor)
+		bool devMode = Input.GetKey(KeyCode.LeftBracket) && Input.GetKey(KeyCode.RightBracket);
+		if (Application.isEditor || devMode)
 		{
-			if (Input.GetKeyDown(debug_toggleMovementKey))
+			if (Input.GetKeyDown(KeyBindings.Debug_ToggleLockPlayer))
 			{
-				pauseMovement = !pauseMovement;
+				debug_lockMovement = !debug_lockMovement;
+			}
+
+			if (Input.GetKeyDown(KeyCode.B))
+			{
+				AddBoost(15);
 			}
 		}
 	}
@@ -153,10 +201,10 @@ public class Player : MonoBehaviour
 		smoothedTurnSpeed = Mathf.SmoothDamp(smoothedTurnSpeed, turnInput * turnSpeed, ref turnSmoothV, turnSmoothTime);
 		float turnAmount = smoothedTurnSpeed * Time.deltaTime;
 		totalTurnAngle += turnAmount;
-		transform.RotateAround(transform.position, transform.up, turnAmount);
+
 
 		// Update speed
-		float targetSpeed = (Input.GetKey(KeyCode.LeftShift)) ? fastSpeed : normalSpeed;
+		float targetSpeed = (boosting) ? boostSpeed : baseTargetSpeed;
 		currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, 1 - Mathf.Pow(speedSmoothing, Time.deltaTime));
 
 
@@ -169,24 +217,17 @@ public class Player : MonoBehaviour
 		currentElevation = Mathf.Clamp(currentElevation, minElevation, maxElevation);
 
 		// Debug/test stuff
-		if (Application.isEditor)
+		if (GameController.InDevMode)
 		{
-			forwardSpeed *= (pauseMovement) ? 0 : 1;
+			forwardSpeed *= (debug_lockMovement) ? 0 : 1;
 			forwardSpeed = Mathf.Abs(forwardSpeed) * ((Input.GetKey(KeyCode.F)) ? -1 : 1);
 		}
 
 
 
-		// Update position
-		Vector3 newPos = transform.position + transform.forward * forwardSpeed * Time.deltaTime;
-		newPos = newPos.normalized * (worldRadius + currentElevation);
-		transform.position = newPos;
-		if (debug_TestInitPos)
-		{
-			SetStartPos();
-		}
 
-		UpdateRotation();
+		UpdatePosition(forwardSpeed);
+		UpdateRotation(turnAmount);
 
 		// --- Update pitch and roll ---
 		float targetPitch = pitchInput * maxPitchAngle;
@@ -202,12 +243,54 @@ public class Player : MonoBehaviour
 		currentRollAngle = Mathf.SmoothDampAngle(currentRollAngle, targetRoll, ref rollSmoothV, smoothRollTime);
 	}
 
-	void UpdateRotation()
+	void UpdateBoostTimer()
 	{
-		Vector3 gravityUp = transform.position.normalized;
-		transform.rotation = Quaternion.FromToRotation(transform.up, gravityUp) * transform.rotation;
-		transform.LookAt((transform.position + transform.forward * 10).normalized * (worldRadius + currentElevation), gravityUp);
+		// Decrease boost timer when boosting
+		if (boosting)
+		{
+			boostTimeRemaining = Mathf.Max(0, boostTimeRemaining - Time.deltaTime);
+		}
+		// Increase boost timer gradually when time has been gained
+		if (boostTimeToAdd > 0)
+		{
+			const float boostAddSpeed = 4;
+			float boostTimeToAddThisFrame = Mathf.Min(Time.deltaTime * boostAddSpeed, boostTimeToAdd);
+			boostTimeRemaining += boostTimeToAddThisFrame;
+			boostTimeToAdd -= boostTimeToAddThisFrame;
+			boostTimeRemaining = Mathf.Min(boostTimeRemaining, maxBoostTime);
+		}
 	}
+
+	void UpdatePosition(float forwardSpeed)
+	{
+		// Update position
+		Vector3 newPos = transform.position + transform.forward * forwardSpeed * Time.deltaTime;
+		if (worldIsSpherical)
+		{
+			newPos = newPos.normalized * (worldRadius + currentElevation);
+		}
+		else
+		{
+			newPos = new Vector3(newPos.x, currentElevation, newPos.z);
+		}
+		transform.position = newPos;
+	}
+
+	void UpdateRotation(float turnAmount)
+	{
+		if (worldIsSpherical)
+		{
+			Vector3 gravityUp = transform.position.normalized;
+			transform.RotateAround(transform.position, gravityUp, turnAmount);
+			transform.LookAt((transform.position + transform.forward * 10).normalized * (worldRadius + currentElevation), gravityUp);
+			transform.rotation = Quaternion.FromToRotation(transform.up, gravityUp) * transform.rotation;
+		}
+		else
+		{
+			transform.RotateAround(transform.position, Vector3.up, turnAmount);
+		}
+	}
+
 
 	void UpdateGraphics()
 	{
@@ -216,45 +299,90 @@ public class Player : MonoBehaviour
 		UpdateAileronGraphic(ailerons[1], turnInput * aileronAngle);
 
 		// Set pitch/roll rotation
-		model.localEulerAngles = new Vector3(currentPitchAngle, 0, currentRollAngle);
+		SetPlaneRotation();
 
 		// Rotate propeller
 		propeller.localEulerAngles += Vector3.forward * propellerSpeed * Time.deltaTime;
 
 		// Turn on navigation lights at night (even if should technically be on always I think...)
-		if (Time.time > nextNavigationLightUpdateTime)
+		if (Time.time > nextNavigationLightUpdateTime && sunLight != null)
 		{
 			bool isDark = Vector3.Dot(transform.up, -sunLight.forward) < 0.25;
 			navigationLightsOn = isDark;
 			nextNavigationLightUpdateTime = Time.time + 3;
 		}
 		SetNavigationLightScale((navigationLightsOn) ? 1 : 0, true);
+
+		void UpdateAileronGraphic(Transform aileron, float targetAngle)
+		{
+
+			Vector3 rot = aileron.localEulerAngles;
+			float smoothAngle = Mathf.LerpAngle(rot.x, targetAngle, Time.deltaTime * 5);
+			aileron.localEulerAngles = new Vector3(smoothAngle, rot.y, rot.z);
+		}
 	}
 
-	void UpdateAileronGraphic(Transform aileron, float targetAngle)
+	void SetPlaneRotation()
 	{
-
-		Vector3 rot = aileron.localEulerAngles;
-		float smoothAngle = Mathf.LerpAngle(rot.x, targetAngle, Time.deltaTime * 5);
-		aileron.localEulerAngles = new Vector3(smoothAngle, rot.y, rot.z);
+		model.localEulerAngles = new Vector3(currentPitchAngle, 0, currentRollAngle);
 	}
 
-	void SetStartPos()
+
+
+	public void SetStartPos(PlayerStartPoint startPoint)
 	{
-		Coordinate coord = new Coordinate(startCoordinate.x * Mathf.Deg2Rad, startCoordinate.y * Mathf.Deg2Rad);
-		transform.position = CoordinateSystem.CoordinateToPoint(coord, worldRadius + currentElevation);
-		Vector3 gravityUp = transform.position.normalized;
-		transform.rotation = Quaternion.FromToRotation(transform.up, gravityUp);
-		transform.LookAt((transform.position + transform.forward * 10).normalized * (worldRadius + currentElevation), gravityUp);
-		transform.Rotate(transform.position.normalized, startAngle, Space.World);
+
+		Coordinate coord = startPoint.coordinate.ConvertToRadians();
+		currentElevation = Mathf.Lerp(minElevation, maxElevation, startPoint.elevationT);
+		transform.position = GeoMaths.CoordinateToPoint(coord, worldRadius + currentElevation);
+		posLastFrame = transform.position;
+
+		// Needs to be called twice to settle (Todo: fix this nonsense)
+		SetStartRot();
+		SetStartRot();
+
+
+		void SetStartRot()
+		{
+			Vector3 gravityUp = transform.position.normalized;
+			transform.rotation = Quaternion.FromToRotation(transform.up, gravityUp);
+			transform.LookAt((transform.position + transform.forward * 10).normalized * (worldRadius + currentElevation), gravityUp);
+			transform.Rotate(transform.position.normalized, startPoint.angle, Space.World);
+
+			UpdateRotation(0);
+		}
+
 	}
 
-	public Package DropPackage()
+	void UpdatePositionHistory()
 	{
-		Package package = Instantiate(packagePrefab, packageDropPoint.position, packageDropPoint.rotation);
-		package.Init(worldLookup);
-		packageDropped?.Invoke(package);
-		return package;
+		//Debug.Log((transform.position - lastRecordedPos).magnitude);
+		if ((transform.position - lastRecordedPos).magnitude > recordPositionDstThreshold)
+		{
+			if (positionHistory.Count == maxHistorySize)
+			{
+				positionHistory.Dequeue();
+			}
+			positionHistory.Enqueue(transform.position);
+			lastRecordedPos = transform.position;
+		}
+
+		// Update distance (on surface)
+		float dstOnUnitSphere = GeoMaths.DistanceBetweenPointsOnUnitSphere(posLastFrame.normalized, transform.position.normalized);
+		distanceTravelledKM += dstOnUnitSphere * GeoMaths.EarthRadiusKM;
+		posLastFrame = transform.position;
+	}
+
+
+	void UpdateDevMode()
+	{
+		if (GameController.InDevMode)
+		{
+			if (debug_TestInitPos)
+			{
+				SetStartPos(startPoint);
+			}
+		}
 	}
 
 	// Allow navigation lights to be turned on and off by scaling them (crude way to allow brightness to fade in/out)
@@ -274,11 +402,94 @@ public class Player : MonoBehaviour
 		}
 	}
 
+	// ---- Public functions ----
+
+	public void AddBoost(float time)
+	{
+		boostTimeToAdd += time;
+	}
+
+	public Package DropPackage()
+	{
+		Package package = Instantiate(packagePrefab, packageDropPoint.position, packageDropPoint.rotation);
+		package.Init(worldLookup);
+		packageDropped?.Invoke(package);
+		return package;
+	}
+
+	public void SetPitch(float pitch)
+	{
+		currentPitchAngle = pitch;
+		SetPlaneRotation();
+	}
+
+	// ---- Properties ----
+	public Vector3 GravityUp
+	{
+		get
+		{
+			return (worldIsSpherical) ? transform.position.normalized : Vector3.up;
+		}
+	}
+
 	public float Height
 	{
 		get
 		{
 			return worldRadius + currentElevation;
 		}
+	}
+
+	public bool IsBoosting
+	{
+		get
+		{
+			return boosting;
+		}
+	}
+
+	public bool BoosterIsCharging
+	{
+		get
+		{
+			return boostTimeToAdd > 0;
+		}
+	}
+
+	// Get speed value remapped to [0,1] (0 at min speed, 1 at max speed. Note: still 1 when boosting).
+	public float SpeedT
+	{
+		get
+		{
+			return Mathf.InverseLerp(minSpeed, maxSpeed, currentSpeed);
+		}
+	}
+
+	public float TargetSpeedT
+	{
+		get
+		{
+			if (IsBoosting)
+			{
+				return 1;
+			}
+			return Mathf.InverseLerp(minSpeed, maxSpeed, baseTargetSpeed);
+		}
+	}
+
+	public float BoostRemainingT
+	{
+		get
+		{
+			return Mathf.Clamp01(boostTimeRemaining / maxBoostTime);
+		}
+	}
+
+	[System.Serializable]
+	public struct PlayerStartPoint
+	{
+		public CoordinateDegrees coordinate;
+		public float angle;
+		[Range(0, 1)] public float elevationT;
 	}
 }

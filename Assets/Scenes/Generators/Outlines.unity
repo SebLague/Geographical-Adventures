@@ -136,12 +136,12 @@ GameObject:
   - component: {fileID: 727075354}
   - component: {fileID: 727075352}
   m_Layer: 0
-  m_Name: Country Indices
+  m_Name: Country Outlines
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &727075352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +201,84 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   display: {fileID: 0}
+  superSize: 1
+--- !u!1 &740112954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 740112956}
+  - component: {fileID: 740112955}
+  - component: {fileID: 740112957}
+  - component: {fileID: 740112958}
+  m_Layer: 0
+  m_Name: Coast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &740112955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740112954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471c989b6ec819542b361b6544e19750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coastlineFile: {fileID: 4900000, guid: ac5169e60e46f0449b4fbcdb08576ee4, type: 3}
+  draw: 1
+--- !u!4 &740112956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740112954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &740112957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740112954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c471dd0c3972e034099a92cc24caf039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 0.001
+  lineShader: {fileID: 4800000, guid: f2abf9e183f6c944692f190f4ae870c8, type: 3}
+  lineJoinsShader: {fileID: 4800000, guid: e3cbd97658b2cae46994e9506e8a52f8, type: 3}
+  circleJoinResolution: 20
+--- !u!114 &740112958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740112954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2f6a9b3d62d55b4fa7c5df16789c47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  display: {fileID: 0}
+  superSize: 1
 --- !u!1 &2108598566
 GameObject:
   m_ObjectHideFlags: 0

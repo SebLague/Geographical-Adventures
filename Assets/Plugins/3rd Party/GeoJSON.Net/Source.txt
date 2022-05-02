@@ -1,0 +1,1 @@
+https://github.com/GeoJSON-Net/GeoJSON.Net

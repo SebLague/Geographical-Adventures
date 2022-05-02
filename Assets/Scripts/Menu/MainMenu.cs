@@ -3,67 +3,100 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteInEditMode]
-public class MainMenu : MonoBehaviour
+public class MainMenu : Menu
 {
 
-	public Button archetype;
-
+	[Header("References")]
 	public Button playButton;
-	public Button settingsButton;
-	public Button aboutButton;
 	public Button quitButton;
+	public TMPro.TMP_Text version;
 
-	AsyncOperation asyncGameLoadOperation;
+	public GameObject mainButtonsHolder;
+
+	[Header("Background Display")]
+	public Player player;
+	public float playerPitch;
+	public float blurRadius = 12;
+	public BlurEffect blurEffect;
 
 
 	void Start()
 	{
-		if (Application.isPlaying)
-		{
-			playButton.onClick.AddListener(PlayGame);
-			settingsButton.onClick.AddListener(() => MenuManager.OpenMenu(MenuManager.MenuType.Settings));
-			aboutButton.onClick.AddListener(() => MenuManager.OpenMenu(MenuManager.MenuType.About));
-			quitButton.onClick.AddListener(Quit);
+		version.text = $"Version {Application.version}";
 
-			asyncGameLoadOperation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(1);
-			asyncGameLoadOperation.allowSceneActivation = false;
+		playButton.onClick.AddListener(PlayGame);
+		quitButton.onClick.AddListener(Quit);
+
+	}
+
+
+	void Update()
+	{
+		if (GameController.IsState(GameState.InMainMenu))
+		{
+			if (Input.GetKeyDown(KeyBindings.Escape))
+			{
+				Quit();
+			}
+		}
+
+	}
+
+	void LateUpdate()
+	{
+		if (GameController.IsState(GameState.InMainMenu))
+		{
+			player.SetPitch(playerPitch);
 		}
 	}
 
 
 	void PlayGame()
 	{
-		asyncGameLoadOperation.allowSceneActivation = true;
-		//UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+		GameController.StartGame();
+		CloseMenu();
 	}
 
-	void Update()
+
+	protected override void OnMenuOpened()
 	{
-		if (!Application.isPlaying)
+		base.OnMenuOpened();
+		blurEffect.enabled = true;
+		blurEffect.blurRadius = blurRadius;
+	}
+
+	protected override void OnMenuClosed()
+	{
+		base.OnMenuClosed();
+		if (Application.isPlaying)
 		{
-			var archetypeLabel = archetype.GetComponentInChildren<TMPro.TMP_Text>();
-			foreach (Button b in GetAllButtons())
-			{
-				var label = b.GetComponentInChildren<TMPro.TMP_Text>();
-				label.fontSize = archetypeLabel.fontSize;
-				b.colors = archetype.colors;
-				b.name = label.text + " Button";
-			}
+			StartCoroutine(AnimateFadeOutBlur());
 		}
 	}
 
-	Button[] GetAllButtons()
+
+	IEnumerator AnimateFadeOutBlur()
 	{
-		return new Button[] { playButton, settingsButton, aboutButton, quitButton };
+		float startBlur = blurEffect.blurRadius;
+		float t = 0;
+		while (t < 1)
+		{
+			t += Time.unscaledDeltaTime * 1.5f;
+			blurEffect.blurRadius = Mathf.Lerp(startBlur, 0, Maths.Ease.Quadratic.Out(t));
+			yield return null;
+		}
+		blurEffect.enabled = false;
 	}
+
 
 	void Quit()
 	{
-		Application.Quit();
-#if UNITY_EDITOR
-		UnityEditor.EditorApplication.isPlaying = false;
-#endif
+		GameController.Quit();
+	}
+
+	void OnDestroy()
+	{
+		blurEffect.enabled = false;
 	}
 
 }

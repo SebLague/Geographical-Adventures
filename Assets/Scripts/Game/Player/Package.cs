@@ -24,7 +24,6 @@ public class Package : MonoBehaviour
 
 	public void Init(WorldLookup worldLookup)
 	{
-		WorldMeshGenerator world = FindObjectOfType<WorldMeshGenerator>();
 		parachutePoint = parachuteAttachPoint.position;
 
 		worldLookup.GetTerrainInfoAsync(transform.position, OnTerrainInfoReceived);

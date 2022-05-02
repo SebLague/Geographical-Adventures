@@ -1,0 +1,81 @@
+#pragma kernel RefinePolygon
+#include "Assets/Scripts/Shader Common/GeoMath.hlsl"
+
+// The job of this compute shader is to take a polygon, look at each line segment,
+// and decide if it needs to be subdivided based on the height map.
+
+struct InsertPoint {
+	int insertAfterPointIndex;
+	float2 coordinateToInsert;
+};
+
+// Buffer containing the polygon points (in longitude, latitude format)
+// Note: the last point is a duplicate of the first point
+StructuredBuffer<float2> Polygon;
+uint numPolygonPoints;
+
+Texture2D<float> HeightMap;
+SamplerState height_linear_clamp_sampler;
+
+// Settings
+float minSubdivisionLength; // if segment length is smaller than this, it won't be considered for subdivision
+uint numSamples; // how many height samples to take along the line segment
+float errorThreshold;
+
+// Output
+AppendStructuredBuffer<InsertPoint> Result;
+
+float getHeight(float2 texCoord) {
+	return HeightMap.SampleLevel(height_linear_clamp_sampler, texCoord, 0);
+}
+
+[numthreads(64,1,1)]
+void RefinePolygon (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= numPolygonPoints) { return; }
+
+	float2 coordA = Polygon[id.x];
+	float2 coordB = Polygon[(id.x + 1) % numPolygonPoints];
+
+	float heightA = getHeight(longitudeLatitudeToUV(coordA));
+	float heightB = getHeight(longitudeLatitudeToUV(coordB));
+
+	float3 spherePointA = longitudeLatitudeToPoint(coordA);
+	float3 spherePointB = longitudeLatitudeToPoint(coordB);
+
+	// Arc length between the two points making up the current line segment
+	float segmentLength = acos(dot(spherePointA, spherePointB));
+
+	if (segmentLength > minSubdivisionLength) {
+
+		float maxError = 0;
+		float2 maxErrorCoordinate = 0;
+
+		// Look at the heights of n sample points between the endpoints of the line segment
+		// If the height at a sample point differs too greatly from the interpolated height,
+		// the point will be marked so that it can later be inserted into the line segment.
+		for (uint i = 0; i < numSamples; i ++) {
+			float t = (i + 1.0) / (numSamples + 1.0); // value in range (0, 1)
+			float3 spherePointAlongSegment = normalize(lerp(spherePointA, spherePointB, t));
+			float2 coordAlongSegment = pointToLongitudeLatitude(spherePointAlongSegment);
+			float interpolatedHeight = lerp(heightA, heightB, t); // height of line segment at current point
+			float actualHeight = getHeight(longitudeLatitudeToUV(coordAlongSegment));
+			float error = abs(interpolatedHeight - actualHeight);
+
+			if (error > maxError) {
+				maxError = error;
+				maxErrorCoordinate = coordAlongSegment;
+			}
+		}
+
+		if (maxError > errorThreshold) {
+			InsertPoint insertResult;
+			insertResult.insertAfterPointIndex = id.x;
+			insertResult.coordinateToInsert = maxErrorCoordinate;
+			Result.Append(insertResult);
+		}
+
+		
+	}
+
+}

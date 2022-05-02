@@ -1,0 +1,1342 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 9
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 0
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.4492362, g: 0.4993055, b: 0.575714, a: 1}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 12
+  m_GIWorkflowMode: 1
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 12
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 1
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 512
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 256
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 1
+    m_PVRDenoiserTypeDirect: 1
+    m_PVRDenoiserTypeIndirect: 1
+    m_PVRDenoiserTypeAO: 1
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 5
+    m_PVRFilteringGaussRadiusAO: 2
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
+  m_LightingDataAsset: {fileID: 0}
+  m_LightingSettings: {fileID: 0}
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &125886943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 125886945}
+  - component: {fileID: 125886944}
+  m_Layer: 0
+  m_Name: Globe Map Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &125886944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125886943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48efd1c87dbf27f45bfd5f640952345b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startupMode: 0
+  resolution: 30
+  oceanResolution: 50
+  minRaiseHeight: 0.1
+  raiseHeightMultiplier: 0.5
+  radius: 25
+  tinyAreaThreshold: 0.00075
+  countryMaterial: {fileID: 2100000, guid: d44913fc31de4384a83fd26f30d47267, type: 2}
+  oceanMaterial: {fileID: 2100000, guid: 5c5afe69bf9b32c48b9cf609fb79580f, type: 2}
+  countryLoader: {fileID: 2023727550}
+  averageHeightFile: {fileID: 4900000, guid: 48a3f51667025d04dbe73a97f6de50ac, type: 3}
+  countriesSaveFileName: Countries
+  oceanSaveFileName: Ocean
+  loadFile: {fileID: 4900000, guid: 303e9377f1394b84fa3771d62f885d24, type: 3}
+--- !u!4 &125886945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125886943}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &911081648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 911081650}
+  - component: {fileID: 911081649}
+  m_Layer: 0
+  m_Name: Directional Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &911081649
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911081648}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: 3
+    m_CustomResolution: -1
+    m_Strength: 0.3
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &911081650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911081648}
+  m_LocalRotation: {x: 0.2894683, y: -0.35752895, z: 0.23846819, w: 0.855286}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 41.734, y: -39.386, z: 15.62}
+--- !u!1 &2019258710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2019258712}
+  - component: {fileID: 2019258711}
+  m_Layer: 7
+  m_Name: Globe Map Loader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2019258711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019258710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1090a0615c91fb745829ab65a90c9e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoLoadOnAwake: 1
+  countriesLoadFile: {fileID: 4900000, guid: 01fa31f9a41e8a043b18646bfb4b74df, type: 3}
+  oceanLoadFile: {fileID: 4900000, guid: 902f54d19fec3484fb7405eb6449b51c, type: 3}
+  colourSeed: 60
+  brightnessMinMax: {x: 0.1, y: 0.1}
+  countryMaterial: {fileID: 2100000, guid: d44913fc31de4384a83fd26f30d47267, type: 2}
+  oceanMaterial: {fileID: 2100000, guid: 5c5afe69bf9b32c48b9cf609fb79580f, type: 2}
+  holder: {fileID: 2019258712}
+  countryColours:
+  - countryName: Aruba
+    colour: {r: 0.028917488, g: 0.028917488, b: 0.028917488, a: 1}
+  - countryName: Afghanistan
+    colour: {r: 0.29057702, g: 0.29057702, b: 0.29057702, a: 1}
+  - countryName: Angola
+    colour: {r: 0.14150941, g: 0.13149695, b: 0.13149695, a: 1}
+  - countryName: Anguilla
+    colour: {r: 0.0637647, g: 0.0637647, b: 0.0637647, a: 1}
+  - countryName: Albania
+    colour: {r: 0.3310612, g: 0.3310612, b: 0.3310612, a: 1}
+  - countryName: "\xC5land"
+    colour: {r: 0.4590546, g: 0.4590546, b: 0.4590546, a: 1}
+  - countryName: Andorra
+    colour: {r: 0.3900445, g: 0.3900445, b: 0.3900445, a: 1}
+  - countryName: United Arab Emirates
+    colour: {r: 0.020960163, g: 0.020960163, b: 0.020960163, a: 1}
+  - countryName: Argentina
+    colour: {r: 0.289458, g: 0.289458, b: 0.289458, a: 1}
+  - countryName: Armenia
+    colour: {r: 0.42693523, g: 0.42693523, b: 0.42693523, a: 1}
+  - countryName: American Samoa
+    colour: {r: 0.062728025, g: 0.062728025, b: 0.062728025, a: 1}
+  - countryName: Antarctica
+    colour: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+  - countryName: Ashmore and Cartier Is.
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: Fr. S. Antarctic Lands
+    colour: {r: 0.5580504, g: 0.5580504, b: 0.5580504, a: 1}
+  - countryName: Antigua and Barb.
+    colour: {r: 0.05311097, g: 0.05311097, b: 0.05311097, a: 1}
+  - countryName: Australia
+    colour: {r: 0.14834811, g: 0.14834811, b: 0.14834811, a: 1}
+  - countryName: Austria
+    colour: {r: 0.46034193, g: 0.46034193, b: 0.46034193, a: 1}
+  - countryName: Azerbaijan
+    colour: {r: 0.3511087, g: 0.3511087, b: 0.3511087, a: 1}
+  - countryName: Burundi
+    colour: {r: 0.17325206, g: 0.17325206, b: 0.17325206, a: 1}
+  - countryName: Belgium
+    colour: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
+  - countryName: Benin
+    colour: {r: 0.03559582, g: 0.03559582, b: 0.03559582, a: 1}
+  - countryName: Burkina Faso
+    colour: {r: -0.016809955, g: -0.016809955, b: -0.016809955, a: 1}
+  - countryName: Bangladesh
+    colour: {r: 0.11304178, g: 0.11304178, b: 0.11304178, a: 1}
+  - countryName: Bulgaria
+    colour: {r: 0.3698551, g: 0.3698551, b: 0.3698551, a: 1}
+  - countryName: Bahrain
+    colour: {r: 0.024207082, g: 0.024207082, b: 0.024207082, a: 1}
+  - countryName: Bahamas
+    colour: {r: 0.119470045, g: 0.119470045, b: 0.119470045, a: 1}
+  - countryName: Bosnia and Herz.
+    colour: {r: 0.3961889, g: 0.3961889, b: 0.3961889, a: 1}
+  - countryName: "St-Barth\xE9lemy"
+    colour: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+  - countryName: Belarus
+    colour: {r: 0.48616344, g: 0.48616344, b: 0.48616344, a: 1}
+  - countryName: Belize
+    colour: {r: 0.064661935, g: 0.064661935, b: 0.064661935, a: 1}
+  - countryName: Bermuda
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: Bolivia
+    colour: {r: 0.23575361, g: 0.23575361, b: 0.23575361, a: 1}
+  - countryName: Brazil
+    colour: {r: 0.07254472, g: 0.07254472, b: 0.07254472, a: 1}
+  - countryName: Barbados
+    colour: {r: 0.05132485, g: 0.05132485, b: 0.05132485, a: 1}
+  - countryName: Brunei
+    colour: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
+  - countryName: Bhutan
+    colour: {r: 0.40949777, g: 0.40949777, b: 0.40949777, a: 1}
+  - countryName: Botswana
+    colour: {r: 0.14670666, g: 0.14670666, b: 0.14670666, a: 1}
+  - countryName: Central African Rep.
+    colour: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
+  - countryName: Canada
+    colour: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  - countryName: Switzerland
+    colour: {r: 0.4956603, g: 0.4956603, b: 0.4956603, a: 1}
+  - countryName: Chile
+    colour: {r: 0.39201945, g: 0.39201945, b: 0.39201945, a: 1}
+  - countryName: China
+    colour: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  - countryName: "C\xF4te d'Ivoire"
+    colour: {r: 0.122641504, g: 0.122063, b: 0.122063, a: 1}
+  - countryName: Cameroon
+    colour: {r: 0.13240224, g: 0.13240224, b: 0.13240224, a: 1}
+  - countryName: Dem. Rep. Congo
+    colour: {r: 0.078704424, g: 0.078704424, b: 0.078704424, a: 1}
+  - countryName: Congo
+    colour: {r: 0.05917933, g: 0.05917933, b: 0.05917933, a: 1}
+  - countryName: Cook Is.
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: Colombia
+    colour: {r: 0.11642198, g: 0.11642198, b: 0.11642198, a: 1}
+  - countryName: Comoros
+    colour: {r: 0.076815955, g: 0.076815955, b: 0.076815955, a: 1}
+  - countryName: Cabo Verde
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: Costa Rica
+    colour: {r: 0.06655319, g: 0.06655319, b: 0.06655319, a: 1}
+  - countryName: Cuba
+    colour: {r: 0.07540664, g: 0.07540664, b: 0.07540664, a: 1}
+  - countryName: "Cura\xE7ao"
+    colour: {r: 0.055399, g: 0.055399, b: 0.055399, a: 1}
+  - countryName: Cayman Is.
+    colour: {r: 0.10335298, g: 0.10335298, b: 0.10335298, a: 1}
+  - countryName: N. Cyprus
+    colour: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+  - countryName: Cyprus
+    colour: {r: 0.19272271, g: 0.19272271, b: 0.19272271, a: 1}
+  - countryName: Czechia
+    colour: {r: 0.46146724, g: 0.46146724, b: 0.46146724, a: 1}
+  - countryName: Germany
+    colour: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
+  - countryName: Djibouti
+    colour: {r: -0.0044471356, g: -0.0044471356, b: -0.0044471356, a: 1}
+  - countryName: Dominica
+    colour: {r: 0.06802507, g: 0.06802507, b: 0.06802507, a: 1}
+  - countryName: Denmark
+    colour: {r: 0.39659977, g: 0.39659977, b: 0.39659977, a: 1}
+  - countryName: Dominican Rep.
+    colour: {r: 0.034414057, g: 0.034414057, b: 0.034414057, a: 1}
+  - countryName: Algeria
+    colour: {r: 0.1486803, g: 0.1486803, b: 0.1486803, a: 1}
+  - countryName: Ecuador
+    colour: {r: 0.12954718, g: 0.12954718, b: 0.12954718, a: 1}
+  - countryName: Egypt
+    colour: {r: 0.13160835, g: 0.13160835, b: 0.13160835, a: 1}
+  - countryName: Eritrea
+    colour: {r: 0.06666526, g: 0.06666526, b: 0.06666526, a: 1}
+  - countryName: Spain
+    colour: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
+  - countryName: Estonia
+    colour: {r: 0.434183, g: 0.434183, b: 0.434183, a: 1}
+  - countryName: Ethiopia
+    colour: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+  - countryName: Finland
+    colour: {r: 0.754717, g: 0.751157, b: 0.751157, a: 1}
+  - countryName: Fiji
+    colour: {r: 0.043472845, g: 0.043472845, b: 0.043472845, a: 1}
+  - countryName: Falkland Is.
+    colour: {r: 0.49462864, g: 0.49462864, b: 0.49462864, a: 1}
+  - countryName: France
+    colour: {r: 0.3773585, g: 0.36489853, b: 0.36489853, a: 1}
+  - countryName: Faeroe Is.
+    colour: {r: 0.49489087, g: 0.49489087, b: 0.49489087, a: 1}
+  - countryName: Micronesia
+    colour: {r: 0.021452945, g: 0.021452945, b: 0.021452945, a: 1}
+  - countryName: Gabon
+    colour: {r: 0.11258159, g: 0.11258159, b: 0.11258159, a: 1}
+  - countryName: United Kingdom
+    colour: {r: 0.43155047, g: 0.43155047, b: 0.43155047, a: 1}
+  - countryName: Georgia
+    colour: {r: 0.4426039, g: 0.4426039, b: 0.4426039, a: 1}
+  - countryName: Guernsey
+    colour: {r: 0.36030552, g: 0.36030552, b: 0.36030552, a: 1}
+  - countryName: Ghana
+    colour: {r: 0.06818735, g: 0.06818735, b: 0.06818735, a: 1}
+  - countryName: Guinea
+    colour: {r: 0.037083935, g: 0.037083935, b: 0.037083935, a: 1}
+  - countryName: Gambia
+    colour: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
+  - countryName: Guinea-Bissau
+    colour: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
+  - countryName: Eq. Guinea
+    colour: {r: 0.059528314, g: 0.059528314, b: 0.059528314, a: 1}
+  - countryName: Greece
+    colour: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+  - countryName: Grenada
+    colour: {r: 0.06704093, g: 0.06704093, b: 0.06704093, a: 1}
+  - countryName: Greenland
+    colour: {r: 1.002202, g: 1.002202, b: 1.002202, a: 1}
+  - countryName: Guatemala
+    colour: {r: 0.09843401, g: 0.09843401, b: 0.09843401, a: 1}
+  - countryName: Guam
+    colour: {r: 0.062730774, g: 0.062730774, b: 0.062730774, a: 1}
+  - countryName: Guyana
+    colour: {r: 0.09265134, g: 0.09265134, b: 0.09265134, a: 1}
+  - countryName: Hong Kong
+    colour: {r: 0.1587213, g: 0.1587213, b: 0.1587213, a: 1}
+  - countryName: Heard I. and McDonald Is.
+    colour: {r: 0.5731905, g: 0.5731905, b: 0.5731905, a: 1}
+  - countryName: Honduras
+    colour: {r: 0.14322694, g: 0.14322694, b: 0.14322694, a: 1}
+  - countryName: Croatia
+    colour: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
+  - countryName: Haiti
+    colour: {r: 0.0815057, g: 0.0815057, b: 0.0815057, a: 1}
+  - countryName: Hungary
+    colour: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
+  - countryName: Indonesia
+    colour: {r: 0.123557, g: 0.123557, b: 0.123557, a: 1}
+  - countryName: Isle of Man
+    colour: {r: 0.3996934, g: 0.3996934, b: 0.3996934, a: 1}
+  - countryName: India
+    colour: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
+  - countryName: Indian Ocean Ter.
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: Br. Indian Ocean Ter.
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: Ireland
+    colour: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
+  - countryName: Iran
+    colour: {r: 0.27889523, g: 0.27889523, b: 0.27889523, a: 1}
+  - countryName: Iraq
+    colour: {r: 0.1906752, g: 0.1906752, b: 0.1906752, a: 1}
+  - countryName: Iceland
+    colour: {r: 0.635229, g: 0.635229, b: 0.635229, a: 1}
+  - countryName: Israel
+    colour: {r: 0.21758841, g: 0.21758841, b: 0.21758841, a: 1}
+  - countryName: Italy
+    colour: {r: 0.29860884, g: 0.29860884, b: 0.29860884, a: 1}
+  - countryName: Jamaica
+    colour: {r: 0.078192726, g: 0.078192726, b: 0.078192726, a: 1}
+  - countryName: Jersey
+    colour: {r: 0.4005128, g: 0.4005128, b: 0.4005128, a: 1}
+  - countryName: Jordan
+    colour: {r: 0.16037738, g: 0.15810789, b: 0.15810789, a: 1}
+  - countryName: Japan
+    colour: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+  - countryName: Siachen Glacier
+    colour: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
+  - countryName: Kazakhstan
+    colour: {r: 0.4811321, g: 0.47432363, b: 0.47432363, a: 1}
+  - countryName: Kenya
+    colour: {r: 0.14150941, g: 0.13950692, b: 0.13950692, a: 1}
+  - countryName: Kyrgyzstan
+    colour: {r: 0.5565128, g: 0.5565128, b: 0.5565128, a: 1}
+  - countryName: Cambodia
+    colour: {r: 0.069626816, g: 0.069626816, b: 0.069626816, a: 1}
+  - countryName: Kiribati
+    colour: {r: 0.038893048, g: 0.038893048, b: 0.038893048, a: 1}
+  - countryName: St. Kitts and Nevis
+    colour: {r: 0.061392732, g: 0.061392732, b: 0.061392732, a: 1}
+  - countryName: South Korea
+    colour: {r: 0.38458002, g: 0.38458002, b: 0.38458002, a: 1}
+  - countryName: Kosovo
+    colour: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
+  - countryName: Kuwait
+    colour: {r: 0.048254937, g: 0.048254937, b: 0.048254937, a: 1}
+  - countryName: Laos
+    colour: {r: 0.08517529, g: 0.08517529, b: 0.08517529, a: 1}
+  - countryName: Lebanon
+    colour: {r: 0.20370862, g: 0.20370862, b: 0.20370862, a: 1}
+  - countryName: Liberia
+    colour: {r: 0.080993704, g: 0.080993704, b: 0.080993704, a: 1}
+  - countryName: Libya
+    colour: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+  - countryName: Saint Lucia
+    colour: {r: 0.02390354, g: 0.02390354, b: 0.02390354, a: 1}
+  - countryName: Liechtenstein
+    colour: {r: 0.51714253, g: 0.51714253, b: 0.51714253, a: 1}
+  - countryName: Sri Lanka
+    colour: {r: 0.009656844, g: 0.009656844, b: 0.009656844, a: 1}
+  - countryName: Lesotho
+    colour: {r: 0.5188679, g: 0.5164204, b: 0.5164204, a: 1}
+  - countryName: Lithuania
+    colour: {r: 0.4755148, g: 0.4755148, b: 0.4755148, a: 1}
+  - countryName: Luxembourg
+    colour: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
+  - countryName: Latvia
+    colour: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  - countryName: Macao
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: St-Martin
+    colour: {r: 0.080389604, g: 0.080389604, b: 0.080389604, a: 1}
+  - countryName: Morocco
+    colour: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+  - countryName: Monaco
+    colour: {r: 0.45101324, g: 0.45101324, b: 0.45101324, a: 1}
+  - countryName: Moldova
+    colour: {r: 0.4385655, g: 0.4385655, b: 0.4385655, a: 1}
+  - countryName: Madagascar
+    colour: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
+  - countryName: Maldives
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: Mexico
+    colour: {r: 0.22861958, g: 0.22861958, b: 0.22861958, a: 1}
+  - countryName: Marshall Is.
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: Macedonia
+    colour: {r: 0.40309164, g: 0.40309164, b: 0.40309164, a: 1}
+  - countryName: Mali
+    colour: {r: -0.023357144, g: -0.023357144, b: -0.023357144, a: 1}
+  - countryName: Malta
+    colour: {r: 0.24891286, g: 0.24891286, b: 0.24891286, a: 1}
+  - countryName: Myanmar
+    colour: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+  - countryName: Montenegro
+    colour: {r: 0.40424895, g: 0.40424895, b: 0.40424895, a: 1}
+  - countryName: Mongolia
+    colour: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
+  - countryName: N. Mariana Is.
+    colour: {r: 0.057420433, g: 0.057420433, b: 0.057420433, a: 1}
+  - countryName: Mozambique
+    colour: {r: 0.11946975, g: 0.11946975, b: 0.11946975, a: 1}
+  - countryName: Mauritania
+    colour: {r: 0.027794067, g: 0.027794067, b: 0.027794067, a: 1}
+  - countryName: Montserrat
+    colour: {r: 0.09328662, g: 0.09328662, b: 0.09328662, a: 1}
+  - countryName: Mauritius
+    colour: {r: 0.079099916, g: 0.079099916, b: 0.079099916, a: 1}
+  - countryName: Malawi
+    colour: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
+  - countryName: Malaysia
+    colour: {r: 0.037378784, g: 0.037378784, b: 0.037378784, a: 1}
+  - countryName: Namibia
+    colour: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
+  - countryName: New Caledonia
+    colour: {r: 0.14877826, g: 0.14877826, b: 0.14877826, a: 1}
+  - countryName: Niger
+    colour: {r: 0.06960331, g: 0.06960331, b: 0.06960331, a: 1}
+  - countryName: Norfolk Island
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: Nigeria
+    colour: {r: 0.108020954, g: 0.108020954, b: 0.108020954, a: 1}
+  - countryName: Nicaragua
+    colour: {r: 0.082927525, g: 0.082927525, b: 0.082927525, a: 1}
+  - countryName: Niue
+    colour: {r: 0.06691795, g: 0.06691795, b: 0.06691795, a: 1}
+  - countryName: Netherlands
+    colour: {r: 0.38024792, g: 0.38024792, b: 0.38024792, a: 1}
+  - countryName: Norway
+    colour: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+  - countryName: Nepal
+    colour: {r: 0.32417434, g: 0.32417434, b: 0.32417434, a: 1}
+  - countryName: Nauru
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: New Zealand
+    colour: {r: 0.351791, g: 0.351791, b: 0.351791, a: 1}
+  - countryName: Oman
+    colour: {r: 0.022363216, g: 0.022363216, b: 0.022363216, a: 1}
+  - countryName: Pakistan
+    colour: {r: 0.19253922, g: 0.19253922, b: 0.19253922, a: 1}
+  - countryName: Panama
+    colour: {r: 0.069853105, g: 0.069853105, b: 0.069853105, a: 1}
+  - countryName: Pitcairn Is.
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: Peru
+    colour: {r: 0.20445907, g: 0.20445907, b: 0.20445907, a: 1}
+  - countryName: Philippines
+    colour: {r: 0.07168926, g: 0.07168926, b: 0.07168926, a: 1}
+  - countryName: Palau
+    colour: {r: 0.013773802, g: 0.013773802, b: 0.013773802, a: 1}
+  - countryName: Papua New Guinea
+    colour: {r: 0.067380264, g: 0.067380264, b: 0.067380264, a: 1}
+  - countryName: Poland
+    colour: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+  - countryName: Puerto Rico
+    colour: {r: 0.098318204, g: 0.098318204, b: 0.098318204, a: 1}
+  - countryName: North Korea
+    colour: {r: 0.50036806, g: 0.50036806, b: 0.50036806, a: 1}
+  - countryName: Portugal
+    colour: {r: 0.32288897, g: 0.32288897, b: 0.32288897, a: 1}
+  - countryName: Paraguay
+    colour: {r: 0.087023996, g: 0.087023996, b: 0.087023996, a: 1}
+  - countryName: Palestine
+    colour: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}
+  - countryName: Fr. Polynesia
+    colour: {r: 0.08225853, g: 0.08225853, b: 0.08225853, a: 1}
+  - countryName: Qatar
+    colour: {r: -0.0103274565, g: -0.0103274565, b: -0.0103274565, a: 1}
+  - countryName: Romania
+    colour: {r: 0.41606203, g: 0.41606203, b: 0.41606203, a: 1}
+  - countryName: Russia
+    colour: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 1}
+  - countryName: Rwanda
+    colour: {r: 0.26415092, g: 0.2629049, b: 0.2629049, a: 1}
+  - countryName: W. Sahara
+    colour: {r: 0.15611714, g: 0.15611714, b: 0.15611714, a: 1}
+  - countryName: Saudi Arabia
+    colour: {r: 0.09428689, g: 0.09428689, b: 0.09428689, a: 1}
+  - countryName: Sudan
+    colour: {r: 0.064303026, g: 0.064303026, b: 0.064303026, a: 1}
+  - countryName: S. Sudan
+    colour: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
+  - countryName: Senegal
+    colour: {r: 0.010703591, g: 0.010703591, b: 0.010703591, a: 1}
+  - countryName: Singapore
+    colour: {r: 0.08767081, g: 0.08767081, b: 0.08767081, a: 1}
+  - countryName: S. Geo. and the Is.
+    colour: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+  - countryName: Saint Helena
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: Solomon Is.
+    colour: {r: 0.089355834, g: 0.089355834, b: 0.089355834, a: 1}
+  - countryName: Sierra Leone
+    colour: {r: 0.051880155, g: 0.051880155, b: 0.051880155, a: 1}
+  - countryName: El Salvador
+    colour: {r: 0.061345275, g: 0.061345275, b: 0.061345275, a: 1}
+  - countryName: San Marino
+    colour: {r: 0.29423177, g: 0.29423177, b: 0.29423177, a: 1}
+  - countryName: Somaliland
+    colour: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
+  - countryName: Somalia
+    colour: {r: 0.021253923, g: 0.021253923, b: 0.021253923, a: 1}
+  - countryName: St. Pierre and Miquelon
+    colour: {r: 0.53258806, g: 0.53258806, b: 0.53258806, a: 1}
+  - countryName: Serbia
+    colour: {r: 0.38566706, g: 0.38566706, b: 0.38566706, a: 1}
+  - countryName: "S\xE3o Tom\xE9 and Principe"
+    colour: {r: 0.09378149, g: 0.09378149, b: 0.09378149, a: 1}
+  - countryName: Suriname
+    colour: {r: 0.10061079, g: 0.10061079, b: 0.10061079, a: 1}
+  - countryName: Slovakia
+    colour: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
+  - countryName: Slovenia
+    colour: {r: 0.40535352, g: 0.40535352, b: 0.40535352, a: 1}
+  - countryName: Sweden
+    colour: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
+  - countryName: Eswatini
+    colour: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+  - countryName: Sint Maarten
+    colour: {r: 0.033200447, g: 0.033200447, b: 0.033200447, a: 1}
+  - countryName: Seychelles
+    colour: {r: 0.055925455, g: 0.055925455, b: 0.055925455, a: 1}
+  - countryName: Syria
+    colour: {r: 0.23392467, g: 0.23392467, b: 0.23392467, a: 1}
+  - countryName: Turks and Caicos Is.
+    colour: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+  - countryName: Chad
+    colour: {r: 0.019607844, g: 0.019607844, b: 0.019607844, a: 1}
+  - countryName: Togo
+    colour: {r: 0.0074230083, g: 0.0074230083, b: 0.0074230083, a: 1}
+  - countryName: Thailand
+    colour: {r: 0.09353456, g: 0.09353456, b: 0.09353456, a: 1}
+  - countryName: Tajikistan
+    colour: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
+  - countryName: Turkmenistan
+    colour: {r: 0.3145019, g: 0.3145019, b: 0.3145019, a: 1}
+  - countryName: Timor-Leste
+    colour: {r: 0.26415092, g: 0.25792095, b: 0.25792095, a: 1}
+  - countryName: Tonga
+    colour: {r: 0.09913722, g: 0.09913722, b: 0.09913722, a: 1}
+  - countryName: Trinidad and Tobago
+    colour: {r: 0.11093335, g: 0.11093335, b: 0.11093335, a: 1}
+  - countryName: Tunisia
+    colour: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
+  - countryName: Turkey
+    colour: {r: 0.36674893, g: 0.36674893, b: 0.36674893, a: 1}
+  - countryName: Taiwan
+    colour: {r: 0.13239692, g: 0.13239692, b: 0.13239692, a: 1}
+  - countryName: Tanzania
+    colour: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
+  - countryName: Uganda
+    colour: {r: 0.15948214, g: 0.15948214, b: 0.15948214, a: 1}
+  - countryName: Ukraine
+    colour: {r: 0.45674232, g: 0.45674232, b: 0.45674232, a: 1}
+  - countryName: Uruguay
+    colour: {r: 0.29473487, g: 0.29473487, b: 0.29473487, a: 1}
+  - countryName: United States of America
+    colour: {r: 0.38679248, g: 0.37767002, b: 0.37767002, a: 1}
+  - countryName: Uzbekistan
+    colour: {r: 0.29402733, g: 0.29402733, b: 0.29402733, a: 1}
+  - countryName: Vatican
+    colour: {r: 1, g: 0, b: 0, a: 1}
+  - countryName: St. Vin. and Gren.
+    colour: {r: 0.013151238, g: 0.013151238, b: 0.013151238, a: 1}
+  - countryName: Venezuela
+    colour: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 1}
+  - countryName: British Virgin Is.
+    colour: {r: 0.05772412, g: 0.05772412, b: 0.05772412, a: 1}
+  - countryName: U.S. Virgin Is.
+    colour: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+  - countryName: Vietnam
+    colour: {r: 0.16339168, g: 0.16339168, b: 0.16339168, a: 1}
+  - countryName: Vanuatu
+    colour: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
+  - countryName: Wallis and Futuna Is.
+    colour: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
+  - countryName: Samoa
+    colour: {r: 0.068876095, g: 0.068876095, b: 0.068876095, a: 1}
+  - countryName: Yemen
+    colour: {r: 0.13207549, g: 0.1277145, b: 0.1277145, a: 1}
+  - countryName: South Africa
+    colour: {r: 0.27079627, g: 0.27079627, b: 0.27079627, a: 1}
+  - countryName: Zambia
+    colour: {r: 0.16981131, g: 0.16420433, b: 0.16420433, a: 1}
+  - countryName: Zimbabwe
+    colour: {r: 0.22120917, g: 0.22120917, b: 0.22120917, a: 1}
+  temp: {fileID: 4900000, guid: 9c744d9ec8e886a4eb871a6603807d3d, type: 3}
+  countryData: {fileID: 11400000, guid: 1bd34af60df8cb04197d7f07dc9ddf72, type: 2}
+  extraData:
+  - countryName: Aruba
+    avgTemp: 28.128
+  - countryName: Afghanistan
+    avgTemp: 15.497833
+  - countryName: Angola
+    avgTemp: 22.360666
+  - countryName: Anguilla
+    avgTemp: 27.05275
+  - countryName: Albania
+    avgTemp: 13.746583
+  - countryName: "\xC5land"
+    avgTemp: 7.2833333
+  - countryName: Andorra
+    avgTemp: 12.311916
+  - countryName: United Arab Emirates
+    avgTemp: 28.87775
+  - countryName: Argentina
+    avgTemp: 14.7505
+  - countryName: Armenia
+    avgTemp: 9.918167
+  - countryName: American Samoa
+    avgTemp: 27.219833
+  - countryName: Antarctica
+    avgTemp: 0
+  - countryName: Ashmore and Cartier Is.
+    avgTemp: 3.4028235e+38
+  - countryName: Fr. S. Antarctic Lands
+    avgTemp: 5.224
+  - countryName: Antigua and Barb.
+    avgTemp: 26.892084
+  - countryName: Australia
+    avgTemp: 21.709667
+  - countryName: Austria
+    avgTemp: 8.084917
+  - countryName: Azerbaijan
+    avgTemp: 12.632
+  - countryName: Burundi
+    avgTemp: 20.595833
+  - countryName: Belgium
+    avgTemp: 11.03425
+  - countryName: Benin
+    avgTemp: 27.637667
+  - countryName: Burkina Faso
+    avgTemp: 28.591417
+  - countryName: Bangladesh
+    avgTemp: 25.150167
+  - countryName: Bulgaria
+    avgTemp: 11.906834
+  - countryName: Bahrain
+    avgTemp: 27.07075
+  - countryName: Bahamas
+    avgTemp: 25.449167
+  - countryName: Bosnia and Herz.
+    avgTemp: 12.148084
+  - countryName: "St-Barth\xE9lemy"
+    avgTemp: 3.4028235e+38
+  - countryName: Belarus
+    avgTemp: 7.9098334
+  - countryName: Belize
+    avgTemp: 25.285
+  - countryName: Bermuda
+    avgTemp: 3.4028235e+38
+  - countryName: Bolivia
+    avgTemp: 21.077168
+  - countryName: Brazil
+    avgTemp: 25.1965
+  - countryName: Barbados
+    avgTemp: 26.902082
+  - countryName: Brunei
+    avgTemp: 3.4028235e+38
+  - countryName: Bhutan
+    avgTemp: 11.998417
+  - countryName: Botswana
+    avgTemp: 21.872334
+  - countryName: Central African Rep.
+    avgTemp: 25.613333
+  - countryName: Canada
+    avgTemp: -4.0259166
+  - countryName: Switzerland
+    avgTemp: 8.562667
+  - countryName: Chile
+    avgTemp: 9.564083
+  - countryName: China
+    avgTemp: 7.2380834
+  - countryName: "C\xF4te d'Ivoire"
+    avgTemp: 26.402334
+  - countryName: Cameroon
+    avgTemp: 24.613
+  - countryName: Dem. Rep. Congo
+    avgTemp: 24.206167
+  - countryName: Congo
+    avgTemp: 24.786
+  - countryName: Cook Is.
+    avgTemp: 3.4028235e+38
+  - countryName: Colombia
+    avgTemp: 25.030167
+  - countryName: Comoros
+    avgTemp: 25.9955
+  - countryName: Cabo Verde
+    avgTemp: 3.4028235e+38
+  - countryName: Costa Rica
+    avgTemp: 26.072166
+  - countryName: Cuba
+    avgTemp: 25.785
+  - countryName: "Cura\xE7ao"
+    avgTemp: 27.564083
+  - countryName: Cayman Is.
+    avgTemp: 27.101833
+  - countryName: N. Cyprus
+    avgTemp: 3.4028235e+38
+  - countryName: Cyprus
+    avgTemp: 19.442
+  - countryName: Czechia
+    avgTemp: 9.659
+  - countryName: Germany
+    avgTemp: 10.020416
+  - countryName: Djibouti
+    avgTemp: 29.86
+  - countryName: Dominica
+    avgTemp: 26.5715
+  - countryName: Denmark
+    avgTemp: 9.582916
+  - countryName: Dominican Rep.
+    avgTemp: 25.880417
+  - countryName: Algeria
+    avgTemp: 24.03225
+  - countryName: Ecuador
+    avgTemp: 22.026
+  - countryName: Egypt
+    avgTemp: 22.881416
+  - countryName: Eritrea
+    avgTemp: 27.51725
+  - countryName: Spain
+    avgTemp: 14.46875
+  - countryName: Estonia
+    avgTemp: 7.00875
+  - countryName: Ethiopia
+    avgTemp: 23.762583
+  - countryName: Finland
+    avgTemp: 3.5906668
+  - countryName: Fiji
+    avgTemp: 25.837166
+  - countryName: Falkland Is.
+    avgTemp: 6.4011664
+  - countryName: France
+    avgTemp: 11.738083
+  - countryName: Faeroe Is.
+    avgTemp: 7.19175
+  - countryName: Micronesia
+    avgTemp: 27.442833
+  - countryName: Gabon
+    avgTemp: 24.572416
+  - countryName: United Kingdom
+    avgTemp: 9.5655
+  - countryName: Georgia
+    avgTemp: 9.311167
+  - countryName: Guernsey
+    avgTemp: 11.919
+  - countryName: Ghana
+    avgTemp: 27.245916
+  - countryName: Guinea
+    avgTemp: 25.969166
+  - countryName: Gambia
+    avgTemp: 28.06375
+  - countryName: Guinea-Bissau
+    avgTemp: 3.4028235e+38
+  - countryName: Eq. Guinea
+    avgTemp: 25.220583
+  - countryName: Greece
+    avgTemp: 15.673333
+  - countryName: Grenada
+    avgTemp: 27.190916
+  - countryName: Greenland
+    avgTemp: -17.367916
+  - countryName: Guatemala
+    avgTemp: 23.428833
+  - countryName: Guam
+    avgTemp: 27.481667
+  - countryName: Guyana
+    avgTemp: 26.393583
+  - countryName: Hong Kong
+    avgTemp: 23.2015
+  - countryName: Heard I. and McDonald Is.
+    avgTemp: 2.885
+  - countryName: Honduras
+    avgTemp: 25.153667
+  - countryName: Croatia
+    avgTemp: 13.226417
+  - countryName: Haiti
+    avgTemp: 26.598583
+  - countryName: Hungary
+    avgTemp: 11.700334
+  - countryName: Indonesia
+    avgTemp: 26.19025
+  - countryName: Isle of Man
+    avgTemp: 10.257584
+  - countryName: India
+    avgTemp: 24.498
+  - countryName: Indian Ocean Ter.
+    avgTemp: 3.4028235e+38
+  - countryName: Br. Indian Ocean Ter.
+    avgTemp: 3.4028235e+38
+  - countryName: Ireland
+    avgTemp: 10.13075
+  - countryName: Iran
+    avgTemp: 18.892084
+  - countryName: Iraq
+    avgTemp: 22.988832
+  - countryName: Iceland
+    avgTemp: 2.10325
+  - countryName: Israel
+    avgTemp: 20.230417
+  - countryName: Italy
+    avgTemp: 14.1255
+  - countryName: Jamaica
+    avgTemp: 26.469418
+  - countryName: Jersey
+    avgTemp: 11.919
+  - countryName: Jordan
+    avgTemp: 20.04525
+  - countryName: Japan
+    avgTemp: 12.833834
+  - countryName: Siachen Glacier
+    avgTemp: 3.4028235e+38
+  - countryName: Kazakhstan
+    avgTemp: 6.7614164
+  - countryName: Kenya
+    avgTemp: 24.716667
+  - countryName: Kyrgyzstan
+    avgTemp: 4.73075
+  - countryName: Cambodia
+    avgTemp: 27.057167
+  - countryName: Kiribati
+    avgTemp: 27.07925
+  - countryName: St. Kitts and Nevis
+    avgTemp: 26.2735
+  - countryName: South Korea
+    avgTemp: 12.575334
+  - countryName: Kosovo
+    avgTemp: 3.4028235e+38
+  - countryName: Kuwait
+    avgTemp: 26.376083
+  - countryName: Laos
+    avgTemp: 23.835167
+  - countryName: Lebanon
+    avgTemp: 18.377333
+  - countryName: Liberia
+    avgTemp: 25.85975
+  - countryName: Libya
+    avgTemp: 22.835083
+  - countryName: Saint Lucia
+    avgTemp: 27.078417
+  - countryName: Liechtenstein
+    avgTemp: 6.32875
+  - countryName: Sri Lanka
+    avgTemp: 27.46975
+  - countryName: Lesotho
+    avgTemp: 14.053917
+  - countryName: Lithuania
+    avgTemp: 8.107667
+  - countryName: Luxembourg
+    avgTemp: 10.79275
+  - countryName: Latvia
+    avgTemp: 7.497083
+  - countryName: Macao
+    avgTemp: 3.4028235e+38
+  - countryName: St-Martin
+    avgTemp: 27.05275
+  - countryName: Morocco
+    avgTemp: 18.565083
+  - countryName: Monaco
+    avgTemp: 10.2295
+  - countryName: Moldova
+    avgTemp: 10.69
+  - countryName: Madagascar
+    avgTemp: 23.320333
+  - countryName: Maldives
+    avgTemp: 3.4028235e+38
+  - countryName: Mexico
+    avgTemp: 21.232084
+  - countryName: Marshall Is.
+    avgTemp: 3.4028235e+38
+  - countryName: Macedonia
+    avgTemp: 11.582
+  - countryName: Mali
+    avgTemp: 29.150333
+  - countryName: Malta
+    avgTemp: 19.609167
+  - countryName: Myanmar
+    avgTemp: 3.4028235e+38
+  - countryName: Montenegro
+    avgTemp: 11.561334
+  - countryName: Mongolia
+    avgTemp: 0.175
+  - countryName: N. Mariana Is.
+    avgTemp: 27.481667
+  - countryName: Mozambique
+    avgTemp: 23.92025
+  - countryName: Mauritania
+    avgTemp: 28.355583
+  - countryName: Montserrat
+    avgTemp: 26.841084
+  - countryName: Mauritius
+    avgTemp: 24.002583
+  - countryName: Malawi
+    avgTemp: 21.714417
+  - countryName: Malaysia
+    avgTemp: 26.371416
+  - countryName: Namibia
+    avgTemp: 21.017666
+  - countryName: New Caledonia
+    avgTemp: 23.283083
+  - countryName: Niger
+    avgTemp: 27.975834
+  - countryName: Norfolk Island
+    avgTemp: 3.4028235e+38
+  - countryName: Nigeria
+    avgTemp: 27.0335
+  - countryName: Nicaragua
+    avgTemp: 26.381332
+  - countryName: Niue
+    avgTemp: 25.80575
+  - countryName: Netherlands
+    avgTemp: 10.73875
+  - countryName: Norway
+    avgTemp: 1.7969167
+  - countryName: Nepal
+    avgTemp: 15.279333
+  - countryName: Nauru
+    avgTemp: 3.4028235e+38
+  - countryName: New Zealand
+    avgTemp: 11.115583
+  - countryName: Oman
+    avgTemp: 27.922417
+  - countryName: Pakistan
+    avgTemp: 21.8225
+  - countryName: Panama
+    avgTemp: 26.711834
+  - countryName: Pitcairn Is.
+    avgTemp: 3.4028235e+38
+  - countryName: Peru
+    avgTemp: 20.231916
+  - countryName: Philippines
+    avgTemp: 27.00975
+  - countryName: Palau
+    avgTemp: 27.69075
+  - countryName: Papua New Guinea
+    avgTemp: 24.942
+  - countryName: Poland
+    avgTemp: 9.622167
+  - countryName: Puerto Rico
+    avgTemp: 25.7865
+  - countryName: North Korea
+    avgTemp: 7.525
+  - countryName: Portugal
+    avgTemp: 15.393
+  - countryName: Paraguay
+    avgTemp: 23.626083
+  - countryName: Palestine
+    avgTemp: 3.4028235e+38
+  - countryName: Fr. Polynesia
+    avgTemp: 26.635834
+  - countryName: Qatar
+    avgTemp: 27.993
+  - countryName: Romania
+    avgTemp: 10.47225
+  - countryName: Russia
+    avgTemp: -4.5456667
+  - countryName: Rwanda
+    avgTemp: 19.753084
+  - countryName: W. Sahara
+    avgTemp: 23.020082
+  - countryName: Saudi Arabia
+    avgTemp: 26.642916
+  - countryName: Sudan
+    avgTemp: 27.456583
+  - countryName: S. Sudan
+    avgTemp: 3.4028235e+38
+  - countryName: Senegal
+    avgTemp: 28.526083
+  - countryName: Singapore
+    avgTemp: 27.0965
+  - countryName: S. Geo. and the Is.
+    avgTemp: 3.4028235e+38
+  - countryName: Saint Helena
+    avgTemp: 3.4028235e+38
+  - countryName: Solomon Is.
+    avgTemp: 27.26475
+  - countryName: Sierra Leone
+    avgTemp: 26.546833
+  - countryName: El Salvador
+    avgTemp: 25.407167
+  - countryName: San Marino
+    avgTemp: 15.442583
+  - countryName: Somaliland
+    avgTemp: 3.4028235e+38
+  - countryName: Somalia
+    avgTemp: 27.71025
+  - countryName: St. Pierre and Miquelon
+    avgTemp: 5.865
+  - countryName: Serbia
+    avgTemp: 11.791
+  - countryName: "S\xE3o Tom\xE9 and Principe"
+    avgTemp: 26.189
+  - countryName: Suriname
+    avgTemp: 26.586082
+  - countryName: Slovakia
+    avgTemp: 9.482
+  - countryName: Slovenia
+    avgTemp: 11.590584
+  - countryName: Sweden
+    avgTemp: 4.421
+  - countryName: Eswatini
+    avgTemp: 3.4028235e+38
+  - countryName: Sint Maarten
+    avgTemp: 27.05275
+  - countryName: Seychelles
+    avgTemp: 27.17925
+  - countryName: Syria
+    avgTemp: 18.773333
+  - countryName: Turks and Caicos Is.
+    avgTemp: 3.4028235e+38
+  - countryName: Chad
+    avgTemp: 27.447834
+  - countryName: Togo
+    avgTemp: 27.442417
+  - countryName: Thailand
+    avgTemp: 26.302166
+  - countryName: Tajikistan
+    avgTemp: 5.3925834
+  - countryName: Turkmenistan
+    avgTemp: 16.398167
+  - countryName: Timor-Leste
+    avgTemp: 3.4028235e+38
+  - countryName: Tonga
+    avgTemp: 24.028667
+  - countryName: Trinidad and Tobago
+    avgTemp: 26.627083
+  - countryName: Tunisia
+    avgTemp: 21.1405
+  - countryName: Turkey
+    avgTemp: 12.201917
+  - countryName: Taiwan
+    avgTemp: 22.7045
+  - countryName: Tanzania
+    avgTemp: 22.791584
+  - countryName: Uganda
+    avgTemp: 23.560917
+  - countryName: Ukraine
+    avgTemp: 9.316334
+  - countryName: Uruguay
+    avgTemp: 17.75675
+  - countryName: United States of America
+    avgTemp: 9.64975
+  - countryName: Uzbekistan
+    avgTemp: 13.938833
+  - countryName: Vatican
+    avgTemp: 3.4028235e+38
+  - countryName: St. Vin. and Gren.
+    avgTemp: 27.217916
+  - countryName: Venezuela
+    avgTemp: 25.3885
+  - countryName: British Virgin Is.
+    avgTemp: 26.730583
+  - countryName: U.S. Virgin Is.
+    avgTemp: 3.4028235e+38
+  - countryName: Vietnam
+    avgTemp: 23.981916
+  - countryName: Vanuatu
+    avgTemp: 3.4028235e+38
+  - countryName: Wallis and Futuna Is.
+    avgTemp: 3.4028235e+38
+  - countryName: Samoa
+    avgTemp: 26.838333
+  - countryName: Yemen
+    avgTemp: 27.436167
+  - countryName: South Africa
+    avgTemp: 17.585583
+  - countryName: Zambia
+    avgTemp: 21.55875
+  - countryName: Zimbabwe
+    avgTemp: 21.149
+--- !u!4 &2019258712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019258710}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2023727549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2023727551}
+  - component: {fileID: 2023727550}
+  m_Layer: 0
+  m_Name: Country Loader (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2023727550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023727549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c635882d881144fb0c3b7871494871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoRunOnAwake: 0
+  countryFile: {fileID: 4900000, guid: 663e585d2c2099a41886f9227128cfce, type: 3}
+  cityFile: {fileID: 4900000, guid: ad350dee819aaab42981bde375f8176e, type: 3}
+  extraInfoFile: {fileID: 0}
+  countries: []
+--- !u!4 &2023727551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023727549}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

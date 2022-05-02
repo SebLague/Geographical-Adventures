@@ -3,14 +3,19 @@ Shader "Unlit/Moon"
 	Properties
 	{
 		_MainTex ("Albedo", 2D) = "white" {}
+		_Brightness ("Brightness", Float) = 1
 	}
 	SubShader
 	{
 
+
 		Tags { "Queue"="Background" }
+		ZTest Off
+		
 
 		Pass
 		{
+			ZClip Off
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
@@ -32,7 +37,8 @@ Shader "Unlit/Moon"
 			};
 
 			sampler2D _MainTex;
-			float _NormalStrength;
+			float _Brightness;
+
 
 			v2f vert (appdata v)
 			{
@@ -48,18 +54,22 @@ Shader "Unlit/Moon"
 				
 				float3 spherePos = normalize(i.objPos);
 				float2 texCoord = pointToUV(spherePos);
+				float3 worldNormal = normalize(i.worldNormal);
 
 				float3 dirToSun = _WorldSpaceLightPos0;
-				float shading = saturate(dot(i.worldNormal, dirToSun));
+				float shading = saturate(dot(worldNormal, dirToSun));
+				//shading = dot(worldNormal, dirToSun) * 0.5 + 0.5;
+				//shading = shading * shading;
+				//return shading * shading;
 				//float shading = 1;
 				shading = pow(shading, 1/2.2);
 			
-				shading *= (1.1);
+				shading *= _Brightness;
 				//shading = 1;
 
 				float4 col = tex2D(_MainTex, texCoord) * shading;
 			
-				return col;
+				return float4(col.rgb, 3); // Note: alpha used to control interaction with atmosphere (TODO: figure out better approach?)
 			}
 			ENDCG
 			

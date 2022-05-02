@@ -66,8 +66,9 @@ Shader "Unlit/Parachute"
 				float3 viewDir = normalize(i.worldPos - _WorldSpaceLightPos0.xyz);
 				float3 dirToSun = _WorldSpaceLightPos0.xyz;
 				float specularHighlight = calculateSpecular(worldNormal, viewDir, dirToSun, _Specular);
-				float shading = saturate(saturate(dot(worldNormal, dirToSun)) + 0.25);
+				float shading = saturate(saturate(dot(worldNormal, dirToSun)) + 0.1);
 				shading = pow(shading, 0.8) * 1.15;
+				
 				float shadows = LIGHT_ATTENUATION(i);
 
 				float2 uv = i.uv;
@@ -75,7 +76,7 @@ Shader "Unlit/Parachute"
 				float3 col = lerp(_ColourA, _ColourB, checker);
 
 				col = col * shading + specularHighlight;
-				col *= shadows;
+				//col *= lerp(0.5, 1, shadows);
 
 				return float4(col, 1);
 			}

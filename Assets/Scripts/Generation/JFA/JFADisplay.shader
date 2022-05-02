@@ -3,7 +3,6 @@ Shader "Unlit/JFADisplay"
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
-		_DistanceMultiplier("Distance Multiplier", float) = 10
 	}
 	SubShader
 	{
@@ -32,7 +31,10 @@ Shader "Unlit/JFADisplay"
 
 			sampler2D _MainTex;
 			float4 _MainTex_TexelSize;
-			float _DistanceMultiplier;
+
+			int displayMode;
+			bool highlightLand;
+			float dstMultiplier;
 
 			v2f vert (appdata v)
 			{
@@ -48,15 +50,22 @@ Shader "Unlit/JFADisplay"
 				float2 nearestPosUV = data.xy;
 				float dst = data.z;
 
+				if (highlightLand && dst == 0) {
+					return float4(1,0,0,0);
+				}
+
+				// Display distance
+				if (displayMode == 0) {
+					return dst * dstMultiplier * 0.001;
+				}
 				// Display direction
-				float2 offset = nearestPosUV - i.uv * _MainTex_TexelSize.zw;
-				float2 dir = dst > 0 ? normalize(offset) : 0;
-			//	return float4(nearestPosUV/ _MainTex_TexelSize.zw,0,0) * ((dst > 0) ? 1:0.5);
-				//return float4(dir * 0.5 + 0.5, 0, 0);
+				else if (displayMode == 1) {
+					float2 offset = nearestPosUV - i.uv * _MainTex_TexelSize.zw;
+					float2 dir = dst > 0 ? normalize(offset) : 0;
+					return float4(dir * 0.5 + 0.5, 0, 0);
+				}
 
-				return dst * _DistanceMultiplier * 0.001;
-
-			
+				return 0;
 			}
 			ENDCG
 		}

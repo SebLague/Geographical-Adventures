@@ -32,13 +32,16 @@ public static class EditorShaderHelper
 
 	static void Update()
 	{
-		// If unity editor regains focus then invoke the event
-		bool focus = UnityEditorInternal.InternalEditorUtility.isApplicationActive;
-		if (focus && !editorHasFocus)
+		if (UnityEditor.EditorApplication.isPlaying)
 		{
-			onRebindRequired?.Invoke();
+			// If unity editor regains focus then invoke the event
+			bool focus = UnityEditorInternal.InternalEditorUtility.isApplicationActive;
+			if (focus && !editorHasFocus)
+			{
+				onRebindRequired?.Invoke();
+			}
+			editorHasFocus = focus;
 		}
-		editorHasFocus = focus;
 	}
 #endif
 }

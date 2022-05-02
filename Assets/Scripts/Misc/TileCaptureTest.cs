@@ -5,6 +5,7 @@ using UnityEngine;
 public class TileCaptureTest : MonoBehaviour
 {
 	Camera cam;
+	public string fileName = "TileCapture";
 	public Transform display;
 
 	void Start()
@@ -27,7 +28,7 @@ public class TileCaptureTest : MonoBehaviour
 	}
 
 	[ContextMenu("Capture Tiles")]
-	void StartCapture()
+	public void StartCapture4x2()
 	{
 		StartCoroutine(CaptureAllTiles());
 	}
@@ -35,6 +36,7 @@ public class TileCaptureTest : MonoBehaviour
 	[ContextMenu("Capture Single")]
 	void SingleCapture()
 	{
+		SetDisplaySize();
 		cam = Camera.main;
 		float height = Mathf.PI;
 		cam.orthographicSize = height / 2;
@@ -43,11 +45,24 @@ public class TileCaptureTest : MonoBehaviour
 		Debug.Log("Single Capture Complete");
 	}
 
+
+	[ContextMenu("Capture West")]
+	void CaptureWest()
+	{
+		SetDisplaySize();
+		cam = Camera.main;
+		float height = Mathf.PI;
+		cam.orthographicSize = height / 2;
+		cam.transform.position = new Vector3(-Mathf.PI / 2, 0, -10);
+		ScreenCapture.CaptureScreenshot($"captureWest2.png", 1);
+		Debug.Log("Single Capture Complete");
+	}
+
 	IEnumerator CaptureAllTiles()
 	{
 		if (Application.isPlaying)
 		{
-			Debug.Log("Starting capture. Note: game window should be set to 8192x8192.");
+			Debug.Log("Starting capture. Note: game window should be set to square size (e.g. 8192x8192).");
 			for (int y = 0; y < 2; y++)
 			{
 				for (int x = 0; x < 4; x++)
@@ -63,11 +78,11 @@ public class TileCaptureTest : MonoBehaviour
 					cam.transform.position = new Vector3(posX, posY, -10);
 					yield return null;
 
-					ScreenCapture.CaptureScreenshot($"tile_{i}.png", 1);
+					ScreenCapture.CaptureScreenshot($"{fileName}_{i}.png", 1);
 					yield return null;
 				}
 			}
-			Debug.Log("Capture Complete");
+			Debug.Log("Capture Complete. (Saved to project root folder)");
 		}
 		else
 		{

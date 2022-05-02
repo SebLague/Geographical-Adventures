@@ -83,6 +83,14 @@ Material:
         m_Texture: {fileID: 2800000, guid: a6a455ed7d2dfb643b6096ef726059d6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MapEast:
+        m_Texture: {fileID: 2800000, guid: 2108c84083467534d9d7d3d36286d7f2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MapWest:
+        m_Texture: {fileID: 2800000, guid: 96f8cc51583a1e14ea845201f5c27ee0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Mask:
         m_Texture: {fileID: 2800000, guid: 3b6b093e69b1feb4ea74c84913a54215, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -97,6 +105,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NoiseB:
         m_Texture: {fileID: 2800000, guid: c1afd2b25e1a58a46b7285a24ad669f7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: e1084c2e74b8378469c07768fdbafa5d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -152,7 +164,7 @@ Material:
     - _Cutoff: 0.5
     - _DepthFactor: 1.3
     - _DetailNormalMapScale: 1
-    - _DetailNormalStrength: 0.743
+    - _DetailNormalStrength: 1
     - _DstBlend: 0
     - _FoamDst: 0.839
     - _FoamEdgeBlend: 8.71
@@ -194,7 +206,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CountryLineCol: {r: 0, g: 0, b: 0, a: 0.3882353}
     - _CountryOutlineColDay: {r: 0, g: 0, b: 0, a: 1}
-    - _CountryOutlineColNight: {r: 0.7735849, g: 0.41051087, b: 0.04743683, a: 1}
+    - _CountryOutlineColNight: {r: 1, g: 1, b: 1, a: 1}
     - _DeepBlue: {r: 0.02055892, g: 0.061752517, b: 0.20754719, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColour: {r: 0.35292807, g: 0.56739706, b: 0.9716981, a: 1}
@@ -207,5 +219,5 @@ Material:
     - _ShallowBlueA: {r: 1, g: 0.58431375, b: 0.2901961, a: 1}
     - _ShallowBlueB: {r: 0.09789959, g: 0.5210726, b: 0.8301887, a: 1}
     - _SpecularTint: {r: 1, g: 1, b: 1, a: 1}
-    - _TestParams: {r: 0.09, g: 54.23, b: 10.6, a: 0.4}
+    - _TestParams: {r: 1, g: 0.6, b: 10.6, a: 0.4}
   m_BuildTextureStacks: []

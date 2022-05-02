@@ -12,7 +12,11 @@ float clmp(float x, float m) {
 	return max(m, abs(x)) * ((x>=0)?1:-1);
 }
 
-float3 waveCalc(float3 worldPos, inout float3 normal) {
+float4 waveCalc(float3 worldPos, inout float3 normal) {
+	//return float4(worldPos,0);
+	float3 viewDir = normalize(worldPos - _WorldSpaceCameraPos);
+	float d = dot(viewDir, normal);
+	//d = smoothstep(-0.1,0,d);
 	//return worldPos;
 	float3 spherePos = normalize(worldPos);
 	float2 texCoord = pointToUV(spherePos);
@@ -20,6 +24,7 @@ float3 waveCalc(float3 worldPos, inout float3 normal) {
 
 	// Vertex wave anim
 	float waveWeight = smoothstep(0.01, WaveShoreFalloff * 0.01 + 0.01, shoreDst);
+	//waveWeight *= d;
 	if (waveWeight > 0) {
 		float startAngle_xz = atan2(spherePos.z, clmp(spherePos.x,0.001));
 		float angle_xz = _Time.y * WaveNoiseSpeed * 0.01 + startAngle_xz;
@@ -56,5 +61,5 @@ float3 waveCalc(float3 worldPos, inout float3 normal) {
 		worldPos = newPos;
 	}
 
-	return worldPos;
+	return float4(worldPos,d);
 }

@@ -1,1 +1,4 @@
 https://visibleearth.nasa.gov/images/73934/topography
+
+Map has been edited slightly to reduce the height of some small islands that otherwise look strange at the scale this game uses.
+File (.psb) with edits in separate layer here: https://drive.google.com/file/d/1QTaDFh35ka9zWcMNP_baUYhetsyziIc7/view?usp=sharing

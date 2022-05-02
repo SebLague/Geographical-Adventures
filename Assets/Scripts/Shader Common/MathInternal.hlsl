@@ -1,17 +1,14 @@
 #ifndef MATH_INTERNAL_INCLUDED
 #define MATH_INTERNAL_INCLUDED
 
-static const float PI = 3.14159265359;
+static const float PI = 3.141592653589793238462643383279;
 
-// Hash function www.cs.ubc.ca/~rbridson/docs/schechter-sca08-turbulence.pdf
+// Schechter - Bridson hash: www.cs.ubc.ca/~rbridson/docs/schechter-sca08-turbulence.pdf
 uint hash(uint state)
 {
-	state ^= 2747636419u;
-	state *= 2654435769u;
-	state ^= state >> 16;
-	state *= 2654435769u;
-	state ^= state >> 16;
-	state *= 2654435769u;
+	state = (state ^ 2747636419u) * 2654435769u;
+	state = (state ^ (state >> 16)) * 2654435769u;
+	state = (state ^ (state >> 16)) * 2654435769u;
 	return state;
 }
 

@@ -1,0 +1,99 @@
+#pragma kernel CalculateVertices2D
+#pragma kernel AssignVertexHeights
+#include "Assets/Scripts/Shader Common/GeoMath.hlsl"
+
+// ---- Common data and functions ----
+Texture2D<float> HeightMap;
+SamplerState height_linear_clamp_sampler;
+
+float getHeight(float2 texCoord) {
+	return HeightMap.SampleLevel(height_linear_clamp_sampler, texCoord, 0);
+}
+
+float getHeight(float3 spherePoint) {
+	return getHeight(pointToUV(spherePoint));
+}
+
+// ---- Calculate 2D Vertices ----
+
+// A collection of sphere points that can be used as vertices
+StructuredBuffer<float3> SpherePoints;
+uint numSpherePoints;
+
+// Coordinates of country polygon (in longitude, latitude format)
+StructuredBuffer<float2> Polygon2D;
+uint numPolygonPoints;
+float3 polygonCentre3D;
+float3 polygonHalfSize3D;
+
+// Append buffer for storing the sphere points (converted to coordinates)
+// that lie within the country polygon and satisfy the terrain detail settings
+AppendStructuredBuffer<float2> InnerVertices2D;
+
+// Terrain detail settings
+float stepSize;
+float errorThreshold;
+
+bool exceedsErrorThreshold(float3 spherePoint) {
+	float3 normal = spherePoint;
+	float3 axisA = getOrthogonal(normal);
+	float3 axisB = normalize(cross(normal, axisA));
+
+	float h = getHeight(spherePoint);
+
+	float h0 = getHeight(normalize(spherePoint + (axisA + axisB) * stepSize));
+	float h1 = getHeight(normalize(spherePoint + (axisA - axisB) * stepSize));
+	float h2 = getHeight(normalize(spherePoint + (-axisA + axisB) * stepSize));
+	float h3 = getHeight(normalize(spherePoint + (-axisA - axisB) * stepSize));
+
+	float avgHeight = (h0 + h1 + h2 + h3) / 4;
+	float maxH = max(h0, max(h1, max(h2, h3)));
+
+	float d0 = abs(h-h0);
+	float d1 = abs(h-h1);
+	float d2 = abs(h-h2);
+	float d3 = abs(h-h3);
+
+	float error = max(d0, max(d1, max(d2, d3)));
+	return error >= errorThreshold || (h > maxH + errorThreshold/2);
+}
+
+
+[numthreads(64,1,1)]
+void CalculateVertices2D (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= numSpherePoints) { return; }
+
+	float3 spherePoint = SpherePoints[id.x];
+	float3 o = abs(polygonCentre3D - spherePoint);
+
+	if (o.x < polygonHalfSize3D.x && o.y < polygonHalfSize3D.y && o.z < polygonHalfSize3D.z) {
+		float2 coord = pointToLongitudeLatitude(spherePoint);
+
+		if (exceedsErrorThreshold(spherePoint))
+		{
+			if (pointInPolygon(coord, Polygon2D, 0, numPolygonPoints))
+			{
+				InnerVertices2D.Append(coord.xy);
+			}
+		}
+		
+	}
+	
+}
+
+// ---- Assign vertex heights ----
+RWStructuredBuffer<float3> Vertices;
+uint numVertices;
+
+// Convert 2D vertices (longitude/latitude coordinates) into 3D vertices (points on sphere)
+[numthreads(64,1,1)]
+void AssignVertexHeights (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= numVertices) { return; }
+	
+	float3 spherePos = Vertices[id.x];
+	float2 texCoord = pointToUV(spherePos);
+	float height = getHeight(texCoord);
+	Vertices[id.x] = spherePos * (1 + height * 1);
+}

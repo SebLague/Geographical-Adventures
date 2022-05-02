@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec0929fcdf6e764eaf080f9b46fbc0b, type: 3}
+  m_Name: Atmosphere
+  m_EditorClassIdentifier: 
+  enabled: 1
+  shader: {fileID: 4800000, guid: 8108d0319e05d334593582429a931fb0, type: 3}
+  drawSkyShader: {fileID: 4800000, guid: dd70d41ac71f0c44aaab0b3fe94c047e, type: 3}
+  sunColTest: {r: 0, g: 0, b: 0, a: 0}
+  light: {fileID: 0}
+  bodyRadius: 149.5
+  atmosphereThickness: 110
+  atmosphereShader: {fileID: 4800000, guid: 8108d0319e05d334593582429a931fb0, type: 3}
+  testParams: {x: 1.7, y: 2.74, z: 2.7, w: 81.29}
+  numAerialScatteringSteps: 20
+  wavelengthsRGB: {x: 639.5, y: 526, z: 441.8}
+  wavelengthScale: 748.5
+  rayleighDensityAvg: 0.086
+  mieDensityAvg: 0.08
+  mieCoefficient: 0.38
+  mieAbsorption: 0.11
+  ozonePeakDensityAltitude: 0.12
+  ozoneDensityFalloff: 3.7
+  ozoneStrength: 0.4
+  ozoneAbsorption: {x: -3, y: 3.12, z: 0.02}
+  sunDiscSize: 1.15
+  sunDiscBlurA: 32.95
+  sunDiscBlurB: 3.1
+  transmittanceLUTCompute: {fileID: 7200000, guid: cca6f912a2bba8340ba53132e1b235a1, type: 3}
+  transmittanceLUTSize: {x: 128, y: 64}
+  aerialPerspectiveLUTCompute: {fileID: 7200000, guid: 5261cb094de7cb64189738546d046b7d, type: 3}
+  aerialPerspectiveLUTSize: 32
+  aerialPerspectiveStrength: 0.529
+  numSkyScatteringSteps: 256
+  skyRenderCompute: {fileID: 7200000, guid: 768e75c0bfe7f084daefc455ceb6b5ac, type: 3}
+  skyRenderSize: {x: 128, y: 256}
+  skyTransmittanceWeight: 0.429
+  intensity: 1.31
+  contrast: 1.45
+  whitePoint: 1
+  ditherStrength: 4
+  blueNoise: {fileID: 2800000, guid: f94aa116956069842b6a2820258a64f0, type: 3}
+  filterMode: 1
+  rayleighCoefficients: {x: 1.876744, y: 4.1003814, z: 8.238811}
+  transmittanceLUT: {fileID: 0}
+  aerialPerspectiveLuminance: {fileID: 0}
+  aerialPerspectiveTransmittance: {fileID: 0}
+  sky: {fileID: 0}

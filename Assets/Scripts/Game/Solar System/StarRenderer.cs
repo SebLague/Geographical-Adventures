@@ -3,100 +3,112 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class StarRenderer : MonoBehaviour
+namespace SolarSystem
 {
-	public SolarSystemManager solarSystemManager;
-	public StarLoader loader;
-	public AtmosphereEffect atmosphereEffect;
-	public Shader starInstanceShader;
-	public Light sun;
-	//public Vector3 testParams;
-	public float size;
-	Material starMaterial;
-	StarLoader.Star[] stars;
-
-	Mesh quadMesh;
-	ComputeBuffer argsBuffer;
-	ComputeBuffer starDataBuffer;
-	Camera cam;
-	Bounds bounds;
-
-	public float brightnessMultiplier;
-	public float appearTimeMin;
-	public float appearTimeMax;
-
-	void Start()
+	public class StarRenderer : MonoBehaviour
 	{
-		cam = Camera.main;
-		stars = loader.LoadStars();
+		public SolarSystemManager solarSystemManager;
+		public Shader starInstanceShader;
+		public Light sun;
+		//public Vector3 testParams;
+		public float size;
+		Material starMaterial;
 
-		CreateQuadMesh();
 
-		starMaterial = new Material(starInstanceShader);
+		Mesh quadMesh;
+		ComputeBuffer argsBuffer;
+		ComputeBuffer starDataBuffer;
+		Camera cam;
 
-		argsBuffer = ComputeHelper.CreateArgsBuffer(quadMesh, stars.Length);
+		public float brightnessMultiplier;
+		public float appearTimeMin;
+		public float appearTimeMax;
 
-		starDataBuffer = ComputeHelper.CreateStructuredBuffer(stars);
-		starMaterial.SetBuffer("StarData", starDataBuffer);
-		bounds = new Bounds(Vector3.zero, Vector3.one * 10);
+		public StarData starData;
 
-		atmosphereEffect.onSettingsUpdated += SetSkyTexture;
-		SetSkyTexture();
-	}
 
-	void SetSkyTexture()
-	{
-		if (atmosphereEffect.sky != null)
+
+		public void SetUpStarRenderingCommand(CommandBuffer cmd)
 		{
-			starMaterial.SetTexture("Sky", atmosphereEffect.sky);
-		}
-	}
-
-
-	public void UpdateFixedStars(EarthOrbit earth, bool geocentric)
-	{
-		if (Application.isPlaying)
-		{
-			starMaterial.SetFloat("size", size);
-			starMaterial.SetVector("centre", cam.transform.position);
-			starMaterial.SetFloat("brightnessMultiplier", brightnessMultiplier);
-			Matrix4x4 rotMatrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Vector3.one);
-			// Earth remains stationary and without rotation, so rotate the stars instead
-			if (geocentric)
+			if (Application.isPlaying)
 			{
-				Matrix4x4.Rotate(Quaternion.Inverse(earth.earthRot));
+				cam = Camera.main;
+
+				//stars = loader.LoadStars();
+				CreateQuadMesh();
+				EditorOnlyInit();
+
+				starMaterial = new Material(starInstanceShader);
+
+				ComputeHelper.Release(argsBuffer, starDataBuffer);
+				argsBuffer = ComputeHelper.CreateArgsBuffer(quadMesh, starData.NumStars);
+
+				starDataBuffer = ComputeHelper.CreateStructuredBuffer(starData.Stars);
+
+
+				SetBuffer();
+
+				cmd.DrawMeshInstancedIndirect(quadMesh, 0, starMaterial, 0, argsBuffer, 0);
+
 			}
-
-			starMaterial.SetMatrix("rotationMatrix", rotMatrix);
-
-
-			bounds.center = cam.transform.position;
-			Graphics.DrawMeshInstancedIndirect(quadMesh, 0, starMaterial, bounds, argsBuffer, castShadows: ShadowCastingMode.Off, receiveShadows: false);
-			//Graphics.DrawMeshInstanced(quadMesh, 0, starInstanceShader,)//
 		}
-	}
+
+		void SetBuffer()
+		{
+			starMaterial.SetBuffer("StarData", starDataBuffer);
+		}
 
 
-	void CreateQuadMesh()
-	{
-		quadMesh = new Mesh();
+		public void UpdateFixedStars(EarthOrbit earth, bool geocentric)
+		{
+			if (Application.isPlaying)//
+			{
+				starMaterial.SetFloat("size", size);
+				starMaterial.SetFloat("brightnessMultiplier", brightnessMultiplier);
+				Matrix4x4 rotMatrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Vector3.one);
+				// Earth remains stationary and without rotation, so rotate the stars instead
+				if (geocentric)
+				{
+					rotMatrix = Matrix4x4.Rotate(Quaternion.Inverse(earth.earthRot));
+				}
 
-		Vector3[] vertices = {
+				starMaterial.SetMatrix("rotationMatrix", rotMatrix);
+
+
+				//bounds.center = cam.transform.position;
+				//Graphics.DrawMeshInstancedIndirect(quadMesh, 0, starMaterial, bounds, argsBuffer, castShadows: ShadowCastingMode.Off, receiveShadows: false);
+				//Graphics.DrawMeshInstanced(quadMesh, 0, starInstanceShader,)//
+			}
+		}
+
+
+		void CreateQuadMesh()
+		{
+			quadMesh = new Mesh();
+
+			Vector3[] vertices = {
 			new Vector3(-1,-1), // bottom left
 			new Vector3(1,-1), // bottom right
 			new Vector3(1,1), // top left
 			new Vector3(-1, 1) // top right
 		};
 
-		int[] triangles = { 0, 2, 1, 0, 3, 2 };
+			int[] triangles = { 0, 2, 1, 0, 3, 2 };
 
-		quadMesh.SetVertices(vertices);
-		quadMesh.SetTriangles(triangles, 0, true);
-	}
+			quadMesh.SetVertices(vertices);
+			quadMesh.SetTriangles(triangles, 0, true);
+		}
 
-	void OnDestroy()
-	{
-		ComputeHelper.Release(argsBuffer, starDataBuffer);
-		atmosphereEffect.onSettingsUpdated -= SetSkyTexture;
+		void OnDestroy()
+		{
+			ComputeHelper.Release(argsBuffer, starDataBuffer);
+		}
+
+		void EditorOnlyInit()
+		{
+#if UNITY_EDITOR
+			EditorShaderHelper.onRebindRequired += () => SetBuffer();
+#endif
+		}//
 	}
 }

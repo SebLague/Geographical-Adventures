@@ -1,0 +1,66 @@
+#pragma kernel CSMain
+#include "Assets/Scripts/Shader Common/GeoMath.hlsl"
+
+Texture2D<float4> HeightMap;
+SamplerState height_linear_repeat_sampler;
+
+StructuredBuffer<float3> Vertices;
+RWStructuredBuffer<float3> Normals;
+uint numVerts;
+float worldRadius;
+float heightMultiplier;
+float stepSize;
+
+float getWorldHeight(float3 spherePos) {
+	float2 uv = pointToUV(spherePos);
+	float height = HeightMap.SampleLevel(height_linear_repeat_sampler, uv, 0).r;
+	return (worldRadius + height * heightMultiplier);
+}
+
+float3 getWorldPos(float2 uv) {//
+	float height = HeightMap.SampleLevel(height_linear_repeat_sampler, uv, 0).r;
+	float3 pointOnSphere = uvToPointOnSphere(uv);
+	return pointOnSphere * (worldRadius + height * heightMultiplier);
+}
+
+float3 calculateNormal(float3 spherePos) {
+	float3 axisA = getOrthogonal(spherePos);
+	float3 axisB = normalize(cross(axisA, spherePos));
+
+	float3 triNormalSum = 0;
+
+	int numTris = 8;
+	float angleStepSize = (PI * 2) / numTris;
+
+	for (int i = 0; i < numTris; i ++) {
+		float angle = angleStepSize * i;
+		float angleNext = angleStepSize * (i + 1);
+		float3 posA = spherePos + (axisA * sin(angle) + axisB * cos(angle)) * stepSize;
+		float3 posB = spherePos + (axisA * sin(angleNext) + axisB * cos(angleNext)) * stepSize;
+		posA = normalize(posA);
+		posB = normalize(posB);
+
+		posA *= getWorldHeight(posA);
+		posB *= getWorldHeight(posB);
+		float3 posC = spherePos * getWorldHeight(spherePos);
+
+		float3 ab = normalize(posA - posB);
+		float3 ac = normalize(posA - posC);
+		float3 triNormal = normalize(cross(ab, ac));
+		triNormal *= sign(dot(triNormal, spherePos));
+		triNormalSum += triNormal;
+	}
+
+	return normalize(triNormalSum);
+}
+
+[numthreads(64,1,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= numVerts) { return; }
+
+	float3 spherePos = normalize(Vertices[id.x]);
+	float3 normal = calculateNormal(spherePos);
+
+	Normals[id.x] = normal;
+}

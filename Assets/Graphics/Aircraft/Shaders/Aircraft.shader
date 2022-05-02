@@ -2,6 +2,7 @@ Shader "Unlit/Aircraft"
 {
 	Properties
 	{
+		_MainTex("Texture", 2D) = "white" {}
 		_Colour("Colour", Color) = (1,1,1,1)
 		_Specular("Specular", Float) = 0
 	}
@@ -17,6 +18,7 @@ Shader "Unlit/Aircraft"
 			#pragma fragment frag
 
 			#include "UnityCG.cginc"
+			//#include "UnityLightingCommon.cginc"
 
 			struct appdata
 			{
@@ -35,6 +37,7 @@ Shader "Unlit/Aircraft"
 
 			float4 _Colour;
 			float _Specular;
+			sampler2D _MainTex;
 
 			v2f vert (appdata v)
 			{
@@ -57,12 +60,14 @@ Shader "Unlit/Aircraft"
 			{
 				float3 worldNormal = normalize(i.worldNormal);
 				//return worldNormal.rgbb;
-				float3 viewDir = normalize(i.worldPos - _WorldSpaceLightPos0.xyz);
+				float3 viewDir = normalize(i.worldPos - _WorldSpaceCameraPos.xyz);
 				float3 dirToSun = _WorldSpaceLightPos0.xyz;
 				float specularHighlight = calculateSpecular(worldNormal, viewDir, dirToSun, _Specular);
 				float shading = saturate(saturate(dot(worldNormal, dirToSun)) + 0.25);
 				shading = pow(shading, 0.8) * 1.25;
-				return float4(_Colour.rgb * shading + specularHighlight, 1);
+
+				float4 col = tex2D(_MainTex, i.uv) * _Colour * shading + specularHighlight;
+				return col;
 			}
 			ENDCG
 		}

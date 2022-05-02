@@ -5,8 +5,12 @@ Shader "Instanced/Star" {
 	SubShader {
 
 		ZWrite Off
+		ZTest Off
+		Cull Off // Without culling off was having a strange issue where stars would *sometimes* not be rendered. Would love to know why...
 
-		Tags { "Queue"="Geometry+1" }
+		Tags { "Queue"="Background" }
+		//Blend OneMinusDstColor One // Soft additive blend
+		Blend One One
 
 		Pass {
 
@@ -21,66 +25,65 @@ Shader "Instanced/Star" {
 			struct Star {
 				float3 dir;
 				float brightnessT;
+				float4 colour;
 			};
 
 			StructuredBuffer<Star> StarData;
 			float3 testParams;
 			float size;
-			float4 centre;
 			//float3 dirToSun;
 			float brightnessMultiplier;
 			float4x4 rotationMatrix;
-			sampler2D Sky;
 
 			struct v2f
 			{
 				float4 pos : SV_POSITION;
 				float2 offset : TEXCOORD0;
 				float brightness : TEXCOORD1;
+				float4 colour : TEXCOORD2;
 			};
 
 			v2f vert (appdata_full v, uint instanceID : SV_InstanceID)
 			{
-				Star star = StarData[instanceID];
+				Star star = StarData[instanceID];//
 				float farClipPlane = _ProjectionParams.z;
 
-				float3 objectPos = mul(rotationMatrix, float4(star.dir * (farClipPlane-1), 1));
+				float3 starWorldDir = mul(rotationMatrix, float4(star.dir, 0));
 
+				float3 objectPos = starWorldDir * 10;
 
-				float4 p = mul(UNITY_MATRIX_VP, float4(centre + objectPos, 1.0f));
+				float4 p = mul(UNITY_MATRIX_VP, float4(_WorldSpaceCameraPos.xyz + objectPos, 1.0f));
 				float4 screenPos = ComputeScreenPos(p);
 				float2 uv = screenPos.xy / screenPos.w;
 				
-				p += float4(v.vertex.x / _ScreenParams.x, -v.vertex.y / _ScreenParams.y, 0, 0) * size;
+				float aspect = _ScreenParams.x / _ScreenParams.y;
+				p += float4(v.vertex.x, -v.vertex.y * aspect, 0, 0) * size * 0.001 * lerp(0.5,1.5, star.brightnessT);
 
-				// Fade out stars based on sky brightness
-				const int mipLevel = 3;
-				float4 skyLum = tex2Dlod(Sky, float4(uv, 0, mipLevel));
-				float skyBrightness = dot(skyLum.rgb, 1/3.0);
-				float dayT = smoothstep(0.05,0.2,skyBrightness);
-				//nightT = skyBrightness < 0.5;
-				//nightT = 1;
-				
-				//float nightT = saturate(saturate(dot(star.dir, -dirToSun) + 0.5) * 4);
-				//nightT = 1;
+				//float3 dirToSun = _WorldSpaceLightPos0;
+				//float dayModifier = saturate(1 - dot(dirToSun, starWorldDir));
+
 				v2f o;
 				o.offset = v.vertex.xy;
-				o.brightness = star.brightnessT * brightnessMultiplier * (1-saturate(dayT));
-				//o.uv = uv;
-				//o.brightness = star.brightnessT * nightT;
-				//o.brightness = dot(star.dir, dirToSun) > 0;
-				////o.pos = mul(UNITY_MATRIX_VP, float4(worldPosition, 1.0f));
+				o.brightness = lerp(0.2,1,saturate(star.brightnessT * 5));
 				o.pos = p;
+				o.colour = star.colour;
 				return o;
 			}
 
 			fixed4 frag (v2f i) : SV_Target
 			{
+				//return 1;//fh
 				//return i.uv.y;
 				//return i.brightness;
-				float brightness = (length(i.offset) < 1) * i.brightness;
+				float dstT = saturate(1-length(i.offset));
+				float falloff = min(1, dstT * 1.1);
+				falloff = falloff * falloff * falloff;
+
+				float3 col = saturate(falloff * lerp(1, i.colour, 1-falloff)) * i.brightness;
+
+				return float4(col, i.brightness);
 				//float4 starData = float4(brightness, 1000, 0, 0);
-				return brightness;
+
 			}
 
 			ENDCG

@@ -10,12 +10,13 @@ public class JumpFloodTest : MonoBehaviour
 	public ComputeShader compute;
 	[Header("Debug")]
 	public RenderTexture result;
+	public Material testMat;
 
 
 	void Awake()
 	{
 		var format = UnityEngine.Experimental.Rendering.GraphicsFormat.R32G32B32A32_SFloat;
-		ComputeHelper.CreateRenderTexture(ref result, mask.width, mask.height, FilterMode.Bilinear, format);
+		ComputeHelper.CreateRenderTexture(ref result, mask.width, mask.height, FilterMode.Bilinear, format, useMipMaps: true);
 
 		Graphics.Blit(mask, result);
 
@@ -29,8 +30,15 @@ public class JumpFloodTest : MonoBehaviour
 
 		Run();
 
-		if (display) {
-		display.material.mainTexture = result;
+		result.GenerateMips();
+
+		if (display)
+		{
+			display.material.mainTexture = result;
+		}
+		if (testMat)
+		{
+			testMat.SetTexture("Dst", result);
 		}
 	}
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Parachute : MonoBehaviour
 {
+	public AudioSource openAudio;
+
 	[Header("Geometry")]
 	public Vector2Int numPoints;
 	public int numPointsPerCircle;
@@ -206,6 +208,7 @@ public class Parachute : MonoBehaviour
 	public void Open()
 	{
 		IsOpen = true;
+		openAudio.Play();
 		anim.Play();
 	}
 

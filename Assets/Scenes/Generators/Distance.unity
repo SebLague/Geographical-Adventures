@@ -133,10 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 727075353}
   - component: {fileID: 727075352}
-  - component: {fileID: 727075354}
-  - component: {fileID: 727075355}
   m_Layer: 0
-  m_Name: Country Indices
+  m_Name: Distance Map Generator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,12 +149,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 727075351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5fec44320f93134184650270a4bea8e, type: 3}
+  m_Script: {fileID: 11500000, guid: a299dbc5983fff44c81475fbe0dda681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filterMode: 0
+  mask: {fileID: 2800000, guid: 8c3a130f2d6d9a142895bcb0aa966503, type: 3}
   display: {fileID: 2099516303}
-  textureWidth: 16384
+  compute: {fileID: 7200000, guid: 802c67ebdc836054aaca0e1c5b3b3568, type: 3}
+  result: {fileID: 0}
+  testMat: {fileID: 0}
 --- !u!4 &727075353
 Transform:
   m_ObjectHideFlags: 0
@@ -171,32 +171,69 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &727075354
+--- !u!1 &1534612776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1534612778}
+  - component: {fileID: 1534612777}
+  - component: {fileID: 1534612779}
+  m_Layer: 0
+  m_Name: Display
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1534612777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727075351}
+  m_GameObject: {fileID: 1534612776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa682acf7c41884a83d323f80fae704, type: 3}
+  m_Script: {fileID: 11500000, guid: c87e7d8214be5f641a4c0bafc836e219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  compute: {fileID: 7200000, guid: 73e20470b50ac7d419d9518fc6c6c711, type: 3}
-  width: 8192
---- !u!114 &727075355
+  displayMode: 0
+  highlightLand: 0
+  dstMultiplier: 0.75
+  jumpFlood: {fileID: 727075352}
+  display: {fileID: 2099516303}
+--- !u!4 &1534612778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534612776}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2099516305}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1534612779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727075351}
+  m_GameObject: {fileID: 1534612776}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2f6a9b3d62d55b4fa7c5df16789c47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fileName: TileCapture
   display: {fileID: 2099516305}
 --- !u!1 &2099516301
 GameObject:
@@ -235,7 +272,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e998758f4b8c53a4ebb04dd9f558ac56, type: 2}
+  - {fileID: 2100000, guid: d3ec350426b8cb748aba9831879036cb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -272,12 +309,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099516301}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6.2831855, y: 3.1415927, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1534612778}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108598566
 GameObject:
@@ -361,52 +398,4 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2109044227
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2109044229}
-  - component: {fileID: 2109044228}
-  m_Layer: 0
-  m_Name: Country Loader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2109044228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109044227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c635882d881144fb0c3b7871494871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoRunOnAwake: 1
-  countryFile: {fileID: 4900000, guid: 663e585d2c2099a41886f9227128cfce, type: 3}
-  cityFile: {fileID: 4900000, guid: ad350dee819aaab42981bde375f8176e, type: 3}
-  extraInfoFile: {fileID: 0}
-  countries: []
---- !u!4 &2109044229
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109044227}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

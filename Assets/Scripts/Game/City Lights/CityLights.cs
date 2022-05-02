@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Seb.Meshing;
 
 public class CityLights : MonoBehaviour
 {
@@ -17,18 +18,22 @@ public class CityLights : MonoBehaviour
 	public int meshRes;
 	public Shader instanceShader;
 
+	public Color colourDim;
+	public Color colourBright;
+	public float brightnessMultiplier = 1;
 	public float sizeMin;
 	public float sizeMax = 1;
 	public float turnOnTimeVariation;
 	public float turnOnTime;
-	public Color colourDim;
-	public Color colourBright;
+
 
 	public int[] precalculatedBufferSizes;
 
 	[Header("Debug")]
-	[SerializeField] Mesh mesh;
+
 	public bool calculateBufferSize;
+	public bool drawBoundingBoxes;
+	[SerializeField, Disabled] Mesh mesh;
 
 	CityLightRenderer[] renderers;
 	Camera cam;
@@ -36,12 +41,14 @@ public class CityLights : MonoBehaviour
 	bool initialized;
 
 
-	public void Init(RenderTexture heightMap, Bounds[] allBounds, Light sunLight)
+	public void Init(RenderTexture heightMap, Light sunLight)
 	{
 		if (enableCityLights)
 		{
-			IcoSphere sphere = new IcoSphere(meshRes);
-			mesh = sphere.GetMesh(radius: 0.5f);
+
+			var allBounds = CreateBoundingBoxes();
+
+			mesh = IcoSphere.Generate(meshRes, 0.5f).ToMesh();
 			this.sunLight = sunLight.transform;
 			cam = Camera.main;
 			ComputeHelper.CreateStructuredBuffer<CityLight>(ref allLights, numInstances);
@@ -57,7 +64,7 @@ public class CityLights : MonoBehaviour
 
 			// Partition
 			compute.SetBuffer(1, "CityLights", allLights);
-			renderers = new CityLightRenderer[allBounds.Length];
+			var rendererList = new List<CityLightRenderer>();
 
 			if (precalculatedBufferSizes.Length != allBounds.Length)
 			{
@@ -67,15 +74,21 @@ public class CityLights : MonoBehaviour
 
 			for (int i = 0; i < allBounds.Length; i++)
 			{
-				var cityLightRenderer = new CityLightRenderer(mesh, allBounds[i], instanceShader, precalculatedBufferSizes[i]);
+				int bufferCapacity = (calculateBufferSize) ? numInstances : precalculatedBufferSizes[i];
+				if (bufferCapacity == 0)
+				{
+					continue;
+				}
+				var cityLightRenderer = new CityLightRenderer(mesh, allBounds[i], instanceShader, bufferCapacity);
 				AssignConstantShaderData(cityLightRenderer);
-				renderers[i] = cityLightRenderer;
+				rendererList.Add(cityLightRenderer);
+				//renderers[i] = cityLightRenderer;
 
 				compute.SetBuffer(1, "PartitionedLights", cityLightRenderer.lightBuffer);
 				compute.SetVector("boundsCentre", cityLightRenderer.bounds.center);
 				compute.SetVector("boundsSize", cityLightRenderer.bounds.size);
 				ComputeHelper.Dispatch(compute, numInstances, kernelIndex: 1);
-				renderers[i].Init();
+				cityLightRenderer.Init();
 
 				// Very hacky... (todo: figure out better solution)
 				// Run game once with calculateBufferSize set to true. This will populate precalculated with actual number of items in append buffers.
@@ -95,10 +108,25 @@ public class CityLights : MonoBehaviour
 			}
 
 			ComputeHelper.Release(allLights);
+			renderers = rendererList.ToArray();
 		}
+
 		initialized = true;
 	}
 
+	Bounds[] CreateBoundingBoxes()
+	{
+		SimpleMeshData[] faces = CubeSphere.GenerateMeshes(resolution: 10, numSubdivisions: 3, radius: heightSettings.worldRadius);
+		Bounds[] allBounds = new Bounds[faces.Length];
+
+		for (int i = 0; i < faces.Length; i++)
+		{
+			Bounds3D bounds3D = new Bounds3D(faces[i].vertices);
+			allBounds[i] = new Bounds(bounds3D.Centre, bounds3D.Size + Vector3.one * heightSettings.heightMultiplier * 2.5f);
+		}
+
+		return allBounds;
+	}
 
 
 	void Update()
@@ -110,6 +138,19 @@ public class CityLights : MonoBehaviour
 
 		if (enableCityLights)
 		{
+
+			Vector3 dirToLight = -sunLight.forward;
+
+			for (int i = 0; i < renderers.Length; i++)
+			{
+				//if (AnyLightOnInBounds(renderers[i].bounds, dirToLight))
+				if (renderers[i].ShouldRender(dirToLight))
+				{
+					UpdateShaderProperties(renderers[i]);
+					renderers[i].Render(cam);
+				}
+			}
+			/*
 			foreach (var r in renderers)
 			{
 				if (AnyLightOnInBounds(r.bounds))
@@ -119,11 +160,13 @@ public class CityLights : MonoBehaviour
 					r.Render(cam);
 				}
 			}
+			*/
 		}
 	}
 
+
 	// Test if bounds falls inside region dark enough for city lights to display
-	bool AnyLightOnInBounds(Bounds bounds)
+	bool AnyLightOnInBounds(Bounds bounds, Vector3 dirToLight)
 	{
 		Vector3 h = bounds.extents;
 		// Check all corners
@@ -133,7 +176,7 @@ public class CityLights : MonoBehaviour
 			{
 				for (int x = -1; x <= 1; x += 2)
 				{
-					if (LightAtPointWouldBeOn(bounds.center + new Vector3(h.x * x, h.y * y, h.z * z)))
+					if (LightAtPointWouldBeOn(bounds.center + new Vector3(h.x * x, h.y * y, h.z * z), dirToLight))
 					{
 						return true;
 					}
@@ -144,17 +187,17 @@ public class CityLights : MonoBehaviour
 
 	}
 
-	bool LightAtPointWouldBeOn(Vector3 point)
+	bool LightAtPointWouldBeOn(Vector3 point, Vector3 dirToLight)
 	{
 		float threshold = turnOnTime + 0.5f * turnOnTimeVariation;
 		Vector3 dir = point.normalized;
-		return Vector3.Dot(dir, -sunLight.forward) < threshold;
+		return Vector3.Dot(dir, dirToLight) < threshold;
 	}
 
 	void UpdateShaderProperties(CityLightRenderer r)
 	{
-		r.material.SetVector("dirToSun", -sunLight.forward);
-		// These should be constant at runtime, but update in editor for tweaking / recompiling
+		r.material.SetVector(ShaderPropertyNames.dirToSunID, -sunLight.forward);
+		// These should be constant at runtime, but update in editor for easy tweaking / recompiling
 		if (Application.isEditor)
 		{
 			AssignConstantShaderData(r);
@@ -165,11 +208,17 @@ public class CityLights : MonoBehaviour
 	{
 		r.material.SetColor("colourDim", colourDim);
 		r.material.SetColor("colourBright", colourBright);
+		r.material.SetFloat("brightnessMultiplier", brightnessMultiplier);
 		r.material.SetFloat("sizeMin", sizeMin);
 		r.material.SetFloat("sizeMax", sizeMax);
 		r.material.SetFloat("turnOnTimeVariation", turnOnTimeVariation);
 		r.material.SetFloat("turnOnTime", turnOnTime);
 		r.material.SetBuffer("CityLights", r.lightBuffer);
+	}
+
+	static class ShaderPropertyNames
+	{
+		public static int dirToSunID = Shader.PropertyToID("dirToSun");
 	}
 
 	void OnDestroy()
@@ -179,6 +228,23 @@ public class CityLights : MonoBehaviour
 			foreach (var r in renderers)
 			{
 				r.Release();
+			}
+		}
+	}
+
+
+	void OnDrawGizmos()
+	{
+		if (drawBoundingBoxes && renderers != null)
+		{
+			Gizmos.color = Color.green;
+			foreach (var r in renderers)
+			{
+				if (r.ShouldRender(-sunLight.forward))
+				{
+					Gizmos.DrawWireCube(r.bounds.center, r.bounds.size);
+				}
+
 			}
 		}
 	}
@@ -223,8 +289,15 @@ public class CityLights : MonoBehaviour
 
 		public void Render(Camera cam)
 		{
-			Graphics.DrawMeshInstancedIndirect(mesh, 0, material, bounds, renderArgs, camera: cam, castShadows: UnityEngine.Rendering.ShadowCastingMode.Off, receiveShadows: false);
+			Graphics.DrawMeshInstancedIndirect(mesh, 0, material, bounds, renderArgs, camera: null, castShadows: UnityEngine.Rendering.ShadowCastingMode.Off, receiveShadows: false);
 		}
+
+		public bool ShouldRender(Vector3 dirToSun)
+		{
+			var p = bounds.ClosestPoint(bounds.center - dirToSun * 1000);
+			return Vector3.Dot(dirToSun, p.normalized) < 0.2f;
+		}
+
 
 	}
 }
