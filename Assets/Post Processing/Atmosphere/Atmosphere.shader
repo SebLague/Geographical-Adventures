@@ -55,11 +55,6 @@
 			}
 
 			float3 getAtmoCol(float2 uv, float3 originalCol, float viewLength, float3 viewDir) {
-				// Account for flipped y on some platforms (not quite sure where this needs to be used, will need to test...)
-				#if !UNITY_UV_STARTS_AT_TOP
-					uv = float2(uv.x, 1-uv.y);
-				#endif
-
 				float3 outputCol = originalCol;
 				float nonlin_depth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, uv);
 				float sceneDepth = LinearEyeDepth(nonlin_depth) * viewLength;
