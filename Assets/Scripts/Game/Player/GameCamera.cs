@@ -42,25 +42,10 @@ public class GameCamera : MonoBehaviour
 		InitView();
 	}
 
-	void Update()
-	{
-		if (GameController.CurrentState == GameState.Playing)
-		{
-
-			if (Input.GetKeyDown(KeyBindings.CameraView1))
-			{
-				activeView = ViewMode.TopDown;
-			}
-			else if (Input.GetKeyDown(KeyBindings.CameraView2))
-			{
-				activeView = ViewMode.LookingForward;
-			}
-			else if (Input.GetKeyDown(KeyBindings.CameraView3))
-			{
-				activeView = ViewMode.LookingBehind;
-			}
-		}
+	public void SetActiveView(ViewMode viewMode) {
+		activeView = viewMode;
 	}
+
 
 	public void InitView()
 	{

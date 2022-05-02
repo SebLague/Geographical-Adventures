@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
 	public GameObject[] hideInMapView;
 	public MapMenu map;
 	public Compass compass;
-	public CanvasGroup group;
+	public CanvasGroup hudGroup;
 
 	public float smoothT;
 	float smoothV;
@@ -20,29 +20,31 @@ public class UIManager : MonoBehaviour
 
 	void Awake()
 	{
-		group.alpha = 0;
+		hudGroup.alpha = 0;
 	}
 
 	void Update()
 	{
-		bool uiIsActive = GameController.IsState(GameState.Playing);
+		bool uiIsActive = GameController.IsAnyState(GameState.Playing, GameState.ViewingMap);
 
-		group.alpha = Mathf.SmoothDamp(group.alpha, uiIsActive ? 1 : 0, ref smoothV, smoothT);
+		hudGroup.alpha = Mathf.SmoothDamp(hudGroup.alpha, uiIsActive ? 1 : 0, ref smoothV, smoothT);
 
-		if (GameController.IsState(GameState.Playing))
+
+	}
+
+	public void ToggleMap()
+	{
+		if (GameController.IsAnyState(GameState.Playing, GameState.ViewingMap))
 		{
-			// Map
-			if (Input.GetKeyDown(KeyBindings.ToggleMap))
-			{
-				ToggleMapDisplay();
-			}
+			ToggleMapDisplay();
 		}
-		if (GameController.IsState(GameState.Playing) || GameController.IsState(GameState.Paused))
+	}
+
+	public void TogglePause()
+	{
+		if (GameController.IsAnyState(GameState.Playing, GameState.ViewingMap, GameState.Paused))
 		{
-			if (Input.GetKeyDown(KeyBindings.TogglePause) || Input.GetKeyDown(KeyBindings.Escape))
-			{
-				pauseMenu.TogglePauseMenu();
-			}
+			pauseMenu.TogglePauseMenu();
 		}
 	}
 
@@ -50,6 +52,14 @@ public class UIManager : MonoBehaviour
 	public void ToggleMapDisplay()
 	{
 		bool showMap = map.ToggleActive(player);
+		if (showMap)
+		{
+			GameController.SetState(GameState.ViewingMap);
+		}
+		else
+		{
+			GameController.SetState(GameState.Playing);
+		}
 
 		Seb.Helpers.GameObjectHelper.SetActiveAll(!showMap, hideInMapView);
 	}

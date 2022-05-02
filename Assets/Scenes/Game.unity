@@ -2695,7 +2695,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 499061921}
-  - component: {fileID: 499061922}
   - component: {fileID: 499061923}
   m_Layer: 0
   m_Name: HUD
@@ -2721,33 +2720,6 @@ Transform:
   m_Father: {fileID: 646157243}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &499061922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 499061920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd50816e2f221249be32a44d19a93b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 176729592}
-  game: {fileID: 1712829205}
-  pauseMenu: {fileID: 1404288726}
-  gameUI: {fileID: 872144310}
-  hideInMapView:
-  - {fileID: 1736806056}
-  - {fileID: 1526833569}
-  - {fileID: 215110894}
-  - {fileID: 1735868799}
-  - {fileID: 176729591}
-  - {fileID: 1948587243}
-  map: {fileID: 971706427}
-  compass: {fileID: 840011179}
-  group: {fileID: 499061923}
-  smoothT: 0.2
 --- !u!225 &499061923
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2760,7 +2732,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!43 &507308549
+--- !u!43 &505960810
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4916,6 +4888,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 646157243}
+  - component: {fileID: 646157244}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -4941,6 +4914,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &646157244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646157242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd50816e2f221249be32a44d19a93b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 176729592}
+  game: {fileID: 1712829205}
+  pauseMenu: {fileID: 1404288726}
+  gameUI: {fileID: 872144310}
+  hideInMapView:
+  - {fileID: 1736806056}
+  - {fileID: 1526833569}
+  - {fileID: 215110894}
+  - {fileID: 1735868799}
+  - {fileID: 176729591}
+  - {fileID: 1948587243}
+  map: {fileID: 971706427}
+  compass: {fileID: 840011179}
+  hudGroup: {fileID: 499061923}
+  smoothT: 0.2
 --- !u!222 &657276712
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11161,7 +11161,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389253764}
-  m_Mesh: {fileID: 507308549}
+  m_Mesh: {fileID: 505960810}
 --- !u!1 &1404288725
 GameObject:
   m_ObjectHideFlags: 0
@@ -11698,6 +11698,54 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1c0847150ca316f4584868d02bd49c82, type: 3}
   source: {fileID: 963826806}
   shuffleTracksOnStart: 0
+--- !u!1 &1466841032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1466841034}
+  - component: {fileID: 1466841033}
+  m_Layer: 0
+  m_Name: Input Handler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1466841033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466841032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad889cdaa5640843b63c6edb390c171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 176729592}
+  questSystem: {fileID: 1906545110}
+  gameCamera: {fileID: 1735868801}
+  uIManager: {fileID: 646157244}
+--- !u!4 &1466841034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466841032}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1482689732
 GameObject:
   m_ObjectHideFlags: 0
@@ -14216,10 +14264,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb1a12ae37f6c54c9e2c9371284138a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGameState: 0
+  startupState: 0
   allowDevModeToggleInBuild: 0
   mainMenu: {fileID: 2090125109}
   statsMenu: {fileID: 1156096073}
+  debug_currentState: 0
 --- !u!1 &1735868799
 GameObject:
   m_ObjectHideFlags: 0
@@ -16555,7 +16604,7 @@ GameObject:
   - component: {fileID: 1906545110}
   - component: {fileID: 1906545109}
   m_Layer: 0
-  m_Name: Quest Manager
+  m_Name: Quest System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16606,6 +16655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8204d965be342ae4080ac98ba5836ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timedModeDuration: 900
   useStartSettings: 1
   cycleThroughStartSettings: 1
   startSettingsIndex: 0

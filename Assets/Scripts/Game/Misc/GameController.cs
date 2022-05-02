@@ -7,6 +7,7 @@ public enum GameState
 {
 	InMainMenu,
 	Playing,
+	ViewingMap,
 	Paused,
 	GameOver
 }
@@ -16,22 +17,34 @@ public class GameController : MonoBehaviour
 	public event System.Action onGameStarted;
 
 	// Inspector variables
-	[SerializeField] GameState currentGameState;
+	[SerializeField] GameState startupState;
 	[SerializeField] bool allowDevModeToggleInBuild;
 	[SerializeField] MainMenu mainMenu;
 	[SerializeField] Menu statsMenu;
+
+	[Header("Debug")]
+	[SerializeField] GameState debug_currentState;
+
+	Stack<GameState> stateStack;
 
 	// Internal variables
 	static GameController _instance;
 	bool devModeEnabledInBuild;
 
+
+	void Awake()
+	{
+		stateStack = new Stack<GameState>();
+		stateStack.Push(startupState);
+	}
+
 	void Start()
 	{
-		if (currentGameState == GameState.InMainMenu)
+		if (IsState(GameState.InMainMenu))
 		{
 			mainMenu.OpenMenu();
 		}
-		else if (currentGameState == GameState.Playing)
+		else if (IsState(GameState.Playing))
 		{
 			StartGame();
 		}
@@ -44,6 +57,8 @@ public class GameController : MonoBehaviour
 			devModeEnabledInBuild = !devModeEnabledInBuild;
 		}
 
+		debug_currentState = stateStack.Peek();
+
 	}
 
 	public static void GameOver()
@@ -51,7 +66,7 @@ public class GameController : MonoBehaviour
 		if (!IsState(GameState.GameOver))
 		{
 			Time.timeScale = 0;
-			Instance.currentGameState = GameState.GameOver;
+			SetState(GameState.GameOver);
 			Instance.statsMenu.OpenMenu();
 		}
 	}
@@ -59,19 +74,39 @@ public class GameController : MonoBehaviour
 	public static void SwitchToEndlessMode()
 	{
 		Time.timeScale = 1;
-		Instance.currentGameState = GameState.Playing;
+		ReturnToPreviousState();
 	}
 
 	public static void SetPauseState(bool paused)
 	{
-		if (CurrentState == GameState.Playing || CurrentState == GameState.Paused)
+		if (IsAnyState(GameState.Playing, GameState.ViewingMap, GameState.Paused))
 		{
 			Time.timeScale = (paused) ? 0 : 1;
-			Instance.currentGameState = (paused) ? GameState.Paused : GameState.Playing;
+			if (paused)
+			{
+				SetState(GameState.Paused);
+			}
+			else
+			{
+				ReturnToPreviousState();
+			}
 		}
 		else
 		{
 			Debug.Log($"Cannot set pause state when current game state = {CurrentState}");
+		}
+	}
+
+	static void ReturnToPreviousState()
+	{
+		if (Instance.stateStack.Count > 0)
+		{
+			Instance.stateStack.Pop();
+		}
+		else
+		{
+			Debug.Log("No previous state to return to... Something went wrong.");
+			SetState(GameState.InMainMenu);
 		}
 	}
 
@@ -83,8 +118,16 @@ public class GameController : MonoBehaviour
 
 	public static void StartGame()
 	{
-		Instance.currentGameState = GameState.Playing;
+		SetState(GameState.Playing);
 		Instance.onGameStarted?.Invoke();
+	}
+
+	public static void SetState(GameState newState)
+	{
+		if (newState != CurrentState)
+		{
+			Instance.stateStack.Push(newState);
+		}
 	}
 
 	public static void ExitToMainMenu()
@@ -121,13 +164,25 @@ public class GameController : MonoBehaviour
 	{
 		get
 		{
-			return Instance.currentGameState;
+			return Instance.stateStack.Peek();
 		}
 	}
 
 	public static bool IsState(GameState state)
 	{
 		return CurrentState == state;
+	}
+
+	public static bool IsAnyState(params GameState[] states)
+	{
+		foreach (var state in states)
+		{
+			if (CurrentState == state)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public static GameController Instance
@@ -141,6 +196,7 @@ public class GameController : MonoBehaviour
 			return _instance;
 		}
 	}
+
 
 	static void ExitPlayMode()
 	{

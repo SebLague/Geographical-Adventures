@@ -6,7 +6,7 @@ namespace GeoGame.Quest
 {
 	public class QuestSystem : MonoBehaviour
 	{
-		public const float timedModeDuration = 15 * 60;
+		public float timedModeDurationSeconds = 15 * 60;
 
 		public const int numActiveQuests = 3;
 		public const float perfectRadius = 75;
@@ -99,7 +99,7 @@ namespace GeoGame.Quest
 		void Update()
 		{
 
-			if (GameController.IsState(GameState.Playing))
+			if (GameController.IsAnyState(GameState.Playing, GameState.ViewingMap))
 			{
 				timeSinceGameStart += Time.deltaTime;
 				if (!inEndlessMode)
@@ -109,7 +109,7 @@ namespace GeoGame.Quest
 						GameOver();
 					}
 				}
-				HandleInput();
+				HandleDebugInput();
 			}
 		}
 
@@ -161,12 +161,9 @@ namespace GeoGame.Quest
 			}
 		}
 
-		void HandleInput()
+		void HandleDebugInput()
 		{
-			if (Input.GetKeyDown(KeyBindings.dropPackageKey))
-			{
-				DropPackage();
-			}
+
 			// Debug
 			if (GameController.InDevMode)
 			{
@@ -185,42 +182,45 @@ namespace GeoGame.Quest
 			}
 		}
 
-		void DropPackage()
+		public void TryDropPackage()
 		{
-			if (displayingDeliveryResults)
+			if (GameController.IsState(GameState.Playing))
 			{
-				return;
-			}
-
-			// Choose nearest delivery target to player's current position
-			int activeDeliverQuestIndex = -1;
-			float bestDst = float.MaxValue;
-			for (int i = 0; i < activeQuests.Length; i++)
-			{
-				if (activeQuests[i].hasPickedUp && !activeQuests[i].completed)
+				if (displayingDeliveryResults)
 				{
-					Vector3 cityPosUnitSphere = GeoMaths.CoordinateToPoint(activeQuests[i].deliverLocation.city.coordinate);
-					float dst = GeoMaths.DistanceBetweenPointsOnUnitSphere(player.transform.position.normalized, cityPosUnitSphere);
-					if (dst < bestDst)
+					return;
+				}
+
+				// Choose nearest delivery target to player's current position
+				int activeDeliverQuestIndex = -1;
+				float bestDst = float.MaxValue;
+				for (int i = 0; i < activeQuests.Length; i++)
+				{
+					if (activeQuests[i].hasPickedUp && !activeQuests[i].completed)
 					{
-						bestDst = dst;
-						activeDeliverQuestIndex = i;
+						Vector3 cityPosUnitSphere = GeoMaths.CoordinateToPoint(activeQuests[i].deliverLocation.city.coordinate);
+						float dst = GeoMaths.DistanceBetweenPointsOnUnitSphere(player.transform.position.normalized, cityPosUnitSphere);
+						if (dst < bestDst)
+						{
+							bestDst = dst;
+							activeDeliverQuestIndex = i;
+						}
 					}
 				}
-			}
 
-			// Drop package
-			if (activeDeliverQuestIndex >= 0)
-			{
-				Package package = player.DropPackage();
-				StartCoroutine(HandleDelivery(package, activeDeliverQuestIndex));
-			}
-			else
-			{
-				string message = "You don't have any packages to deliver!";
-				//message = $"The package will land in Denmark instead of France, but it was still pretty close. Only 3000 kilometers off target.\nSome more text";
-				messageUI.ShowMessage(message, 1);
-				Debug.Log("You don't have any packages to deliver!");
+				// Drop package
+				if (activeDeliverQuestIndex >= 0)
+				{
+					Package package = player.DropPackage();
+					StartCoroutine(HandleDelivery(package, activeDeliverQuestIndex));
+				}
+				else
+				{
+					string message = "You don't have any packages to deliver!";
+					//message = $"The package will land in Denmark instead of France, but it was still pretty close. Only 3000 kilometers off target.\nSome more text";
+					messageUI.ShowMessage(message, 1);
+					Debug.Log("You don't have any packages to deliver!");
+				}
 			}
 		}
 
@@ -430,7 +430,7 @@ namespace GeoGame.Quest
 				{
 					return float.PositiveInfinity;
 				}
-				return Mathf.Max(0, timedModeDuration - TimeSinceGameStart);
+				return Mathf.Max(0, timedModeDurationSeconds - TimeSinceGameStart);
 
 			}
 		}

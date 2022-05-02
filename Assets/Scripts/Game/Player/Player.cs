@@ -135,46 +135,22 @@ public class Player : MonoBehaviour
 
 	}
 
-	void HandleInput()
+	public void UpdateMovementInput(Vector2 moveInput, float accelerateDir, bool boosting)
 	{
-		turnInput = 0;
-		if (Input.GetKey(KeyBindings.turnLeftKey))
-		{
-			turnInput -= 1;
-		}
-		if (Input.GetKey(KeyBindings.turnRightKey))
-		{
-			turnInput += 1;
-		}
+		// Turning
+		turnInput = moveInput.x;
+		pitchInput = moveInput.y;
 
-		//turnInput = Input.GetAxisRaw("Horizontal");
-
-		pitchInput = 0;
-		if (Input.GetKey(KeyBindings.pitchUpKey))
-		{
-			pitchInput += 1;
-		}
-		if (Input.GetKey(KeyBindings.pitchDownKey))
-		{
-			pitchInput -= 1;
-		}
-
-
-		float accelerateDir = 0;
-		if (Input.GetKey(KeyBindings.accelerateKey))
-		{
-			accelerateDir += 1;
-		}
-		if (Input.GetKey(KeyBindings.decelerateKey))
-		{
-			accelerateDir -= 1;
-		}
+		// Speed
 		baseTargetSpeed += (maxSpeed - minSpeed) / accelerateDuration * accelerateDir * Time.deltaTime;
 		baseTargetSpeed = Mathf.Clamp(baseTargetSpeed, minSpeed, maxSpeed);
 
-		// Boost
-		boosting = Input.GetKey(KeyBindings.boostkey) && boostTimeRemaining > 0;
+		this.boosting = boosting && boostTimeRemaining > 0;
+	}
 
+
+	void HandleInput()
+	{
 		HandleDebugInput();
 	}
 
