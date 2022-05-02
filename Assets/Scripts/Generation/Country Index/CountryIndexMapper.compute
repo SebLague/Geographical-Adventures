@@ -1,0 +1,68 @@
+#pragma kernel FillCountries
+
+struct PolygonMetaData
+{
+	int countryIndex;
+	float2 boundsMin;
+	float2 boundsMax;
+	int bufferOffset;
+	int length;
+};
+
+
+RWTexture2D<float> CountryData;
+StructuredBuffer<PolygonMetaData> Meta;
+StructuredBuffer<float2> Points;
+
+uint width;
+uint height;
+int numPoints;
+int numMeta;
+int numCountries;
+
+
+bool isLeft(float2 a, float2 b, float2 p) {
+	return (b.x - a.x) * (p.y - a.y) - (p.x - a.x) * (b.y - a.y) > 0;
+}
+
+// Thanks to Dan Sunday
+bool pointInPolygon(float2 p, int polygonStartIndex, int numPointsInPolygon) {
+	int windingNumber = 0;
+	for (int i = polygonStartIndex; i < polygonStartIndex + numPointsInPolygon - 1; i ++) {
+		
+		float2 a = Points[i];
+		float2 b = Points[i + 1];
+
+		if (a.y <= p.y) {
+			if (b.y > p.y && isLeft(a, b, p)) {
+				windingNumber ++;
+			}
+		}
+		else if (b.y <= p.y && !isLeft(a, b, p)) {
+			windingNumber --;
+		}
+	}
+
+	return windingNumber != 0;
+}
+
+[numthreads(8,8,1)]
+void FillCountries (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= width || id.y >= height) { return; } 
+
+	float2 uv = float2(id.x / (width-1.0), id.y / (height-1.0));
+	float2 p = float2((uv.x - 0.5) * 360, (uv.y - 0.5) * 180);
+
+	for (int i = 0; i < numMeta; i ++) {
+		PolygonMetaData meta = Meta[i];
+
+		// Inside country bounds
+		if (p.x > meta.boundsMin.x && p.x < meta.boundsMax.x && p.y > meta.boundsMin.y && p.y < meta.boundsMax.y) {
+			if (pointInPolygon(p, meta.bufferOffset, meta.length)) {
+				CountryData[id.xy] = (meta.countryIndex + 1)/255.0;
+				return;
+			}
+		}
+	}
+}

@@ -7,7 +7,6 @@ public class CountryLoader : MonoBehaviour
 	public bool autoRunOnAwake = true;
 	public TextAsset countryFile;
 	public TextAsset cityFile;
-	public TextAsset extraInfoFile;
 	public TextAsset capitalsFile;
 
 	[SerializeField] Country[] countries;
