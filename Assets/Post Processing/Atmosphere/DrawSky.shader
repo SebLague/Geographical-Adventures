@@ -84,7 +84,12 @@ Shader "Hidden/DrawSky"
 				float3 viewDir = normalize(i.viewVector);
 				float3 dirToSun = _WorldSpaceLightPos0;
 
+// Account for flipped y on some platforms
+#if UNITY_UV_STARTS_AT_TOP
 				float3 skyLum = tex2D(Sky, i.uv).rgb;
+#else
+				float3 skyLum = tex2D(Sky, float2(i.uv.x, 1-i.uv.y)).rgb;
+#endif
 				float3 sunDisc = sunDiscWithBloom(viewDir, dirToSun);
 				float3 transmittance = sampleSunTransmittanceLUT(_WorldSpaceCameraPos, viewDir);
 				skyLum += sunDisc * transmittance;
