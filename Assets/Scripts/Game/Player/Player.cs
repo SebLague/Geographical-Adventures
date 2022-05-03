@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
 	[Header("Graphics")]
 	public Transform model;
 	public Transform[] navigationLights;
-	public Transform trailHolder;
 	public Transform[] ailerons;
 	public float aileronAngle = 20;
 	public Transform propeller;
@@ -98,8 +97,6 @@ public class Player : MonoBehaviour
 
 	void Awake()
 	{
-		trailHolder.gameObject.SetActive(false);
-
 		gameCamera = FindObjectOfType<GameCamera>();
 
 		worldRadius = heightSettings.worldRadius;
@@ -113,12 +110,6 @@ public class Player : MonoBehaviour
 		positionHistory = new Queue<Vector3>(maxHistorySize);
 		boostTimeRemaining = boostTimeAtStart;
 	}
-
-	void Start()
-	{
-		trailHolder.gameObject.SetActive(true);
-	}
-
 
 	void Update()
 	{
