@@ -24,7 +24,7 @@ public class LoadingManager : MonoBehaviour
 	public GameObject placeholder;
 	public GlobeMapLoader globeMapLoader;
 
-	public MeshLoader terrainLoader;
+	public LodMeshLoader terrainLoader;
 	public MeshLoader oceanLoader;
 	public MeshLoader countryOutlineLoader;
 

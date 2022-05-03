@@ -14,8 +14,9 @@ namespace TerrainGeneration
 		public float normalsStepSize;
 		public float minHeight;
 
-		public int maxResolution;
 		public int minResolution;
+		public int maxResolution;
+
 		[Disabled] public int numSpherePointsMax;
 		[Disabled] public int numSpherePointsMin;
 
@@ -412,7 +413,10 @@ namespace TerrainGeneration
 
 		public override void Load()
 		{
-			MeshLoader.Load(loadFile, testMat, transform, useStaticBatching: false);
+			var info = MeshLoader.Load(loadFile, testMat, transform, useStaticBatching: false);
+			totalVertexCount = info.vertexCount;
+			numMeshesAfterCombining = info.numMeshes;
+			numMeshesBeforeCombining = info.numMeshes;
 		}
 
 

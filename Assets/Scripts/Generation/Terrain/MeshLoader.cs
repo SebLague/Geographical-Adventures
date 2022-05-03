@@ -12,6 +12,7 @@ namespace TerrainGeneration
 		public Material mat;
 		public bool useStaticBatching;
 		public bool loadOnStart;
+		public bool disableLoading;
 
 		void Start()
 		{
@@ -23,11 +24,15 @@ namespace TerrainGeneration
 
 		public LoadInfo Load()
 		{
+			if (disableLoading) {
+				return default;
+			}
 			return Load(loadFile, mat, transform, useStaticBatching, gameObject.layer);
 		}
 
 		public static LoadInfo Load(TextAsset loadFile, Material material, Transform parent, bool useStaticBatching, int layer = 0)
 		{
+			
 			var sw = System.Diagnostics.Stopwatch.StartNew();
 			LoadInfo info = new LoadInfo();
 

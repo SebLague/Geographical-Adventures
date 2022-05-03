@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 424993129}
   - component: {fileID: 424993128}
   m_Layer: 0
-  m_Name: Terrain Creator
+  m_Name: Terrain Creator (High Res)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -365,8 +365,8 @@ MonoBehaviour:
   errorThreshold: 0.025
   normalsStepSize: 0.0018
   minHeight: 0.05
-  maxResolution: 1000
   minResolution: 250
+  maxResolution: 1000
   numSpherePointsMax: 4008006
   numSpherePointsMin: 252006
   meshCombineMode: 2
@@ -433,9 +433,9 @@ MonoBehaviour:
   startupMode: 0
   radius: 0.05
   resolution: 1
-  outlineDataFile: {fileID: 4900000, guid: 5eef97a5224f5854982ee94ddba7800b, type: 3}
+  outlineDataFile: {fileID: 4900000, guid: 6633901c9de139a45af21481740d2433, type: 3}
   outlineMat: {fileID: 2100000, guid: e430fdfe120be8e43953db000142a2ab, type: 2}
-  saveFileName: Outline Meshes New
+  saveFileName: Outlines (low res)
   loadFile: {fileID: 4900000, guid: 5061ce50176828442a54c8b2a63d6709, type: 3}
   combine: 1
   process: 1
@@ -452,7 +452,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &616978133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 616978134}
+  m_Layer: 0
+  m_Name: Mesh Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &616978134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616978133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1124221624}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &826147400
 GameObject:
@@ -486,7 +517,77 @@ Transform:
   - {fileID: 1778711279}
   - {fileID: 172569775}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1124221622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1124221624}
+  - component: {fileID: 1124221623}
+  m_Layer: 0
+  m_Name: Terrain Creator (Low Res)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1124221623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124221622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2908866f2e5d1304cbae5a34389f44de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startupMode: 0
+  stepSize: 0.001
+  errorThreshold: 0.04
+  normalsStepSize: 0.0018
+  minHeight: 0.05
+  minResolution: 100
+  maxResolution: 250
+  numSpherePointsMax: 252006
+  numSpherePointsMin: 40806
+  meshCombineMode: 2
+  countryData: {fileID: 11400000, guid: 1bd34af60df8cb04197d7f07dc9ddf72, type: 2}
+  vertexCompute: {fileID: 7200000, guid: a8b469a79e147084aab929978c7d6ecc, type: 3}
+  meshNormalsCompute: {fileID: 7200000, guid: 202973355476fb84687180c65f0adbfd, type: 3}
+  testMat: {fileID: 2100000, guid: ad7c91f80fa28f249a238e0ed8bcbab3, type: 2}
+  polygonProcessor: {fileID: 1778711278}
+  coastline: {fileID: 2125986101}
+  heightSettings: {fileID: 11400000, guid: 159ce22bf92aee440ad10625d3e3a8e9, type: 2}
+  meshHolder: {fileID: 297394152}
+  meshSaveFileName: Terrain Mesh
+  outlinesSaveFileName: Outline Paths
+  loadFile: {fileID: 4900000, guid: ded9fb0424a7b954fa8949ba376b8df2, type: 3}
+  heightProcessor: {fileID: 172569774}
+  totalVertexCount: 0
+  numMeshesBeforeCombining: 0
+  numMeshesAfterCombining: 0
+--- !u!4 &1124221624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124221622}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 616978134}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1200475165
 GameObject:
@@ -584,7 +685,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1746966216
 GameObject:
@@ -761,7 +862,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1907546932
 MonoBehaviour:
@@ -777,7 +878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startupMode: 0
   numCubeSubdivisions: 4
-  resolution: 30
+  resolution: 15
   useCoastPoints: 1
   heightSettings: {fileID: 11400000, guid: 159ce22bf92aee440ad10625d3e3a8e9, type: 2}
   oceanTileCompute: {fileID: 7200000, guid: 6fd64d919e4ea3441bfda7f9b943e6d2, type: 3}
@@ -833,7 +934,7 @@ Transform:
   - {fileID: 1746966218}
   - {fileID: 145115975}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2125986100
 GameObject:

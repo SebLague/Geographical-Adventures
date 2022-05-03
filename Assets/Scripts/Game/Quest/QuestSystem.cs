@@ -99,7 +99,7 @@ namespace GeoGame.Quest
 		void Update()
 		{
 
-			if (GameController.IsAnyState(GameState.Playing, GameState.ViewingMap))
+			if (GameController.IsState(GameState.Playing) || GameController.IsState(GameState.ViewingMap))
 			{
 				timeSinceGameStart += Time.deltaTime;
 				if (!inEndlessMode)

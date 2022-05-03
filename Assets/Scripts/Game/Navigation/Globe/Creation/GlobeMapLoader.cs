@@ -62,19 +62,26 @@ public class GlobeMapLoader : MonoBehaviour
 		// Load countries
 		SimpleMeshData[] meshes = MeshSerializer.BytesToMeshes(countriesLoadFile.bytes);
 		countryObjects = new RenderObject[meshes.Length];
+		GameObject[] allObjects = new GameObject[meshes.Length];
 
 		for (int i = 0; i < meshes.Length; i++)
 		{
-			Color countryCol = countryColours[i].colour;
 
 			Material materialInstance = new Material(countryMaterial);
-			//materialInstance.color = countryCol;
+			materialInstance.color = countryColours[i].colour;
 			var countryRenderObject = MeshHelper.CreateRendererObject(meshes[i].name, meshes[i], materialInstance, holder, holder.gameObject.layer);
-			countryRenderObject.material.color = countryCol;
+
 			AddCollider(countryRenderObject);
 			countryObjects[i] = countryRenderObject;
-
+			allObjects[i] = countryRenderObject.gameObject;
+			allObjects[i].isStatic = true;
 		}
+
+
+		StaticBatchingUtility.Combine(allObjects, holder.gameObject);
+
+
+
 	}
 
 	void AddCollider(RenderObject renderObject)

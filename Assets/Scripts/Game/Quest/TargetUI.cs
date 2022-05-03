@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-[ExecuteInEditMode]
 public class TargetUI : MonoBehaviour
 {
 	public CanvasGroup holder;
@@ -13,38 +12,16 @@ public class TargetUI : MonoBehaviour
 	public RectTransform numHolder;
 	public Image statusIcon;
 	public Sprite completedSprite;
-	RectTransform rectTransform;
-
-	public bool debug;
-	public bool set;
+	public RectTransform rectTransform;
 
 
 	Color highlightCol = new Color(1, 0.38f, 0.33f, 1);
 	Color numUICol;
 
-	void Awake()
-	{
-		rectTransform = GetComponent<RectTransform>();
-	}
 
-	void Update()
-	{
-		if (debug)
-		{
-			float countryNameLeftEdge = countryNameUI.rectTransform.anchoredPosition.x;
-			float countryNameCentreX = countryNameLeftEdge + countryNameUI.bounds.size.x / 2;
-			Debug.Log(rectTransform.localPosition.x + "   " + rectTransform.sizeDelta.x);
-			if (set)
-			{
-				set = false;
-				Debug.Log("Set");
-				UpdatePosAndSize();
-				//cityNameUI.rectTransform.anchoredPosition = new Vector2(countryNameCentreX, cityNameUI.rectTransform.anchoredPosition.y);
-			}
-		}
-	}
 
-	public void MarkCompleted() {
+	public void MarkCompleted()
+	{
 		statusIcon.sprite = completedSprite;
 		statusIcon.rectTransform.eulerAngles = Vector3.forward * 0;
 		holder.alpha = 0.5f;
@@ -78,7 +55,10 @@ public class TargetUI : MonoBehaviour
 	void ResizeContentBoundsToFitText()
 	{
 
-
+		if (rectTransform == null)
+		{
+			Debug.Log("---------Is null " + gameObject.name);
+		}
 		float countryNameRightEdge = countryNameUI.rectTransform.anchoredPosition.x + countryNameUI.bounds.size.x; // pivot on left edge
 																												   //float cityNameRightEdge = cityNameUI.rectTransform.anchoredPosition.x + cityNameUI.bounds.size.x / 2; // pivot in centre
 		rectTransform.sizeDelta = new Vector2(countryNameRightEdge, rectTransform.sizeDelta.y);

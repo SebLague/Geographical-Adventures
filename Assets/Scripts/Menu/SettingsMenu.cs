@@ -16,6 +16,8 @@ public class SettingsMenu : Menu
 	public ValueWheel resolutionWheel;
 	public Toggle fullscreenToggle;
 	public Toggle vsyncToggle;
+	public ValueWheel terrainQuality;
+	public ValueWheel shadowQuality;
 
 	[Header("Audio Settings")]
 	public Slider masterVolumeSlider;
@@ -50,12 +52,15 @@ public class SettingsMenu : Menu
 		sfxVolumeSlider.onValueChanged.AddListener((volume) => UpdateAudioVolume());
 	}
 
+	// Set UI state from loaded settings
 	void SetUIFromSettings(Settings settings)
 	{
 		// Graphics
 		fullscreenToggle.SetIsOnWithoutNotify(settings.isFullscreen);
 		vsyncToggle.SetIsOnWithoutNotify(settings.vsyncEnabled);
 		InitResolutionSettings(settings.screenSize);
+		terrainQuality.SetActiveIndex((int)settings.terrainQuality, notify: false);
+		shadowQuality.SetActiveIndex((int)settings.shadowQuality, notify: false);
 		// Music
 		masterVolumeSlider.SetValueWithoutNotify(settings.masterVolume);
 		musicVolumeSlider.SetValueWithoutNotify(settings.musicVolume);
@@ -63,18 +68,25 @@ public class SettingsMenu : Menu
 
 	}
 
+	// Construct settings struct from user's chosen settings
 	Settings GetSettingsFromUI()
 	{
 		Settings settings = new Settings();
+		// Graphics
 		settings.isFullscreen = fullscreenToggle.isOn;
 		settings.screenSize = GetCurrentResolutionOptions()[resolutionWheel.activeValueIndex];
 		settings.vsyncEnabled = vsyncToggle.isOn;
+		settings.terrainQuality = (Settings.TerrainQuality)terrainQuality.activeValueIndex;
+		settings.shadowQuality = (Settings.ShadowQuality)shadowQuality.activeValueIndex;
+
+		// Audio
 		settings.masterVolume = masterVolumeSlider.value;
 		settings.sfxVolume = sfxVolumeSlider.value;
 		settings.musicVolume = musicVolumeSlider.value;
 		return settings;
 	}
 
+	// Apply current settings to the game
 	void ApplyCurrentSettings()
 	{
 		Settings currentSettings = GetSettingsFromUI();
@@ -91,6 +103,10 @@ public class SettingsMenu : Menu
 		FullScreenMode mode = (settings.isFullscreen) ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
 		Screen.SetResolution(settings.screenSize.x, settings.screenSize.y, mode);
 		QualitySettings.vSyncCount = (settings.vsyncEnabled) ? 1 : 0;
+
+		RenderSettingsController.SetTerrainQuality(settings.terrainQuality);
+		RenderSettingsController.SetShadowQuality(settings.shadowQuality);
+
 
 		// Save
 		lastAppliedSettings = settings;
@@ -309,47 +325,62 @@ public class SettingsMenu : Menu
 		}
 	}
 
-	public struct Settings
+
+
+}
+
+
+public struct Settings
+{
+	public enum TerrainQuality { Low, High }
+	public enum ShadowQuality { Disabled, Low, High }
+
+	// Graphics
+	public Vector2Int screenSize;
+	public bool isFullscreen;
+	public bool vsyncEnabled;
+	public TerrainQuality terrainQuality;
+	public ShadowQuality shadowQuality;
+
+	// Audio
+	public float masterVolume;
+	public float musicVolume;
+	public float sfxVolume;
+
+	// Load settings from prefs
+	public static Settings LoadSavedSettings()
 	{
+		Settings settings = new Settings();
 		// Graphics
-		public Vector2Int screenSize;
-		public bool isFullscreen;
-		public bool vsyncEnabled;
+		settings.vsyncEnabled = PlayerPrefs.GetInt(nameof(vsyncEnabled), defaultValue: 1) == 1;
+		// Note: since Unity remembers screen size / fullscreen mode automatically, just get current screen size
+		settings.screenSize = new Vector2Int(Screen.width, Screen.height);
+		settings.isFullscreen = Screen.fullScreen;
+		settings.terrainQuality = (TerrainQuality)PlayerPrefs.GetInt(nameof(terrainQuality), defaultValue: (int)TerrainQuality.High);
+		settings.shadowQuality = (ShadowQuality)PlayerPrefs.GetInt(nameof(shadowQuality), defaultValue: (int)ShadowQuality.High);
 
 		// Audio
-		public float masterVolume;
-		public float musicVolume;
-		public float sfxVolume;
+		settings.masterVolume = PlayerPrefs.GetFloat(nameof(masterVolume), defaultValue: 0.75f);
+		settings.musicVolume = PlayerPrefs.GetFloat(nameof(musicVolume), defaultValue: 0.75f);
+		settings.sfxVolume = PlayerPrefs.GetFloat(nameof(sfxVolume), defaultValue: 0.75f);
+		return settings;
+	}
 
-		// Load settings from prefs
-		public static Settings LoadSavedSettings()
-		{
-			Settings settings = new Settings();
-			// Graphics
-			settings.vsyncEnabled = PlayerPrefs.GetInt(nameof(vsyncEnabled), defaultValue: 1) == 1;
-			// Note: since Unity remembers screen size / fullscreen mode automatically, just get current screen size
-			settings.screenSize = new Vector2Int(Screen.width, Screen.height);
-			settings.isFullscreen = Screen.fullScreen;
+	public static void Save(Settings settings)
+	{
+		// --- Graphics
+		// Note: Unity remembers screen size / fullscreen mode automatically, so don't need to save these
+		PlayerPrefs.SetInt(nameof(vsyncEnabled), (settings.vsyncEnabled) ? 1 : 0);
+		PlayerPrefs.SetInt(nameof(terrainQuality), (int)settings.terrainQuality);
+		PlayerPrefs.SetInt(nameof(shadowQuality), (int)settings.shadowQuality);
 
-			// Audio
-			settings.masterVolume = PlayerPrefs.GetFloat(nameof(masterVolume), defaultValue: 0.75f);
-			settings.musicVolume = PlayerPrefs.GetFloat(nameof(musicVolume), defaultValue: 0.75f);
-			settings.sfxVolume = PlayerPrefs.GetFloat(nameof(sfxVolume), defaultValue: 0.75f);
-			return settings;
-		}
+		// --- Audio
+		PlayerPrefs.SetFloat(nameof(masterVolume), settings.masterVolume);
+		PlayerPrefs.SetFloat(nameof(musicVolume), settings.musicVolume);
+		PlayerPrefs.SetFloat(nameof(sfxVolume), settings.sfxVolume);
 
-		public static void Save(Settings settings)
-		{
-			//Debug.Log("Save volume: " + settings.masterVolume);
-			// Note: Unity remembers screen size / fullscreen mode automatically, so don't need to save these
-			PlayerPrefs.SetInt(nameof(vsyncEnabled), (settings.vsyncEnabled) ? 1 : 0);
-			PlayerPrefs.SetFloat(nameof(masterVolume), settings.masterVolume);
-			PlayerPrefs.SetFloat(nameof(musicVolume), settings.musicVolume);
-			PlayerPrefs.SetFloat(nameof(sfxVolume), settings.sfxVolume);
-			PlayerPrefs.Save();
-		}
-
-
+		// Write
+		PlayerPrefs.Save();
 	}
 
 

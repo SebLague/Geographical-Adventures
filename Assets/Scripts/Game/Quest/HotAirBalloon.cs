@@ -57,7 +57,6 @@ namespace GeoGame.Quest
 		void Update()
 		{
 
-
 			balloonRenderer.sharedMaterial.SetVector(firePosShaderID, fireLightSource.position);
 			basketRenderer.sharedMaterial.SetVector(firePosShaderID, fireLightSource.position);
 

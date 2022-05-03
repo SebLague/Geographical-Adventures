@@ -9,11 +9,11 @@
 
 public static class EditorShaderHelper
 {
-
+#if UNITY_EDITOR
 	public static event System.Action onRebindRequired;
 	static bool editorHasFocus;
 
-#if UNITY_EDITOR
+
 	static EditorShaderHelper()
 	{
 		editorHasFocus = true;

@@ -17,12 +17,45 @@ public class RenderSettingsController : MonoBehaviour
 
 
 	[Header("References")]
+	public SimpleLodSystem lodSystem;
 	public Light mainLight;
 	public Camera mainCamera;
+
+	static RenderSettingsController _instance;
 
 	void Awake()
 	{
 		ApplySettings();
+	}
+
+	public static void SetTerrainQuality(Settings.TerrainQuality terrainQuality)
+	{
+		if (terrainQuality == Settings.TerrainQuality.High)
+		{
+			Instance.lodSystem.mode = SimpleLodSystem.Mode.Auto;
+		}
+		else if (terrainQuality == Settings.TerrainQuality.Low)
+		{
+			Instance.lodSystem.mode = SimpleLodSystem.Mode.ForceLowRes;
+		}
+	}
+
+	public static void SetShadowQuality(Settings.ShadowQuality quality)
+	{
+		switch (quality)
+		{
+			case Settings.ShadowQuality.High:
+				Instance.mainLight.shadows = LightShadows.Soft;
+				Instance.mainLight.shadowResolution = UnityEngine.Rendering.LightShadowResolution.VeryHigh;
+				break;
+			case Settings.ShadowQuality.Low:
+				Instance.mainLight.shadows = LightShadows.Soft;
+				Instance.mainLight.shadowResolution = UnityEngine.Rendering.LightShadowResolution.Medium;
+				break;
+			case Settings.ShadowQuality.Disabled:
+				Instance.mainLight.shadows = LightShadows.None;
+				break;
+		}
 	}
 
 	void ApplySettings()
@@ -30,6 +63,7 @@ public class RenderSettingsController : MonoBehaviour
 		ApplyCullingValues();
 		ApplyShadowSettings();
 	}
+
 
 	void ApplyCullingValues()
 	{
@@ -86,6 +120,18 @@ public class RenderSettingsController : MonoBehaviour
 		maxCameraCullDst = Mathf.Max(maxCameraCullDst, minCullDst);
 		maxLightShadowCullDst = Mathf.Max(maxLightShadowCullDst, minCullDst);
 		maxLightShadowCullDst = Mathf.Min(maxLightShadowCullDst, maxCameraCullDst);
+	}
+
+	static RenderSettingsController Instance
+	{
+		get
+		{
+			if (_instance == null)
+			{
+				_instance = FindObjectOfType<RenderSettingsController>(includeInactive: true);
+			}
+			return _instance;
+		}
 	}
 
 	[System.Serializable]

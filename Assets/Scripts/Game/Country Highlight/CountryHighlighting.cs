@@ -19,7 +19,7 @@ public class CountryHighlighting : MonoBehaviour
 	{
 		countryHighlightsBuffer = ComputeHelper.CreateStructuredBuffer<float>(numCountries);
 		BindConstantData();
-		EditorShaderHelper.onRebindRequired += BindConstantData;
+		EditorOnlyInit();
 		initialized = true;
 	}
 
@@ -60,6 +60,13 @@ public class CountryHighlighting : MonoBehaviour
 	void OnDestroy()
 	{
 		ComputeHelper.Release(countryHighlightsBuffer);
+	}
+
+	void EditorOnlyInit()
+	{
+#if UNITY_EDITOR
+		EditorShaderHelper.onRebindRequired += BindConstantData;
+#endif
 	}
 
 }

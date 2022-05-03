@@ -33,28 +33,31 @@ public class ValueWheel : MonoBehaviour
 	{
 		if (!Application.isPlaying)
 		{
-			if (widthOld != width)
+			EditorOnlyUpdate();
+		}
+	}
+
+	public void SetActiveIndex(int newIndex, bool notify = true)
+	{
+		newIndex = Mathf.Clamp(newIndex, 0, values.Length - 1);
+
+		if (activeValueIndex != newIndex)
+		{
+			activeValueIndex = newIndex;
+			UpdateDisplayValue();
+			if (notify)
 			{
-				widthOld = width;
-				valueBox.sizeDelta = new Vector2(width, valueBox.sizeDelta.y);
-				decreaseButton.GetComponent<RectTransform>().localPosition = new Vector3(-valueBox.sizeDelta.x / 2, 0);
-				increaseButton.GetComponent<RectTransform>().localPosition = new Vector3(valueBox.sizeDelta.x / 2, 0);
+				onValueChanged?.Invoke(activeValueIndex);
 			}
 		}
 	}
 
 	void MoveIndex(int direction)
 	{
+		int newIndex = activeValueIndex + direction;
+		newIndex = Mathf.Clamp(newIndex, 0, values.Length - 1);
 
-		int oldIndex = activeValueIndex;
-		activeValueIndex += direction;
-		activeValueIndex = Mathf.Clamp(activeValueIndex, 0, values.Length - 1);
-		
-		if (oldIndex != activeValueIndex)
-		{
-			UpdateDisplayValue();
-			onValueChanged?.Invoke(activeValueIndex);
-		}
+		SetActiveIndex(newIndex);
 	}
 
 	public void SetPossibleValues(string[] values, int activeIndex)
@@ -63,6 +66,8 @@ public class ValueWheel : MonoBehaviour
 		this.activeValueIndex = activeIndex;
 		UpdateDisplayValue();
 	}
+
+
 
 	void UpdateDisplayValue()
 	{
@@ -73,6 +78,18 @@ public class ValueWheel : MonoBehaviour
 		{
 			valueLabel.text = values[activeValueIndex];
 		}
+	}
+
+	void EditorOnlyUpdate()
+	{
+		if (widthOld != width)
+		{
+			widthOld = width;
+			valueBox.sizeDelta = new Vector2(width, valueBox.sizeDelta.y);
+			decreaseButton.GetComponent<RectTransform>().localPosition = new Vector3(-valueBox.sizeDelta.x / 2, 0);
+			increaseButton.GetComponent<RectTransform>().localPosition = new Vector3(valueBox.sizeDelta.x / 2, 0);
+		}
+		UpdateDisplayValue();
 	}
 
 }

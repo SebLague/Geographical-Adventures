@@ -18,6 +18,9 @@ namespace GeoGame.Quest
 		TargetUI[] countryTargets;
 		Coroutine activeAnimation;
 
+		int timerSecondsOld = int.MaxValue;
+		int timerMinutesOld = int.MaxValue;
+
 		void Awake()
 		{
 			Seb.Helpers.TransformHelper.DestroyAllChildren(countryTargetsRect.transform);
@@ -31,19 +34,27 @@ namespace GeoGame.Quest
 
 		void Update()
 		{
+
+			UpdateTimer();
+		}
+
+		void UpdateTimer()
+		{
 			timer.gameObject.SetActive(!questSystem.InEndlessMode);
 			if (!questSystem.InEndlessMode)
 			{
-				timer.text = FormatTime(questSystem.TimeRemaining);
+				int seconds = (int)(questSystem.TimeRemaining % 60);
+				int minutes = (int)(questSystem.TimeRemaining / 60) % 60;
+				// Update timer (but avoid allocating every frame)
+				if (seconds != timerSecondsOld || minutes != timerMinutesOld)
+				{
+					timer.text = $"{minutes:00}:{seconds:00}";
+					timerSecondsOld = seconds;
+					timerMinutesOld = minutes;
+				}
 			}
 		}
 
-		string FormatTime(float time)
-		{
-			int seconds = (int)(time % 60);
-			int minutes = (int)(time / 60) % 60;
-			return $"{minutes:00}:{seconds:00}";
-		}
 
 		public void MarkCompleted(int index)
 		{
@@ -103,6 +114,10 @@ namespace GeoGame.Quest
 					targets[i].localPosition = Vector3.Lerp(startPoints[i], endPoints[i], Maths.Ease.Cubic.Out(animTimes[i]));
 
 				}
+				if (GameController.IsState(GameState.ViewingMap))
+				{
+					yield return new WaitWhile(() => GameController.IsState(GameState.ViewingMap));
+				}
 				yield return null;
 				if (done)
 				{
@@ -112,12 +127,15 @@ namespace GeoGame.Quest
 			}
 		}
 
+		// What a mess! Please clean this up future-me
 		IEnumerator Animate(int index, string countryName, string cityName, bool isPickup, Coroutine oldAnim)
 		{
 			if (oldAnim != null)
 			{
 				yield return oldAnim;
 			}
+			yield return new WaitWhile(() => GameController.IsState(GameState.ViewingMap));
+
 			RectTransform oldRect = countryTargets[index].RectTransform;
 
 			// Record starting positions of all targets
@@ -149,6 +167,10 @@ namespace GeoGame.Quest
 			{
 				t += Time.deltaTime / durationDisappear;
 				oldRect.localPosition = new Vector2(oldRect.localPosition.x, 0 + Maths.Ease.Cubic.In(t) * oldRect.sizeDelta.y);
+				if (GameController.IsState(GameState.ViewingMap))
+				{
+					yield return new WaitWhile(() => GameController.IsState(GameState.ViewingMap));
+				}
 				yield return null;
 			}
 			yield return new WaitForSeconds(durationPause);
@@ -166,6 +188,10 @@ namespace GeoGame.Quest
 					}
 				}
 				countryTargets[index].RectTransform.localPosition = Vector2.Lerp(newTargetStartPos, targetPos[index], Maths.Ease.Cubic.Out(t));
+				if (GameController.IsState(GameState.ViewingMap))
+				{
+					yield return new WaitWhile(() => GameController.IsState(GameState.ViewingMap));
+				}
 				yield return null;
 			}
 
