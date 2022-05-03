@@ -97,6 +97,7 @@ public class AtmosphereEffect : PostProcessingEffect
 	public event System.Action onSettingsUpdated;
 	CommandBuffer drawSkyCommand;
 	Material drawSkyMaterial;
+	Camera gameCam;
 
 	public override void OnEnable()
 	{
@@ -116,13 +117,21 @@ public class AtmosphereEffect : PostProcessingEffect
 		skyRenderCommand.Blit(id, BuiltinRenderTextureType.CameraTarget);
 		skyRenderCommand.ReleaseTemporaryRT(id);
 
-		// Quick fix for sky rendering incorrectly for frame after cam switches perspective.
-		// Todo: do something better
-		var gameCam = FindObjectOfType<GameCamera>();
-		gameCam.gameCameraUpdateComplete -= RenderSky;
-		gameCam.gameCameraUpdateComplete += RenderSky;
+		gameCam = FindObjectOfType<GameCamera>().cam;
+		Camera.onPreCull += RenderLUTs;
 
 		SetDrawSkyShaderParameters(drawSkyMaterial);
+	}
+
+
+	// Called on camera pre-cull
+	void RenderLUTs(Camera cam)
+	{
+		if (cam == gameCam)
+		{
+			RenderSky(cam);
+			RenderAerialPerspectiveLUTs(cam);
+		}
 	}
 
 	void OnDisable()
@@ -136,8 +145,8 @@ public class AtmosphereEffect : PostProcessingEffect
 	{
 		SetProperties();
 
-		RenderSky(Camera.current);
-		RenderAerialPerspectiveLUTs();//
+		//RenderSky(Camera.current);
+		//
 
 		Graphics.Blit(source, target, material);
 	}
@@ -280,10 +289,9 @@ public class AtmosphereEffect : PostProcessingEffect
 		aerialPerspectiveLUTCompute.SetInt("numScatteringSteps", numAerialScatteringSteps);
 	}
 
-	void RenderAerialPerspectiveLUTs()
+	void RenderAerialPerspectiveLUTs(Camera cam)
 	{
 		// Assign dynamic values
-		Camera cam = Camera.current;
 		SetRaymarchParams(cam, aerialPerspectiveLUTCompute);
 		aerialPerspectiveLUTCompute.SetFloat(ShaderParamID.nearClip, cam.nearClipPlane);
 		aerialPerspectiveLUTCompute.SetFloat(ShaderParamID.farClip, cam.farClipPlane);
@@ -310,9 +318,7 @@ public class AtmosphereEffect : PostProcessingEffect
 	{
 		SetRaymarchParams(cam, skyRenderCompute);
 		skyRenderCompute.SetVector(ShaderParamID.dirToSun, -light.transform.forward);
-
 		ComputeHelper.Dispatch(skyRenderCompute, sky);
-		sky.GenerateMips();
 	}
 
 	void SetRaymarchParams(Camera cam, ComputeShader raymarchCompute)
