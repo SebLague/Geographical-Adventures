@@ -54,7 +54,8 @@ public class CityLights : MonoBehaviour
 			lightCountCumul += numInstancesInGroup;
 
 			renderers[i] = new CityLightRenderer(bufferOffset, numInstancesInGroup, groups[i].bounds, mesh, instanceShader);
-			UpdateShaderProperties(renderers[i]);
+			UpdateDynamicShaderProperties(renderers[i]);
+			AssignConstantShaderData(renderers[i]);
 		}
 	}
 
@@ -69,7 +70,7 @@ public class CityLights : MonoBehaviour
 			{
 				if (renderers[i].ShouldRender(dirToLight))
 				{
-					UpdateShaderProperties(renderers[i]);
+					UpdateDynamicShaderProperties(renderers[i]);
 					renderers[i].Render();
 				}
 			}
@@ -79,7 +80,7 @@ public class CityLights : MonoBehaviour
 
 
 
-	void UpdateShaderProperties(CityLightRenderer r)
+	void UpdateDynamicShaderProperties(CityLightRenderer r)
 	{
 		r.material.SetVector(ShaderPropertyNames.dirToSunID, -sunLight.forward);
 		// These should be constant at runtime, but update in editor for easy tweaking / recompiling
@@ -141,7 +142,6 @@ public class CityLights : MonoBehaviour
 
 			material = new Material(shader);
 			renderArgs = ComputeHelper.CreateArgsBuffer(mesh, numInstances);
-
 		}
 
 

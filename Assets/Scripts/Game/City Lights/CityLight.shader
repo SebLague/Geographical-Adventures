@@ -39,7 +39,6 @@ Shader "Instanced/CityLight" {
 			struct v2f
 			{
 				float4 pos : SV_POSITION;
-				//float show : TEXCOORD0;
 				float4 colour : TEXCOORD0;
 			};
 
@@ -47,14 +46,13 @@ Shader "Instanced/CityLight" {
 			{
 				CityLight cityLight = CityLights[bufferOffset + instanceID];
 
-			
-
 				// -1 = midnight; +1 = midday
 				float sunDot = dot(cityLight.pointOnSphere, dirToSun);
 				float lightAppear = turnOnTime + (cityLight.randomT-0.5) * turnOnTimeVariation;
 				float scale = (lightAppear - sunDot) / 0.1;
 
 				float size = lerp(sizeMin, sizeMax, cityLight.intensity) * 0.01 * saturate(scale);
+				
 				float3 vertexOffset = v.vertex.xyz * size;
 				float3 worldCentre = cityLight.pointOnSphere * cityLight.height;
 				float3 worldPosition = worldCentre + vertexOffset;
@@ -64,16 +62,13 @@ Shader "Instanced/CityLight" {
 
 				v2f o;
 				o.pos = mul(UNITY_MATRIX_VP, float4(worldPosition, 1.0f));
-				//o.show = scale; // when scale is negative this will tell the fragment shader not to render the light
 				o.colour = lerp(colourDim, colourBright * brightnessMultiplier, cityLight.intensity);
 				return o;
 			}
 
 			fixed4 frag (v2f i) : SV_Target
 			{
-				//return 1;
-				//clip(i.show);
-				return i.colour;
+				return float4(i.colour.rgb, 1);
 			}
 
 			ENDCG
