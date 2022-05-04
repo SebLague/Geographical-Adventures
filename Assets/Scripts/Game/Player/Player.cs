@@ -129,14 +129,27 @@ public class Player : MonoBehaviour
 	public void UpdateMovementInput(Vector2 moveInput, float accelerateDir, bool boosting)
 	{
 		// Turning
-		turnInput = moveInput.x;
-		pitchInput = moveInput.y;
+		int turnInputLeft = Input.GetKey(KeyBindings.Instance.GetKey("turnLeft")) ? 1 : 0;
+		int turnInputRight = Input.GetKey(KeyBindings.Instance.GetKey("turnRight")) ? 1 : 0;
+
+		turnInput = turnInputRight - turnInputLeft;
+		
+		// Pitch
+		int pitchInputDown = Input.GetKey(KeyBindings.Instance.GetKey("pitchDown")) ? 1 : 0;
+		int pitchInputUp = Input.GetKey(KeyBindings.Instance.GetKey("pitchUp")) ? 1 : 0;
+		
+		pitchInput = pitchInputUp - pitchInputDown;
+		if (KeyBindings.Instance.isPitchInverted) pitchInput = pitchInputDown - pitchInputUp;
 
 		// Speed
-		baseTargetSpeed += (maxSpeed - minSpeed) / accelerateDuration * accelerateDir * Time.deltaTime;
+		int accelerateInput = Input.GetKey(KeyBindings.Instance.GetKey("accelerate")) ? 1 : 0;
+		int decelerateInput = Input.GetKey(KeyBindings.Instance.GetKey("decelerate")) ? 1 : 0;
+		int accelerateDirection = accelerateInput - decelerateInput;
+		
+		baseTargetSpeed += (maxSpeed - minSpeed) / accelerateDuration * accelerateDirection * Time.deltaTime;
 		baseTargetSpeed = Mathf.Clamp(baseTargetSpeed, minSpeed, maxSpeed);
 
-		this.boosting = boosting && boostTimeRemaining > 0;
+		this.boosting = Input.GetKey(KeyBindings.Instance.GetKey("boost")) && boostTimeRemaining > 0;
 	}
 
 
@@ -150,7 +163,7 @@ public class Player : MonoBehaviour
 		bool devMode = Input.GetKey(KeyCode.LeftBracket) && Input.GetKey(KeyCode.RightBracket);
 		if (Application.isEditor || devMode)
 		{
-			if (Input.GetKeyDown(KeyBindings.Debug_ToggleLockPlayer))
+			if (Input.GetKeyDown(KeyBindings.Instance.GetKey("Debug_ToggleLockPlayer")))
 			{
 				debug_lockMovement = !debug_lockMovement;
 			}

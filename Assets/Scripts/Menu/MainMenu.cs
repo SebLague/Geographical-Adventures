@@ -34,7 +34,7 @@ public class MainMenu : Menu
 	{
 		if (GameController.IsState(GameState.InMainMenu))
 		{
-			if (Input.GetKeyDown(KeyBindings.Escape))
+			if (Input.GetKeyDown(KeyBindings.Instance.GetKey("Escape")))
 			{
 				Quit();
 			}

@@ -129,11 +129,11 @@ public class GameCamera : MonoBehaviour
 		transform.LookAt(target.position, target.forward);
 		transform.RotateAround(transform.position, gravityUp, -player.totalTurnAngle + angle + startAngle);
 
-		if (Input.GetKey(KeyBindings.TopDownCamTurnLeft))
+		if (Input.GetKey(KeyBindings.Instance.GetKey("TopDownCamTurnLeft")))
 		{
 			angle -= turnSpeed * Time.smoothDeltaTime;
 		}
-		if (Input.GetKey(KeyBindings.TopDownCamTurnRight))
+		if (Input.GetKey(KeyBindings.Instance.GetKey("TopDownCamTurnRight")))
 		{
 			angle += turnSpeed * Time.smoothDeltaTime;
 		}

@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyBindings.ToggleDevMode) && allowDevModeToggleInBuild)
+		if (Input.GetKeyDown(KeyBindings.Instance.GetKey("ToggleDevMode")) && allowDevModeToggleInBuild)
 		{
 			devModeEnabledInBuild = !devModeEnabledInBuild;
 		}

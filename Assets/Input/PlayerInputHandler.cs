@@ -44,7 +44,7 @@ public class PlayerInputHandler : MonoBehaviour
 		player.UpdateMovementInput(movementInput, accelerateDir, boosting);
 
 
-		if (playerActions.PlayerControls.DropPackage.WasPressedThisFrame())
+		if (Input.GetKeyDown(KeyBindings.Instance.GetKey("dropPackage")))
 		{
 			questSystem.TryDropPackage();
 		}
@@ -52,15 +52,15 @@ public class PlayerInputHandler : MonoBehaviour
 
 	void CameraControls()
 	{
-		if (playerActions.CameraControls.ForwardCameraView.WasPressedThisFrame())
+		if (Input.GetKeyDown(KeyBindings.Instance.GetKey("CameraView1")))
 		{
 			gameCamera.SetActiveView(GameCamera.ViewMode.LookingForward);
 		}
-		if (playerActions.CameraControls.BackwardCameraView.WasPressedThisFrame())
+		if (Input.GetKeyDown(KeyBindings.Instance.GetKey("CameraView2")))
 		{
 			gameCamera.SetActiveView(GameCamera.ViewMode.LookingBehind);
 		}
-		if (playerActions.CameraControls.TopCameraView.WasPressedThisFrame())
+		if (Input.GetKeyDown(KeyBindings.Instance.GetKey("CameraView3")))
 		{
 			gameCamera.SetActiveView(GameCamera.ViewMode.TopDown);
 		}
@@ -68,12 +68,12 @@ public class PlayerInputHandler : MonoBehaviour
 
 	void UIControls()
 	{
-		if (playerActions.UIControls.TogglePause.WasPressedThisFrame())
+		if (Input.GetKeyDown(KeyBindings.Instance.GetKey("TogglePause")))
 		{
 			uIManager.TogglePause();
 		}
 
-		if (playerActions.UIControls.ToggleMap.WasPressedThisFrame())
+		if (Input.GetKeyDown(KeyBindings.Instance.GetKey("ToggleMap")))
 		{
 			uIManager.ToggleMap();
 		}

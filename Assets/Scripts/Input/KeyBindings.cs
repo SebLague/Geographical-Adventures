@@ -1,36 +1,132 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public static class KeyBindings
+
+public class KeyBindings : MonoBehaviour
 {
-	// Player controls
-	public static KeyCode turnLeftKey = KeyCode.A;
-	public static KeyCode turnRightKey = KeyCode.D;
-	public static KeyCode accelerateKey = KeyCode.E;
-	public static KeyCode decelerateKey = KeyCode.Q;
+	private static KeyBindings _instance;
 
-	public static KeyCode pitchUpKey = KeyCode.W;
-	public static KeyCode pitchDownKey = KeyCode.S;
-	public static KeyCode boostkey = KeyCode.LeftShift;
-	public static KeyCode dropPackageKey = KeyCode.Space;
+	[SerializeField] private UIManager UIManager;
 
-	public static KeyCode fastForwardToDayTime = KeyCode.Return;
-	public static KeyCode fastForwardToNightTime = KeyCode.Backspace;
+	public static KeyBindings Instance
+	{
+		get
+		{
+			if (_instance == null)
+			{
+				_instance = FindObjectOfType<KeyBindings>();
+			}
 
-	// Game UI controls
-	public static KeyCode TogglePause = KeyCode.P;
-	public static KeyCode ToggleMap = KeyCode.M;
-	public static KeyCode Escape = KeyCode.Escape;
+			return _instance;
+		}
+	}
+	
+	public Dictionary<string, KeyCode> MainBinds { get; private set; }
+	public bool isPitchInverted;
 
-	// Game camera controls
-	public static KeyCode CameraView1 = KeyCode.Alpha1;
-	public static KeyCode CameraView2 = KeyCode.Alpha2;
-	public static KeyCode CameraView3 = KeyCode.Alpha3;
-	public static KeyCode TopDownCamTurnLeft = KeyCode.LeftArrow;
-	public static KeyCode TopDownCamTurnRight = KeyCode.RightArrow;
+	private string _bindName;
 
-	// ----- Dev Mode -----
-	public static KeyCode ToggleDevMode = KeyCode.LeftBracket;
-	public static KeyCode Debug_ToggleLockPlayer = KeyCode.L;
+	private void Start()
+	{
+		MainBinds = new Dictionary<string, KeyCode>();
+		
+		BindAllDefaults();
+	}
+
+	public void BindKey(string key, KeyCode keyBind)
+	{
+		Debug.Log(key);
+		Debug.Log(keyBind);
+		
+		if (!MainBinds.ContainsKey(key) && !MainBinds.ContainsValue(keyBind))
+		{
+			MainBinds.Add(key, keyBind);
+		}
+		else if (!MainBinds.ContainsKey(key) && MainBinds.ContainsValue(keyBind))
+		{
+			ClearKeycode(keyBind);
+			
+			MainBinds.Add(key, keyBind);
+		}
+		else if (MainBinds.ContainsKey(key) && MainBinds.ContainsValue(keyBind))
+		{
+			ClearKeycode(keyBind);
+		}
+
+		MainBinds[key] = keyBind;
+		UIManager.UpdateKeyText(key, keyBind);
+		_bindName = String.Empty;
+	}
+
+	private void ClearKeycode(KeyCode keyBind)
+	{
+		string myKey = MainBinds.FirstOrDefault(x => x.Value == keyBind).Key;
+
+		MainBinds[myKey] = KeyCode.None;
+		UIManager.UpdateKeyText(myKey, KeyCode.None);
+	}
+	
+	public void KeybindOnClick(string bindName)
+	{
+		this._bindName = bindName;
+	}
+
+	private void OnGUI()
+	{
+		if (_bindName != String.Empty)
+		{
+			Event e = Event.current;
+
+			if (e.isKey)
+			{
+				BindKey(_bindName, e.keyCode);
+			}
+		}
+	}
+
+	public KeyCode GetKey(string key)
+	{
+		return MainBinds.GetValueOrDefault(key);
+	}
+
+	private void BindAllDefaults()
+	{
+		// Player controls
+		BindKey("turnLeft", KeyCode.A);
+		BindKey("turnRight", KeyCode.D);
+		BindKey("accelerate", KeyCode.E);
+		BindKey("decelerate", KeyCode.Q);
+
+		BindKey("pitchUp", KeyCode.W);
+		BindKey("pitchDown", KeyCode.S);
+		BindKey("boost", KeyCode.LeftShift);
+		BindKey("dropPackage", KeyCode.Space);
+
+		BindKey("fastForwardToDayTime", KeyCode.Return);
+		BindKey("fastForwardToNightTime", KeyCode.Backspace);
+
+		// Game UI controls
+		BindKey("TogglePause", KeyCode.P);
+		BindKey("ToggleMap", KeyCode.M);
+		BindKey("Escape", KeyCode.Escape);
+
+		// Game camera controls
+		BindKey("CameraView1", KeyCode.Alpha1);
+		BindKey("CameraView2", KeyCode.Alpha2);
+		BindKey("CameraView3", KeyCode.Alpha3);
+		BindKey("TopDownCamTurnLeft", KeyCode.LeftArrow);
+		BindKey("TopDownCamTurnRight", KeyCode.RightArrow);
+
+		// ----- Dev Mode -----
+		BindKey("ToggleDevMode", KeyCode.LeftBracket);
+		BindKey("Debug_ToggleLockPlayer", KeyCode.L);
+	}
+
+	public void InvertPitchInput()
+	{
+		isPitchInverted = !isPitchInverted;
+	}
 }

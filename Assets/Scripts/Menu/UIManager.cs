@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -17,10 +19,17 @@ public class UIManager : MonoBehaviour
 	public float smoothT;
 	float smoothV;
 
+	public GameObject controlTab;
+	public GameObject[] keybindButtons;
+
 
 	void Awake()
 	{
 		hudGroup.alpha = 0;
+		
+		controlTab.SetActive(true);
+		keybindButtons = GameObject.FindGameObjectsWithTag("Keybind");
+		controlTab.SetActive(false);
 	}
 
 	void Update()
@@ -62,5 +71,15 @@ public class UIManager : MonoBehaviour
 		}
 
 		Seb.Helpers.GameObjectHelper.SetActiveAll(!showMap, hideInMapView);
+	}
+
+	public void UpdateKeyText(string key, KeyCode code)
+	{
+		var tmp = Array.Find(keybindButtons, x => x.name == key);
+		if (tmp != null)
+		{
+			var txt = tmp.GetComponentInChildren<TMP_Text>();
+			txt.text = code.ToString();
+		}
 	}
 }

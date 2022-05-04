@@ -44,22 +44,22 @@ public class ControlSettings : MonoBehaviour
 		*/
 
 		AddHeader("Main Controls");
-		Add("Turn", KeyCodeToName(KeyBindings.turnLeftKey) + " / " + KeyCodeToName(KeyBindings.turnRightKey));
-		Add("Speed", KeyCodeToName(KeyBindings.decelerateKey) + " / " + KeyCodeToName(KeyBindings.accelerateKey));
-		Add("Elevation", KeyCodeToName(KeyBindings.pitchUpKey) + " / " + KeyCodeToName(KeyBindings.pitchDownKey));
-		Add("Boost", KeyCodeToName(KeyBindings.boostkey));
-		Add("Drop Package", KeyCodeToName(KeyBindings.dropPackageKey));
+		Add("Turn", KeyCodeToName(KeyBindings.Instance.GetKey("turnLeft")) + " / " + KeyCodeToName(KeyBindings.Instance.GetKey("turnRight")));
+		Add("Speed", KeyCodeToName(KeyBindings.Instance.GetKey("decelerate")) + " / " + KeyCodeToName(KeyBindings.Instance.GetKey("accelerate")));
+		Add("Elevation", KeyCodeToName(KeyBindings.Instance.GetKey("pitchUp")) + " / " + KeyCodeToName(KeyBindings.Instance.GetKey("pitchDown")));
+		Add("Boost", KeyCodeToName(KeyBindings.Instance.GetKey("boost")));
+		Add("Drop Package", KeyCodeToName(KeyBindings.Instance.GetKey("dropPackage")));
 
 		AddSpace();
 		AddHeader("Extra Controls");
-		Add("Change View", $"{KeyCodeToName(KeyBindings.CameraView1)} / {KeyCodeToName(KeyBindings.CameraView2)} / {KeyCodeToName(KeyBindings.CameraView3)}");
-		Add("Fast Forward to Night", KeyCodeToName(KeyBindings.fastForwardToNightTime));
-		Add("Fast Forward to Day", KeyCodeToName(KeyBindings.fastForwardToDayTime));
+		Add("Change View", $"{KeyCodeToName(KeyBindings.Instance.GetKey("CameraView1"))} / {KeyCodeToName(KeyBindings.Instance.GetKey("CameraView2"))} / {KeyCodeToName(KeyBindings.Instance.GetKey("CameraView3"))}");
+		Add("Fast Forward to Night", KeyCodeToName(KeyBindings.Instance.GetKey("fastForwardToNightTime")));
+		Add("Fast Forward to Day", KeyCodeToName(KeyBindings.Instance.GetKey("fastForwardToDayTime")));
 
 		AddSpace();
 		AddHeader("UI");
-		Add("Map", KeyCodeToName(KeyBindings.ToggleMap));
-		Add("Pause", KeyCodeToName(KeyBindings.TogglePause));
+		Add("Map", KeyCodeToName(KeyBindings.Instance.GetKey("ToggleMap")));
+		Add("Pause", KeyCodeToName(KeyBindings.Instance.GetKey("TogglePause")));
 
 	}
 

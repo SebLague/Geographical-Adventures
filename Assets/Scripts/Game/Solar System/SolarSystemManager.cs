@@ -81,12 +81,12 @@ namespace SolarSystem
 		{
 			bool startFastForward = false;
 
-			if (Input.GetKeyDown(KeyBindings.fastForwardToDayTime))
+			if (Input.GetKeyDown(KeyBindings.Instance.GetKey("fastForwardToDayTime")))
 			{
 				startFastForward = true;
 				fastForwardTargetTime = 1;
 			}
-			if (Input.GetKeyDown(KeyBindings.fastForwardToNightTime))
+			if (Input.GetKeyDown(KeyBindings.Instance.GetKey("fastForwardToNightTime")))
 			{
 				startFastForward = true;
 				fastForwardTargetTime = -1;
