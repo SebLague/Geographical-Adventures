@@ -19,7 +19,9 @@ public class UIManager : MonoBehaviour
 	public float smoothT;
 	float smoothV;
 
+	public GameObject settingsUICanvas;
 	public GameObject controlTab;
+	
 	public GameObject[] keybindButtons;
 
 
@@ -27,9 +29,11 @@ public class UIManager : MonoBehaviour
 	{
 		hudGroup.alpha = 0;
 		
+		settingsUICanvas.SetActive(true);
 		controlTab.SetActive(true);
 		keybindButtons = GameObject.FindGameObjectsWithTag("Keybind");
 		controlTab.SetActive(false);
+		settingsUICanvas.SetActive(false);
 	}
 
 	void Update()
