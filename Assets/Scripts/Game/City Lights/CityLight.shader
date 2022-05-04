@@ -21,10 +21,11 @@ Shader "Instanced/CityLight" {
 				float height;
 				float intensity;
 				float randomT;
-				int inRenderGroup;
 			};
 
 			StructuredBuffer<CityLight> CityLights;
+			int bufferOffset;
+
 			float sizeMin;
 			float sizeMax;
 			float3 dirToSun;
@@ -38,13 +39,13 @@ Shader "Instanced/CityLight" {
 			struct v2f
 			{
 				float4 pos : SV_POSITION;
-				float show : TEXCOORD0;
-				float4 colour : TEXCOORD1;
+				//float show : TEXCOORD0;
+				float4 colour : TEXCOORD0;
 			};
 
 			v2f vert (appdata_full v, uint instanceID : SV_InstanceID)
 			{
-				CityLight cityLight = CityLights[instanceID];
+				CityLight cityLight = CityLights[bufferOffset + instanceID];
 
 			
 
@@ -63,16 +64,16 @@ Shader "Instanced/CityLight" {
 
 				v2f o;
 				o.pos = mul(UNITY_MATRIX_VP, float4(worldPosition, 1.0f));
-				o.show = scale; // when scale is negative this will tell the fragment shader not to render the light
+				//o.show = scale; // when scale is negative this will tell the fragment shader not to render the light
 				o.colour = lerp(colourDim, colourBright * brightnessMultiplier, cityLight.intensity);
-				o.colour.a = cityLight.intensity + 2;
 				return o;
 			}
 
 			fixed4 frag (v2f i) : SV_Target
 			{
-				clip(i.show);
-				return float4(i.colour.rgb, 10);
+				//return 1;
+				//clip(i.show);
+				return i.colour;
 			}
 
 			ENDCG

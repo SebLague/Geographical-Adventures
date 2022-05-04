@@ -9,10 +9,15 @@ public class PostProcessingEffect : ScriptableObject
 	public Shader shader;
 	protected Material material;
 	RenderTexture target;
+	protected Camera cam;
 
 	public virtual void OnEnable()
 	{
 		CreateMaterial(ref material, shader);
+	}
+
+	public void SetCamera(Camera cam) {
+		this.cam = cam;
 	}
 
 	public virtual RenderTexture Render(RenderTexture source)

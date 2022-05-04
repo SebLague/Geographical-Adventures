@@ -6,10 +6,11 @@ public class PostProcessingManager : MonoBehaviour
 {
 
 	public PostProcessingEffect[] effects;
-	public Material mat;
+	Camera cam;
 
 	void OnEnable()
 	{
+		cam = GetComponent<Camera>();
 		if (effects != null)
 		{
 			for (int i = 0; i < effects.Length; i++)
@@ -17,26 +18,11 @@ public class PostProcessingManager : MonoBehaviour
 				if (effects[i])
 				{
 					effects[i].OnEnable();
+					effects[i].SetCamera(cam);
 				}
 			}
 		}
-		GetComponent<Camera>().depthTextureMode = DepthTextureMode.Depth;
-
-		if (Application.isPlaying)
-		{
-			UnityEngine.Rendering.CommandBuffer cmd = new UnityEngine.Rendering.CommandBuffer();
-			int id = Shader.PropertyToID("_AtmoTestRT");
-			cmd.GetTemporaryRT(id, -1, -1, 24, FilterMode.Bilinear);
-			cmd.SetRenderTarget(id);
-			cmd.Blit(BuiltinRenderTextureType.CurrentActive, id, effects[0].GetMaterial);
-			//cmd.Blit(id, BuiltinRenderTextureType.CameraTarget);
-			//cmd.Blit(null, BuiltinRenderTextureType.CurrentActive, mat);
-			//cmd.()
-			//cmd.DispatchCompute()
-			//Camera.main.AddCommandBuffer(UnityEngine.Rendering.CameraEvent.BeforeForwardOpaque, cmd);
-			//Camera.main.AddCommandBuffer(UnityEngine.Rendering.CameraEvent.AfterImageEffects, cmd);
-			//Camera.onPreRender += PreRender;
-		}
+		cam.depthTextureMode = DepthTextureMode.Depth;
 	}
 
 

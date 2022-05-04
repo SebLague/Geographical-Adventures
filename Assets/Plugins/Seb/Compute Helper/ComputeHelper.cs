@@ -380,6 +380,12 @@ public static class ComputeHelper
 		return argsBuffer;
 	}
 
+	public static void CreateArgsBuffer(ref ComputeBuffer argsBuffer, Mesh mesh, int numInstances)
+	{
+		Release(argsBuffer);
+		argsBuffer = CreateArgsBuffer(mesh, numInstances);
+	}
+
 	// Create args buffer for instanced indirect rendering (number of instances comes from size of append buffer)
 	public static ComputeBuffer CreateArgsBuffer(Mesh mesh, ComputeBuffer appendBuffer)
 	{

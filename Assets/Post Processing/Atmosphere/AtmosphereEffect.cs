@@ -97,7 +97,7 @@ public class AtmosphereEffect : PostProcessingEffect
 	public event System.Action onSettingsUpdated;
 	CommandBuffer drawSkyCommand;
 	Material drawSkyMaterial;
-	Camera gameCam;
+	bool lutUpdateRequired;
 
 	public override void OnEnable()
 	{
@@ -106,11 +106,13 @@ public class AtmosphereEffect : PostProcessingEffect
 		SetProperties();
 		EditorOnlyInit();
 
+		Camera.onPreCull -= RenderLUTs;
 		Camera.onPreCull += RenderLUTs;
 	}
 
 	public void SetupSkyRenderingCommand(CommandBuffer skyRenderCommand)
 	{
+		lutUpdateRequired = true;
 		drawSkyMaterial = new Material(drawSkyShader);
 
 		int id = Shader.PropertyToID("_TempSkyRenderTexture");
@@ -126,23 +128,24 @@ public class AtmosphereEffect : PostProcessingEffect
 
 
 	// Called on camera pre-cull
-	void RenderLUTs(Camera cam)
+	void RenderLUTs(Camera activeCamera)
 	{
-		if (gameCam == null)
+
+		if (lutUpdateRequired)
 		{
-			gameCam = Camera.main;
-		}
-		if (cam == gameCam)
-		{
-			RenderSky(cam);
-			RenderAerialPerspectiveLUTs(cam);
+			if (activeCamera == cam)
+			{
+				lutUpdateRequired = false;
+				RenderSky(activeCamera);
+				RenderAerialPerspectiveLUTs(activeCamera);
+			}
 		}
 	}
 
 	void OnDisable()
 	{
-
-		Camera.main?.RemoveAllCommandBuffers();
+		// Todo: only clear own cmd buffer
+		cam?.RemoveAllCommandBuffers();
 		drawSkyCommand?.Release();
 		Camera.onPreCull -= RenderLUTs;
 	}
@@ -150,7 +153,7 @@ public class AtmosphereEffect : PostProcessingEffect
 	protected override void RenderEffectToTarget(RenderTexture source, RenderTexture target)
 	{
 		SetProperties();
-
+		lutUpdateRequired = true;
 		Graphics.Blit(source, target, material);
 	}
 
