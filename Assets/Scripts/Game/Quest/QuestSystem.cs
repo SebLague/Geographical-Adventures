@@ -6,6 +6,7 @@ namespace GeoGame.Quest
 {
 	public class QuestSystem : MonoBehaviour
 	{
+		public event System.Action<PackageDropInfo> packageDropped;
 		public float timedModeDurationSeconds = 15 * 60;
 
 		public const int numActiveQuests = 3;
@@ -211,8 +212,7 @@ namespace GeoGame.Quest
 				// Drop package
 				if (activeDeliverQuestIndex >= 0)
 				{
-					Package package = player.DropPackage();
-					StartCoroutine(HandleDelivery(package, activeDeliverQuestIndex));
+					StartCoroutine(HandleDelivery(activeDeliverQuestIndex));
 				}
 				else
 				{
@@ -224,8 +224,10 @@ namespace GeoGame.Quest
 			}
 		}
 
-		IEnumerator HandleDelivery(Package package, int questIndex)
+		IEnumerator HandleDelivery(int questIndex)
 		{
+			Package package = player.DropPackage();
+			
 			displayingDeliveryResults = true;
 			float startTime = Time.time;
 
@@ -250,7 +252,8 @@ namespace GeoGame.Quest
 			Vector3 cityPoint = cityPointUnitSphere * targetCityTerrainHeight;
 			CityMarker cityMarker = Instantiate(cityMarkerPrefab, parent: transform);
 			cityMarker.Init(cityPoint, gameCamera.transform.position);
-
+			
+			packageDropped?.Invoke(new PackageDropInfo(package, cityMarker));
 
 			// Calculate results
 			DeliveryResult result = new DeliveryResult();

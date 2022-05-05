@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
-	public event System.Action<Package> packageDropped;
-
 	[Header("Startup Settings")]
 	public bool worldIsSpherical = true;
 	public PlayerStartPoint startPoint;
@@ -380,7 +377,6 @@ public class Player : MonoBehaviour
 	{
 		Package package = Instantiate(packagePrefab, packageDropPoint.position, packageDropPoint.rotation);
 		package.Init(worldLookup);
-		packageDropped?.Invoke(package);
 		return package;
 	}
 
