@@ -435,6 +435,120 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Map Controls"",
+            ""id"": ""93eacdd6-ff56-4002-a628-e7b51c13e474"",
+            ""actions"": [
+                {
+                    ""name"": ""Map Zoom"",
+                    ""type"": ""Value"",
+                    ""id"": ""40114ba9-36f9-4376-b2c0-e23f3599e09d"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Turn"",
+                    ""type"": ""Value"",
+                    ""id"": ""6cb01646-3b35-4f8b-a5a3-b279917b72b1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""e2db73c7-de1a-4c7b-8673-e61e758823e6"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(min=-120,max=120)"",
+                    ""groups"": ""Keyboard QWERTY"",
+                    ""action"": ""Map Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""7f5e4652-f4f1-4ab5-896d-e6120217801b"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Map Zoom"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""69169f2d-eadb-468e-8d6a-6660817e8712"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Map Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""08f7937c-4af6-406d-a593-f9b577f29331"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Map Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""1db1cc2e-bfff-404a-a08e-c96b4cb37b9a"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""ec3022dd-485d-488f-8964-f90a9ef36790"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard QWERTY"",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""fe1f7344-3853-49a9-aa3d-bc8afed8d239"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard QWERTY"",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""90a4867d-43d3-43fa-9ba9-38f795e0d4fc"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": ""ScaleVector2(x=25,y=25),InvertVector2"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Turn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -477,6 +591,10 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         m_UIControls = asset.FindActionMap("UI Controls", throwIfNotFound: true);
         m_UIControls_TogglePause = m_UIControls.FindAction("Toggle Pause", throwIfNotFound: true);
         m_UIControls_ToggleMap = m_UIControls.FindAction("Toggle Map", throwIfNotFound: true);
+        // Map Controls
+        m_MapControls = asset.FindActionMap("Map Controls", throwIfNotFound: true);
+        m_MapControls_MapZoom = m_MapControls.FindAction("Map Zoom", throwIfNotFound: true);
+        m_MapControls_Turn = m_MapControls.FindAction("Turn", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -679,6 +797,47 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         }
     }
     public UIControlsActions @UIControls => new UIControlsActions(this);
+
+    // Map Controls
+    private readonly InputActionMap m_MapControls;
+    private IMapControlsActions m_MapControlsActionsCallbackInterface;
+    private readonly InputAction m_MapControls_MapZoom;
+    private readonly InputAction m_MapControls_Turn;
+    public struct MapControlsActions
+    {
+        private @PlayerAction m_Wrapper;
+        public MapControlsActions(@PlayerAction wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MapZoom => m_Wrapper.m_MapControls_MapZoom;
+        public InputAction @Turn => m_Wrapper.m_MapControls_Turn;
+        public InputActionMap Get() { return m_Wrapper.m_MapControls; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MapControlsActions set) { return set.Get(); }
+        public void SetCallbacks(IMapControlsActions instance)
+        {
+            if (m_Wrapper.m_MapControlsActionsCallbackInterface != null)
+            {
+                @MapZoom.started -= m_Wrapper.m_MapControlsActionsCallbackInterface.OnMapZoom;
+                @MapZoom.performed -= m_Wrapper.m_MapControlsActionsCallbackInterface.OnMapZoom;
+                @MapZoom.canceled -= m_Wrapper.m_MapControlsActionsCallbackInterface.OnMapZoom;
+                @Turn.started -= m_Wrapper.m_MapControlsActionsCallbackInterface.OnTurn;
+                @Turn.performed -= m_Wrapper.m_MapControlsActionsCallbackInterface.OnTurn;
+                @Turn.canceled -= m_Wrapper.m_MapControlsActionsCallbackInterface.OnTurn;
+            }
+            m_Wrapper.m_MapControlsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @MapZoom.started += instance.OnMapZoom;
+                @MapZoom.performed += instance.OnMapZoom;
+                @MapZoom.canceled += instance.OnMapZoom;
+                @Turn.started += instance.OnTurn;
+                @Turn.performed += instance.OnTurn;
+                @Turn.canceled += instance.OnTurn;
+            }
+        }
+    }
+    public MapControlsActions @MapControls => new MapControlsActions(this);
     private int m_KeyboardQWERTYSchemeIndex = -1;
     public InputControlScheme KeyboardQWERTYScheme
     {
@@ -714,5 +873,10 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     {
         void OnTogglePause(InputAction.CallbackContext context);
         void OnToggleMap(InputAction.CallbackContext context);
+    }
+    public interface IMapControlsActions
+    {
+        void OnMapZoom(InputAction.CallbackContext context);
+        void OnTurn(InputAction.CallbackContext context);
     }
 }
