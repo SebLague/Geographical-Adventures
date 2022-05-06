@@ -11,6 +11,7 @@ public class GlobeController : MonoBehaviour
 	public bool allowMouseRotation = true;
 	public float poleAngleLimit = 15;
 	public float mouseSensitivity;
+	public float zoomSensitivity = 4;
 	public float fadeSpeed = 2;
 
 	public Color highlightCol;
@@ -116,12 +117,29 @@ public class GlobeController : MonoBehaviour
 
 			mousePosOld = mousePos;
 			UpdateRotation();
+			UpdateZooming();
 
 			cam.fieldOfView = Mathf.SmoothDamp(cam.fieldOfView, targetZoom, ref smoothZoomV, 0.2f);
 		}
 
 		UpdateHighlightState();
 
+	}
+
+	void UpdateZooming()
+	{
+		if (Input.mouseScrollDelta.y == 0) return;
+
+		targetZoom -= Input.mouseScrollDelta.y * zoomSensitivity;
+
+		if (targetZoom >= zoomMinMax.x)
+		{
+			SetZoomState(false);
+		}
+		else if (targetZoom <= zoomMinMax.y)
+		{
+			SetZoomState(true);
+		}
 	}
 
 	void ClampAngleY()
