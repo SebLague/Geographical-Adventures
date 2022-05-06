@@ -23,6 +23,7 @@ public class MapMenu : MonoBehaviour
 
 			globeHolder.gameObject.SetActive(true);
 			deliveryDisplay.UpdateDisplay();
+			globeController.Open();
 		}
 		else
 		{

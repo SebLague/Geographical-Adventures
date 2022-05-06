@@ -8,9 +8,8 @@ public class GlobeController : MonoBehaviour
 	public float camDst = -55;
 
 	public LayerMask globeMask;
-	public bool allowMouseRotation = true;
 	public float poleAngleLimit = 15;
-	public float mouseSensitivity;
+	public float rotateSensitivity;
 	public float zoomSensitivity = 4;
 	public float fadeSpeed = 2;
 
@@ -24,10 +23,8 @@ public class GlobeController : MonoBehaviour
 	public Transform globe;
 	public GlobeMapLoader mapLoader;
 	public UnityEngine.UI.CanvasScaler canvasScaler;
-	public CustomButton zoomButton;
 
 	// Private stuff
-	Vector2 mousePosOld;
 	float angleX;
 	float angleY;
 
@@ -47,11 +44,18 @@ public class GlobeController : MonoBehaviour
 	float targetZoom;
 	float smoothZoomV;
 
+	PlayerAction playerActions;
+
+	void Awake()
+	{
+		playerActions = new PlayerAction();
+	}
 
 	void Start()
 	{
 		if (mapLoader.hasLoaded)
 		{
+
 			countryIndexLookup = new Dictionary<GameObject, int>();
 
 			oceanObject = mapLoader.oceanObject;
@@ -68,8 +72,7 @@ public class GlobeController : MonoBehaviour
 				countryIndexLookup.Add(renderer.gameObject, i);
 			}
 
-			zoomButton.onClick.AddListener(ToggleZoom);
-			SetZoomState(false);
+			targetZoom = zoomMinMax.x;
 			cam.fieldOfView = targetZoom;
 		}
 		else
@@ -78,46 +81,21 @@ public class GlobeController : MonoBehaviour
 		}
 	}
 
-	void ToggleZoom()
-	{
-		SetZoomState(!isZoomed);
-	}
-
-	void SetZoomState(bool zoomed)
-	{
-		isZoomed = zoomed;
-		targetZoom = (isZoomed) ? zoomMinMax.y : zoomMinMax.x;
-		zoomButton.ChangeLabel(isZoomed ? "Zoom Out" : "Zoom In");
-	}
 
 	void Update()
 	{
 
-		if (Time.timeScale > 0)
+		if (GameController.IsState(GameState.ViewingMap))
 		{
+			HandleInput();
 			Vector2 mousePos = Input.mousePosition;
 
-			if (Input.GetMouseButtonDown(0))
-			{
-				mousePosOld = mousePos;
-			}
-
-			bool rotatingGlobe = Input.GetMouseButton(0) && allowMouseRotation;
-			if (rotatingGlobe)
-			{
-				Vector2 delta = mousePos - mousePosOld;
-				angleX -= delta.x * mouseSensitivity;
-				angleY += delta.y * mouseSensitivity;
-				ClampAngleY();
-			}
-			else
+			if (!Input.GetMouseButton(0))
 			{
 				HandleSelection();
 			}
-
-			mousePosOld = mousePos;
 			UpdateRotation();
-			UpdateZooming();
+
 
 			cam.fieldOfView = Mathf.SmoothDamp(cam.fieldOfView, targetZoom, ref smoothZoomV, 0.2f);
 		}
@@ -126,21 +104,23 @@ public class GlobeController : MonoBehaviour
 
 	}
 
-	void UpdateZooming()
+	void HandleInput()
 	{
-		if (Input.mouseScrollDelta.y == 0) return;
+		// Zoom
+		float zoomInput = (playerActions.MapControls.MapZoom.ReadValue<float>());
+		float newZoom = targetZoom - zoomInput * zoomSensitivity;
+		// weird that min/max is inverted (todo: fix)
+		targetZoom = Mathf.Clamp(newZoom, zoomMinMax.y, zoomMinMax.x);
 
-		targetZoom -= Input.mouseScrollDelta.y * zoomSensitivity;
+		// Rotation
+		Vector2 delta = playerActions.MapControls.Turn.ReadValue<Vector2>();
+		angleX -= delta.x * rotateSensitivity;
+		angleY += delta.y * rotateSensitivity;
+		ClampAngleY();
 
-		if (targetZoom >= zoomMinMax.x)
-		{
-			SetZoomState(false);
-		}
-		else if (targetZoom <= zoomMinMax.y)
-		{
-			SetZoomState(true);
-		}
 	}
+
+
 
 	void ClampAngleY()
 	{
@@ -272,8 +252,14 @@ public class GlobeController : MonoBehaviour
 		}
 	}
 
+	public void Open()
+	{
+		playerActions.MapControls.Enable();
+	}
+
 	public void Close()
 	{
+		playerActions.MapControls.Disable();
 		for (int i = 0; i < countryHighlightStates.Length; i++)
 		{
 			countryHighlightStates[i] = 0;

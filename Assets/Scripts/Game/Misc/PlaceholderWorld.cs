@@ -8,6 +8,15 @@ public class PlaceholderWorld : MonoBehaviour
 
 	public TerrainGeneration.TerrainHeightSettings heightSettings;
 
+
+	void Start()
+	{
+		if (Application.isPlaying)
+		{
+			gameObject.SetActive(false);
+		}
+	}
+
 	void Update()
 	{
 		if (!Application.isPlaying)

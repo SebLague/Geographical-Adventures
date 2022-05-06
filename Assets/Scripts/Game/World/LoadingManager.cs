@@ -6,11 +6,8 @@ using TerrainGeneration;
 public class LoadingManager : MonoBehaviour
 {
 
-	public enum LoadMode { Quick, PrintProgress, PrintProgressAndWait }
-
-	[Header("Settings")]
-	public LoadMode editorLoadMode;
-	public LoadMode buildLoadMode;
+	public bool logTaskLoadTimes;
+	public bool logTotalLoadTime;
 
 	[Header("References")]
 	public Player player;
@@ -21,7 +18,6 @@ public class LoadingManager : MonoBehaviour
 	public WorldLookup worldLookup;
 	public Light sunLight;
 	public AtmosphereEffect atmosphereEffect;
-	public GameObject placeholder;
 	public GlobeMapLoader globeMapLoader;
 
 	public LodMeshLoader terrainLoader;
@@ -33,15 +29,8 @@ public class LoadingManager : MonoBehaviour
 	// Called before all other scripts (defined in script execution order settings)
 	void Awake()
 	{
+		Load();
 
-		if (activeLoadMode == LoadMode.Quick)
-		{
-			LoadQuick();
-		}
-		else if (activeLoadMode == LoadMode.PrintProgress || activeLoadMode == LoadMode.PrintProgressAndWait)
-		{
-			StartCoroutine(LoadRoutine());
-		}
 	}
 
 	public LoadTask[] GetTasks()
@@ -66,50 +55,28 @@ public class LoadingManager : MonoBehaviour
 
 
 
-	void LoadQuick()
+	void Load()
 	{
 		var loadTimer = System.Diagnostics.Stopwatch.StartNew();
 		OnLoadStart();
-
 		LoadTask[] tasks = GetTasks();
 
 		foreach (LoadTask task in tasks)
 		{
-			task.Execute(null, false);
+			long taskTime = task.Execute(null, false);
+			if (logTaskLoadTimes)
+			{
+				Debug.Log($"{task.taskName}: {taskTime} ms.");
+			}
 		}
 
 		OnLoadFinish();
-		Debug.Log("Load duration: " + loadTimer.ElapsedMilliseconds);
+		if (logTotalLoadTime)
+		{
+			Debug.Log($"Total load duration: {loadTimer.ElapsedMilliseconds} ms.");
+		}
 	}
 
-
-
-	IEnumerator LoadRoutine()
-	{
-
-		OnLoadStart();
-		long elapsedMs = 0;
-
-		LoadTask[] tasks = GetTasks();
-
-		foreach (LoadTask task in tasks)
-		{
-			elapsedMs += task.Execute(loadScreen, true);
-			yield return null;
-		}
-
-		loadScreen.Log($"Loading Complete: {elapsedMs}ms.");
-		Debug.Log("Load duration: " + elapsedMs);
-
-		if (activeLoadMode == LoadMode.PrintProgressAndWait)
-		{
-			loadScreen.Log("Press spacebar to start", newLine: true);
-			yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
-		}
-
-		yield return new WaitForSeconds(0.5f);
-		OnLoadFinish();
-	}
 
 
 	void OnLoadStart()
@@ -117,7 +84,6 @@ public class LoadingManager : MonoBehaviour
 		SetActiveStateAll(deactivateWhileLoading, false);
 		loadScreen.gameObject.SetActive(true);
 		loadScreen.Init();
-		placeholder.SetActive(false);
 	}
 
 	void OnLoadFinish()
@@ -166,19 +132,5 @@ public class LoadingManager : MonoBehaviour
 			g.SetActive(isActive);
 		}
 	}
-
-	void OnDestroy()
-	{
-	}
-
-
-	LoadMode activeLoadMode
-	{
-		get
-		{
-			return (Application.isEditor) ? editorLoadMode : buildLoadMode;
-		}
-	}
-
 
 }
