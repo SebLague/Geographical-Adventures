@@ -145,7 +145,10 @@ public class AtmosphereEffect : PostProcessingEffect
 	void OnDisable()
 	{
 		// Todo: only clear own cmd buffer
-		cam?.RemoveAllCommandBuffers();
+		if (cam != null)
+		{
+			cam.RemoveAllCommandBuffers();
+		}
 		drawSkyCommand?.Release();
 		Camera.onPreCull -= RenderLUTs;
 	}
