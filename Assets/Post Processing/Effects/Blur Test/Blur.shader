@@ -1,5 +1,5 @@
 // Thanks to Loadus: https://www.shadertoy.com/view/Mtl3Rj
-Shader "Hidden/Blur2"
+Shader "Hidden/Blur"
 {
 	Properties
 	{

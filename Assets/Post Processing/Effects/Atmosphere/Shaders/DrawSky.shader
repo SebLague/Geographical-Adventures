@@ -16,7 +16,7 @@ Shader "Hidden/DrawSky"
 			#pragma fragment frag
 
 			#include "UnityCG.cginc"
-			#include "DrawAtmosphereCommon.hlsl"
+			#include "../Shader Common/DrawAtmosphereCommon.hlsl"
 
 			struct appdata
 			{

@@ -1,6 +1,6 @@
 #pragma kernel CSMain
-#include "../AtmosphereCommon.hlsl"
-#include "../RaymarchCommon.hlsl"
+#include "../Shader Common/AtmosphereCommon.hlsl"
+#include "../Shader Common/RaymarchCommon.hlsl"
 
 RWTexture3D<float4> AerialPerspectiveLuminance;
 RWTexture3D<float4> AerialPerspectiveTransmittance;

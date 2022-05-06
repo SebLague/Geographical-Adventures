@@ -1,5 +1,5 @@
 ﻿#pragma kernel CreateTransmittanceLUT
-#include "../AtmosphereCommon.hlsl"
+#include "../Shader Common/AtmosphereCommon.hlsl"
 
 RWTexture2D<float3> TransmittanceLUT;
 SamplerState transmittance_linear_clamp_sampler;

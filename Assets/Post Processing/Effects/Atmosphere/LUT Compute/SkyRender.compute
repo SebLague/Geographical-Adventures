@@ -1,7 +1,7 @@
 #pragma kernel RenderSkyLUT
 
-#include "../AtmosphereCommon.hlsl"
-#include "../RaymarchCommon.hlsl"//
+#include "../Shader Common/AtmosphereCommon.hlsl"
+#include "../Shader Common/RaymarchCommon.hlsl"//
 
 RWTexture2D<float4> Sky;
 sampler2D TransmittanceLUT;
