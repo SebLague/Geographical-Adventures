@@ -15,7 +15,7 @@ public class PlayerInputHandler : MonoBehaviour
 
 	void Awake()
 	{
-		playerActions = new PlayerAction();
+		playerActions = InputManager.inputActions;
 	}
 
 	void OnEnable()
@@ -77,6 +77,14 @@ public class PlayerInputHandler : MonoBehaviour
 		{
 			uIManager.ToggleMap();
 		}
+	}
+	
+	public void InvertPitchInput()
+	{
+		player.invertInput = !player.invertInput;
+		int isInvert = 0;
+		if (player.invertInput) isInvert = 1;
+		PlayerPrefs.SetInt("invertInput", isInvert);
 	}
 
 }
