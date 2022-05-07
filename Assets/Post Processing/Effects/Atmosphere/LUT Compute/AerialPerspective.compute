@@ -1,0 +1,45 @@
+#pragma kernel CSMain
+#include "../Shader Common/AtmosphereCommon.hlsl"
+#include "../Shader Common/RaymarchCommon.hlsl"
+
+RWTexture3D<float4> AerialPerspectiveLuminance;
+RWTexture3D<float4> AerialPerspectiveTransmittance;
+sampler2D TransmittanceLUT;
+
+uint size;
+float nearClip;
+float farClip;
+int numScatteringSteps;
+
+[numthreads(8,8,8)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+	if (id.x >= size || id.y >= size || id.z >= size) { return; }
+
+	float2 uv = id.xy / (size - 1.0);
+	float depthT = id.z / (size - 1.0);
+
+	float3 rayDir = calculateViewDir(uv);
+	float3 rayPos = camPos + rayDir * nearClip;
+
+	float2 atmosphereHitInfo = raySphere(0, atmosphereRadius, rayPos, rayDir);
+	float dstToAtmosphere = atmosphereHitInfo.x;
+	float dstThroughAtmosphere = atmosphereHitInfo.y;
+	
+	float3 col = 0;
+	float3 transmittance = 1;
+	
+	if (dstThroughAtmosphere > 0) {
+		float3 inPoint = rayPos + rayDir * dstToAtmosphere;
+		float rayLength = min(dstThroughAtmosphere, (terrestrialClipDst - nearClip) * depthT);
+		ScatteringResult result = raymarch(inPoint, rayDir, rayLength, numScatteringSteps, TransmittanceLUT, 0); // dont include earth shadow (causes issues due to low texture size)
+		col = result.luminance;
+		transmittance = result.transmittance;
+	}
+	
+
+	float avgTransmittance = dot(transmittance, 1/3.0);
+
+	AerialPerspectiveLuminance[id] = float4(col, avgTransmittance);
+	AerialPerspectiveTransmittance[id] = float4(transmittance, depthT);//
+}
