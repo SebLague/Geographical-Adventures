@@ -176,6 +176,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -269,6 +270,7 @@ Transform:
   m_LocalRotation: {x: 0.2894683, y: -0.35752895, z: 0.23846819, w: 0.855286}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -289,7 +291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2019258711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,8 +307,6 @@ MonoBehaviour:
   autoLoadOnAwake: 1
   countriesLoadFile: {fileID: 4900000, guid: 01fa31f9a41e8a043b18646bfb4b74df, type: 3}
   oceanLoadFile: {fileID: 4900000, guid: 902f54d19fec3484fb7405eb6449b51c, type: 3}
-  colourSeed: 60
-  brightnessMinMax: {x: 0.1, y: 0.1}
   countryMaterial: {fileID: 2100000, guid: d44913fc31de4384a83fd26f30d47267, type: 2}
   oceanMaterial: {fileID: 2100000, guid: 5c5afe69bf9b32c48b9cf609fb79580f, type: 2}
   holder: {fileID: 2019258712}
@@ -793,491 +793,7 @@ MonoBehaviour:
     colour: {r: 0.16981131, g: 0.16420433, b: 0.16420433, a: 1}
   - countryName: Zimbabwe
     colour: {r: 0.22120917, g: 0.22120917, b: 0.22120917, a: 1}
-  temp: {fileID: 4900000, guid: 9c744d9ec8e886a4eb871a6603807d3d, type: 3}
-  countryData: {fileID: 11400000, guid: 1bd34af60df8cb04197d7f07dc9ddf72, type: 2}
-  extraData:
-  - countryName: Aruba
-    avgTemp: 28.128
-  - countryName: Afghanistan
-    avgTemp: 15.497833
-  - countryName: Angola
-    avgTemp: 22.360666
-  - countryName: Anguilla
-    avgTemp: 27.05275
-  - countryName: Albania
-    avgTemp: 13.746583
-  - countryName: "\xC5land"
-    avgTemp: 7.2833333
-  - countryName: Andorra
-    avgTemp: 12.311916
-  - countryName: United Arab Emirates
-    avgTemp: 28.87775
-  - countryName: Argentina
-    avgTemp: 14.7505
-  - countryName: Armenia
-    avgTemp: 9.918167
-  - countryName: American Samoa
-    avgTemp: 27.219833
-  - countryName: Antarctica
-    avgTemp: 0
-  - countryName: Ashmore and Cartier Is.
-    avgTemp: 3.4028235e+38
-  - countryName: Fr. S. Antarctic Lands
-    avgTemp: 5.224
-  - countryName: Antigua and Barb.
-    avgTemp: 26.892084
-  - countryName: Australia
-    avgTemp: 21.709667
-  - countryName: Austria
-    avgTemp: 8.084917
-  - countryName: Azerbaijan
-    avgTemp: 12.632
-  - countryName: Burundi
-    avgTemp: 20.595833
-  - countryName: Belgium
-    avgTemp: 11.03425
-  - countryName: Benin
-    avgTemp: 27.637667
-  - countryName: Burkina Faso
-    avgTemp: 28.591417
-  - countryName: Bangladesh
-    avgTemp: 25.150167
-  - countryName: Bulgaria
-    avgTemp: 11.906834
-  - countryName: Bahrain
-    avgTemp: 27.07075
-  - countryName: Bahamas
-    avgTemp: 25.449167
-  - countryName: Bosnia and Herz.
-    avgTemp: 12.148084
-  - countryName: "St-Barth\xE9lemy"
-    avgTemp: 3.4028235e+38
-  - countryName: Belarus
-    avgTemp: 7.9098334
-  - countryName: Belize
-    avgTemp: 25.285
-  - countryName: Bermuda
-    avgTemp: 3.4028235e+38
-  - countryName: Bolivia
-    avgTemp: 21.077168
-  - countryName: Brazil
-    avgTemp: 25.1965
-  - countryName: Barbados
-    avgTemp: 26.902082
-  - countryName: Brunei
-    avgTemp: 3.4028235e+38
-  - countryName: Bhutan
-    avgTemp: 11.998417
-  - countryName: Botswana
-    avgTemp: 21.872334
-  - countryName: Central African Rep.
-    avgTemp: 25.613333
-  - countryName: Canada
-    avgTemp: -4.0259166
-  - countryName: Switzerland
-    avgTemp: 8.562667
-  - countryName: Chile
-    avgTemp: 9.564083
-  - countryName: China
-    avgTemp: 7.2380834
-  - countryName: "C\xF4te d'Ivoire"
-    avgTemp: 26.402334
-  - countryName: Cameroon
-    avgTemp: 24.613
-  - countryName: Dem. Rep. Congo
-    avgTemp: 24.206167
-  - countryName: Congo
-    avgTemp: 24.786
-  - countryName: Cook Is.
-    avgTemp: 3.4028235e+38
-  - countryName: Colombia
-    avgTemp: 25.030167
-  - countryName: Comoros
-    avgTemp: 25.9955
-  - countryName: Cabo Verde
-    avgTemp: 3.4028235e+38
-  - countryName: Costa Rica
-    avgTemp: 26.072166
-  - countryName: Cuba
-    avgTemp: 25.785
-  - countryName: "Cura\xE7ao"
-    avgTemp: 27.564083
-  - countryName: Cayman Is.
-    avgTemp: 27.101833
-  - countryName: N. Cyprus
-    avgTemp: 3.4028235e+38
-  - countryName: Cyprus
-    avgTemp: 19.442
-  - countryName: Czechia
-    avgTemp: 9.659
-  - countryName: Germany
-    avgTemp: 10.020416
-  - countryName: Djibouti
-    avgTemp: 29.86
-  - countryName: Dominica
-    avgTemp: 26.5715
-  - countryName: Denmark
-    avgTemp: 9.582916
-  - countryName: Dominican Rep.
-    avgTemp: 25.880417
-  - countryName: Algeria
-    avgTemp: 24.03225
-  - countryName: Ecuador
-    avgTemp: 22.026
-  - countryName: Egypt
-    avgTemp: 22.881416
-  - countryName: Eritrea
-    avgTemp: 27.51725
-  - countryName: Spain
-    avgTemp: 14.46875
-  - countryName: Estonia
-    avgTemp: 7.00875
-  - countryName: Ethiopia
-    avgTemp: 23.762583
-  - countryName: Finland
-    avgTemp: 3.5906668
-  - countryName: Fiji
-    avgTemp: 25.837166
-  - countryName: Falkland Is.
-    avgTemp: 6.4011664
-  - countryName: France
-    avgTemp: 11.738083
-  - countryName: Faeroe Is.
-    avgTemp: 7.19175
-  - countryName: Micronesia
-    avgTemp: 27.442833
-  - countryName: Gabon
-    avgTemp: 24.572416
-  - countryName: United Kingdom
-    avgTemp: 9.5655
-  - countryName: Georgia
-    avgTemp: 9.311167
-  - countryName: Guernsey
-    avgTemp: 11.919
-  - countryName: Ghana
-    avgTemp: 27.245916
-  - countryName: Guinea
-    avgTemp: 25.969166
-  - countryName: Gambia
-    avgTemp: 28.06375
-  - countryName: Guinea-Bissau
-    avgTemp: 3.4028235e+38
-  - countryName: Eq. Guinea
-    avgTemp: 25.220583
-  - countryName: Greece
-    avgTemp: 15.673333
-  - countryName: Grenada
-    avgTemp: 27.190916
-  - countryName: Greenland
-    avgTemp: -17.367916
-  - countryName: Guatemala
-    avgTemp: 23.428833
-  - countryName: Guam
-    avgTemp: 27.481667
-  - countryName: Guyana
-    avgTemp: 26.393583
-  - countryName: Hong Kong
-    avgTemp: 23.2015
-  - countryName: Heard I. and McDonald Is.
-    avgTemp: 2.885
-  - countryName: Honduras
-    avgTemp: 25.153667
-  - countryName: Croatia
-    avgTemp: 13.226417
-  - countryName: Haiti
-    avgTemp: 26.598583
-  - countryName: Hungary
-    avgTemp: 11.700334
-  - countryName: Indonesia
-    avgTemp: 26.19025
-  - countryName: Isle of Man
-    avgTemp: 10.257584
-  - countryName: India
-    avgTemp: 24.498
-  - countryName: Indian Ocean Ter.
-    avgTemp: 3.4028235e+38
-  - countryName: Br. Indian Ocean Ter.
-    avgTemp: 3.4028235e+38
-  - countryName: Ireland
-    avgTemp: 10.13075
-  - countryName: Iran
-    avgTemp: 18.892084
-  - countryName: Iraq
-    avgTemp: 22.988832
-  - countryName: Iceland
-    avgTemp: 2.10325
-  - countryName: Israel
-    avgTemp: 20.230417
-  - countryName: Italy
-    avgTemp: 14.1255
-  - countryName: Jamaica
-    avgTemp: 26.469418
-  - countryName: Jersey
-    avgTemp: 11.919
-  - countryName: Jordan
-    avgTemp: 20.04525
-  - countryName: Japan
-    avgTemp: 12.833834
-  - countryName: Siachen Glacier
-    avgTemp: 3.4028235e+38
-  - countryName: Kazakhstan
-    avgTemp: 6.7614164
-  - countryName: Kenya
-    avgTemp: 24.716667
-  - countryName: Kyrgyzstan
-    avgTemp: 4.73075
-  - countryName: Cambodia
-    avgTemp: 27.057167
-  - countryName: Kiribati
-    avgTemp: 27.07925
-  - countryName: St. Kitts and Nevis
-    avgTemp: 26.2735
-  - countryName: South Korea
-    avgTemp: 12.575334
-  - countryName: Kosovo
-    avgTemp: 3.4028235e+38
-  - countryName: Kuwait
-    avgTemp: 26.376083
-  - countryName: Laos
-    avgTemp: 23.835167
-  - countryName: Lebanon
-    avgTemp: 18.377333
-  - countryName: Liberia
-    avgTemp: 25.85975
-  - countryName: Libya
-    avgTemp: 22.835083
-  - countryName: Saint Lucia
-    avgTemp: 27.078417
-  - countryName: Liechtenstein
-    avgTemp: 6.32875
-  - countryName: Sri Lanka
-    avgTemp: 27.46975
-  - countryName: Lesotho
-    avgTemp: 14.053917
-  - countryName: Lithuania
-    avgTemp: 8.107667
-  - countryName: Luxembourg
-    avgTemp: 10.79275
-  - countryName: Latvia
-    avgTemp: 7.497083
-  - countryName: Macao
-    avgTemp: 3.4028235e+38
-  - countryName: St-Martin
-    avgTemp: 27.05275
-  - countryName: Morocco
-    avgTemp: 18.565083
-  - countryName: Monaco
-    avgTemp: 10.2295
-  - countryName: Moldova
-    avgTemp: 10.69
-  - countryName: Madagascar
-    avgTemp: 23.320333
-  - countryName: Maldives
-    avgTemp: 3.4028235e+38
-  - countryName: Mexico
-    avgTemp: 21.232084
-  - countryName: Marshall Is.
-    avgTemp: 3.4028235e+38
-  - countryName: Macedonia
-    avgTemp: 11.582
-  - countryName: Mali
-    avgTemp: 29.150333
-  - countryName: Malta
-    avgTemp: 19.609167
-  - countryName: Myanmar
-    avgTemp: 3.4028235e+38
-  - countryName: Montenegro
-    avgTemp: 11.561334
-  - countryName: Mongolia
-    avgTemp: 0.175
-  - countryName: N. Mariana Is.
-    avgTemp: 27.481667
-  - countryName: Mozambique
-    avgTemp: 23.92025
-  - countryName: Mauritania
-    avgTemp: 28.355583
-  - countryName: Montserrat
-    avgTemp: 26.841084
-  - countryName: Mauritius
-    avgTemp: 24.002583
-  - countryName: Malawi
-    avgTemp: 21.714417
-  - countryName: Malaysia
-    avgTemp: 26.371416
-  - countryName: Namibia
-    avgTemp: 21.017666
-  - countryName: New Caledonia
-    avgTemp: 23.283083
-  - countryName: Niger
-    avgTemp: 27.975834
-  - countryName: Norfolk Island
-    avgTemp: 3.4028235e+38
-  - countryName: Nigeria
-    avgTemp: 27.0335
-  - countryName: Nicaragua
-    avgTemp: 26.381332
-  - countryName: Niue
-    avgTemp: 25.80575
-  - countryName: Netherlands
-    avgTemp: 10.73875
-  - countryName: Norway
-    avgTemp: 1.7969167
-  - countryName: Nepal
-    avgTemp: 15.279333
-  - countryName: Nauru
-    avgTemp: 3.4028235e+38
-  - countryName: New Zealand
-    avgTemp: 11.115583
-  - countryName: Oman
-    avgTemp: 27.922417
-  - countryName: Pakistan
-    avgTemp: 21.8225
-  - countryName: Panama
-    avgTemp: 26.711834
-  - countryName: Pitcairn Is.
-    avgTemp: 3.4028235e+38
-  - countryName: Peru
-    avgTemp: 20.231916
-  - countryName: Philippines
-    avgTemp: 27.00975
-  - countryName: Palau
-    avgTemp: 27.69075
-  - countryName: Papua New Guinea
-    avgTemp: 24.942
-  - countryName: Poland
-    avgTemp: 9.622167
-  - countryName: Puerto Rico
-    avgTemp: 25.7865
-  - countryName: North Korea
-    avgTemp: 7.525
-  - countryName: Portugal
-    avgTemp: 15.393
-  - countryName: Paraguay
-    avgTemp: 23.626083
-  - countryName: Palestine
-    avgTemp: 3.4028235e+38
-  - countryName: Fr. Polynesia
-    avgTemp: 26.635834
-  - countryName: Qatar
-    avgTemp: 27.993
-  - countryName: Romania
-    avgTemp: 10.47225
-  - countryName: Russia
-    avgTemp: -4.5456667
-  - countryName: Rwanda
-    avgTemp: 19.753084
-  - countryName: W. Sahara
-    avgTemp: 23.020082
-  - countryName: Saudi Arabia
-    avgTemp: 26.642916
-  - countryName: Sudan
-    avgTemp: 27.456583
-  - countryName: S. Sudan
-    avgTemp: 3.4028235e+38
-  - countryName: Senegal
-    avgTemp: 28.526083
-  - countryName: Singapore
-    avgTemp: 27.0965
-  - countryName: S. Geo. and the Is.
-    avgTemp: 3.4028235e+38
-  - countryName: Saint Helena
-    avgTemp: 3.4028235e+38
-  - countryName: Solomon Is.
-    avgTemp: 27.26475
-  - countryName: Sierra Leone
-    avgTemp: 26.546833
-  - countryName: El Salvador
-    avgTemp: 25.407167
-  - countryName: San Marino
-    avgTemp: 15.442583
-  - countryName: Somaliland
-    avgTemp: 3.4028235e+38
-  - countryName: Somalia
-    avgTemp: 27.71025
-  - countryName: St. Pierre and Miquelon
-    avgTemp: 5.865
-  - countryName: Serbia
-    avgTemp: 11.791
-  - countryName: "S\xE3o Tom\xE9 and Principe"
-    avgTemp: 26.189
-  - countryName: Suriname
-    avgTemp: 26.586082
-  - countryName: Slovakia
-    avgTemp: 9.482
-  - countryName: Slovenia
-    avgTemp: 11.590584
-  - countryName: Sweden
-    avgTemp: 4.421
-  - countryName: Eswatini
-    avgTemp: 3.4028235e+38
-  - countryName: Sint Maarten
-    avgTemp: 27.05275
-  - countryName: Seychelles
-    avgTemp: 27.17925
-  - countryName: Syria
-    avgTemp: 18.773333
-  - countryName: Turks and Caicos Is.
-    avgTemp: 3.4028235e+38
-  - countryName: Chad
-    avgTemp: 27.447834
-  - countryName: Togo
-    avgTemp: 27.442417
-  - countryName: Thailand
-    avgTemp: 26.302166
-  - countryName: Tajikistan
-    avgTemp: 5.3925834
-  - countryName: Turkmenistan
-    avgTemp: 16.398167
-  - countryName: Timor-Leste
-    avgTemp: 3.4028235e+38
-  - countryName: Tonga
-    avgTemp: 24.028667
-  - countryName: Trinidad and Tobago
-    avgTemp: 26.627083
-  - countryName: Tunisia
-    avgTemp: 21.1405
-  - countryName: Turkey
-    avgTemp: 12.201917
-  - countryName: Taiwan
-    avgTemp: 22.7045
-  - countryName: Tanzania
-    avgTemp: 22.791584
-  - countryName: Uganda
-    avgTemp: 23.560917
-  - countryName: Ukraine
-    avgTemp: 9.316334
-  - countryName: Uruguay
-    avgTemp: 17.75675
-  - countryName: United States of America
-    avgTemp: 9.64975
-  - countryName: Uzbekistan
-    avgTemp: 13.938833
-  - countryName: Vatican
-    avgTemp: 3.4028235e+38
-  - countryName: St. Vin. and Gren.
-    avgTemp: 27.217916
-  - countryName: Venezuela
-    avgTemp: 25.3885
-  - countryName: British Virgin Is.
-    avgTemp: 26.730583
-  - countryName: U.S. Virgin Is.
-    avgTemp: 3.4028235e+38
-  - countryName: Vietnam
-    avgTemp: 23.981916
-  - countryName: Vanuatu
-    avgTemp: 3.4028235e+38
-  - countryName: Wallis and Futuna Is.
-    avgTemp: 3.4028235e+38
-  - countryName: Samoa
-    avgTemp: 26.838333
-  - countryName: Yemen
-    avgTemp: 27.436167
-  - countryName: South Africa
-    avgTemp: 17.585583
-  - countryName: Zambia
-    avgTemp: 21.55875
-  - countryName: Zimbabwe
-    avgTemp: 21.149
+  updateColoursFromRenderer: 0
 --- !u!4 &2019258712
 Transform:
   m_ObjectHideFlags: 0
@@ -1288,6 +804,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1324,7 +841,7 @@ MonoBehaviour:
   autoRunOnAwake: 0
   countryFile: {fileID: 4900000, guid: 663e585d2c2099a41886f9227128cfce, type: 3}
   cityFile: {fileID: 4900000, guid: ad350dee819aaab42981bde375f8176e, type: 3}
-  extraInfoFile: {fileID: 0}
+  capitalsFile: {fileID: 4900000, guid: 45561d6299b0b334c8376668502dce3d, type: 3}
   countries: []
 --- !u!4 &2023727551
 Transform:
@@ -1336,6 +853,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2

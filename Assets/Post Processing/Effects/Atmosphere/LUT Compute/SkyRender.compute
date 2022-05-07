@@ -1,0 +1,33 @@
+#pragma kernel RenderSkyLUT
+
+#include "../Shader Common/AtmosphereCommon.hlsl"
+#include "../Shader Common/RaymarchCommon.hlsl"//
+
+RWTexture2D<float4> Sky;
+sampler2D TransmittanceLUT;
+
+uint2 size;
+int numScatteringSteps;
+
+[numthreads(8,8,1)]
+void RenderSkyLUT (uint3 id : SV_DispatchThreadID)
+{
+	
+	if (id.x >= size.x || id.y >= size.y) { return; }
+
+	float2 texCoord = id.xy / float2(size - 1.0);
+	float3 viewDir = calculateViewDir(texCoord);
+
+	float2 hitInfo = raySphere(0, atmosphereRadius, camPos, viewDir);
+	float dstToAtmosphere = hitInfo.x;
+	float dstThroughAtmosphere = hitInfo.y;//
+	
+	float3 col = 0;
+	
+	if (dstThroughAtmosphere > 0) {
+		float3 inPoint = camPos + viewDir * dstToAtmosphere;
+		ScatteringResult result = raymarch(inPoint, viewDir, dstThroughAtmosphere, numScatteringSteps, TransmittanceLUT, planetRadius);
+		col = result.luminance;
+	}
+	Sky[id.xy] = float4(col, 1);
+}

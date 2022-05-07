@@ -56,10 +56,8 @@ namespace GeoGame.Quest
 
 		void Update()
 		{
-
 			balloonRenderer.sharedMaterial.SetVector(firePosShaderID, fireLightSource.position);
 			basketRenderer.sharedMaterial.SetVector(firePosShaderID, fireLightSource.position);
-
 
 			spawnT += Time.deltaTime * spawnSpeed;
 			currentAnchorPos = Vector3.Lerp(startPos, targetAnchorPos, Maths.Ease.Cubic.InOut(spawnT));
@@ -69,33 +67,42 @@ namespace GeoGame.Quest
 
 			if (interactionComplete)
 			{
-				//gameObject.SetActive(false);
 				fadeT += Time.deltaTime * fadeSpeed;
 				float alpha = Mathf.Clamp01(1 - fadeT);
 				balloonRenderer.sharedMaterial.SetFloat("_Fade", alpha);
 				basketRenderer.sharedMaterial.SetFloat("_Fade", alpha);
 				fireParticlesR.sharedMaterial.color = new Color(1, 1, 1, alpha);
 
-				//transform.localScale = Vector3.one * Maths.Ease.Quadratic.InOut(1-t);
 				if (fadeT > 1)
 				{
 					gameObject.SetActive(false);
-					//Destroy(gameObject);
 				}
 			}
-			else
+			else if (player != null)
 			{
-				Vector3 interactionSphereCentre = transform.TransformPoint(interactionSphere.center);
-				float playerInteractionRadius = 0.5f;
+				CheckForPlayerCollision();
+			}
+		}
 
-				if (Maths.Sphere.OverlapsSphere(interactionSphereCentre, interactionSphere.radius, player.position, playerInteractionRadius))
-				{
-					interactionComplete = true;
-					interactAudio.Play();
-					onInteractedCallback.Invoke();
-				}
+		void OnPlayerCollide()
+		{
+			interactAudio.Play();
+			onInteractedCallback.Invoke();
+		}
+
+
+		void CheckForPlayerCollision()
+		{
+			Vector3 interactionSphereCentre = transform.TransformPoint(interactionSphere.center);
+			float playerInteractionRadius = 0.5f;
+
+			if (Maths.Sphere.OverlapsSphere(interactionSphereCentre, interactionSphere.radius, player.position, playerInteractionRadius))
+			{
+				interactionComplete = true;
+				OnPlayerCollide();
 			}
 		}
 
 	}
+
 }
