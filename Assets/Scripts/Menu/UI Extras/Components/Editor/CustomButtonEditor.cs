@@ -37,10 +37,6 @@ public class CustomButtonEditor : UnityEditor.UI.ButtonEditor
 	bool DrawProperty(SerializedProperty property)
 	{
 		bool drawProperty = true;
-		if (property.name == nameof(customButton.mouseOverButtonText))
-		{
-			drawProperty = customButton.changeTextOnMouseOver;
-		}
 		if (drawProperty)
 		{
 			EditorGUILayout.PropertyField(property);

@@ -45,6 +45,13 @@ public static class FileHelper
 
 		string fullPath = Path.Combine(path, fileName + fileExtension);
 
+		SaveTextToFile(fullPath, data, log);
+	}
+
+
+	public static void SaveTextToFile(string fullPath, string data, bool log = false)
+	{
+
 		using (var writer = new StreamWriter(File.Open(fullPath, FileMode.Create)))
 		{
 			writer.Write(data);

@@ -19,11 +19,14 @@ public class SettingsMenu : Menu
 	public ValueWheel terrainQuality;
 	public ValueWheel shadowQuality;
 
-	[Header("Audio Settings")]
+	[Header("Audio/Language Settings")]
+	public ValueWheel languageWheel;
 	public Slider masterVolumeSlider;
 	public Slider musicVolumeSlider;
 	public Slider sfxVolumeSlider;
+	[Space()]
 	public AudioMixer audioMixer;
+	public LocalizeManager localizationManager;
 
 
 	[Header("Other References")]
@@ -47,9 +50,16 @@ public class SettingsMenu : Menu
 		applyButton.onClick.AddListener(ApplyCurrentSettings);
 
 
+		languageWheel.onValueChanged += OnLanguageChanged;
 		masterVolumeSlider.onValueChanged.AddListener((volume) => UpdateAudioVolume());
 		musicVolumeSlider.onValueChanged.AddListener((volume) => UpdateAudioVolume());
 		sfxVolumeSlider.onValueChanged.AddListener((volume) => UpdateAudioVolume());
+
+	}
+
+	void OnLanguageChanged(int index)
+	{
+		localizationManager.ChangeLanguage((LocalizeManager.Language)index);
 	}
 
 	// Set UI state from loaded settings
@@ -61,7 +71,9 @@ public class SettingsMenu : Menu
 		InitResolutionSettings(settings.screenSize);
 		terrainQuality.SetActiveIndex((int)settings.terrainQuality, notify: false);
 		shadowQuality.SetActiveIndex((int)settings.shadowQuality, notify: false);
-		// Music
+
+		// Audio / Language
+		languageWheel.SetActiveIndex((int)settings.language, notify: false);
 		masterVolumeSlider.SetValueWithoutNotify(settings.masterVolume);
 		musicVolumeSlider.SetValueWithoutNotify(settings.musicVolume);
 		sfxVolumeSlider.SetValueWithoutNotify(settings.sfxVolume);
@@ -79,7 +91,8 @@ public class SettingsMenu : Menu
 		settings.terrainQuality = (Settings.TerrainQuality)terrainQuality.activeValueIndex;
 		settings.shadowQuality = (Settings.ShadowQuality)shadowQuality.activeValueIndex;
 
-		// Audio
+		// Audio / Language
+		settings.language = (LocalizeManager.Language)languageWheel.activeValueIndex;
 		settings.masterVolume = masterVolumeSlider.value;
 		settings.sfxVolume = sfxVolumeSlider.value;
 		settings.musicVolume = musicVolumeSlider.value;
@@ -96,7 +109,8 @@ public class SettingsMenu : Menu
 	// Applies the settings and saves them to disc
 	void ApplySettings(Settings settings)
 	{
-		// Apply audio settings
+		// Apply audio / language settings
+		localizationManager.ChangeLanguage(settings.language);
 		UpdateAudioVolume(settings.masterVolume, settings.musicVolume, settings.sfxVolume);
 
 		// Apply graphics settings
@@ -343,6 +357,7 @@ public struct Settings
 	public ShadowQuality shadowQuality;
 
 	// Audio
+	public LocalizeManager.Language language;
 	public float masterVolume;
 	public float musicVolume;
 	public float sfxVolume;
@@ -359,7 +374,8 @@ public struct Settings
 		settings.terrainQuality = (TerrainQuality)PlayerPrefs.GetInt(nameof(terrainQuality), defaultValue: (int)TerrainQuality.High);
 		settings.shadowQuality = (ShadowQuality)PlayerPrefs.GetInt(nameof(shadowQuality), defaultValue: (int)ShadowQuality.High);
 
-		// Audio
+		// Audio / Language
+		settings.language = (LocalizeManager.Language)PlayerPrefs.GetInt(nameof(language), defaultValue: 0);
 		settings.masterVolume = PlayerPrefs.GetFloat(nameof(masterVolume), defaultValue: 0.75f);
 		settings.musicVolume = PlayerPrefs.GetFloat(nameof(musicVolume), defaultValue: 0.75f);
 		settings.sfxVolume = PlayerPrefs.GetFloat(nameof(sfxVolume), defaultValue: 0.75f);
@@ -374,7 +390,8 @@ public struct Settings
 		PlayerPrefs.SetInt(nameof(terrainQuality), (int)settings.terrainQuality);
 		PlayerPrefs.SetInt(nameof(shadowQuality), (int)settings.shadowQuality);
 
-		// --- Audio
+		// Audio / Language
+		PlayerPrefs.SetInt(nameof(language), (int)settings.language);
 		PlayerPrefs.SetFloat(nameof(masterVolume), settings.masterVolume);
 		PlayerPrefs.SetFloat(nameof(musicVolume), settings.musicVolume);
 		PlayerPrefs.SetFloat(nameof(sfxVolume), settings.sfxVolume);

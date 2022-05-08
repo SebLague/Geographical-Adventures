@@ -1,0 +1,68 @@
+{
+    "entries": [
+        {
+            "id": "mainMenu.playButton",
+            "text": "Play"
+        },
+        {
+            "id": "mainMenu.manualButton",
+            "text": "Manual"
+        },
+        {
+            "id": "mainMenu.settingsButton",
+            "text": "Settings"
+        },
+        {
+            "id": "mainMenu.creditsButton",
+            "text": "Credits"
+        },
+        {
+            "id": "mainMenu.quitButton",
+            "text": "Quit"
+        },
+        {
+            "id": "subMenu.closeButton",
+            "text": "Close"
+        },
+        {
+            "id": "settingsMenu.graphicsTab",
+            "text": "Graphics"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguageTab",
+            "text": "Audio / Language"
+        },
+        {
+            "id": "settingsMenu.controlsTab",
+            "text": "Controls"
+        },
+        {
+            "id": "settingsMenu.graphics.aspectRatio",
+            "text": "Aspect Ratio"
+        },
+        {
+            "id": "settingsMenu.graphics.resolution",
+            "text": "Resolution"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.language",
+            "text": "Language"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.masterVolume",
+            "text": "Master Volume"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.musicVolume",
+            "text": "Music Volume"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.sfxVolume",
+            "text": "SFX Volume"
+        },
+        {
+            "id": "settingsMenu.applyButton",
+            "text": "Apply"
+        }
+    ]
+}

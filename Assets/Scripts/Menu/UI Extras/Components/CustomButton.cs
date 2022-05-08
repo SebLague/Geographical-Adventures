@@ -10,25 +10,15 @@ public class CustomButton : Button
 	public event System.Action onPointerEnter;
 	public event System.Action onPointerExit;
 
+	public StringLocalizer localizer;
 	[Header("Settings")]
-	public string buttonText;
+	//public string buttonText;
 	public bool changeTextOnMouseOver;
-	public string mouseOverButtonText;
+	//public string mouseOverButtonText;
 
 	[Header("References")]
 	public TMPro.TMP_Text label;
 
-	bool pointerIsOver;
-
-
-	public void ChangeLabel(string newLabel)
-	{
-		buttonText = newLabel;
-		if (pointerIsOver || !changeTextOnMouseOver)
-		{
-			SetLabel(buttonText);
-		}
-	}
 
 	void SetLabel(string text)
 	{
@@ -44,25 +34,15 @@ public class CustomButton : Button
 		base.OnPointerEnter(eventData);
 		if (changeTextOnMouseOver)
 		{
-			SetLabel(mouseOverButtonText);
+			SetLabel($"<   {localizer.currentValue}   >");
 		}
-		pointerIsOver = true;
 		onPointerEnter?.Invoke();
 	}
 
 	public override void OnPointerExit(PointerEventData eventData)
 	{
 		base.OnPointerExit(eventData);
-		pointerIsOver = false;
-		SetLabel(buttonText);
+		SetLabel(localizer.currentValue);
 		onPointerExit?.Invoke();
 	}
-
-#if UNITY_EDITOR
-	protected override void OnValidate()
-	{
-		base.OnValidate();
-		SetLabel(buttonText);
-	}
-#endif
 }
