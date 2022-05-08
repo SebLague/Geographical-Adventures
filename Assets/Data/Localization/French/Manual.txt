@@ -1,10 +1,10 @@
-<color=#FFFFFF>Salut! In this little game your goal is simply to fly around the world, picking up packages and delivering them to various cities as you go.</color>
+<color=#FFFFFF>Salut! Dans ce petit jeu, votre objectif est de voler autour du monde, en récupérant des colis et en les livrant dans différentes villes en cours de route.</color>
 
-There are three locations marked at the top of the screen. At each location you'll find a hot air balloon waiting with a package for you to collect. Fly your plane through the ballons to collect the packages.
+Il y a trois endroits indiqués en haut de l'écran. À chaque endroit, vous trouverez une montgolfière qui vous attend avec un colis à récupérer. Faites voler votre avion à travers les ballons pour récupérer les colis.
 
-Once a package has been picked up, its location at the top of the screen will change to a delivery address. Fly over to that city (or your best guess as to where it is) and drop the package off there. You'll be awarded with Boost based on how far the package lands from the intended destination. Boost allows you to fly extremely fast for a limited amount of time.
+Lorsqu'un colis a été récupéré, son emplacement en haut de l'écran se transforme en adresse de livraison. Volez vers cette ville (ou votre meilleure estimation de l'endroit où elle se trouve) et déposez-y le colis. Vous recevrez un bonus en fonction de la distance qui sépare le colis de sa destination. Le Boost vous permet de voler extrêmement vite pendant un temps limité.
 
-You can collect and deliver the packages in whatever order you like, and you can also pick up multiple packages before deliverying any of them (note that in this case, the drop package button will automatically select the package that's currently closest to its destination).
+Vous pouvez récupérer et livrer les colis dans l'ordre que vous souhaitez. Vous pouvez également retirer plusieurs colis avant d'en livrer un (notez que dans ce cas, le bouton de dépôt de colis sélectionnera automatiquement le colis qui est actuellement le plus proche de sa destination).
 
-<color=#888888>You can find a list of controls in the settings menu.
-I hope you'll enjoy the game!</color>
+<color=#888888>Vous pouvez retrouvez les touches dans les paramètres.
+J'espère que vous apprécierez le jeu !</color>
