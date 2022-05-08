@@ -2,7 +2,7 @@
     "entries": [
         {
             "id": "mainMenu.subtitle",
-            "text": "(under construction)"
+            "text": "(en construction)"
         },
         {
             "id": "mainMenu.playButton",
@@ -10,47 +10,47 @@
         },
         {
             "id": "mainMenu.manualButton",
-            "text": "Manual"
+            "text": "Manuel"
         },
         {
             "id": "mainMenu.settingsButton",
-            "text": "Settings"
+            "text": "Paramètres"
         },
         {
             "id": "mainMenu.creditsButton",
-            "text": "Credits"
+            "text": "Crédits"
         },
         {
             "id": "mainMenu.quitButton",
-            "text": "Quit"
+            "text": "Quitter"
         },
         {
             "id": "subMenu.closeButton",
-            "text": "Close"
+            "text": "Fermer"
         },
         {
             "id": "settingsMenu.graphicsTab",
-            "text": "Graphics"
+            "text": "Graphisme"
         },
         {
             "id": "settingsMenu.audioAndLanguageTab",
-            "text": "Audio / Language"
+            "text": "Audio / Langage"
         },
         {
             "id": "settingsMenu.controlsTab",
-            "text": "Controls"
+            "text": "Contrôles"
         },
         {
             "id": "settingsMenu.graphics.aspectRatio",
-            "text": "Aspect Ratio"
+            "text": "Format d'image"
         },
         {
             "id": "settingsMenu.graphics.resolution",
-            "text": "Resolution"
+            "text": "Résolution"
         },
         {
             "id": "settingsMenu.graphics.fullScreen",
-            "text": "Full Screen"
+            "text": "Plein écran"
         },
         {
             "id": "settingsMenu.graphics.vSync",
@@ -58,55 +58,55 @@
         },
         {
             "id": "settingsMenu.graphics.terrainQuality",
-            "text": "Terrain Quality"
+            "text": "Qualité du Terrain"
         },
         {
             "id": "settingsMenu.graphics.shadowQuality",
-            "text": "Shadow Quality"
+            "text": "Qualité des ombres"
         },
         {
             "id": "settingsMenu.audioAndLanguage.language",
-            "text": "Language"
+            "text": "Langage"
         },
         {
             "id": "settingsMenu.audioAndLanguage.translationNote",
-            "text": "Please note that these translations are a work-in-progress community effort."
+            "text": "Veuillez noter que ces traductions sont un travail communautaire en cours."
         },
         {
             "id": "settingsMenu.audioAndLanguage.masterVolume",
-            "text": "Master Volume"
+            "text": "Volume Principal"
         },
         {
             "id": "settingsMenu.audioAndLanguage.musicVolume",
-            "text": "Music Volume"
+            "text": "Volume de la Musique"
         },
         {
             "id": "settingsMenu.audioAndLanguage.sfxVolume",
-            "text": "SFX Volume"
+            "text": "Volume des Effets"
         },
         {
             "id": "settingsMenu.applyButton",
-            "text": "Apply"
+            "text": "Appliquer"
         },
         {
             "id": "settingsMenu.exitNote",
-            "text": "Note: closing without applying will revert your changes."
+            "text": "Remarque : fermer sans appliquer annulera les changements."
         },
         {
             "id": "pauseMenu.pausedTitle",
-            "text": "PAUSED"
+            "text": "EN PAUSE"
         },
         {
             "id": "pauseMenu.resumeButton",
-            "text": "Resume"
+            "text": "Reprendre"
         },
         {
             "id": "pauseMenu.statsButton",
-            "text": "Stats"
+            "text": "Statistiques"
         },
         {
             "id": "pauseMenu.quitButton",
-            "text": "Quit"
+            "text": "Quitter"
         }
     ]
 }
