@@ -1,28 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-[System.Serializable]
-public struct LocalizedString
+namespace GeoGame.Localization
 {
-	public string id;
-	public string text;
-
-	public LocalizedString(string id, string text)
+	[System.Serializable]
+	public struct LocalizedString
 	{
-		this.id = id;
-		this.text = text;
+		public string id;
+		public string text;
+
+		public LocalizedString(string id, string text)
+		{
+			this.id = id;
+			this.text = text;
+		}
 	}
-}
 
 
-[System.Serializable]
-public struct LocalizedStringGroup
-{
-	public LocalizedString[] entries;
-
-	public LocalizedStringGroup(LocalizedString[] entries)
+	[System.Serializable]
+	public struct LocalizedStringGroup
 	{
-		this.entries = entries;
+		public LocalizedString[] entries;
+
+		public LocalizedStringGroup(LocalizedString[] entries)
+		{
+			this.entries = entries;
+		}
 	}
 }

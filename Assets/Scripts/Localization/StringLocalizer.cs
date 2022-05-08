@@ -2,44 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StringLocalizer : MonoBehaviour
+namespace GeoGame.Localization
 {
-	public string id;
-	public TMPro.TMP_Text textElement;
-
-	public string currentValue { get; private set; }
-	public bool controlRectTransformWidth;
-	public float padding = 50;
-
-	void Start()
+	public class StringLocalizer : MonoBehaviour
 	{
-		Localize();
-		LocalizeManager.onLanguageChanged += Localize;
-	}
+		public string id;
+		public TMPro.TMP_Text textElement;
 
-	void Localize()
-	{
-		currentValue = LocalizeManager.Localize(id);
-		textElement.text = currentValue;
+		public string currentValue { get; private set; }
+		public bool controlRectTransformWidth;
+		public float padding = 50;
 
-		if (controlRectTransformWidth)
+		void Start()
 		{
-			textElement.ForceMeshUpdate();
-			RectTransform rectTransform = GetComponent<RectTransform>();
-			if (rectTransform != null)
+			Localize();
+			LocalizationManager.onLanguageChanged += Localize;
+		}
+
+		void Localize()
+		{
+			currentValue = LocalizationManager.Localize(id);
+			textElement.text = currentValue;
+
+			if (controlRectTransformWidth)
 			{
-				GetComponent<RectTransform>().sizeDelta = new Vector2(textElement.bounds.size.x + padding, rectTransform.sizeDelta.y);
+				textElement.ForceMeshUpdate();
+				RectTransform rectTransform = GetComponent<RectTransform>();
+				if (rectTransform != null)
+				{
+					GetComponent<RectTransform>().sizeDelta = new Vector2(textElement.bounds.size.x + padding, rectTransform.sizeDelta.y);
+				}
 			}
 		}
-	}
 
 #if UNITY_EDITOR
-	void OnValidate()
-	{
-		if (textElement == null)
+		void OnValidate()
 		{
-			textElement = GetComponent<TMPro.TMP_Text>();
+			if (textElement == null)
+			{
+				textElement = GetComponent<TMPro.TMP_Text>();
+				if (textElement == null)
+				{
+					textElement = GetComponentInChildren<TMPro.TMP_Text>();
+				}
+			}
 		}
-	}
 #endif
+	}
 }

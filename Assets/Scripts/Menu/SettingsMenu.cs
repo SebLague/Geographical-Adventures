@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Audio;
+using GeoGame.Localization;
 
 public class SettingsMenu : Menu
 {
@@ -26,7 +27,7 @@ public class SettingsMenu : Menu
 	public Slider sfxVolumeSlider;
 	[Space()]
 	public AudioMixer audioMixer;
-	public LocalizeManager localizationManager;
+	public LocalizationManager localizationManager;
 
 
 	[Header("Other References")]
@@ -59,7 +60,7 @@ public class SettingsMenu : Menu
 
 	void OnLanguageChanged(int index)
 	{
-		localizationManager.ChangeLanguage((LocalizeManager.Language)index);
+		localizationManager.ChangeLanguage((LocalizationManager.Language)index);
 	}
 
 	// Set UI state from loaded settings
@@ -92,7 +93,7 @@ public class SettingsMenu : Menu
 		settings.shadowQuality = (Settings.ShadowQuality)shadowQuality.activeValueIndex;
 
 		// Audio / Language
-		settings.language = (LocalizeManager.Language)languageWheel.activeValueIndex;
+		settings.language = (LocalizationManager.Language)languageWheel.activeValueIndex;
 		settings.masterVolume = masterVolumeSlider.value;
 		settings.sfxVolume = sfxVolumeSlider.value;
 		settings.musicVolume = musicVolumeSlider.value;
@@ -357,7 +358,7 @@ public struct Settings
 	public ShadowQuality shadowQuality;
 
 	// Audio
-	public LocalizeManager.Language language;
+	public LocalizationManager.Language language;
 	public float masterVolume;
 	public float musicVolume;
 	public float sfxVolume;
@@ -375,7 +376,7 @@ public struct Settings
 		settings.shadowQuality = (ShadowQuality)PlayerPrefs.GetInt(nameof(shadowQuality), defaultValue: (int)ShadowQuality.High);
 
 		// Audio / Language
-		settings.language = (LocalizeManager.Language)PlayerPrefs.GetInt(nameof(language), defaultValue: 0);
+		settings.language = (LocalizationManager.Language)PlayerPrefs.GetInt(nameof(language), defaultValue: 0);
 		settings.masterVolume = PlayerPrefs.GetFloat(nameof(masterVolume), defaultValue: 0.75f);
 		settings.musicVolume = PlayerPrefs.GetFloat(nameof(musicVolume), defaultValue: 0.75f);
 		settings.sfxVolume = PlayerPrefs.GetFloat(nameof(sfxVolume), defaultValue: 0.75f);

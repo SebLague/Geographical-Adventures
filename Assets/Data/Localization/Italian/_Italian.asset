@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c11dd3d25848ea45b8432cae9e718ce, type: 3}
+  m_Name: _Italian
+  m_EditorClassIdentifier: 
+  language: 3
+  localizedStringGroups:
+  - {fileID: 4900000, guid: 6a4753bf5ad4f774fb2590fa1726788b, type: 3}
+  - {fileID: 4900000, guid: 1b04ad3bf29d64b4eac8216c1a55da3f, type: 3}
+  localizedTextChunks:
+  - id: mainMenu.manualText
+    file: {fileID: 4900000, guid: 75cc5b454c1b50b48bd5564c3d03f992, type: 3}

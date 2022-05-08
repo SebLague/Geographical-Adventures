@@ -1,84 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[CreateAssetMenu(menuName = "Localized Data")]
-public class LocalizedData : ScriptableObject
+namespace GeoGame.Localization
 {
-	public LocalizeManager.Language language;
-	public TextAsset[] localizedStringGroups;
-	public LocalizedTextChunk[] localizedTextChunks;
-
-	public LocalizedString[] Load()
+	[CreateAssetMenu(menuName = "Localized Data")]
+	public class LocalizedData : ScriptableObject
 	{
-		List<LocalizedString> localizedStrings = new List<LocalizedString>();
+		public LocalizationManager.Language language;
+		public TextAsset[] localizedStringGroups;
+		public LocalizedTextChunk[] localizedTextChunks;
 
-		if (localizedStringGroups != null)
+		public LocalizedString[] Load()
 		{
-			foreach (var file in localizedStringGroups)
+			List<LocalizedString> localizedStrings = new List<LocalizedString>();
+
+			if (localizedStringGroups != null)
 			{
-				LocalizedStringGroup group = JsonUtility.FromJson<LocalizedStringGroup>(file.text);
-				localizedStrings.AddRange(group.entries);
+				foreach (var file in localizedStringGroups)
+				{
+					LocalizedStringGroup group = JsonUtility.FromJson<LocalizedStringGroup>(file.text);
+					localizedStrings.AddRange(group.entries);
+				}
 			}
+
+			if (localizedTextChunks != null)
+			{
+				foreach (var chunk in localizedTextChunks)
+				{
+					localizedStrings.Add(new LocalizedString(chunk.id, chunk.file.text));
+				}
+			}
+
+			return localizedStrings.ToArray();
 		}
 
-		if (localizedTextChunks != null)
+
+		[System.Serializable]
+		public struct LocalizedTextChunk
 		{
-			foreach (var chunk in localizedTextChunks)
-			{
-				localizedStrings.Add(new LocalizedString(chunk.id, chunk.file.text));
-			}
+			public string id;
+			public TextAsset file;
 		}
-
-		return localizedStrings.ToArray();
-	}
-
-#if UNITY_EDITOR
-	public void UpdateFromRoot(LocalizedData root)
-	{
-		for (int i = 0; i < root.localizedStringGroups.Length; i++)
-		{
-			LocalizedString[] rootLocalizedStrings = JsonUtility.FromJson<LocalizedStringGroup>(root.localizedStringGroups[i].text).entries;
-			LocalizedString[] myLocalizedStrings = JsonUtility.FromJson<LocalizedStringGroup>(localizedStringGroups[i].text).entries;
-			LocalizedString[] updatedLocalizedStrings = UpdateFromRoot(rootLocalizedStrings, myLocalizedStrings);
-			string updateJson = JsonUtility.ToJson(new LocalizedStringGroup(updatedLocalizedStrings), prettyPrint: true);
-			//localizedStringGroups[i].na
-			string path = UnityEditor.AssetDatabase.GetAssetPath(localizedStringGroups[i]);
-
-			FileHelper.SaveTextToFile(path, updateJson, true);
-		}
-	}
-
-	LocalizedString[] UpdateFromRoot(LocalizedString[] rootLocalizedStrings, LocalizedString[] myLocalizedStrings)
-	{
-		Queue<LocalizedString> root = new Queue<LocalizedString>(rootLocalizedStrings);
-		Queue<LocalizedString> mine = new Queue<LocalizedString>(myLocalizedStrings);
-		List<LocalizedString> updated = new List<LocalizedString>();
-
-		while (root.Count > 0)
-		{
-			var element = root.Dequeue();
-			// Element matches root
-			if (mine.Count > 0 && mine.Peek().id == element.id)
-			{
-				updated.Add(mine.Dequeue());
-			}
-			else
-			{
-				// Insert new element from root
-				updated.Add(element);
-			}
-		}
-
-		return updated.ToArray();
-	}
-
-#endif
-
-	[System.Serializable]
-	public struct LocalizedTextChunk
-	{
-		public string id;
-		public TextAsset file;
 	}
 }
