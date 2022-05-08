@@ -56,6 +56,7 @@ public class RebindUI : MonoBehaviour
 
     private void OnDisable()
     {
+        InputManager.currentRebind?.Cancel();
         InputManager.rebindComplete -= UpdateUI;
         InputManager.rebindCancelled -= UpdateUI;
     }

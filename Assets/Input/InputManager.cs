@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System;
+using System.Collections.Generic;
 using TMPro;
 
 public class InputManager : MonoBehaviour
@@ -12,10 +13,16 @@ public class InputManager : MonoBehaviour
     public static event Action rebindCancelled;
     public static event Action<InputAction, int> rebindStarted;
 
+    public static InputActionRebindingExtensions.RebindingOperation currentRebind;
+
+    public static List<string> actionsChanged;
+
     private void Awake()
     {
         inputActions ??= new PlayerAction();
+        actionsChanged = new List<string>();
     }
+
 
     public static void StartRebind(string actionName, int bindingIndex, TMP_Text statusText, bool excludeMouse)
     {
@@ -38,15 +45,24 @@ public class InputManager : MonoBehaviour
     private static void DoRebind(InputAction actionToRebind, int bindingIndex, TMP_Text statusText,
         bool allCompositeParts, bool excludeMouse)
     {
+        currentRebind?.Cancel();
+        currentRebind = null;
+        
         if (actionToRebind is null || bindingIndex < 0) return;
 
         statusText.text = $"Press a {actionToRebind.expectedControlType} key...";
         actionToRebind.Disable();
+        
+        currentRebind = actionToRebind.PerformInteractiveRebinding(bindingIndex);
+        
+        currentRebind.WithCancelingThrough("<Keyboard>/"); // For some obscure reason, putting nothing or <Keyboard>/escape block the key e
 
-        var rebind = actionToRebind.PerformInteractiveRebinding(bindingIndex);
-
-        rebind.OnComplete(operation =>
+        if (excludeMouse)
+            currentRebind.WithControlsExcluding("Mouse");
+        
+        currentRebind.OnComplete(operation =>
         {
+        
             actionToRebind.Enable();
             operation.Dispose();
 
@@ -57,26 +73,23 @@ public class InputManager : MonoBehaviour
                 if (nextBindingIndex < actionToRebind.bindings.Count &&
                     actionToRebind.bindings[nextBindingIndex].isComposite)
                     DoRebind(actionToRebind, nextBindingIndex, statusText, true, excludeMouse);
-            }
+            } 
             
-            SaveBindingOverride(actionToRebind);
+            Debug.Log($"Rebind complete for {actionToRebind.name}");
+            actionsChanged.Add(actionToRebind.name);
             rebindComplete?.Invoke();
         });
 
-        rebind.OnCancel(operation =>
+        currentRebind.OnCancel(operation =>
         {
             actionToRebind.Enable();
             operation.Dispose();
             rebindCancelled?.Invoke();
+            Debug.Log("Rebind cancelled");
         });
 
-        rebind.WithCancelingThrough("<Keyboard>/escape");
-
-        if (excludeMouse)
-            rebind.WithControlsExcluding("Mouse");
-        
         rebindStarted?.Invoke(actionToRebind, bindingIndex);
-        rebind.Start();
+        currentRebind.Start();
     }
 
     public static string GetBindingName(string actionName, int bindingIndex)
@@ -88,8 +101,37 @@ public class InputManager : MonoBehaviour
         return action.GetBindingDisplayString(bindingIndex);
     }
 
-    public static void SaveBindingOverride(InputAction action)
+    public static void SaveChangedBindings()
     {
+        if (actionsChanged.Count <= 0) return;
+        
+        foreach (var t in actionsChanged)
+        {
+            SaveBindingOverride(t);
+        }
+
+        actionsChanged.Clear();
+    }
+
+    public static void ReloadBindingsOnExit()
+    {
+        if (actionsChanged.Count <= 0) return;
+        
+        foreach (var t in actionsChanged)
+        {
+            Debug.Log(t);
+            LoadBindingOverride(t);
+        }
+
+        actionsChanged.Clear();
+    }
+    
+    public static void SaveBindingOverride(string actionName)
+    {
+        inputActions ??= new PlayerAction();    
+                
+        InputAction action = inputActions.asset.FindAction(actionName);
+        
         for (int i = 0; i < action.bindings.Count; i++)
         {
             PlayerPrefs.SetString(action.actionMap + action.name + i, action.bindings[i].overridePath);
@@ -98,8 +140,7 @@ public class InputManager : MonoBehaviour
 
     public static void LoadBindingOverride(string actionName)
     {
-        if (inputActions is null)
-            inputActions = new PlayerAction();    
+        inputActions ??= new PlayerAction();    
                 
         InputAction action = inputActions.asset.FindAction(actionName);
 
@@ -128,6 +169,6 @@ public class InputManager : MonoBehaviour
         else
             action.RemoveBindingOverride(bindingIndex);
 
-        SaveBindingOverride(action);
+        actionsChanged.Add(actionName);
     }
 }
