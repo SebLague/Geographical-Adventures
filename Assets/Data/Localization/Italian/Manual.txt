@@ -1,0 +1,10 @@
+<color=#FFFFFF>Hello! In this little game your goal is simply to fly around the world, picking up packages and delivering them to various cities as you go.</color>
+
+There are three locations marked at the top of the screen. At each location you'll find a hot air balloon waiting with a package for you to collect. Fly your plane through the ballons to collect the packages.
+
+Once a package has been picked up, its location at the top of the screen will change to a delivery address. Fly over to that city (or your best guess as to where it is) and drop the package off there. You'll be awarded with Boost based on how far the package lands from the intended destination. Boost allows you to fly extremely fast for a limited amount of time.
+
+You can collect and deliver the packages in whatever order you like, and you can also pick up multiple packages before deliverying any of them (note that in this case, the drop package button will automatically select the package that's currently closest to its destination).
+
+<color=#888888>You can find a list of controls in the settings menu.
+I hope you'll enjoy the game!</color>

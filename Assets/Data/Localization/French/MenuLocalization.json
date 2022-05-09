@@ -1,0 +1,112 @@
+{
+    "entries": [
+        {
+            "id": "mainMenu.subtitle",
+            "text": "(en construction)"
+        },
+        {
+            "id": "mainMenu.playButton",
+            "text": "Jouer"
+        },
+        {
+            "id": "mainMenu.manualButton",
+            "text": "Manuel"
+        },
+        {
+            "id": "mainMenu.settingsButton",
+            "text": "Paramètres"
+        },
+        {
+            "id": "mainMenu.creditsButton",
+            "text": "Crédits"
+        },
+        {
+            "id": "mainMenu.quitButton",
+            "text": "Quitter"
+        },
+        {
+            "id": "subMenu.closeButton",
+            "text": "Fermer"
+        },
+        {
+            "id": "settingsMenu.graphicsTab",
+            "text": "Graphisme"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguageTab",
+            "text": "Audio / Langage"
+        },
+        {
+            "id": "settingsMenu.controlsTab",
+            "text": "Contrôles"
+        },
+        {
+            "id": "settingsMenu.graphics.aspectRatio",
+            "text": "Format d'image"
+        },
+        {
+            "id": "settingsMenu.graphics.resolution",
+            "text": "Résolution"
+        },
+        {
+            "id": "settingsMenu.graphics.fullScreen",
+            "text": "Plein écran"
+        },
+        {
+            "id": "settingsMenu.graphics.vSync",
+            "text": "VSync"
+        },
+        {
+            "id": "settingsMenu.graphics.terrainQuality",
+            "text": "Qualité du Terrain"
+        },
+        {
+            "id": "settingsMenu.graphics.shadowQuality",
+            "text": "Qualité des ombres"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.language",
+            "text": "Langage"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.translationNote",
+            "text": "Veuillez noter que ces traductions sont un travail communautaire en cours."
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.masterVolume",
+            "text": "Volume Principal"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.musicVolume",
+            "text": "Volume de la Musique"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.sfxVolume",
+            "text": "Volume des Effets"
+        },
+        {
+            "id": "settingsMenu.applyButton",
+            "text": "Appliquer"
+        },
+        {
+            "id": "settingsMenu.exitNote",
+            "text": "Remarque : fermer sans appliquer annulera les changements."
+        },
+        {
+            "id": "pauseMenu.pausedTitle",
+            "text": "EN PAUSE"
+        },
+        {
+            "id": "pauseMenu.resumeButton",
+            "text": "Reprendre"
+        },
+        {
+            "id": "pauseMenu.statsButton",
+            "text": "Statistiques"
+        },
+        {
+            "id": "pauseMenu.quitButton",
+            "text": "Quitter"
+        }
+    ]
+}

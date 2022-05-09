@@ -1,0 +1,968 @@
+{
+    "entries": [
+        {
+            "id": "countryCode3.ATC",
+            "text": "Îles Ashmore-et-Cartier"
+        },
+        {
+            "id": "countryCode3.AFG",
+            "text": "Afghanistan"
+        },
+        {
+            "id": "countryCode3.ALD",
+            "text": "Åland"
+        },
+        {
+            "id": "countryCode3.ALB",
+            "text": "Albanie"
+        },
+        {
+            "id": "countryCode3.DZA",
+            "text": "Algérie"
+        },
+        {
+            "id": "countryCode3.ASM",
+            "text": "Samoa américaines"
+        },
+        {
+            "id": "countryCode3.AND",
+            "text": "Andorre"
+        },
+        {
+            "id": "countryCode3.AGO",
+            "text": "Angola"
+        },
+        {
+            "id": "countryCode3.AIA",
+            "text": "Anguilla"
+        },
+        {
+            "id": "countryCode3.ATA",
+            "text": "Antarctique"
+        },
+        {
+            "id": "countryCode3.ATG",
+            "text": "Antigue & Barbude"
+        },
+        {
+            "id": "countryCode3.ARG",
+            "text": "Argentine"
+        },
+        {
+            "id": "countryCode3.ARM",
+            "text": "Arménie"
+        },
+        {
+            "id": "countryCode3.ABW",
+            "text": "Aruba"
+        },
+        {
+            "id": "countryCode3.AUS",
+            "text": "Australie"
+        },
+        {
+            "id": "countryCode3.AUT",
+            "text": "Autriche"
+        },
+        {
+            "id": "countryCode3.AZE",
+            "text": "Azerbaïjan"
+        },
+        {
+            "id": "countryCode3.BHS",
+            "text": "Bahamas"
+        },
+        {
+            "id": "countryCode3.BHR",
+            "text": "Bahreïn"
+        },
+        {
+            "id": "countryCode3.BGD",
+            "text": "Bangladesh"
+        },
+        {
+            "id": "countryCode3.BRB",
+            "text": "Barbade"
+        },
+        {
+            "id": "countryCode3.BLR",
+            "text": "Biélorussie"
+        },
+        {
+            "id": "countryCode3.BEL",
+            "text": "Belgique"
+        },
+        {
+            "id": "countryCode3.BLZ",
+            "text": "Bélize"
+        },
+        {
+            "id": "countryCode3.BEN",
+            "text": "Bénin"
+        },
+        {
+            "id": "countryCode3.BMU",
+            "text": "Bermudes"
+        },
+        {
+            "id": "countryCode3.BTN",
+            "text": "Bhoutan"
+        },
+        {
+            "id": "countryCode3.BOL",
+            "text": "Bolivie"
+        },
+        {
+            "id": "countryCode3.BIH",
+            "text": "Bosnie-Herzégovine"
+        },
+        {
+            "id": "countryCode3.BWA",
+            "text": "Botswana"
+        },
+        {
+            "id": "countryCode3.BRA",
+            "text": "Brésil"
+        },
+        {
+            "id": "countryCode3.VGB",
+            "text": "Îles Vierges britanniques"
+        },
+        {
+            "id": "countryCode3.BRN",
+            "text": "Brunéi"
+        },
+        {
+            "id": "countryCode3.BGR",
+            "text": "Bulgarie"
+        },
+        {
+            "id": "countryCode3.BFA",
+            "text": "Burkina Faso"
+        },
+        {
+            "id": "countryCode3.BDI",
+            "text": "Burundi"
+        },
+        {
+            "id": "countryCode3.CAF",
+            "text": "République centrafricaine"
+        },
+        {
+            "id": "countryCode3.CPV",
+            "text": "Cap-Vert"
+        },
+        {
+            "id": "countryCode3.KHM",
+            "text": "Cambodge"
+        },
+        {
+            "id": "countryCode3.CMR",
+            "text": "Cameroun"
+        },
+        {
+            "id": "countryCode3.CAN",
+            "text": "Canada"
+        },
+        {
+            "id": "countryCode3.CYM",
+            "text": "Îles Caïmans"
+        },
+        {
+            "id": "countryCode3.TCD",
+            "text": "Tchad"
+        },
+        {
+            "id": "countryCode3.CHL",
+            "text": "Chili"
+        },
+        {
+            "id": "countryCode3.CHN",
+            "text": "Chine"
+        },
+        {
+            "id": "countryCode3.COL",
+            "text": "Colombie"
+        },
+        {
+            "id": "countryCode3.COM",
+            "text": "Comores"
+        },
+        {
+            "id": "countryCode3.COG",
+            "text": "Congo"
+        },
+        {
+            "id": "countryCode3.COK",
+            "text": "Îles Cook"
+        },
+        {
+            "id": "countryCode3.CRI",
+            "text": "Costa Rica"
+        },
+        {
+            "id": "countryCode3.CIV",
+            "text": "Côte d'Ivoire"
+        },
+        {
+            "id": "countryCode3.HRV",
+            "text": "Croatie"
+        },
+        {
+            "id": "countryCode3.CUB",
+            "text": "Cuba"
+        },
+        {
+            "id": "countryCode3.CUW",
+            "text": "Curaçao"
+        },
+        {
+            "id": "countryCode3.CYP",
+            "text": "Chypre"
+        },
+        {
+            "id": "countryCode3.CZE",
+            "text": "République tchèque"
+        },
+        {
+            "id": "countryCode3.COD",
+            "text": "R.D. Congo"
+        },
+        {
+            "id": "countryCode3.DNK",
+            "text": "Danemark"
+        },
+        {
+            "id": "countryCode3.DJI",
+            "text": "Djibouti"
+        },
+        {
+            "id": "countryCode3.DMA",
+            "text": "Dominique"
+        },
+        {
+            "id": "countryCode3.DOM",
+            "text": "République dominicaine"
+        },
+        {
+            "id": "countryCode3.ECU",
+            "text": "Équateur"
+        },
+        {
+            "id": "countryCode3.EGY",
+            "text": "Égypte"
+        },
+        {
+            "id": "countryCode3.SLV",
+            "text": "El Salvador"
+        },
+        {
+            "id": "countryCode3.GNQ",
+            "text": "Guinée équatoriale"
+        },
+        {
+            "id": "countryCode3.ERI",
+            "text": "Érythrée"
+        },
+        {
+            "id": "countryCode3.EST",
+            "text": "Éstonie"
+        },
+        {
+            "id": "countryCode3.SWZ",
+            "text": "Eswatini"
+        },
+        {
+            "id": "countryCode3.ETH",
+            "text": "Éthiopie"
+        },
+        {
+            "id": "countryCode3.FRO",
+            "text": "Îles Féroé"
+        },
+        {
+            "id": "countryCode3.FLK",
+            "text": "Îles Malouines"
+        },
+        {
+            "id": "countryCode3.FJI",
+            "text": "Fidji"
+        },
+        {
+            "id": "countryCode3.FIN",
+            "text": "Finlande"
+        },
+        {
+            "id": "countryCode3.ATF",
+            "text": "Terres australes et antarctiques françaises"
+        },
+        {
+            "id": "countryCode3.FRA",
+            "text": "France"
+        },
+        {
+            "id": "countryCode3.PYF",
+            "text": "Polynésie française"
+        },
+        {
+            "id": "countryCode3.GAB",
+            "text": "Gabon"
+        },
+        {
+            "id": "countryCode3.GMB",
+            "text": "Gambie"
+        },
+        {
+            "id": "countryCode3.GEO",
+            "text": "Géorgie"
+        },
+        {
+            "id": "countryCode3.DEU",
+            "text": "Allemagne"
+        },
+        {
+            "id": "countryCode3.GHA",
+            "text": "Ghana"
+        },
+        {
+            "id": "countryCode3.GRC",
+            "text": "Grèce"
+        },
+        {
+            "id": "countryCode3.GRL",
+            "text": "Groenland"
+        },
+        {
+            "id": "countryCode3.GRD",
+            "text": "Grenade"
+        },
+        {
+            "id": "countryCode3.GUM",
+            "text": "Guam"
+        },
+        {
+            "id": "countryCode3.GTM",
+            "text": "Guatemala"
+        },
+        {
+            "id": "countryCode3.GGY",
+            "text": "Guernesey"
+        },
+        {
+            "id": "countryCode3.GIN",
+            "text": "Guinée"
+        },
+        {
+            "id": "countryCode3.GNB",
+            "text": "Guinée-Bissau"
+        },
+        {
+            "id": "countryCode3.GUY",
+            "text": "Guyane"
+        },
+        {
+            "id": "countryCode3.HMD",
+            "text": "Îles Heard et McDonald"
+        },
+        {
+            "id": "countryCode3.HTI",
+            "text": "Haïti"
+        },
+        {
+            "id": "countryCode3.HND",
+            "text": "Honduras"
+        },
+        {
+            "id": "countryCode3.HKG",
+            "text": "Hong Kong"
+        },
+        {
+            "id": "countryCode3.HUN",
+            "text": "Hongrie"
+        },
+        {
+            "id": "countryCode3.IOT",
+            "text": "Territoire britannique de l'océan Indien"
+        },
+        {
+            "id": "countryCode3.ISL",
+            "text": "Islande"
+        },
+        {
+            "id": "countryCode3.IND",
+            "text": "Inde"
+        },
+        {
+            "id": "countryCode3.IOA",
+            "text": "Territoires australiens de l'océan Indien"
+        },
+        {
+            "id": "countryCode3.IDN",
+            "text": "Indonésie"
+        },
+        {
+            "id": "countryCode3.IRN",
+            "text": "Iran"
+        },
+        {
+            "id": "countryCode3.IRQ",
+            "text": "Iraq"
+        },
+        {
+            "id": "countryCode3.IRL",
+            "text": "Irlande"
+        },
+        {
+            "id": "countryCode3.IMN",
+            "text": "Île de Man"
+        },
+        {
+            "id": "countryCode3.ISR",
+            "text": "Israël"
+        },
+        {
+            "id": "countryCode3.ITA",
+            "text": "Italie"
+        },
+        {
+            "id": "countryCode3.JAM",
+            "text": "Jamaïque"
+        },
+        {
+            "id": "countryCode3.JPN",
+            "text": "Japon"
+        },
+        {
+            "id": "countryCode3.JEY",
+            "text": "Jersey"
+        },
+        {
+            "id": "countryCode3.JOR",
+            "text": "Jordanie"
+        },
+        {
+            "id": "countryCode3.KAS",
+            "text": "Cachemire"
+        },
+        {
+            "id": "countryCode3.KAZ",
+            "text": "Kazakhstan"
+        },
+        {
+            "id": "countryCode3.KEN",
+            "text": "Kenya"
+        },
+        {
+            "id": "countryCode3.KIR",
+            "text": "Kiribati"
+        },
+        {
+            "id": "countryCode3.KOS",
+            "text": "Kosovo"
+        },
+        {
+            "id": "countryCode3.KWT",
+            "text": "Koweït"
+        },
+        {
+            "id": "countryCode3.KGZ",
+            "text": "Kyrgyzstan"
+        },
+        {
+            "id": "countryCode3.LAO",
+            "text": "Laos"
+        },
+        {
+            "id": "countryCode3.LVA",
+            "text": "Lettonie"
+        },
+        {
+            "id": "countryCode3.LBN",
+            "text": "Liban"
+        },
+        {
+            "id": "countryCode3.LSO",
+            "text": "Lesotho"
+        },
+        {
+            "id": "countryCode3.LBR",
+            "text": "Libéria"
+        },
+        {
+            "id": "countryCode3.LBY",
+            "text": "Libye"
+        },
+        {
+            "id": "countryCode3.LIE",
+            "text": "Liechtenstein"
+        },
+        {
+            "id": "countryCode3.LTU",
+            "text": "Lithuanie"
+        },
+        {
+            "id": "countryCode3.LUX",
+            "text": "Luxembourg"
+        },
+        {
+            "id": "countryCode3.MAC",
+            "text": "Macao"
+        },
+        {
+            "id": "countryCode3.MKD",
+            "text": "Macédoine"
+        },
+        {
+            "id": "countryCode3.MDG",
+            "text": "Madagascar"
+        },
+        {
+            "id": "countryCode3.MWI",
+            "text": "Malawi"
+        },
+        {
+            "id": "countryCode3.MYS",
+            "text": "Malaisie"
+        },
+        {
+            "id": "countryCode3.MDV",
+            "text": "Maldives"
+        },
+        {
+            "id": "countryCode3.MLI",
+            "text": "Mali"
+        },
+        {
+            "id": "countryCode3.MLT",
+            "text": "Malte"
+        },
+        {
+            "id": "countryCode3.MHL",
+            "text": "Îles Marshall"
+        },
+        {
+            "id": "countryCode3.MRT",
+            "text": "Mauritanie"
+        },
+        {
+            "id": "countryCode3.MUS",
+            "text": "Maurice"
+        },
+        {
+            "id": "countryCode3.MEX",
+            "text": "Mexique"
+        },
+        {
+            "id": "countryCode3.FSM",
+            "text": "Micronésie"
+        },
+        {
+            "id": "countryCode3.MDA",
+            "text": "Moldavie"
+        },
+        {
+            "id": "countryCode3.MCO",
+            "text": "Monaco"
+        },
+        {
+            "id": "countryCode3.MNG",
+            "text": "Mongolie"
+        },
+        {
+            "id": "countryCode3.MNE",
+            "text": "Monténégro"
+        },
+        {
+            "id": "countryCode3.MSR",
+            "text": "Montserrat"
+        },
+        {
+            "id": "countryCode3.MAR",
+            "text": "Maroc"
+        },
+        {
+            "id": "countryCode3.MOZ",
+            "text": "Mozambique"
+        },
+        {
+            "id": "countryCode3.MMR",
+            "text": "Birmanie"
+        },
+        {
+            "id": "countryCode3.MNP",
+            "text": "Îles Mariannes du Nord"
+        },
+        {
+            "id": "countryCode3.NAM",
+            "text": "Namibie"
+        },
+        {
+            "id": "countryCode3.NRU",
+            "text": "Nauru"
+        },
+        {
+            "id": "countryCode3.NPL",
+            "text": "Népal"
+        },
+        {
+            "id": "countryCode3.NLD",
+            "text": "Pays-Bas"
+        },
+        {
+            "id": "countryCode3.NCL",
+            "text": "Nouvelle-Calédonie"
+        },
+        {
+            "id": "countryCode3.NZL",
+            "text": "Nouvelle-Zélande"
+        },
+        {
+            "id": "countryCode3.NIC",
+            "text": "Nicaragua"
+        },
+        {
+            "id": "countryCode3.NER",
+            "text": "Niger"
+        },
+        {
+            "id": "countryCode3.NGA",
+            "text": "Nigéria"
+        },
+        {
+            "id": "countryCode3.NIU",
+            "text": "Niué"
+        },
+        {
+            "id": "countryCode3.NFK",
+            "text": "Île Norfolk"
+        },
+        {
+            "id": "countryCode3.PRK",
+            "text": "Corée du Nord"
+        },
+        {
+            "id": "countryCode3.CYN",
+            "text": "Chypre du Nord"
+        },
+        {
+            "id": "countryCode3.NOR",
+            "text": "Norvège"
+        },
+        {
+            "id": "countryCode3.OMN",
+            "text": "Oman"
+        },
+        {
+            "id": "countryCode3.PAK",
+            "text": "Pakistan"
+        },
+        {
+            "id": "countryCode3.PLW",
+            "text": "Palau"
+        },
+        {
+            "id": "countryCode3.PSX",
+            "text": "Palestine"
+        },
+        {
+            "id": "countryCode3.PAN",
+            "text": "Panama"
+        },
+        {
+            "id": "countryCode3.PNG",
+            "text": "Papouasie Nouvelle Guinée"
+        },
+        {
+            "id": "countryCode3.PRY",
+            "text": "Paraguay"
+        },
+        {
+            "id": "countryCode3.PER",
+            "text": "Pérou"
+        },
+        {
+            "id": "countryCode3.PHL",
+            "text": "Philippines"
+        },
+        {
+            "id": "countryCode3.PCN",
+            "text": "Îles Pitcairn"
+        },
+        {
+            "id": "countryCode3.POL",
+            "text": "Pologne"
+        },
+        {
+            "id": "countryCode3.PRT",
+            "text": "Portugal"
+        },
+        {
+            "id": "countryCode3.PRI",
+            "text": "Porto Rico"
+        },
+        {
+            "id": "countryCode3.QAT",
+            "text": "Quatar"
+        },
+        {
+            "id": "countryCode3.ROU",
+            "text": "Roumanie"
+        },
+        {
+            "id": "countryCode3.RUS",
+            "text": "Russie"
+        },
+        {
+            "id": "countryCode3.RWA",
+            "text": "Rwanda"
+        },
+        {
+            "id": "countryCode3.SGS",
+            "text": "Géorgie du Sud"
+        },
+        {
+            "id": "countryCode3.STP",
+            "text": "Sao Tomé-et-Principe"
+        },
+        {
+            "id": "countryCode3.SHN",
+            "text": "Sainte Hélène"
+        },
+        {
+            "id": "countryCode3.LCA",
+            "text": "Sainte Lucie"
+        },
+        {
+            "id": "countryCode3.WSM",
+            "text": "Samoa"
+        },
+        {
+            "id": "countryCode3.SMR",
+            "text": "Saint-Marin"
+        },
+        {
+            "id": "countryCode3.SAU",
+            "text": "Arabie Saoudite"
+        },
+        {
+            "id": "countryCode3.SEN",
+            "text": "Sénégal"
+        },
+        {
+            "id": "countryCode3.SRB",
+            "text": "Serbie"
+        },
+        {
+            "id": "countryCode3.SYC",
+            "text": "Seychelles"
+        },
+        {
+            "id": "countryCode3.SLE",
+            "text": "Sierra Léone"
+        },
+        {
+            "id": "countryCode3.SGP",
+            "text": "Singapour"
+        },
+        {
+            "id": "countryCode3.SXM",
+            "text": "Sint Maarten"
+        },
+        {
+            "id": "countryCode3.SVK",
+            "text": "Slovaquie"
+        },
+        {
+            "id": "countryCode3.SVN",
+            "text": "Slovénie"
+        },
+        {
+            "id": "countryCode3.SLB",
+            "text": "Îles Salomon"
+        },
+        {
+            "id": "countryCode3.SOM",
+            "text": "Somalie"
+        },
+        {
+            "id": "countryCode3.SOL",
+            "text": "Somaliland"
+        },
+        {
+            "id": "countryCode3.ZAF",
+            "text": "Afrique du Sud"
+        },
+        {
+            "id": "countryCode3.KOR",
+            "text": "Corée du Sud"
+        },
+        {
+            "id": "countryCode3.SSD",
+            "text": "Soudan du Sud"
+        },
+        {
+            "id": "countryCode3.ESP",
+            "text": "Espagne"
+        },
+        {
+            "id": "countryCode3.LKA",
+            "text": "Sri Lanka"
+        },
+        {
+            "id": "countryCode3.SPM",
+            "text": "Saint Pierre & Miquelon"
+        },
+        {
+            "id": "countryCode3.VCT",
+            "text": "Saint Vincent & Grenadines"
+        },
+        {
+            "id": "countryCode3.KNA",
+            "text": "Saint-Christophe-et-Niévès"
+        },
+        {
+            "id": "countryCode3.BLM",
+            "text": "Saint-Barthélemy"
+        },
+        {
+            "id": "countryCode3.MAF",
+            "text": "Saint-Martin"
+        },
+        {
+            "id": "countryCode3.SDN",
+            "text": "Soudan"
+        },
+        {
+            "id": "countryCode3.SUR",
+            "text": "Suriname"
+        },
+        {
+            "id": "countryCode3.SWE",
+            "text": "Suède"
+        },
+        {
+            "id": "countryCode3.CHE",
+            "text": "Suisse"
+        },
+        {
+            "id": "countryCode3.SYR",
+            "text": "Syrie"
+        },
+        {
+            "id": "countryCode3.TCA",
+            "text": "Îles Turks et Caïques"
+        },
+        {
+            "id": "countryCode3.TWN",
+            "text": "Taïwan"
+        },
+        {
+            "id": "countryCode3.TJK",
+            "text": "Tadjikistan"
+        },
+        {
+            "id": "countryCode3.TZA",
+            "text": "Tanzanie"
+        },
+        {
+            "id": "countryCode3.THA",
+            "text": "Thaïlande"
+        },
+        {
+            "id": "countryCode3.TLS",
+            "text": "Timor Oriental"
+        },
+        {
+            "id": "countryCode3.TGO",
+            "text": "Togo"
+        },
+        {
+            "id": "countryCode3.TON",
+            "text": "Tonga"
+        },
+        {
+            "id": "countryCode3.TTO",
+            "text": "Trinidad & Tobago"
+        },
+        {
+            "id": "countryCode3.TUN",
+            "text": "Tunisie"
+        },
+        {
+            "id": "countryCode3.TUR",
+            "text": "Turquie"
+        },
+        {
+            "id": "countryCode3.TKM",
+            "text": "Turkménistan"
+        },
+        {
+            "id": "countryCode3.ARE",
+            "text": "Émirats arabes unis"
+        },
+        {
+            "id": "countryCode3.VIR",
+            "text": "Îles Vierges des États-Unis"
+        },
+        {
+            "id": "countryCode3.UGA",
+            "text": "Ouganda"
+        },
+        {
+            "id": "countryCode3.UKR",
+            "text": "Ukraine"
+        },
+        {
+            "id": "countryCode3.GBR",
+            "text": "Royaume-Unis"
+        },
+        {
+            "id": "countryCode3.USA",
+            "text": "États-Unis d'Amérique"
+        },
+        {
+            "id": "countryCode3.URY",
+            "text": "Uruguay"
+        },
+        {
+            "id": "countryCode3.UZB",
+            "text": "Ouzbékistan"
+        },
+        {
+            "id": "countryCode3.VUT",
+            "text": "Vanuatu"
+        },
+        {
+            "id": "countryCode3.VAT",
+            "text": "Vatican"
+        },
+        {
+            "id": "countryCode3.VEN",
+            "text": "Vénézuéla"
+        },
+        {
+            "id": "countryCode3.VNM",
+            "text": "Vietnam"
+        },
+        {
+            "id": "countryCode3.WLF",
+            "text": "Wallis & Futuna"
+        },
+        {
+            "id": "countryCode3.SAH",
+            "text": "Sahara occidental"
+        },
+        {
+            "id": "countryCode3.YEM",
+            "text": "Yémen"
+        },
+        {
+            "id": "countryCode3.ZMB",
+            "text": "Zambie"
+        },
+        {
+            "id": "countryCode3.ZWE",
+            "text": "Zimbabwe"
+        }
+    ]
+}

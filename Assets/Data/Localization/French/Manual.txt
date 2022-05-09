@@ -1,0 +1,10 @@
+<color=#FFFFFF>Salut! Dans ce petit jeu, votre objectif est de voler autour du monde, en récupérant des colis et en les livrant dans différentes villes en cours de route.</color>
+
+Il y a trois endroits indiqués en haut de l'écran. À chaque endroit, vous trouverez une montgolfière qui vous attend avec un colis à récupérer. Faites voler votre avion à travers les ballons pour récupérer les colis.
+
+Lorsqu'un colis a été récupéré, son emplacement en haut de l'écran se transforme en adresse de livraison. Volez vers cette ville (ou votre meilleure estimation de l'endroit où elle se trouve) et déposez-y le colis. Vous recevrez un bonus en fonction de la distance qui sépare le colis de sa destination. Le Boost vous permet de voler extrêmement vite pendant un temps limité.
+
+Vous pouvez récupérer et livrer les colis dans l'ordre que vous souhaitez. Vous pouvez également retirer plusieurs colis avant d'en livrer un (notez que dans ce cas, le bouton de dépôt de colis sélectionnera automatiquement le colis qui est actuellement le plus proche de sa destination).
+
+<color=#888888>Vous pouvez retrouvez les touches dans les paramètres.
+J'espère que vous apprécierez le jeu !</color>

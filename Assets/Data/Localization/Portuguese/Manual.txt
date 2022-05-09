@@ -1,0 +1,10 @@
+<color=#FFFFFF>Olá! Nesse pequeno jogo o seu objetivo é simplesmente voar pelo mundo, pegando pacotes e distribuindo eles pelas cidades quando você passa por elas.</color>
+
+Existem três localizações marcadas no topo da tela. Em cada lugar você vai achar um balão de ar quente esperando com um pacote para você coletar. Voe o seu avião através dos balões para coletar os pacotes.
+
+Assim que um pacote tiver sido pego, a sua localização no topo da tela vai mudar para o endereço de entrega. Voce sobre aquela cidade (ou a sua melhor tentativa de saber onde está) e deixe o pacote lá. Você vai ser recompensado com um Boost baseado em quão longe o pacote pousou em relação ao destino esperado. O Boost possibilita você voar extremamente rápido por um tempo limitado.
+
+Você pode coletar e distribuir os pacotes na ordem que você quiser, e você pode pegar múltiplos pacotes antes de entregar qualquer um deles(note que em neste caso, o botão de entrega de pacote vai selecionar o pacote que está mais perto de seu destino).
+
+<color=#888888>Você pode achar uma lista dos controles no menu de configurações.
+Espero que você aproveite o jogo!</color>

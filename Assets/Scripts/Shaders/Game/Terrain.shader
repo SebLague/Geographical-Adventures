@@ -116,7 +116,7 @@ Shader "Custom/Terrain"
 				else {
 					float2 tileTexCoord = float2((texCoord.x - 0.5) * 2, texCoord.y);
 					float mipLevel = calculateGeoMipLevel(tileTexCoord, _ColWest_TexelSize.zw);
-					unlitTerrainCol = tex2D(_ColEast, float4(tileTexCoord, 0, mipLevel));
+					unlitTerrainCol = tex2Dlod(_ColEast, float4(tileTexCoord, 0, mipLevel));
 					detailNormal = tex2D(_NormalMapEast, tileTexCoord);
 				}
 
