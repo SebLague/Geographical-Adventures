@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class UIManager : MonoBehaviour
 	public MapMenu map;
 	public Compass compass;
 	public CanvasGroup hudGroup;
+	public Toggle invertInputToggle;
 
 	public float smoothT;
 	float smoothV;
@@ -21,6 +23,8 @@ public class UIManager : MonoBehaviour
 	void Awake()
 	{
 		hudGroup.alpha = 0;
+		player.invertInput = (PlayerPrefs.GetInt("invertInput", 0) == 1);
+		invertInputToggle.isOn = player.invertInput;
 	}
 
 	void Update()

@@ -87,7 +87,10 @@ public class SettingsMenu : Menu
 		Settings settings = new Settings();
 		// Graphics
 		settings.isFullscreen = fullscreenToggle.isOn;
-		settings.screenSize = GetCurrentResolutionOptions()[resolutionWheel.activeValueIndex];
+		if (!Application.isEditor)
+		{
+			settings.screenSize = GetCurrentResolutionOptions()[resolutionWheel.activeValueIndex];
+		}
 		settings.vsyncEnabled = vsyncToggle.isOn;
 		settings.terrainQuality = (Settings.TerrainQuality)terrainQuality.activeValueIndex;
 		settings.shadowQuality = (Settings.ShadowQuality)shadowQuality.activeValueIndex;
@@ -104,6 +107,7 @@ public class SettingsMenu : Menu
 	void ApplyCurrentSettings()
 	{
 		Settings currentSettings = GetSettingsFromUI();
+		InputManager.SaveChangedBindings();
 		ApplySettings(currentSettings);
 	}
 
@@ -305,6 +309,8 @@ public class SettingsMenu : Menu
 
 	protected override void OnMenuClosed()
 	{
+		InputManager.ReloadBindingsOnExit();
+
 		if (Application.isPlaying)
 		{
 			ApplySettings(lastAppliedSettings);
