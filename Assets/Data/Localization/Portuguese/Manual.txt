@@ -1,10 +1,10 @@
-<color=#FFFFFF>Hello! In this little game your goal is simply to fly around the world, picking up packages and delivering them to various cities as you go.</color>
+<color=#FFFFFF>Olá! Nesse pequeno jogo o seu objetivo é simplesmente voar pelo mundo, pegando pacotes e distribuindo eles pelas cidades quando você passa por elas.</color>
 
-There are three locations marked at the top of the screen. At each location you'll find a hot air balloon waiting with a package for you to collect. Fly your plane through the ballons to collect the packages.
+Existem três localizações marcadas no topo da tela. Em cada lugar você vai achar um balão de ar quente esperando com um pacote para você coletar. Voe o seu avião através dos balões para coletar os pacotes.
 
-Once a package has been picked up, its location at the top of the screen will change to a delivery address. Fly over to that city (or your best guess as to where it is) and drop the package off there. You'll be awarded with Boost based on how far the package lands from the intended destination. Boost allows you to fly extremely fast for a limited amount of time.
+Assim que um pacote tiver sido pego, a sua localização no topo da tela vai mudar para o endereço de entrega. Voce sobre aquela cidade (ou a sua melhor tentativa de saber onde está) e deixe o pacote lá. Você vai ser recompensado com um Boost baseado em quão longe o pacote pousou em relação ao destino esperado. O Boost possibilita você voar extremamente rápido por um tempo limitado.
 
-You can collect and deliver the packages in whatever order you like, and you can also pick up multiple packages before deliverying any of them (note that in this case, the drop package button will automatically select the package that's currently closest to its destination).
+Você pode coletar e distribuir os pacotes na ordem que você quiser, e você pode pegar múltiplos pacotes antes de entregar qualquer um deles(note que em neste caso, o botão de entrega de pacote vai selecionar o pacote que está mais perto de seu destino).
 
-<color=#888888>You can find a list of controls in the settings menu.
-I hope you'll enjoy the game!</color>
+<color=#888888>Você pode achar uma lista dos controles no menu de configurações.
+Espero que você aproveite o jogo!</color>
