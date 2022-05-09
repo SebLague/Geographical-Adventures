@@ -1,112 +1,112 @@
 {
-	"entries": [
-		{
-			"id": "mainMenu.subtitle",
-			"text": "(under construction)"
-		},
-		{
-			"id": "mainMenu.playButton",
-			"text": "Gioca"
-		},
-		{
-			"id": "mainMenu.manualButton",
-			"text": "Manuale"
-		},
-		{
-			"id": "mainMenu.settingsButton",
-			"text": "Impostazioni"
-		},
-		{
-			"id": "mainMenu.creditsButton",
-			"text": "Crediti"
-		},
-		{
-			"id": "mainMenu.quitButton",
-			"text": "Esci"
-		},
-		{
-			"id": "subMenu.closeButton",
-			"text": "Chiudi"
-		},
-		{
-			"id": "settingsMenu.graphicsTab",
-			"text": "Grafiche"
-		},
-		{
-			"id": "settingsMenu.audioAndLanguageTab",
-			"text": "Audio / Lingua"
-		},
-		{
-			"id": "settingsMenu.controlsTab",
-			"text": "Controlli"
-		},
-		{
-			"id": "settingsMenu.graphics.aspectRatio",
-			"text": "Proporzioni"
-		},
-		{
-			"id": "settingsMenu.graphics.resolution",
-			"text": "Risoluzione"
-		},
-		{
-			"id": "settingsMenu.graphics.fullScreen",
-			"text": "Schermo Intero"
-		},
-		{
-			"id": "settingsMenu.graphics.vSync",
-			"text": "VSync"
-		},
-		{
-			"id": "settingsMenu.graphics.terrainQuality",
-			"text": "Qualità del Terreno"
-		},
-		{
-			"id": "settingsMenu.graphics.shadowQuality",
-			"text": "Qualità delle Ombre"
-		},
-		{
-			"id": "settingsMenu.audioAndLanguage.language",
-			"text": "Lingua"
-		},
-		{
-			"id": "settingsMenu.audioAndLanguage.translationNote",
-			"text": "Tieni presente che queste traduzioni sono un contributo della comunità in corso d'opera."
-		},
-		{
-			"id": "settingsMenu.audioAndLanguage.masterVolume",
-			"text": "Volume Principale"
-		},
-		{
-			"id": "settingsMenu.audioAndLanguage.musicVolume",
-			"text": "Volume della Musica"
-		},
-		{
-			"id": "settingsMenu.audioAndLanguage.sfxVolume",
-			"text": "Volume degli Effetti"
-		},
-		{
-			"id": "settingsMenu.applyButton",
-			"text": "Applica"
-		},
-		{
-			"id": "settingsMenu.exitNote",
-			"text": "Nota: le modifiche non applicate verranno annullate."
-		},
-		{
-			"id": "pauseMenu.pausedTitle",
-			"text": "IN PAUSA"
-		},
-		{
-			"id": "pauseMenu.resumeButton",
-			"text": "Riprendi"
-		},
-		{
-			"id": "pauseMenu.statsButton",
-			"text": "Statistiche"
-		},
-		{
-			"id": "pauseMenu.quitButton",
-			"text": "Esci"
-		}
-	]
+    "entries": [
+        {
+            "id": "mainMenu.subtitle",
+            "text": "(under construction)"
+        },
+        {
+            "id": "mainMenu.playButton",
+            "text": "Gioca"
+        },
+        {
+            "id": "mainMenu.manualButton",
+            "text": "Manuale"
+        },
+        {
+            "id": "mainMenu.settingsButton",
+            "text": "Impostazioni"
+        },
+        {
+            "id": "mainMenu.creditsButton",
+            "text": "Crediti"
+        },
+        {
+            "id": "mainMenu.quitButton",
+            "text": "Esci"
+        },
+        {
+            "id": "subMenu.closeButton",
+            "text": "Chiudi"
+        },
+        {
+            "id": "settingsMenu.graphicsTab",
+            "text": "Grafiche"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguageTab",
+            "text": "Audio / Lingua"
+        },
+        {
+            "id": "settingsMenu.controlsTab",
+            "text": "Controlli"
+        },
+        {
+            "id": "settingsMenu.graphics.aspectRatio",
+            "text": "Proporzioni"
+        },
+        {
+            "id": "settingsMenu.graphics.resolution",
+            "text": "Risoluzione"
+        },
+        {
+            "id": "settingsMenu.graphics.fullScreen",
+            "text": "Schermo Intero"
+        },
+        {
+            "id": "settingsMenu.graphics.vSync",
+            "text": "VSync"
+        },
+        {
+            "id": "settingsMenu.graphics.terrainQuality",
+            "text": "Qualità del Terreno"
+        },
+        {
+            "id": "settingsMenu.graphics.shadowQuality",
+            "text": "Qualità delle Ombre"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.language",
+            "text": "Lingua"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.translationNote",
+            "text": "Tieni presente che queste traduzioni sono un contributo della comunità in corso d'opera."
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.masterVolume",
+            "text": "Volume Principale"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.musicVolume",
+            "text": "Volume della Musica"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.sfxVolume",
+            "text": "Volume degli Effetti"
+        },
+        {
+            "id": "settingsMenu.applyButton",
+            "text": "Applica"
+        },
+        {
+            "id": "settingsMenu.exitNote",
+            "text": "Nota: le modifiche non applicate verranno annullate."
+        },
+        {
+            "id": "pauseMenu.pausedTitle",
+            "text": "IN PAUSA"
+        },
+        {
+            "id": "pauseMenu.resumeButton",
+            "text": "Riprendi"
+        },
+        {
+            "id": "pauseMenu.statsButton",
+            "text": "Statistiche"
+        },
+        {
+            "id": "pauseMenu.quitButton",
+            "text": "Esci"
+        }
+    ]
 }
