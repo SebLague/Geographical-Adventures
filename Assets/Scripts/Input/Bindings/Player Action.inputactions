@@ -40,6 +40,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Make Daytime",
+                    "type": "Button",
+                    "id": "40cdabbf-d61d-465a-b138-ba11dce4aeb8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Make Nighttime",
+                    "type": "Button",
+                    "id": "03cdce08-9324-48e4-a351-5caf1e5100aa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -49,7 +67,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Drop Package",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -93,7 +111,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -104,7 +122,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -115,7 +133,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -126,7 +144,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -148,7 +166,7 @@
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Speed",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -159,7 +177,7 @@
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Speed",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -203,7 +221,7 @@
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Boost",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -216,6 +234,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Boost",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8184bb45-b570-413e-9f77-98329c52e50c",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Make Daytime",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b770e63-e97c-42ee-8269-0c85029d7b43",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Make Nighttime",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -260,7 +300,7 @@
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Top Camera View",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -293,7 +333,7 @@
                     "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Forward Camera View",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -315,7 +355,7 @@
                     "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Backward Camera View",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -363,7 +403,7 @@
                     "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Toggle Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -374,7 +414,7 @@
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Toggle Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -396,7 +436,7 @@
                     "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Toggle Map",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -444,7 +484,7 @@
                     "path": "<Mouse>/scroll/y",
                     "interactions": "",
                     "processors": "Normalize(min=-120,max=120)",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Map Zoom",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -499,7 +539,7 @@
                     "path": "<Mouse>/press",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Turn",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -510,7 +550,7 @@
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard QWERTY",
+                    "groups": "Keyboard",
                     "action": "Turn",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -531,8 +571,8 @@
     ],
     "controlSchemes": [
         {
-            "name": "Keyboard QWERTY",
-            "bindingGroup": "Keyboard QWERTY",
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",

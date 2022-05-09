@@ -10,19 +10,25 @@ public class PlayerInputHandler : MonoBehaviour
 	public GeoGame.Quest.QuestSystem questSystem;
 	public GameCamera gameCamera;
 	public UIManager uIManager;
+	public SolarSystem.SolarSystemManager solarSystemManager;
 	PlayerAction playerActions;
 
 
 	void Awake()
 	{
-		playerActions = InputManager.inputActions;
-	}
+		playerActions = new PlayerAction();
+		UpdateFromSavedBindings();
+		RebindManager.Instance.onBindingsSaved -= UpdateFromSavedBindings;
+		RebindManager.Instance.onBindingsSaved += UpdateFromSavedBindings;
 
-	void OnEnable()
-	{
 		playerActions.PlayerControls.Enable();
 		playerActions.CameraControls.Enable();
 		playerActions.UIControls.Enable();
+	}
+
+	void UpdateFromSavedBindings()
+	{
+		RebindManager.Instance.LoadSavedBindings(playerActions);
 	}
 
 	void Update()
@@ -31,6 +37,7 @@ public class PlayerInputHandler : MonoBehaviour
 		{
 			PlayerControls();
 			CameraControls();
+			SolarSystemControls();
 		}
 
 		UIControls();
@@ -47,6 +54,18 @@ public class PlayerInputHandler : MonoBehaviour
 		if (playerActions.PlayerControls.DropPackage.WasPressedThisFrame())
 		{
 			questSystem.TryDropPackage();
+		}
+	}
+
+	void SolarSystemControls()
+	{
+		if (playerActions.PlayerControls.MakeDaytime.WasPressedThisFrame())
+		{
+			solarSystemManager.FastForward(toDaytime: true);
+		}
+		if (playerActions.PlayerControls.MakeNighttime.WasPressedThisFrame())
+		{
+			solarSystemManager.FastForward(toDaytime: false);
 		}
 	}
 
@@ -77,14 +96,6 @@ public class PlayerInputHandler : MonoBehaviour
 		{
 			uIManager.ToggleMap();
 		}
-	}
-	
-	public void InvertPitchInput()
-	{
-		player.invertInput = !player.invertInput;
-		int isInvert = 0;
-		if (player.invertInput) isInvert = 1;
-		PlayerPrefs.SetInt("invertInput", isInvert);
 	}
 
 }

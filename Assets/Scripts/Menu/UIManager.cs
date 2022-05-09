@@ -23,8 +23,6 @@ public class UIManager : MonoBehaviour
 	void Awake()
 	{
 		hudGroup.alpha = 0;
-		player.invertInput = (PlayerPrefs.GetInt("invertInput", 0) == 1);
-		invertInputToggle.isOn = player.invertInput;
 	}
 
 	void Update()

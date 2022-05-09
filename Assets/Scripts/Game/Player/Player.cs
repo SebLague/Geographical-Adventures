@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
 	public float speedSmoothing = 0.1f;
 	public float maxBoostTime = 30;
 	public float boostTimeAtStart = 5;
-	public bool invertInput = false;
 
 	[HideInInspector]
 	public float totalTurnAngle;
@@ -132,9 +131,8 @@ public class Player : MonoBehaviour
 		// Turning
 		turnInput = moveInput.x;
 		pitchInput = moveInput.y;
-		if (invertInput) pitchInput = -pitchInput;
 
-			// Speed
+		// Speed
 		baseTargetSpeed += (maxSpeed - minSpeed) / accelerateDuration * accelerateDir * Time.deltaTime;
 		baseTargetSpeed = Mathf.Clamp(baseTargetSpeed, minSpeed, maxSpeed);
 

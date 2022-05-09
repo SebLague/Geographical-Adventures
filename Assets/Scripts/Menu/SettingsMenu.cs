@@ -107,7 +107,7 @@ public class SettingsMenu : Menu
 	void ApplyCurrentSettings()
 	{
 		Settings currentSettings = GetSettingsFromUI();
-		InputManager.SaveChangedBindings();
+		RebindManager.Instance.SaveChangedBindings();
 		ApplySettings(currentSettings);
 	}
 
@@ -309,10 +309,10 @@ public class SettingsMenu : Menu
 
 	protected override void OnMenuClosed()
 	{
-		InputManager.ReloadBindingsOnExit();
 
 		if (Application.isPlaying)
 		{
+			RebindManager.Instance.ReloadBindingsOnExit();
 			ApplySettings(lastAppliedSettings);
 		}
 	}

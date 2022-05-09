@@ -47,7 +47,6 @@ namespace SolarSystem
 
 			if (animate && Application.isPlaying && GameController.IsState(GameState.Playing))
 			{
-				HandleInput();
 				float daySpeed = 1 / (dayDurationMinutes * 60);
 				if (fastForwarding)
 				{
@@ -70,34 +69,19 @@ namespace SolarSystem
 
 		}
 
+		public void FastForward(bool toDaytime)
+		{
+			fastForwardTargetTime = (toDaytime) ? 1 : -1;
+			fastForwarding = true;
+			fastForwardApproachingTargetTime = false;
+			oldPlayerT = CalculatePlayerDayT();
+		}
+
 		public void SetTimes(float dayT, float monthT, float yearT)
 		{
 			this.dayT = dayT;
 			this.monthT = monthT;
 			this.yearT = yearT;
-		}
-
-		void HandleInput()
-		{
-			bool startFastForward = false;
-
-			if (Input.GetKeyDown(KeyBindings.fastForwardToDayTime))
-			{
-				startFastForward = true;
-				fastForwardTargetTime = 1;
-			}
-			if (Input.GetKeyDown(KeyBindings.fastForwardToNightTime))
-			{
-				startFastForward = true;
-				fastForwardTargetTime = -1;
-			}
-
-			if (startFastForward)
-			{
-				fastForwarding = true;
-				fastForwardApproachingTargetTime = false;
-				oldPlayerT = CalculatePlayerDayT();
-			}
 		}
 
 
