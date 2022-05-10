@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c11dd3d25848ea45b8432cae9e718ce, type: 3}
   m_Name: _Spanish
   m_EditorClassIdentifier: 
-  language: 5
+  languageDisplayName: Spanish
+  languageID: spanish
   localizedStringGroups:
   - {fileID: 4900000, guid: b351d49f77bb5184ebbcd76b840407f5, type: 3}
   - {fileID: 4900000, guid: 80083d7e243a21440ae6fe4e29e2ec46, type: 3}

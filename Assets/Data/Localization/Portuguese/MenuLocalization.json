@@ -85,6 +85,74 @@
             "text": "Volume dos Efeitos"
         },
         {
+            "id": "settingsMenu.controls.resetButton",
+            "text": "Reset"
+        },
+        {
+            "id": "settingsMenu.controls.playerControls",
+            "text": "Player Controls"
+        },
+        {
+            "id": "settingsMenu.controls.turn",
+            "text": "Turn"
+        },
+        {
+            "id": "settingsMenu.controls.elevation",
+            "text": "Elevation"
+        },
+        {
+            "id": "settingsMenu.controls.speed",
+            "text": "Speed"
+        },
+        {
+            "id": "settingsMenu.controls.boost",
+            "text": "Boost"
+        },
+        {
+            "id": "settingsMenu.controls.dropPackage",
+            "text": "Drop Package"
+        },
+        {
+            "id": "settingsMenu.controls.cameraControls",
+            "text": "Camera Controls"
+        },
+        {
+            "id": "settingsMenu.controls.forwardView",
+            "text": "Forward View"
+        },
+        {
+            "id": "settingsMenu.controls.behindView",
+            "text": "Behind View"
+        },
+        {
+            "id": "settingsMenu.controls.topView",
+            "text": "Top View"
+        },
+        {
+            "id": "settingsMenu.controls.extraControls",
+            "text": "Extra Controls"
+        },
+        {
+            "id": "settingsMenu.controls.makeDayTime",
+            "text": "Make Day-time"
+        },
+        {
+            "id": "settingsMenu.controls.makeNightTime",
+            "text": "Make Night-time"
+        },
+        {
+            "id": "settingsMenu.controls.uiControls",
+            "text": "UI Controls"
+        },
+        {
+            "id": "settingsMenu.controls.toggleMap",
+            "text": "Map"
+        },
+        {
+            "id": "settingsMenu.controls.togglePause",
+            "text": "Pause"
+        },
+        {
             "id": "settingsMenu.applyButton",
             "text": "Aplicar"
         },
