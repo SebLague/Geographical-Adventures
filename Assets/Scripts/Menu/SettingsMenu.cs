@@ -114,7 +114,7 @@ public class SettingsMenu : Menu
 	void ApplyCurrentSettings()
 	{
 		Settings currentSettings = GetSettingsFromUI();
-		RebindManager.Instance.SaveChangedBindings();
+		RebindManager.Instance.SaveAndApplyBindings();
 		ApplySettings(currentSettings);
 	}
 
@@ -319,6 +319,7 @@ public class SettingsMenu : Menu
 		if (Application.isPlaying)
 		{
 			lastAppliedSettings = Settings.LoadSavedSettings();
+			RebindManager.Instance.OnSettingsOpened();
 			SetUIFromSettings(lastAppliedSettings);
 		}
 	}
@@ -328,7 +329,7 @@ public class SettingsMenu : Menu
 
 		if (Application.isPlaying)
 		{
-			RebindManager.Instance.ReloadBindingsOnExit();
+			//RebindManager.Instance.close();
 			ApplySettings(lastAppliedSettings);
 		}
 	}

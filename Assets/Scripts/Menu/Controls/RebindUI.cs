@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class RebindUI : MonoBehaviour
 {
+	public event System.Action<RebindUI> onRebindRequested;
 
 	[HideInInspector] public int bindingIndex;
 	public InputActionReference inputActionReference;
@@ -17,25 +18,10 @@ public class RebindUI : MonoBehaviour
 	[SerializeField]
 	Button resetButton;
 
-	bool waitingForRebind;
-
-
-
 	void Start()
 	{
-
-		rebindButton.onClick.AddListener(StartRebind);
+		rebindButton.onClick.AddListener(RequestRebind);
 		resetButton.onClick.AddListener(ResetBinding);
-
-		RebindManager.Instance.rebindComplete += BindingCompletedOrCancelled;
-		RebindManager.Instance.rebindCancelled += BindingCompletedOrCancelled;
-
-		RebindManager.LoadBindingOverride(action);
-		UpdateUI();
-	}
-
-	void OnEnable()
-	{
 		UpdateUI();
 	}
 
@@ -47,32 +33,24 @@ public class RebindUI : MonoBehaviour
 		}
 	}
 
-	void StartRebind()
+	void RequestRebind()
 	{
 
 		rebindText.text = "press any key";
-		RebindManager.Instance.StartRebind(action, bindingIndex);
-	}
-
-	void BindingCompletedOrCancelled(InputAction action, int index)
-	{
-		if (this.action == action && this.bindingIndex == index)
-		{
-			UpdateUI();
-		}
+		onRebindRequested?.Invoke(this);
 	}
 
 
-	void UpdateUI()
+	public void UpdateUI()
 	{
+
 		rebindText.text = action.GetBindingDisplayString(bindingIndex);
 
 	}
 
 	void ResetBinding()
 	{
-		RebindManager.Instance.Cancel();
-		RebindManager.ResetBinding(action, bindingIndex);
+		action.RemoveBindingOverride(bindingIndex);
 		UpdateUI();
 	}
 
@@ -84,7 +62,7 @@ public class RebindUI : MonoBehaviour
 		}
 	}
 
-	InputAction action
+	public InputAction action
 	{
 		get
 		{

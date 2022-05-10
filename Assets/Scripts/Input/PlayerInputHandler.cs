@@ -14,22 +14,15 @@ public class PlayerInputHandler : MonoBehaviour
 	PlayerAction playerActions;
 
 
-	void Awake()
+	void Start()
 	{
-		playerActions = new PlayerAction();
-		UpdateFromSavedBindings();
-		RebindManager.Instance.onBindingsSaved -= UpdateFromSavedBindings;
-		RebindManager.Instance.onBindingsSaved += UpdateFromSavedBindings;
+		playerActions = RebindManager.Instance.activePlayerActions;
 
 		playerActions.PlayerControls.Enable();
 		playerActions.CameraControls.Enable();
 		playerActions.UIControls.Enable();
 	}
 
-	void UpdateFromSavedBindings()
-	{
-		RebindManager.Instance.LoadSavedBindings(playerActions);
-	}
 
 	void Update()
 	{

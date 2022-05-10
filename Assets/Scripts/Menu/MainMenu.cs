@@ -30,18 +30,6 @@ public class MainMenu : Menu
 	}
 
 
-	void Update()
-	{
-		if (GameController.IsState(GameState.InMainMenu))
-		{
-			if (Input.GetKeyDown(KeyBindings.Escape))
-			{
-				Quit();
-			}
-		}
-
-	}
-
 	void LateUpdate()
 	{
 		if (GameController.IsState(GameState.InMainMenu))
