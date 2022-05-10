@@ -18,8 +18,6 @@ public class TargetUI : MonoBehaviour
 	Color highlightCol = new Color(1, 0.38f, 0.33f, 1);
 	Color numUICol;
 
-
-
 	public void MarkCompleted()
 	{
 		statusIcon.sprite = completedSprite;
@@ -60,7 +58,7 @@ public class TargetUI : MonoBehaviour
 			Debug.Log("---------Is null " + gameObject.name);
 		}
 		float countryNameRightEdge = countryNameUI.rectTransform.anchoredPosition.x + countryNameUI.bounds.size.x; // pivot on left edge
-																												   //float cityNameRightEdge = cityNameUI.rectTransform.anchoredPosition.x + cityNameUI.bounds.size.x / 2; // pivot in centre
+		//float cityNameRightEdge = cityNameUI.rectTransform.anchoredPosition.x + cityNameUI.bounds.size.x / 2; // pivot in centre
 		rectTransform.sizeDelta = new Vector2(countryNameRightEdge, rectTransform.sizeDelta.y);
 		//var r = gameObject.GetComponent<UnityEngine.UI.HorizontalLayoutGroup>();
 

@@ -78,10 +78,6 @@ namespace GeoGame.Quest
 
 			deliveryResults = new List<DeliveryResult>();
 			activeQuests = new Quest[numActiveQuests];
-			for (int i = 0; i < activeQuests.Length; i++)
-			{
-				SetNewActiveQuest(i);
-			}
 
 			GameController.Instance.onGameStarted -= OnGameStarted;
 			GameController.Instance.onGameStarted += OnGameStarted;
@@ -92,6 +88,11 @@ namespace GeoGame.Quest
 
 		void OnGameStarted()
 		{
+			for (int i = 0; i < activeQuests.Length; i++)
+			{
+				SetNewActiveQuest(i);
+			}
+
 			questUI.AnimateFirstSet();
 		}
 

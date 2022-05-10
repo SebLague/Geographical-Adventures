@@ -266,15 +266,6 @@
             "id": "59d8a46a-bfc2-42aa-99e1-3f09c5076b83",
             "actions": [
                 {
-                    "name": "Top Camera View",
-                    "type": "Button",
-                    "id": "34f7c59f-17bf-4520-b616-6b09ea9d774b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Forward Camera View",
                     "type": "Button",
                     "id": "c90bfd6e-0c10-4e68-8bde-8179589f4166",
@@ -291,13 +282,22 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Top Camera View",
+                    "type": "Button",
+                    "id": "34f7c59f-17bf-4520-b616-6b09ea9d774b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "ee5dadf7-a432-43f8-9551-9d4400cabf79",
-                    "path": "<Keyboard>/1",
+                    "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -329,30 +329,8 @@
                 },
                 {
                     "name": "",
-                    "id": "d2dc09a4-f367-4728-8a50-fd25f4a9e48e",
-                    "path": "<Keyboard>/2",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Forward Camera View",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c489f49a-475e-489f-b210-cfcf58dc6f31",
-                    "path": "<Gamepad>/dpad/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Forward Camera View",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "ff42c99b-a04c-45af-8062-eb61b6ccbabd",
-                    "path": "<Keyboard>/3",
+                    "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -368,6 +346,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Backward Camera View",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d2dc09a4-f367-4728-8a50-fd25f4a9e48e",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Forward Camera View",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c489f49a-475e-489f-b210-cfcf58dc6f31",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Forward Camera View",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -2,7 +2,7 @@
     "entries": [
         {
             "id": "countryCode3.ATC",
-            "text": "Ashmore & Cartier Islands"
+            "text": "Isole Ashmore e Cartier"
         },
         {
             "id": "countryCode3.AFG",
@@ -10,7 +10,7 @@
         },
         {
             "id": "countryCode3.ALD",
-            "text": "Åland"
+            "text": "Isole Åland"
         },
         {
             "id": "countryCode3.ALB",
@@ -22,7 +22,7 @@
         },
         {
             "id": "countryCode3.ASM",
-            "text": "American Samoa"
+            "text": "Samoa Americane"
         },
         {
             "id": "countryCode3.AND",
@@ -38,11 +38,11 @@
         },
         {
             "id": "countryCode3.ATA",
-            "text": "Antarctica"
+            "text": "Antartide"
         },
         {
             "id": "countryCode3.ATG",
-            "text": "Antigua & Barbuda"
+            "text": "Antigua e Barbuda"
         },
         {
             "id": "countryCode3.ARG",
@@ -74,7 +74,7 @@
         },
         {
             "id": "countryCode3.BHR",
-            "text": "Bahrain"
+            "text": "Bahrein"
         },
         {
             "id": "countryCode3.BGD",
@@ -86,11 +86,11 @@
         },
         {
             "id": "countryCode3.BLR",
-            "text": "Belarus"
+            "text": "Bielorussia"
         },
         {
             "id": "countryCode3.BEL",
-            "text": "Belgium"
+            "text": "Belgio"
         },
         {
             "id": "countryCode3.BLZ",
@@ -114,7 +114,7 @@
         },
         {
             "id": "countryCode3.BIH",
-            "text": "Bosnia-Herzegovina"
+            "text": "Bosnia-Erzegovina"
         },
         {
             "id": "countryCode3.BWA",
@@ -122,11 +122,11 @@
         },
         {
             "id": "countryCode3.BRA",
-            "text": "Brazil"
+            "text": "Brasile"
         },
         {
             "id": "countryCode3.VGB",
-            "text": "British Virgin Islands"
+            "text": "Isole Vergini Britanniche"
         },
         {
             "id": "countryCode3.BRN",
@@ -146,19 +146,19 @@
         },
         {
             "id": "countryCode3.CAF",
-            "text": "Central African Republic"
+            "text": "Repubblica Centrafricana"
         },
         {
             "id": "countryCode3.CPV",
-            "text": "Cabo Verde"
+            "text": "Capo Verde"
         },
         {
             "id": "countryCode3.KHM",
-            "text": "Cambodia"
+            "text": "Cambogia"
         },
         {
             "id": "countryCode3.CMR",
-            "text": "Cameroon"
+            "text": "Camerun"
         },
         {
             "id": "countryCode3.CAN",
@@ -166,7 +166,7 @@
         },
         {
             "id": "countryCode3.CYM",
-            "text": "Cayman Islands"
+            "text": "Isole Cayman"
         },
         {
             "id": "countryCode3.TCD",
@@ -174,11 +174,11 @@
         },
         {
             "id": "countryCode3.CHL",
-            "text": "Chile"
+            "text": "Cile"
         },
         {
             "id": "countryCode3.CHN",
-            "text": "China"
+            "text": "Cina"
         },
         {
             "id": "countryCode3.COL",
@@ -186,7 +186,7 @@
         },
         {
             "id": "countryCode3.COM",
-            "text": "Comoros"
+            "text": "Comore"
         },
         {
             "id": "countryCode3.COG",
@@ -194,7 +194,7 @@
         },
         {
             "id": "countryCode3.COK",
-            "text": "Cook Islands"
+            "text": "Isole Cook"
         },
         {
             "id": "countryCode3.CRI",
@@ -202,11 +202,11 @@
         },
         {
             "id": "countryCode3.CIV",
-            "text": "Ivory Coast"
+            "text": "Costa d'Avorio"
         },
         {
             "id": "countryCode3.HRV",
-            "text": "Croatia"
+            "text": "Croazia"
         },
         {
             "id": "countryCode3.CUB",
@@ -214,27 +214,27 @@
         },
         {
             "id": "countryCode3.CUW",
-            "text": "Curaçao"
+            "text": "Curacao"
         },
         {
             "id": "countryCode3.CYP",
-            "text": "Cyprus"
+            "text": "Cipro"
         },
         {
             "id": "countryCode3.CZE",
-            "text": "Czechia"
+            "text": "Cechia"
         },
         {
             "id": "countryCode3.COD",
-            "text": "D.R. Congo"
+            "text": "R.D. del Congo"
         },
         {
             "id": "countryCode3.DNK",
-            "text": "Denmark"
+            "text": "Danimarca"
         },
         {
             "id": "countryCode3.DJI",
-            "text": "Djibouti"
+            "text": "Gibuti"
         },
         {
             "id": "countryCode3.DMA",
@@ -242,7 +242,7 @@
         },
         {
             "id": "countryCode3.DOM",
-            "text": "Dominican Republic"
+            "text": "Repubblica Dominicana"
         },
         {
             "id": "countryCode3.ECU",
@@ -250,7 +250,7 @@
         },
         {
             "id": "countryCode3.EGY",
-            "text": "Egypt"
+            "text": "Egitto"
         },
         {
             "id": "countryCode3.SLV",
@@ -258,7 +258,7 @@
         },
         {
             "id": "countryCode3.GNQ",
-            "text": "Equatorial Guinea"
+            "text": "Guinea Equatoriale"
         },
         {
             "id": "countryCode3.ERI",
@@ -274,15 +274,15 @@
         },
         {
             "id": "countryCode3.ETH",
-            "text": "Ethiopia"
+            "text": "Etiopia"
         },
         {
             "id": "countryCode3.FRO",
-            "text": "Faeroe Islands"
+            "text": "Isole Faroe"
         },
         {
             "id": "countryCode3.FLK",
-            "text": "Falkland Islands"
+            "text": "Isole Falkland"
         },
         {
             "id": "countryCode3.FJI",
@@ -290,19 +290,19 @@
         },
         {
             "id": "countryCode3.FIN",
-            "text": "Finland"
+            "text": "Finlandia"
         },
         {
             "id": "countryCode3.ATF",
-            "text": "French Southern Lands"
+            "text": "Terre Meridionali Francesi"
         },
         {
             "id": "countryCode3.FRA",
-            "text": "France"
+            "text": "Francia"
         },
         {
             "id": "countryCode3.PYF",
-            "text": "French Polynesia"
+            "text": "Polinesia Francese"
         },
         {
             "id": "countryCode3.GAB",
@@ -318,7 +318,7 @@
         },
         {
             "id": "countryCode3.DEU",
-            "text": "Germany"
+            "text": "Germania"
         },
         {
             "id": "countryCode3.GHA",
@@ -326,15 +326,15 @@
         },
         {
             "id": "countryCode3.GRC",
-            "text": "Greece"
+            "text": "Grecia"
         },
         {
             "id": "countryCode3.GRL",
-            "text": "Greenland"
+            "text": "Groenlandia"
         },
         {
             "id": "countryCode3.GRD",
-            "text": "Grenada"
+            "text": "Granata"
         },
         {
             "id": "countryCode3.GUM",
@@ -354,7 +354,7 @@
         },
         {
             "id": "countryCode3.GNB",
-            "text": "Guinea-Bissau"
+            "text": "Guinea Bissau"
         },
         {
             "id": "countryCode3.GUY",
@@ -362,7 +362,7 @@
         },
         {
             "id": "countryCode3.HMD",
-            "text": "Heard & McDonald Islands"
+            "text": "Isole Heard e McDonald"
         },
         {
             "id": "countryCode3.HTI",
@@ -378,15 +378,15 @@
         },
         {
             "id": "countryCode3.HUN",
-            "text": "Hungary"
+            "text": "Ungheria"
         },
         {
             "id": "countryCode3.IOT",
-            "text": "British Indian Ocean Territory"
+            "text": "Territorio Britannico dell'Oceano Indiano"
         },
         {
             "id": "countryCode3.ISL",
-            "text": "Iceland"
+            "text": "Islanda"
         },
         {
             "id": "countryCode3.IND",
@@ -394,7 +394,7 @@
         },
         {
             "id": "countryCode3.IOA",
-            "text": "Indian Ocean Territories"
+            "text": "Territori dell'Oceano Indiano"
         },
         {
             "id": "countryCode3.IDN",
@@ -410,19 +410,19 @@
         },
         {
             "id": "countryCode3.IRL",
-            "text": "Ireland"
+            "text": "Irlanda"
         },
         {
             "id": "countryCode3.IMN",
-            "text": "Isle of Man"
+            "text": "Isola di Man"
         },
         {
             "id": "countryCode3.ISR",
-            "text": "Israel"
+            "text": "Israele"
         },
         {
             "id": "countryCode3.ITA",
-            "text": "Italy"
+            "text": "Italia"
         },
         {
             "id": "countryCode3.JAM",
@@ -430,7 +430,7 @@
         },
         {
             "id": "countryCode3.JPN",
-            "text": "Japan"
+            "text": "Giappone"
         },
         {
             "id": "countryCode3.JEY",
@@ -438,7 +438,7 @@
         },
         {
             "id": "countryCode3.JOR",
-            "text": "Jordan"
+            "text": "Giordania"
         },
         {
             "id": "countryCode3.KAS",
@@ -446,7 +446,7 @@
         },
         {
             "id": "countryCode3.KAZ",
-            "text": "Kazakhstan"
+            "text": "Kazakistan"
         },
         {
             "id": "countryCode3.KEN",
@@ -466,7 +466,7 @@
         },
         {
             "id": "countryCode3.KGZ",
-            "text": "Kyrgyzstan"
+            "text": "Kirghizistan"
         },
         {
             "id": "countryCode3.LAO",
@@ -474,15 +474,15 @@
         },
         {
             "id": "countryCode3.LVA",
-            "text": "Latvia"
+            "text": "Lettonia"
         },
         {
             "id": "countryCode3.LBN",
-            "text": "Lebanon"
+            "text": "Libano"
         },
         {
             "id": "countryCode3.LSO",
-            "text": "Lesotho"
+            "text": "Lesoto"
         },
         {
             "id": "countryCode3.LBR",
@@ -490,7 +490,7 @@
         },
         {
             "id": "countryCode3.LBY",
-            "text": "Libya"
+            "text": "Libia"
         },
         {
             "id": "countryCode3.LIE",
@@ -498,11 +498,11 @@
         },
         {
             "id": "countryCode3.LTU",
-            "text": "Lithuania"
+            "text": "Lituania"
         },
         {
             "id": "countryCode3.LUX",
-            "text": "Luxembourg"
+            "text": "Lussemburgo"
         },
         {
             "id": "countryCode3.MAC",
@@ -526,7 +526,7 @@
         },
         {
             "id": "countryCode3.MDV",
-            "text": "Maldives"
+            "text": "Maldive"
         },
         {
             "id": "countryCode3.MLI",
@@ -538,7 +538,7 @@
         },
         {
             "id": "countryCode3.MHL",
-            "text": "Marshall Islands"
+            "text": "Isole Marshall"
         },
         {
             "id": "countryCode3.MRT",
@@ -550,7 +550,7 @@
         },
         {
             "id": "countryCode3.MEX",
-            "text": "Mexico"
+            "text": "Messico"
         },
         {
             "id": "countryCode3.FSM",
@@ -558,7 +558,7 @@
         },
         {
             "id": "countryCode3.MDA",
-            "text": "Moldova"
+            "text": "Moldavia"
         },
         {
             "id": "countryCode3.MCO",
@@ -578,11 +578,11 @@
         },
         {
             "id": "countryCode3.MAR",
-            "text": "Morocco"
+            "text": "Marocco"
         },
         {
             "id": "countryCode3.MOZ",
-            "text": "Mozambique"
+            "text": "Mozambico"
         },
         {
             "id": "countryCode3.MMR",
@@ -590,7 +590,7 @@
         },
         {
             "id": "countryCode3.MNP",
-            "text": "Northern Mariana Islands"
+            "text": "Isole Marianne Settentrionali"
         },
         {
             "id": "countryCode3.NAM",
@@ -606,15 +606,15 @@
         },
         {
             "id": "countryCode3.NLD",
-            "text": "Netherlands"
+            "text": "Olanda"
         },
         {
             "id": "countryCode3.NCL",
-            "text": "New Caledonia"
+            "text": "Nuova Caledonia"
         },
         {
             "id": "countryCode3.NZL",
-            "text": "New Zealand"
+            "text": "Nuova Zelanda"
         },
         {
             "id": "countryCode3.NIC",
@@ -634,19 +634,19 @@
         },
         {
             "id": "countryCode3.NFK",
-            "text": "Norfolk Island"
+            "text": "Isola Norfolk"
         },
         {
             "id": "countryCode3.PRK",
-            "text": "North Korea"
+            "text": "Corea del nord"
         },
         {
             "id": "countryCode3.CYN",
-            "text": "Northern Cyprus"
+            "text": "Cipro del Nord"
         },
         {
             "id": "countryCode3.NOR",
-            "text": "Norway"
+            "text": "Norvegia"
         },
         {
             "id": "countryCode3.OMN",
@@ -662,7 +662,7 @@
         },
         {
             "id": "countryCode3.PSX",
-            "text": "Palestine"
+            "text": "Palestina"
         },
         {
             "id": "countryCode3.PAN",
@@ -670,7 +670,7 @@
         },
         {
             "id": "countryCode3.PNG",
-            "text": "Papua New Guinea"
+            "text": "Papua Nuova Guinea"
         },
         {
             "id": "countryCode3.PRY",
@@ -678,27 +678,27 @@
         },
         {
             "id": "countryCode3.PER",
-            "text": "Peru"
+            "text": "Perù"
         },
         {
             "id": "countryCode3.PHL",
-            "text": "Philippines"
+            "text": "Filippine"
         },
         {
             "id": "countryCode3.PCN",
-            "text": "Pitcairn Islands"
+            "text": "Isole Pitcairn"
         },
         {
             "id": "countryCode3.POL",
-            "text": "Poland"
+            "text": "Polonia"
         },
         {
             "id": "countryCode3.PRT",
-            "text": "Portugal"
+            "text": "Portogallo"
         },
         {
             "id": "countryCode3.PRI",
-            "text": "Puerto Rico"
+            "text": "Porto Rico"
         },
         {
             "id": "countryCode3.QAT",
@@ -718,19 +718,19 @@
         },
         {
             "id": "countryCode3.SGS",
-            "text": "South Georgia & Sandwich Islands"
+            "text": "Georgia del Sud e Isole Sandwich"
         },
         {
             "id": "countryCode3.STP",
-            "text": "São Tomé & Príncipe"
+            "text": "São Tomé e Principe"
         },
         {
             "id": "countryCode3.SHN",
-            "text": "Saint Helena"
+            "text": "Sant'Elena"
         },
         {
             "id": "countryCode3.LCA",
-            "text": "Saint Lucia"
+            "text": "Santa Lucia"
         },
         {
             "id": "countryCode3.WSM",
@@ -742,7 +742,7 @@
         },
         {
             "id": "countryCode3.SAU",
-            "text": "Saudi Arabia"
+            "text": "Arabia Saudita"
         },
         {
             "id": "countryCode3.SEN",
@@ -770,7 +770,7 @@
         },
         {
             "id": "countryCode3.SVK",
-            "text": "Slovakia"
+            "text": "Slovacchia"
         },
         {
             "id": "countryCode3.SVN",
@@ -778,7 +778,7 @@
         },
         {
             "id": "countryCode3.SLB",
-            "text": "Solomon Islands"
+            "text": "Isole Salomone"
         },
         {
             "id": "countryCode3.SOM",
@@ -790,19 +790,19 @@
         },
         {
             "id": "countryCode3.ZAF",
-            "text": "South Africa"
+            "text": "Sud Africa"
         },
         {
             "id": "countryCode3.KOR",
-            "text": "South Korea"
+            "text": "Corea del Sud"
         },
         {
             "id": "countryCode3.SSD",
-            "text": "South Sudan"
+            "text": "Sudan del Sud"
         },
         {
             "id": "countryCode3.ESP",
-            "text": "Spain"
+            "text": "Spagna"
         },
         {
             "id": "countryCode3.LKA",
@@ -810,23 +810,23 @@
         },
         {
             "id": "countryCode3.SPM",
-            "text": "Saint Pierre & Miquelon"
+            "text": "Saint Pierre e Miquelon"
         },
         {
             "id": "countryCode3.VCT",
-            "text": "Saint Vincent & Grenadines"
+            "text": "Saint Vincent e Grenadine"
         },
         {
             "id": "countryCode3.KNA",
-            "text": "Saint Kitts & Nevis"
+            "text": "Saint Kitts e Nevis"
         },
         {
             "id": "countryCode3.BLM",
-            "text": "St-Barthélemy"
+            "text": "San Barthélemy"
         },
         {
             "id": "countryCode3.MAF",
-            "text": "St-Martin"
+            "text": "San Martin"
         },
         {
             "id": "countryCode3.SDN",
@@ -838,19 +838,19 @@
         },
         {
             "id": "countryCode3.SWE",
-            "text": "Sweden"
+            "text": "Svezia"
         },
         {
             "id": "countryCode3.CHE",
-            "text": "Switzerland"
+            "text": "Svizzera"
         },
         {
             "id": "countryCode3.SYR",
-            "text": "Syria"
+            "text": "Siria"
         },
         {
             "id": "countryCode3.TCA",
-            "text": "Turks & Caicos Islands"
+            "text": "Isole Turks e Caicos"
         },
         {
             "id": "countryCode3.TWN",
@@ -866,11 +866,11 @@
         },
         {
             "id": "countryCode3.THA",
-            "text": "Thailand"
+            "text": "Tailandia"
         },
         {
             "id": "countryCode3.TLS",
-            "text": "East Timor"
+            "text": "Timor Est"
         },
         {
             "id": "countryCode3.TGO",
@@ -882,7 +882,7 @@
         },
         {
             "id": "countryCode3.TTO",
-            "text": "Trinidad & Tobago"
+            "text": "Trinidad e Tobago"
         },
         {
             "id": "countryCode3.TUN",
@@ -890,7 +890,7 @@
         },
         {
             "id": "countryCode3.TUR",
-            "text": "Turkey"
+            "text": "Turchia"
         },
         {
             "id": "countryCode3.TKM",
@@ -898,11 +898,11 @@
         },
         {
             "id": "countryCode3.ARE",
-            "text": "United Arab Emirates"
+            "text": "Emirati Arabi Uniti"
         },
         {
             "id": "countryCode3.VIR",
-            "text": "U.S. Virgin Islands"
+            "text": "Isole Vergini"
         },
         {
             "id": "countryCode3.UGA",
@@ -910,15 +910,15 @@
         },
         {
             "id": "countryCode3.UKR",
-            "text": "Ukraine"
+            "text": "Ukraina"
         },
         {
             "id": "countryCode3.GBR",
-            "text": "United Kingdom"
+            "text": "Regno Unito"
         },
         {
             "id": "countryCode3.USA",
-            "text": "United States"
+            "text": "Stati Uniti"
         },
         {
             "id": "countryCode3.URY",
@@ -934,7 +934,7 @@
         },
         {
             "id": "countryCode3.VAT",
-            "text": "Vatican"
+            "text": "Vaticano"
         },
         {
             "id": "countryCode3.VEN",
@@ -946,11 +946,11 @@
         },
         {
             "id": "countryCode3.WLF",
-            "text": "Wallis & Futuna"
+            "text": "Wallis e Futuna"
         },
         {
             "id": "countryCode3.SAH",
-            "text": "Western Sahara"
+            "text": "Sahara Occidentale"
         },
         {
             "id": "countryCode3.YEM",

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c11dd3d25848ea45b8432cae9e718ce, type: 3}
   m_Name: _French
   m_EditorClassIdentifier: 
-  language: 1
+  languageDisplayName: French
+  languageID: french
   localizedStringGroups:
   - {fileID: 4900000, guid: da1bc822467a1d7408918ad29a4d48b0, type: 3}
   - {fileID: 4900000, guid: b15d9baf02cc3c64797d0deba751ba1a, type: 3}

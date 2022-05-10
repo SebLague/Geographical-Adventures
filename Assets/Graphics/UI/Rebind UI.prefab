@@ -131,6 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3190030961867287598}
+  - component: {fileID: 2246674336279747657}
   - component: {fileID: 3190030961867287596}
   - component: {fileID: 3190030961867287597}
   m_Layer: 5
@@ -160,6 +161,22 @@ RectTransform:
   m_AnchoredPosition: {x: -279, y: 0.000012755}
   m_SizeDelta: {x: 413.57, y: 47.385}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2246674336279747657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3190030961867287599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b395238b9d3dd24697f03c18f94ffcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
+  textElement: {fileID: 3190030961867287597}
+  controlRectTransformWidth: 0
+  padding: 50
 --- !u!222 &3190030961867287596
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -459,6 +476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3190030962510712498}
   - component: {fileID: 3190030962510712503}
+  - component: {fileID: 5607413988323964319}
   - component: {fileID: 3190030962510712496}
   - component: {fileID: 3190030962510712497}
   m_Layer: 5
@@ -486,8 +504,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 394, y: 0.10909}
-  m_SizeDelta: {x: 124.645, y: 40.509}
+  m_AnchoredPosition: {x: 420, y: 0.10909}
+  m_SizeDelta: {x: 150, y: 40.509}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3190030962510712503
 CanvasRenderer:
@@ -497,6 +515,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3190030962510712499}
   m_CullTransparentMesh: 1
+--- !u!114 &5607413988323964319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3190030962510712499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b395238b9d3dd24697f03c18f94ffcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: settingsMenu.controls.resetButton
+  textElement: {fileID: 3190030962761603708}
+  controlRectTransformWidth: 1
+  padding: 50
 --- !u!114 &3190030962510712496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,7 +582,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.20000002, g: 0.20000002, b: 0.20000002, a: 1}
+    m_NormalColor: {r: 0.16862746, g: 0.16862746, b: 0.16862746, a: 1}
     m_HighlightedColor: {r: 0.3882353, g: 0.3882353, b: 0.3882353, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}

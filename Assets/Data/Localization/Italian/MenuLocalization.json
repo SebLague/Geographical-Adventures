@@ -6,51 +6,51 @@
         },
         {
             "id": "mainMenu.playButton",
-            "text": "Play"
+            "text": "Gioca"
         },
         {
             "id": "mainMenu.manualButton",
-            "text": "Manual"
+            "text": "Manuale"
         },
         {
             "id": "mainMenu.settingsButton",
-            "text": "Settings"
+            "text": "Impostazioni"
         },
         {
             "id": "mainMenu.creditsButton",
-            "text": "Credits"
+            "text": "Crediti"
         },
         {
             "id": "mainMenu.quitButton",
-            "text": "Quit"
+            "text": "Esci"
         },
         {
             "id": "subMenu.closeButton",
-            "text": "Close"
+            "text": "Chiudi"
         },
         {
             "id": "settingsMenu.graphicsTab",
-            "text": "Graphics"
+            "text": "Grafiche"
         },
         {
             "id": "settingsMenu.audioAndLanguageTab",
-            "text": "Audio / Language"
+            "text": "Audio / Lingua"
         },
         {
             "id": "settingsMenu.controlsTab",
-            "text": "Controls"
+            "text": "Controlli"
         },
         {
             "id": "settingsMenu.graphics.aspectRatio",
-            "text": "Aspect Ratio"
+            "text": "Proporzioni"
         },
         {
             "id": "settingsMenu.graphics.resolution",
-            "text": "Resolution"
+            "text": "Risoluzione"
         },
         {
             "id": "settingsMenu.graphics.fullScreen",
-            "text": "Full Screen"
+            "text": "Schermo Intero"
         },
         {
             "id": "settingsMenu.graphics.vSync",
@@ -58,55 +58,123 @@
         },
         {
             "id": "settingsMenu.graphics.terrainQuality",
-            "text": "Terrain Quality"
+            "text": "Qualità del Terreno"
         },
         {
             "id": "settingsMenu.graphics.shadowQuality",
-            "text": "Shadow Quality"
+            "text": "Qualità delle Ombre"
         },
         {
             "id": "settingsMenu.audioAndLanguage.language",
-            "text": "Language"
+            "text": "Lingua"
         },
         {
             "id": "settingsMenu.audioAndLanguage.translationNote",
-            "text": "Please note that these translations are a work-in-progress community effort."
+            "text": "Tieni presente che queste traduzioni sono un contributo della comunità in corso d'opera."
         },
         {
             "id": "settingsMenu.audioAndLanguage.masterVolume",
-            "text": "Master Volume"
+            "text": "Volume Principale"
         },
         {
             "id": "settingsMenu.audioAndLanguage.musicVolume",
-            "text": "Music Volume"
+            "text": "Volume della Musica"
         },
         {
             "id": "settingsMenu.audioAndLanguage.sfxVolume",
-            "text": "SFX Volume"
+            "text": "Volume degli Effetti"
+        },
+        {
+            "id": "settingsMenu.controls.resetButton",
+            "text": "Reset"
+        },
+        {
+            "id": "settingsMenu.controls.playerControls",
+            "text": "Player Controls"
+        },
+        {
+            "id": "settingsMenu.controls.turn",
+            "text": "Turn"
+        },
+        {
+            "id": "settingsMenu.controls.elevation",
+            "text": "Elevation"
+        },
+        {
+            "id": "settingsMenu.controls.speed",
+            "text": "Speed"
+        },
+        {
+            "id": "settingsMenu.controls.boost",
+            "text": "Boost"
+        },
+        {
+            "id": "settingsMenu.controls.dropPackage",
+            "text": "Drop Package"
+        },
+        {
+            "id": "settingsMenu.controls.cameraControls",
+            "text": "Camera Controls"
+        },
+        {
+            "id": "settingsMenu.controls.forwardView",
+            "text": "Forward View"
+        },
+        {
+            "id": "settingsMenu.controls.behindView",
+            "text": "Behind View"
+        },
+        {
+            "id": "settingsMenu.controls.topView",
+            "text": "Top View"
+        },
+        {
+            "id": "settingsMenu.controls.extraControls",
+            "text": "Extra Controls"
+        },
+        {
+            "id": "settingsMenu.controls.makeDayTime",
+            "text": "Make Day-time"
+        },
+        {
+            "id": "settingsMenu.controls.makeNightTime",
+            "text": "Make Night-time"
+        },
+        {
+            "id": "settingsMenu.controls.uiControls",
+            "text": "UI Controls"
+        },
+        {
+            "id": "settingsMenu.controls.toggleMap",
+            "text": "Map"
+        },
+        {
+            "id": "settingsMenu.controls.togglePause",
+            "text": "Pause"
         },
         {
             "id": "settingsMenu.applyButton",
-            "text": "Apply"
+            "text": "Applica"
         },
         {
             "id": "settingsMenu.exitNote",
-            "text": "Note: closing without applying will revert your changes."
+            "text": "Nota: le modifiche non applicate verranno annullate."
         },
         {
             "id": "pauseMenu.pausedTitle",
-            "text": "PAUSED"
+            "text": "IN PAUSA"
         },
         {
             "id": "pauseMenu.resumeButton",
-            "text": "Resume"
+            "text": "Riprendi"
         },
         {
             "id": "pauseMenu.statsButton",
-            "text": "Stats"
+            "text": "Statistiche"
         },
         {
             "id": "pauseMenu.quitButton",
-            "text": "Quit"
+            "text": "Esci"
         }
     ]
 }

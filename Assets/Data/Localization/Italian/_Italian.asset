@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c11dd3d25848ea45b8432cae9e718ce, type: 3}
   m_Name: _Italian
   m_EditorClassIdentifier: 
-  language: 3
+  languageDisplayName: Italian
+  languageID: italian
   localizedStringGroups:
   - {fileID: 4900000, guid: 6a4753bf5ad4f774fb2590fa1726788b, type: 3}
   - {fileID: 4900000, guid: 1b04ad3bf29d64b4eac8216c1a55da3f, type: 3}

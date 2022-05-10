@@ -288,15 +288,6 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
             ""id"": ""59d8a46a-bfc2-42aa-99e1-3f09c5076b83"",
             ""actions"": [
                 {
-                    ""name"": ""Top Camera View"",
-                    ""type"": ""Button"",
-                    ""id"": ""34f7c59f-17bf-4520-b616-6b09ea9d774b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Forward Camera View"",
                     ""type"": ""Button"",
                     ""id"": ""c90bfd6e-0c10-4e68-8bde-8179589f4166"",
@@ -313,13 +304,22 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Top Camera View"",
+                    ""type"": ""Button"",
+                    ""id"": ""34f7c59f-17bf-4520-b616-6b09ea9d774b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""ee5dadf7-a432-43f8-9551-9d4400cabf79"",
-                    ""path"": ""<Keyboard>/1"",
+                    ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -351,30 +351,8 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d2dc09a4-f367-4728-8a50-fd25f4a9e48e"",
-                    ""path"": ""<Keyboard>/2"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Forward Camera View"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c489f49a-475e-489f-b210-cfcf58dc6f31"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Forward Camera View"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""ff42c99b-a04c-45af-8062-eb61b6ccbabd"",
-                    ""path"": ""<Keyboard>/3"",
+                    ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -390,6 +368,28 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Backward Camera View"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d2dc09a4-f367-4728-8a50-fd25f4a9e48e"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Forward Camera View"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c489f49a-475e-489f-b210-cfcf58dc6f31"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Forward Camera View"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -626,9 +626,9 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         m_PlayerControls_MakeNighttime = m_PlayerControls.FindAction("Make Nighttime", throwIfNotFound: true);
         // Camera Controls
         m_CameraControls = asset.FindActionMap("Camera Controls", throwIfNotFound: true);
-        m_CameraControls_TopCameraView = m_CameraControls.FindAction("Top Camera View", throwIfNotFound: true);
         m_CameraControls_ForwardCameraView = m_CameraControls.FindAction("Forward Camera View", throwIfNotFound: true);
         m_CameraControls_BackwardCameraView = m_CameraControls.FindAction("Backward Camera View", throwIfNotFound: true);
+        m_CameraControls_TopCameraView = m_CameraControls.FindAction("Top Camera View", throwIfNotFound: true);
         // UI Controls
         m_UIControls = asset.FindActionMap("UI Controls", throwIfNotFound: true);
         m_UIControls_TogglePause = m_UIControls.FindAction("Toggle Pause", throwIfNotFound: true);
@@ -769,16 +769,16 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     // Camera Controls
     private readonly InputActionMap m_CameraControls;
     private ICameraControlsActions m_CameraControlsActionsCallbackInterface;
-    private readonly InputAction m_CameraControls_TopCameraView;
     private readonly InputAction m_CameraControls_ForwardCameraView;
     private readonly InputAction m_CameraControls_BackwardCameraView;
+    private readonly InputAction m_CameraControls_TopCameraView;
     public struct CameraControlsActions
     {
         private @PlayerAction m_Wrapper;
         public CameraControlsActions(@PlayerAction wrapper) { m_Wrapper = wrapper; }
-        public InputAction @TopCameraView => m_Wrapper.m_CameraControls_TopCameraView;
         public InputAction @ForwardCameraView => m_Wrapper.m_CameraControls_ForwardCameraView;
         public InputAction @BackwardCameraView => m_Wrapper.m_CameraControls_BackwardCameraView;
+        public InputAction @TopCameraView => m_Wrapper.m_CameraControls_TopCameraView;
         public InputActionMap Get() { return m_Wrapper.m_CameraControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -788,28 +788,28 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_CameraControlsActionsCallbackInterface != null)
             {
-                @TopCameraView.started -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnTopCameraView;
-                @TopCameraView.performed -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnTopCameraView;
-                @TopCameraView.canceled -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnTopCameraView;
                 @ForwardCameraView.started -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnForwardCameraView;
                 @ForwardCameraView.performed -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnForwardCameraView;
                 @ForwardCameraView.canceled -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnForwardCameraView;
                 @BackwardCameraView.started -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnBackwardCameraView;
                 @BackwardCameraView.performed -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnBackwardCameraView;
                 @BackwardCameraView.canceled -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnBackwardCameraView;
+                @TopCameraView.started -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnTopCameraView;
+                @TopCameraView.performed -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnTopCameraView;
+                @TopCameraView.canceled -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnTopCameraView;
             }
             m_Wrapper.m_CameraControlsActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @TopCameraView.started += instance.OnTopCameraView;
-                @TopCameraView.performed += instance.OnTopCameraView;
-                @TopCameraView.canceled += instance.OnTopCameraView;
                 @ForwardCameraView.started += instance.OnForwardCameraView;
                 @ForwardCameraView.performed += instance.OnForwardCameraView;
                 @ForwardCameraView.canceled += instance.OnForwardCameraView;
                 @BackwardCameraView.started += instance.OnBackwardCameraView;
                 @BackwardCameraView.performed += instance.OnBackwardCameraView;
                 @BackwardCameraView.canceled += instance.OnBackwardCameraView;
+                @TopCameraView.started += instance.OnTopCameraView;
+                @TopCameraView.performed += instance.OnTopCameraView;
+                @TopCameraView.canceled += instance.OnTopCameraView;
             }
         }
     }
@@ -925,9 +925,9 @@ public partial class @PlayerAction : IInputActionCollection2, IDisposable
     }
     public interface ICameraControlsActions
     {
-        void OnTopCameraView(InputAction.CallbackContext context);
         void OnForwardCameraView(InputAction.CallbackContext context);
         void OnBackwardCameraView(InputAction.CallbackContext context);
+        void OnTopCameraView(InputAction.CallbackContext context);
     }
     public interface IUIControlsActions
     {
