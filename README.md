@@ -1,5 +1,5 @@
 # Geographical Adventures
-## _Geography Game_
+## _A Geography Game_
 
 A little work-in-progress geography game about delivering packages to different countries around the world.
 
@@ -15,7 +15,7 @@ A little work-in-progress geography game about delivering packages to different 
 ![Image](https://raw.githubusercontent.com/SebLague/Images/master/Geographical%20Adventures.jpg)
 ![Image](https://raw.githubusercontent.com/SebLague/Images/master/Geographical%20Adventures%202.jpg)
 
-# Development Videos
+## Development Videos
 > The development process of this game is showcased on videos </br>
 
 [Episode 01: I Tried Creating a Game Using Real-World Geographic Data](https://youtu.be/sLqXFF8mlEU) </br>
@@ -30,11 +30,11 @@ And of course Geographical Adventures itself is open source with a [public repos
 
 ## Installation <a name = "Installation"></a>
 
-##### To play the game
+### To play the game
 Download it from [here][Itch-Link]
 
 
-##### To install the project and work on it
+### To install the project and work on it
 1. Download the project files </br>
 In Unity Hub : </br>
     2. Add project from disk </br>
