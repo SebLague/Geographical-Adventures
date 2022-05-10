@@ -39,11 +39,17 @@ public class SettingsMenu : Menu
 	Settings lastAppliedSettings;
 
 
+	protected override void Awake()
+	{
+		base.Awake();
+
+
+	}
+
 	void Start()
 	{
 		AddListeners();
 		ApplySettings(Settings.LoadSavedSettings());
-
 	}
 
 	void AddListeners()
@@ -60,7 +66,7 @@ public class SettingsMenu : Menu
 
 	void OnLanguageChanged(int index)
 	{
-		localizationManager.ChangeLanguage((LocalizationManager.Language)index);
+		localizationManager.ChangeLanguage(localizationManager.languages[index]);
 	}
 
 	// Set UI state from loaded settings
@@ -74,7 +80,8 @@ public class SettingsMenu : Menu
 		shadowQuality.SetActiveIndex((int)settings.shadowQuality, notify: false);
 
 		// Audio / Language
-		languageWheel.SetActiveIndex((int)settings.language, notify: false);
+		InitLanguageUI();
+		languageWheel.SetActiveIndex(localizationManager.GetIndexFromID(settings.languageID), notify: false);
 		masterVolumeSlider.SetValueWithoutNotify(settings.masterVolume);
 		musicVolumeSlider.SetValueWithoutNotify(settings.musicVolume);
 		sfxVolumeSlider.SetValueWithoutNotify(settings.sfxVolume);
@@ -96,7 +103,7 @@ public class SettingsMenu : Menu
 		settings.shadowQuality = (Settings.ShadowQuality)shadowQuality.activeValueIndex;
 
 		// Audio / Language
-		settings.language = (LocalizationManager.Language)languageWheel.activeValueIndex;
+		settings.languageID = localizationManager.languages[languageWheel.activeValueIndex].languageID;
 		settings.masterVolume = masterVolumeSlider.value;
 		settings.sfxVolume = sfxVolumeSlider.value;
 		settings.musicVolume = musicVolumeSlider.value;
@@ -115,7 +122,7 @@ public class SettingsMenu : Menu
 	void ApplySettings(Settings settings)
 	{
 		// Apply audio / language settings
-		localizationManager.ChangeLanguage(settings.language);
+		localizationManager.ChangeLanguage(settings.languageID);
 		UpdateAudioVolume(settings.masterVolume, settings.musicVolume, settings.sfxVolume);
 
 		// Apply graphics settings
@@ -133,6 +140,15 @@ public class SettingsMenu : Menu
 	}
 
 
+	void InitLanguageUI()
+	{
+		string[] languageDisplayNames = new string[localizationManager.languages.Length];
+		for (int i = 0; i < languageDisplayNames.Length; i++)
+		{
+			languageDisplayNames[i] = localizationManager.languages[i].languageDisplayName;
+		}
+		languageWheel.SetPossibleValues(languageDisplayNames, 0);
+	}
 
 	void InitResolutionSettings(Vector2Int currentScreenSize)
 	{
@@ -363,8 +379,8 @@ public struct Settings
 	public TerrainQuality terrainQuality;
 	public ShadowQuality shadowQuality;
 
-	// Audio
-	public LocalizationManager.Language language;
+	// Audio / Language
+	public string languageID;
 	public float masterVolume;
 	public float musicVolume;
 	public float sfxVolume;
@@ -382,7 +398,7 @@ public struct Settings
 		settings.shadowQuality = (ShadowQuality)PlayerPrefs.GetInt(nameof(shadowQuality), defaultValue: (int)ShadowQuality.High);
 
 		// Audio / Language
-		settings.language = (LocalizationManager.Language)PlayerPrefs.GetInt(nameof(language), defaultValue: 0);
+		settings.languageID = PlayerPrefs.GetString(nameof(languageID));
 		settings.masterVolume = PlayerPrefs.GetFloat(nameof(masterVolume), defaultValue: 0.75f);
 		settings.musicVolume = PlayerPrefs.GetFloat(nameof(musicVolume), defaultValue: 0.75f);
 		settings.sfxVolume = PlayerPrefs.GetFloat(nameof(sfxVolume), defaultValue: 0.75f);
@@ -398,7 +414,7 @@ public struct Settings
 		PlayerPrefs.SetInt(nameof(shadowQuality), (int)settings.shadowQuality);
 
 		// Audio / Language
-		PlayerPrefs.SetInt(nameof(language), (int)settings.language);
+		PlayerPrefs.SetString(nameof(languageID), settings.languageID);
 		PlayerPrefs.SetFloat(nameof(masterVolume), settings.masterVolume);
 		PlayerPrefs.SetFloat(nameof(musicVolume), settings.musicVolume);
 		PlayerPrefs.SetFloat(nameof(sfxVolume), settings.sfxVolume);

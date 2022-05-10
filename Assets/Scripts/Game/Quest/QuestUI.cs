@@ -63,7 +63,13 @@ namespace GeoGame.Quest
 
 		public void SetTarget(int index, Location location, bool isPickup, bool animate = false)
 		{
-			string countryName = location.GetCountryDisplayName(maxCountryNameLength);
+			string countryCode = location.country.alpha3Code;
+			//string countryName = location.GetCountryDisplayName(maxCountryNameLength);
+			string countryName = Localization.LocalizationManager.Localize($"countryCode3.{countryCode}");
+			if (countryName.Length > maxCountryNameLength)
+			{
+				countryName = location.country.abbreviation;
+			}
 			string cityName = location.GetCityDisplayName();
 
 			if (animate)

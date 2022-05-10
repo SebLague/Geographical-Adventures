@@ -4,9 +4,11 @@ using UnityEngine;
 namespace GeoGame.Localization
 {
 	[CreateAssetMenu(menuName = "Localized Data")]
-	public class LocalizedData : ScriptableObject
+	public class Language : ScriptableObject
 	{
-		public LocalizationManager.Language language;
+		public string languageDisplayName;
+		public string languageID;
+		[Header("Data")]
 		public TextAsset[] localizedStringGroups;
 		public LocalizedTextChunk[] localizedTextChunks;
 

@@ -26,7 +26,7 @@ namespace GeoGame.Localization
 
 			bool allSuccessful = true;
 
-			foreach (var languagePack in manager.languagePacks)
+			foreach (var languagePack in manager.languages)
 			{
 				bool anyFileInLanguageUpdated = false;
 				foreach (var groupFile in languagePack.localizedStringGroups)
@@ -46,7 +46,7 @@ namespace GeoGame.Localization
 				if (!anyFileInLanguageUpdated)
 				{
 					allSuccessful = false;
-					Debug.Log("Failed to update language: " + languagePack.language);
+					Debug.Log("Failed to update language: " + languagePack.languageDisplayName);
 				}
 			}
 
