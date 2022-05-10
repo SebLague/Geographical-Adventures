@@ -94,15 +94,15 @@
         },
         {
             "id": "settingsMenu.controls.turn",
-            "text": "Turn"
+            "text": "Tourner"
         },
         {
             "id": "settingsMenu.controls.elevation",
-            "text": "Elevation"
+            "text": "Altitude"
         },
         {
             "id": "settingsMenu.controls.speed",
-            "text": "Speed"
+            "text": "Vitesse"
         },
         {
             "id": "settingsMenu.controls.boost",
@@ -110,43 +110,43 @@
         },
         {
             "id": "settingsMenu.controls.dropPackage",
-            "text": "Drop Package"
+            "text": "Largage du colis"
         },
         {
             "id": "settingsMenu.controls.cameraControls",
-            "text": "Camera Controls"
+            "text": "Contrôles de la caméra"
         },
         {
             "id": "settingsMenu.controls.forwardView",
-            "text": "Forward View"
+            "text": "Vue avant"
         },
         {
             "id": "settingsMenu.controls.behindView",
-            "text": "Behind View"
+            "text": "Vue arrière"
         },
         {
             "id": "settingsMenu.controls.topView",
-            "text": "Top View"
+            "text": "Vue du dessus"
         },
         {
             "id": "settingsMenu.controls.extraControls",
-            "text": "Extra Controls"
+            "text": "Autres Contrôles"
         },
         {
             "id": "settingsMenu.controls.makeDayTime",
-            "text": "Make Day-time"
+            "text": "Installer le jour"
         },
         {
             "id": "settingsMenu.controls.makeNightTime",
-            "text": "Make Night-time"
+            "text": "Installer la nuit"
         },
         {
             "id": "settingsMenu.controls.uiControls",
-            "text": "UI Controls"
+            "text": "Contrôles d'Interface"
         },
         {
             "id": "settingsMenu.controls.toggleMap",
-            "text": "Map"
+            "text": "Carte"
         },
         {
             "id": "settingsMenu.controls.togglePause",
