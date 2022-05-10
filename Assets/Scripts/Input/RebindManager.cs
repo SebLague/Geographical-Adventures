@@ -1,37 +1,34 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System;
-using System.Collections.Generic;
 
 public class RebindManager : MonoBehaviour
 {
-	public event Action<InputAction, int> rebindComplete;
-	public event Action<InputAction, int> rebindCancelled;
-	public event System.Action onBindingsSaved;
+	public PlayerAction activePlayerActions;
 
 	// State
-	List<InputAction> modifiedActions;
 	InputActionRebindingExtensions.RebindingOperation activeRebindOperation;
-	InputAction activeRebindAction;
-	int activeRebindIndex;
+	RebindUI activeRebindElement;
 
-	public RebindUI[] rebindElements;
+	RebindUI[] rebindElements;
 
-	public static RebindManager _instance;
-	public PlayerAction activePlayerActions;
+	static RebindManager _instance;
+
 
 	void Awake()
 	{
 		activePlayerActions = new PlayerAction();
-		modifiedActions = new List<InputAction>();
 		rebindElements = FindObjectsOfType<RebindUI>(includeInactive: true);
 
 		SetActiveActionsToSavedValues();
+
+		foreach (RebindUI element in rebindElements)
+		{
+			element.onRebindRequested += StartRebind;
+		}
 	}
 
 	public void OnSettingsOpened()
 	{
-		Debug.Log("Load");
 		// load saved bindings into UI
 		foreach (RebindUI element in rebindElements)
 		{
@@ -65,21 +62,20 @@ public class RebindManager : MonoBehaviour
 	}
 
 
-	public void StartRebind(InputAction actionToRebind, int bindingIndex)
+	public void StartRebind(RebindUI element)
 	{
 		//	Cancel if trying to rebind same binding multiple times
-		if (actionToRebind == activeRebindAction && activeRebindIndex == bindingIndex)
+		if (activeRebindElement == element)
 		{
 			Cancel();
 			return;
 		}
 
 		Cancel();
-		activeRebindIndex = bindingIndex;
-		activeRebindAction = actionToRebind;
-		activeRebindAction.Disable();
+		activeRebindElement = element;
+		element.action.Disable();
 
-		activeRebindOperation = actionToRebind.PerformInteractiveRebinding(bindingIndex);
+		activeRebindOperation = element.action.PerformInteractiveRebinding(element.bindingIndex);
 		activeRebindOperation.WithCancelingThrough("<Keyboard>/"); // For some obscure reason, putting nothing or <Keyboard>/escape block the key e
 		activeRebindOperation.WithControlsExcluding("Mouse");
 
@@ -92,42 +88,14 @@ public class RebindManager : MonoBehaviour
 
 	void OnRebindComplete()
 	{
-		if (activeRebindAction != null)
-		{
-			activeRebindAction.Enable();
-			activeRebindOperation.Dispose();
 
-			modifiedActions.Add(activeRebindAction);
-			rebindComplete?.Invoke(activeRebindAction, activeRebindIndex);
-			activeRebindAction = null;
-		}
+		activeRebindElement.action.Enable();
+		activeRebindOperation.Dispose();
+		activeRebindElement.UpdateUI();
+		activeRebindElement = null;
+
 	}
 
-	void OnRebindCanceled()
-	{
-		if (activeRebindAction != null)
-		{
-			activeRebindAction.Enable();
-			activeRebindOperation?.Dispose();
-			rebindCancelled?.Invoke(activeRebindAction, activeRebindIndex);
-			activeRebindAction = null;
-		}
-	}
-
-	/*
-
-	public void SaveChangedBindings()
-	{
-		foreach (var t in modifiedActions)
-		{
-			SaveBindingOverride(t);
-		}
-		modifiedActions.Clear();
-
-		PlayerPrefs.Save();
-		onBindingsSaved?.Invoke();
-	}
-	*/
 
 	void SaveBindingOverride(InputAction action)
 	{
@@ -137,21 +105,7 @@ public class RebindManager : MonoBehaviour
 		}
 	}
 
-	/*
-		public void ReloadBindingsOnExit()
-		{
-			foreach (var t in modifiedActions)
-			{
-				LoadSavedBindingOverride(t);
-			}
-
-			modifiedActions.Clear();
-
-		}
-
-	*/
-
-	public static void LoadSavedBindingOverride(InputAction action)
+	static void LoadSavedBindingOverride(InputAction action)
 	{
 		for (int i = 0; i < action.bindings.Count; i++)
 		{
@@ -175,29 +129,19 @@ public class RebindManager : MonoBehaviour
 		return $"{action.actionMap}_{action.name}_{bindingIndex}";
 	}
 
-	public static void ResetBinding(InputAction action, int bindingIndex)
-	{
-
-		if (action.bindings[bindingIndex].isComposite)
-		{
-			for (int i = bindingIndex; i < action.bindings.Count && action.bindings[i].isComposite; i++)
-			{
-				action.RemoveBindingOverride(i);
-			}
-		}
-		else
-		{
-			action.RemoveBindingOverride(bindingIndex);
-		}
-
-		Instance.modifiedActions.Add(action);
-	}
 
 	public void Cancel()
 	{
 		activeRebindOperation?.Cancel();
-		activeRebindAction = null;
-		activeRebindOperation = null;
+	}
+
+	void OnRebindCanceled()
+	{
+		activeRebindElement.action.Enable();
+		activeRebindOperation?.Dispose();
+		activeRebindElement.UpdateUI();
+		activeRebindElement = null;
+
 	}
 
 	public static RebindManager Instance
