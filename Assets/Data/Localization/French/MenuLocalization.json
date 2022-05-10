@@ -86,11 +86,11 @@
         },
         {
             "id": "settingsMenu.controls.resetButton",
-            "text": "Reset"
+            "text": "Réinitialiser"
         },
         {
             "id": "settingsMenu.controls.playerControls",
-            "text": "Player Controls"
+            "text": "Contrôles du joueur"
         },
         {
             "id": "settingsMenu.controls.turn",
