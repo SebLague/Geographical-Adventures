@@ -1,10 +1,9 @@
-<color=#FFFFFF>Hello! In this little game your goal is simply to fly around the world, picking up packages and delivering them to various cities as you go.</color>
+<color=#FFFFFF>Ciao! In questo piccolo gioco il tuo obiettivo è semplicemente quello di volare in giro per il mondo, raccogliere pacchetti e consegnarli in varie città mentre vai.</color>
 
-There are three locations marked at the top of the screen. At each location you'll find a hot air balloon waiting with a package for you to collect. Fly your plane through the ballons to collect the packages.
+Ci sono tre posizioni contrassegnate nella parte superiore dello schermo. In ogni luogo troverai ad attendertiuna mongolfiera con un pacco da ritirare. Vola con il tuo aereo attraverso le mongolfiere per raccogliere i pacchetti.
 
-Once a package has been picked up, its location at the top of the screen will change to a delivery address. Fly over to that city (or your best guess as to where it is) and drop the package off there. You'll be awarded with Boost based on how far the package lands from the intended destination. Boost allows you to fly extremely fast for a limited amount of time.
+Una volta che un pacchetto è stato ritirato, la sua posizione nella parte superiore dello schermo cambierà in un indirizzo di consegna. Vola verso quella città (o la tua migliore ipotesi su dove si trova) e lascia il pacco lì. Sarai premiato con del Boost in base a quanto lontano il pacchetto atterra dalla destinazione prevista. Boost ti consente di volare estremamente veloce per un periodo di tempo limitato.
+Puoi ritirare e consegnare i pacchi nell'ordine che preferisci, e puoi anche ritirare più pacchi prima di consegnarne uno qualsiasi (tieni presente che in questo caso, il pulsante di consegna del pacco selezionerà automaticamente il pacco attualmente più vicino alla sua destinazione).
 
-You can collect and deliver the packages in whatever order you like, and you can also pick up multiple packages before deliverying any of them (note that in this case, the drop package button will automatically select the package that's currently closest to its destination).
-
-<color=#888888>You can find a list of controls in the settings menu.
-I hope you'll enjoy the game!</color>
+<color=#888888>È possibile trovare un elenco di controlli nel menu delle impostazioni.
+Spero che il gioco ti piacerà!</color>
