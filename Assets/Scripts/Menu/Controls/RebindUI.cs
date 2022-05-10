@@ -30,12 +30,13 @@ public class RebindUI : MonoBehaviour
 		RebindManager.Instance.rebindComplete += BindingCompletedOrCancelled;
 		RebindManager.Instance.rebindCancelled += BindingCompletedOrCancelled;
 
-		RebindManager.LoadBindingOverride(action);
+		//RebindManager.LoadSavedBindingOverride(action);
 		UpdateUI();
 	}
 
 	void OnEnable()
 	{
+		
 		UpdateUI();
 	}
 
@@ -63,8 +64,9 @@ public class RebindUI : MonoBehaviour
 	}
 
 
-	void UpdateUI()
+	public void UpdateUI()
 	{
+	
 		rebindText.text = action.GetBindingDisplayString(bindingIndex);
 
 	}

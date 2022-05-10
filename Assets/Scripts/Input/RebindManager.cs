@@ -15,19 +15,52 @@ public class RebindManager : MonoBehaviour
 	InputAction activeRebindAction;
 	int activeRebindIndex;
 
+	public RebindUI[] rebindElements;
+
 	public static RebindManager _instance;
+	public PlayerAction activePlayerActions;
 
 	void Awake()
 	{
+		activePlayerActions = new PlayerAction();
 		modifiedActions = new List<InputAction>();
+		rebindElements = FindObjectsOfType<RebindUI>(includeInactive: true);
+
+		SetActiveActionsToSavedValues();
+	}
+
+	public void OnSettingsOpened()
+	{
+		Debug.Log("Load");
+		// load saved bindings into UI
+		foreach (RebindUI element in rebindElements)
+		{
+			LoadSavedBindingOverride(element.inputActionReference.action);
+			element.UpdateUI();
+		}
+	}
+
+	// Saves the bindings set in the UI to disc and applies them to the active input actions.
+	public void SaveAndApplyBindings()
+	{
+		// Save bindings set in UI
+		foreach (RebindUI element in rebindElements)
+		{
+			SaveBindingOverride(element.inputActionReference.action);
+		}
+		PlayerPrefs.Save();
+
+		// Apply to active actions
+		SetActiveActionsToSavedValues();
 
 	}
 
-	public void LoadSavedBindings(PlayerAction playerActions)
+
+	void SetActiveActionsToSavedValues()
 	{
-		foreach (var action in playerActions)
+		foreach (var action in activePlayerActions)
 		{
-			LoadBindingOverride(action);
+			LoadSavedBindingOverride(action);
 		}
 	}
 
@@ -81,6 +114,7 @@ public class RebindManager : MonoBehaviour
 		}
 	}
 
+	/*
 
 	public void SaveChangedBindings()
 	{
@@ -92,39 +126,53 @@ public class RebindManager : MonoBehaviour
 
 		PlayerPrefs.Save();
 		onBindingsSaved?.Invoke();
-
-		void SaveBindingOverride(InputAction action)
-		{
-			for (int i = 0; i < action.bindings.Count; i++)
-			{
-				PlayerPrefs.SetString(action.actionMap + action.name + i, action.bindings[i].overridePath);
-			}
-		}
 	}
+	*/
 
-	public void ReloadBindingsOnExit()
+	void SaveBindingOverride(InputAction action)
 	{
-		foreach (var t in modifiedActions)
-		{
-			LoadBindingOverride(t);
-		}
-
-		modifiedActions.Clear();
-
-	}
-
-
-
-	public static void LoadBindingOverride(InputAction action)
-	{
-		//Debug.Log("Load override");
 		for (int i = 0; i < action.bindings.Count; i++)
 		{
-			if (!string.IsNullOrEmpty(PlayerPrefs.GetString(action.actionMap + action.name + i)))
-			{
-				action.ApplyBindingOverride(i, PlayerPrefs.GetString(action.actionMap + action.name + i));
-			}
+			PlayerPrefs.SetString(GetSaveID(action, i), action.bindings[i].overridePath);
 		}
+	}
+
+	/*
+		public void ReloadBindingsOnExit()
+		{
+			foreach (var t in modifiedActions)
+			{
+				LoadSavedBindingOverride(t);
+			}
+
+			modifiedActions.Clear();
+
+		}
+
+	*/
+
+	public static void LoadSavedBindingOverride(InputAction action)
+	{
+		for (int i = 0; i < action.bindings.Count; i++)
+		{
+			string loadedValue = PlayerPrefs.GetString(GetSaveID(action, i));
+
+			if (string.IsNullOrEmpty(loadedValue))
+			{
+				action.RemoveBindingOverride(i);
+			}
+			else
+			{
+				action.ApplyBindingOverride(i, loadedValue);
+			}
+
+		}
+	}
+
+
+	static string GetSaveID(InputAction action, int bindingIndex)
+	{
+		return $"{action.actionMap}_{action.name}_{bindingIndex}";
 	}
 
 	public static void ResetBinding(InputAction action, int bindingIndex)

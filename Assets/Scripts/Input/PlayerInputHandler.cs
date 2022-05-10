@@ -14,9 +14,9 @@ public class PlayerInputHandler : MonoBehaviour
 	PlayerAction playerActions;
 
 
-	void Awake()
+	void Start()
 	{
-		playerActions = new PlayerAction();
+		playerActions = RebindManager.Instance.activePlayerActions;
 		UpdateFromSavedBindings();
 		RebindManager.Instance.onBindingsSaved -= UpdateFromSavedBindings;
 		RebindManager.Instance.onBindingsSaved += UpdateFromSavedBindings;
@@ -28,7 +28,7 @@ public class PlayerInputHandler : MonoBehaviour
 
 	void UpdateFromSavedBindings()
 	{
-		RebindManager.Instance.LoadSavedBindings(playerActions);
+		//RebindManager.Instance.LoadSavedBindings(playerActions);
 	}
 
 	void Update()
