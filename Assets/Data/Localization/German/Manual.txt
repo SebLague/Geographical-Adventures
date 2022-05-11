@@ -1,8 +1,8 @@
 <color=#FFFFFF>Hallo! In diesem kleinem spiel dein Ziel ist um die Welt zu fliegen um Pakete abzuholen und sie dann zu dem korrekten land zu liefern.</color>
 
-Es gibt drei Standorte auf deinem bildschirm. An jeder der Standorte wirst du einen Heißluftballon finden. Fliege dein Flugzeug in eins um das Paket abzuholen.
+Es gibt drei Standorte auf deinem bildschirm. An jeder der Standorte wirst du einen Heißluftballon finden. Fliege dein Flugzeug in eins der Heißluftballonen um ein Paket abzuholen.
 
-Nachdem ein paket abgeholt wurde wird der standord oben auf dem bildschirm sich zu einem Lieferort verändern. Fliege über die Stadt (oder dein beste vermutung wo sie ist) und lasse das Paket fallen. Du wirst mit einen Boost belohnt, je nachdem wie weit das Paket von dem beabsichtigten Ziel weg ist. Boosts ermöglichen dir schneller zu fliegen für eine begrenzte Zeit.
+Nachdem ein paket abgeholt wird, wird der standord oben auf dem bildschirm sich zu einem Lieferort verändern. Fliege über die Stadt (oder deine beste Vermutung wo sie ist) und lasse das Paket fallen. Du wirst Boost Punkte kriegen, je nachdem wie weit das Paket von dem beabsichtigten Ziel weg ist. Boosts ermöglichen dir schneller zu fliegen für eine begrenzte Zeit.
 
 Du kannst die Pakete abholen und liefern in welchimmer Reihenfolge du möchtest. Es gibt auch die Möglichkeit mehrere pakete abzuholen ohne irgendeine von ihnen geliefert zu haben. (In diesem fall wird die liefer packet taste automatisch das paket selektieren was am nächsten zu dem beabsichtigten standort ist).
 
