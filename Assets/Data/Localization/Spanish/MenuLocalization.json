@@ -2,11 +2,11 @@
     "entries": [
         {
             "id": "mainMenu.subtitle",
-            "text": "(under construction)"
+            "text": "(en desarrollo)"
         },
         {
             "id": "mainMenu.playButton",
-            "text": "Play"
+            "text": "Jugar"
         },
         {
             "id": "mainMenu.manualButton",
@@ -14,43 +14,43 @@
         },
         {
             "id": "mainMenu.settingsButton",
-            "text": "Settings"
+            "text": "Configuración"
         },
         {
             "id": "mainMenu.creditsButton",
-            "text": "Credits"
+            "text": "Créditos"
         },
         {
             "id": "mainMenu.quitButton",
-            "text": "Quit"
+            "text": "Salir"
         },
         {
             "id": "subMenu.closeButton",
-            "text": "Close"
+            "text": "Cerrar"
         },
         {
             "id": "settingsMenu.graphicsTab",
-            "text": "Graphics"
+            "text": "Gráficos"
         },
         {
             "id": "settingsMenu.audioAndLanguageTab",
-            "text": "Audio / Language"
+            "text": "Sonido e idioma"
         },
         {
             "id": "settingsMenu.controlsTab",
-            "text": "Controls"
+            "text": "Controles"
         },
         {
             "id": "settingsMenu.graphics.aspectRatio",
-            "text": "Aspect Ratio"
+            "text": "Relación de aspecto"
         },
         {
             "id": "settingsMenu.graphics.resolution",
-            "text": "Resolution"
+            "text": "Resolución del juego"
         },
         {
             "id": "settingsMenu.graphics.fullScreen",
-            "text": "Full Screen"
+            "text": "Pantalla completa"
         },
         {
             "id": "settingsMenu.graphics.vSync",
@@ -58,51 +58,51 @@
         },
         {
             "id": "settingsMenu.graphics.terrainQuality",
-            "text": "Terrain Quality"
+            "text": "Calidad del terreno"
         },
         {
             "id": "settingsMenu.graphics.shadowQuality",
-            "text": "Shadow Quality"
+            "text": "Calidad de sombras"
         },
         {
             "id": "settingsMenu.audioAndLanguage.language",
-            "text": "Language"
+            "text": "Idioma"
         },
         {
             "id": "settingsMenu.audioAndLanguage.translationNote",
-            "text": "Please note that these translations are a work-in-progress community effort."
+            "text": "Por favor toma en cuenta que las traducciones son hechas por la comunidad."
         },
         {
             "id": "settingsMenu.audioAndLanguage.masterVolume",
-            "text": "Master Volume"
+            "text": "Volumen"
         },
         {
             "id": "settingsMenu.audioAndLanguage.musicVolume",
-            "text": "Music Volume"
+            "text": "Volumen de música"
         },
         {
             "id": "settingsMenu.audioAndLanguage.sfxVolume",
-            "text": "SFX Volume"
+            "text": "Volumém de sonidos"
         },
         {
             "id": "settingsMenu.controls.resetButton",
-            "text": "Reset"
+            "text": "Restablecer"
         },
         {
             "id": "settingsMenu.controls.playerControls",
-            "text": "Player Controls"
+            "text": "Controles"
         },
         {
             "id": "settingsMenu.controls.turn",
-            "text": "Turn"
+            "text": "Girar"
         },
         {
             "id": "settingsMenu.controls.elevation",
-            "text": "Elevation"
+            "text": "Elevar"
         },
         {
             "id": "settingsMenu.controls.speed",
-            "text": "Speed"
+            "text": "Velocidad"
         },
         {
             "id": "settingsMenu.controls.boost",
@@ -110,71 +110,71 @@
         },
         {
             "id": "settingsMenu.controls.dropPackage",
-            "text": "Drop Package"
+            "text": "Soltar paquete"
         },
         {
             "id": "settingsMenu.controls.cameraControls",
-            "text": "Camera Controls"
+            "text": "Controles de cámara"
         },
         {
             "id": "settingsMenu.controls.forwardView",
-            "text": "Forward View"
+            "text": "Camará hacia adelante"
         },
         {
             "id": "settingsMenu.controls.behindView",
-            "text": "Behind View"
+            "text": "Cámara hacia atrás"
         },
         {
             "id": "settingsMenu.controls.topView",
-            "text": "Top View"
+            "text": "Vista desde arriba"
         },
         {
             "id": "settingsMenu.controls.extraControls",
-            "text": "Extra Controls"
+            "text": "Controles extra"
         },
         {
             "id": "settingsMenu.controls.makeDayTime",
-            "text": "Make Day-time"
+            "text": "Cambiar a día"
         },
         {
             "id": "settingsMenu.controls.makeNightTime",
-            "text": "Make Night-time"
+            "text": "Cambiar a noche"
         },
         {
             "id": "settingsMenu.controls.uiControls",
-            "text": "UI Controls"
+            "text": "Controles del menú"
         },
         {
             "id": "settingsMenu.controls.toggleMap",
-            "text": "Map"
+            "text": "Mapa"
         },
         {
             "id": "settingsMenu.controls.togglePause",
-            "text": "Pause"
+            "text": "Pausa"
         },
         {
             "id": "settingsMenu.applyButton",
-            "text": "Apply"
+            "text": "Aplicar"
         },
         {
             "id": "settingsMenu.exitNote",
-            "text": "Note: closing without applying will revert your changes."
+            "text": "Nota: cerrar sin aplicar los cambios no afectará tu configuración"
         },
         {
             "id": "pauseMenu.pausedTitle",
-            "text": "PAUSED"
+            "text": "EN PAUSA"
         },
         {
             "id": "pauseMenu.resumeButton",
-            "text": "Resume"
+            "text": "Reanudar"
         },
         {
             "id": "pauseMenu.statsButton",
-            "text": "Stats"
+            "text": "Estatísticas"
         },
         {
             "id": "pauseMenu.quitButton",
-            "text": "Quit"
+            "text": "Salir"
         }
     ]
 }
