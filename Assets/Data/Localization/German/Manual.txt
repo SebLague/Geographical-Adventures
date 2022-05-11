@@ -1,4 +1,4 @@
-<color=#FFFFFF>Hello! In this little game your goal is simply to fly around the world, picking up packages and delivering them to various cities as you go.</color>
+<color=#FFFFFF>Hallo! In diesem kleinem spiel dein Ziel ist um die Welt zu fliegen um Pakete abzuholen und sie dann zu dem korrekten land zu liefern.</color>
 
 There are three locations marked at the top of the screen. At each location you'll find a hot air balloon waiting with a package for you to collect. Fly your plane through the ballons to collect the packages.
 
