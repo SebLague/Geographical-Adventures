@@ -110,7 +110,7 @@
         },
         {
             "id": "settingsMenu.controls.dropPackage",
-            "text": "Paket fallen lassen"
+            "text": "Paket liefern"
         },
         {
             "id": "settingsMenu.controls.cameraControls",
@@ -122,7 +122,7 @@
         },
         {
             "id": "settingsMenu.controls.behindView",
-            "text": "Behind View"
+            "text": "Rückansicht"
         },
         {
             "id": "settingsMenu.controls.topView",
