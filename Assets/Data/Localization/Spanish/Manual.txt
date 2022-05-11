@@ -1,10 +1,10 @@
-<color=#FFFFFF>Hello! In this little game your goal is simply to fly around the world, picking up packages and delivering them to various cities as you go.</color>
+<color=#FFFFFF>Hola! En este pequeño juego lo que debes hacer es sobrevolar el mundo, mientras agarras y sueltas paquetes.</color>
 
-There are three locations marked at the top of the screen. At each location you'll find a hot air balloon waiting with a package for you to collect. Fly your plane through the ballons to collect the packages.
+Hay tres lugares marcados en tu pantalla, en cada uno encontraras un globo de aire, y al pasar por el, se te dará la tarea de entregar el paquete a un lugar diferente.
 
-Once a package has been picked up, its location at the top of the screen will change to a delivery address. Fly over to that city (or your best guess as to where it is) and drop the package off there. You'll be awarded with Boost based on how far the package lands from the intended destination. Boost allows you to fly extremely fast for a limited amount of time.
+Vuela hasta la ciudad marcada, o donde crees que podría estar, y suelta el paquete. Se te bonificará "Boost" en base a que tan lejos está tu paquete de el lugar correcto, tan cerca que esté, tan más "Boost" se te dará. "Boost" te ayuda a volar rápido por un tiempo limitado, ya que solo dura hasta que se acabe en el indicador puesto en la parte inferior-derecha.
 
-You can collect and deliver the packages in whatever order you like, and you can also pick up multiple packages before deliverying any of them (note that in this case, the drop package button will automatically select the package that's currently closest to its destination).
+Puedes agarrar paquetes en tu orden preferido, y también agarrar varios antes de dejarlos donde deberían estar (en ese caso, cuando presiones la tecla de 'Soltar paquete', el paquete más cercano a su destino será soltado).
 
-<color=#888888>You can find a list of controls in the settings menu.
-I hope you'll enjoy the game!</color>
+<color=#888888>Encontrarás una lista de los controles en el menú.
+Espero que te diviertas!</color>
