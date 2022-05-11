@@ -42,21 +42,18 @@ public class SettingsMenu : Menu
 	protected override void Awake()
 	{
 		base.Awake();
-
-
 	}
 
 	void Start()
 	{
 		AddListeners();
 		ApplySettings(Settings.LoadSavedSettings());
+		SetUpScreen();
 	}
 
 	void AddListeners()
 	{
 		applyButton.onClick.AddListener(ApplyCurrentSettings);
-
-
 		languageWheel.onValueChanged += OnLanguageChanged;
 		masterVolumeSlider.onValueChanged.AddListener((volume) => UpdateAudioVolume());
 		musicVolumeSlider.onValueChanged.AddListener((volume) => UpdateAudioVolume());
@@ -148,6 +145,37 @@ public class SettingsMenu : Menu
 			languageDisplayNames[i] = localizationManager.languages[i].languageDisplayName;
 		}
 		languageWheel.SetPossibleValues(languageDisplayNames, 0);
+	}
+
+	void SetUpScreen()
+	{
+		const string initialScreenSizeDeterminedKey = "initialScreenSizeDetermined";
+		bool isFirstScreenSetup = PlayerPrefs.GetInt(initialScreenSizeDeterminedKey, 0) == 0;
+
+		// The game currently struggles with rendering at high resolutions.
+		// As a (hopefully temporary) work-around, we'll restrict the game's resolution the first time it's launched.
+		// The player can then change it in the settings if they want, and we won't intefere again.
+		if (isFirstScreenSetup)
+		{
+			Vector2Int screenSize = new Vector2Int(Screen.width, Screen.height);
+			const int initialResolutionThresholdX = 2560;
+			const int initialResolutionThresholdY = 1440;
+
+			// Check if screen size has exceeded the startup threshold, and if so, try find a lower resolution to switch to
+			if (screenSize.x * screenSize.y > initialResolutionThresholdX * initialResolutionThresholdY)
+			{
+				Vector2Int screenRatio = ResolutionSettingsHelper.GetRatio(Screen.currentResolution.width, Screen.currentResolution.height);
+				int n = Mathf.Max(1, Mathf.CeilToInt(initialResolutionThresholdX / screenRatio.x));
+				Vector2Int newInitialResolution = new Vector2Int(n * screenRatio.x, n * screenRatio.y);
+				Screen.SetResolution(newInitialResolution.x, newInitialResolution.y, Screen.fullScreenMode);
+				//Debug.Log("Setting from " + screenSize + "   to   " + newInitialResolution + "  aspect = " + screenRatio);
+			}
+
+
+			// Flag that initial screen size has been determined so this doesn't run on subsequent launches
+			PlayerPrefs.SetInt(initialScreenSizeDeterminedKey, 1);
+			PlayerPrefs.Save();
+		}
 	}
 
 	void InitResolutionSettings(Vector2Int currentScreenSize)
@@ -249,29 +277,6 @@ public class SettingsMenu : Menu
 		Screen.SetResolution(Screen.width, Screen.height, mode);
 	}
 
-	void OnResolutionChanged(int index)
-	{
-		//var res = supportedResolutions[index];
-		//Screen.SetResolution(res.width, res.height, Screen.fullScreenMode);
-		//Debug.Log(res.width + " " + res.height);
-		//SettingsManager.UpdateResolution(supportedResolutions[index].width, supportedResolutions[index].height);
-	}
-
-
-	static Vector2Int GetRatio(int width, int height)
-	{
-		int gcd = Maths.Other.GreatestCommonDivisor(width, height);
-		int aspectW = width / gcd;
-		int aspectH = height / gcd;
-		Vector2Int aspect = new Vector2Int(aspectW, aspectH);
-		return aspect;
-	}
-
-	static Vector2Int GetRatio(Resolution res)
-	{
-		return GetRatio(res.width, res.height);
-	}
-
 	public bool IsSupportedAspectRatio(Vector2Int res, out Vector2Int ratio)
 	{
 		int index;
@@ -303,16 +308,6 @@ public class SettingsMenu : Menu
 		return false;
 	}
 
-	string ResolutionToName(Resolution res)
-	{
-		Vector2Int aspectRatio = GetRatio(res);
-		// Change 8:5 to 16:10 since that's typically used (presumably to compare easier to 16:9)
-		if (aspectRatio.x == 8 && aspectRatio.y == 5)
-		{
-			aspectRatio *= 2;
-		}
-		return $"{res.width} x {res.height} ({aspectRatio.x}:{aspectRatio.y})";
-	}
 
 	protected override void OnMenuOpened()
 	{
