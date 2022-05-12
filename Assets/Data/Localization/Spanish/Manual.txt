@@ -2,7 +2,7 @@
 
 Hay tres lugares marcados en tu pantalla, en cada uno encontraras un globo de aire, y al pasar por el, se te dará la tarea de entregar el paquete a un lugar diferente.
 
-Vuela hasta la ciudad marcada, o donde crees que podría estar, y suelta el paquete. Se te bonificará "Boost" en base a que tan lejos está tu paquete de el lugar correcto, tan cerca que esté, tan más "Boost" se te dará. "Boost" te ayuda a volar rápido por un tiempo limitado, ya que solo dura hasta que se acabe en el indicador puesto en la parte inferior-derecha.
+Vuela hasta la ciudad marcada, o donde crees que podría estar, y suelta el paquete. Se te bonificará "Boost" en base a que tan lejos está tu paquete de el lugar correcto, tan cerca que esté, tan más "Boost" se te dará. "Boost" te ayuda a volar rápido por un tiempo limitado, ya que solo dura hasta que se acabe en el indicador puesto en la parte inferior-izquierda.
 
 Puedes agarrar paquetes en tu orden preferido, y también agarrar varios antes de dejarlos donde deberían estar (en ese caso, cuando presiones la tecla de 'Soltar paquete', el paquete más cercano a su destino será soltado).
 
