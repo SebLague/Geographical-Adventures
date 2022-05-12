@@ -1,10 +1,9 @@
-<color=#FFFFFF>Hello! In this little game your goal is simply to fly around the world, picking up packages and delivering them to various cities as you go.</color>
+<color=#FFFFFF>Hallo! In diesem kleinem Spiel ist dein Ziel, um die Welt zu fliegen und Pakete abzuholen, um sie dann zu dem korrekten Land zu liefern.</color>
 
-There are three locations marked at the top of the screen. At each location you'll find a hot air balloon waiting with a package for you to collect. Fly your plane through the ballons to collect the packages.
+Oben auf deinem Bildschirm werden drei Standorte angezeigt, die jeweils ein Heißluftballon haben. Fliege dein Flugzeug in eins der Heißluftballons, um ein Paket abzuholen.
 
-Once a package has been picked up, its location at the top of the screen will change to a delivery address. Fly over to that city (or your best guess as to where it is) and drop the package off there. You'll be awarded with Boost based on how far the package lands from the intended destination. Boost allows you to fly extremely fast for a limited amount of time.
+Nachdem ein paket abgeholt wurde, ändert sich der Standort oben auf deinem Bildschirm zu einem Lieferort. Fliege über die Stadt (oder deine beste Vermutung wo sie ist) und lasse das Paket fallen. Du wirst Boost Punkte bekommen, je nachdem wie weit das Paket von dem beabsichtigten Ziel weg ist. Boost Punkte ermöglichen dir, für eine begrenzte Zeit schneller zu fliegen.
 
-You can collect and deliver the packages in whatever order you like, and you can also pick up multiple packages before deliverying any of them (note that in this case, the drop package button will automatically select the package that's currently closest to its destination).
+Du kannst die Pakete in welch immer Reihenfolge du möchtest abholen und liefern. Es gibt auch die Möglichkeit, mehrere Pakete auf einmal zu haben. (In diesem Fall wird die Liefer-Packet-Taste automatisch das Paket selektieren, welches am nächsten zu dem beabsichtigten Ort ist).
 
-<color=#888888>You can find a list of controls in the settings menu.
-I hope you'll enjoy the game!</color>
+<color=#888888>Du kannst eine liste von den Steuerungen in den Einstellungen finden.</color>

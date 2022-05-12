@@ -79,6 +79,14 @@ namespace GeoGame.Localization
 			}
 		}
 
+		public Language ActiveLanguage
+		{
+			get
+			{
+				return activeLanguage;
+			}
+		}
+
 
 		public static string Localize(string id)
 		{
