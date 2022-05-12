@@ -10,7 +10,7 @@
         },
         {
             "id": "mainMenu.manualButton",
-            "text": "Manual"
+            "text": "Anleitungen"
         },
         {
             "id": "mainMenu.settingsButton",
@@ -30,7 +30,7 @@
         },
         {
             "id": "settingsMenu.graphicsTab",
-            "text": "Grafiken"
+            "text": "Grafik"
         },
         {
             "id": "settingsMenu.audioAndLanguageTab",
@@ -46,7 +46,7 @@
         },
         {
             "id": "settingsMenu.graphics.resolution",
-            "text": "Resolution"
+            "text": "Auflösung"
         },
         {
             "id": "settingsMenu.graphics.fullScreen",
@@ -58,11 +58,11 @@
         },
         {
             "id": "settingsMenu.graphics.terrainQuality",
-            "text": "Terrain Qualität"
+            "text": "Landschafts Qualität"
         },
         {
             "id": "settingsMenu.graphics.shadowQuality",
-            "text": "Shadow Qualität"
+            "text": "Schatten Qualität"
         },
         {
             "id": "settingsMenu.audioAndLanguage.language",
@@ -70,7 +70,7 @@
         },
         {
             "id": "settingsMenu.audioAndLanguage.translationNote",
-            "text": "Bitte bemerke das diese Übersetzungen noch nicht fertig sind. Es ist eine gemeinschaft Anstrengungen."
+            "text": "Diese Übersetzungen sind noch nicht fertig. Es ist eine gemeinschaftliche Anstrengung."
         },
         {
             "id": "settingsMenu.audioAndLanguage.masterVolume",
@@ -94,11 +94,11 @@
         },
         {
             "id": "settingsMenu.controls.turn",
-            "text": "drehen"
+            "text": "Drehen"
         },
         {
             "id": "settingsMenu.controls.elevation",
-            "text": "Elevation"
+            "text": "Höhe"
         },
         {
             "id": "settingsMenu.controls.speed",
