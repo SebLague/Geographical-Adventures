@@ -2,55 +2,55 @@
     "entries": [
         {
             "id": "mainMenu.subtitle",
-            "text": "(under construction)"
+            "text": "(Unter Konstruktion)"
         },
         {
             "id": "mainMenu.playButton",
-            "text": "Play"
+            "text": "Spielen"
         },
         {
             "id": "mainMenu.manualButton",
-            "text": "Manual"
+            "text": "Anleitungen"
         },
         {
             "id": "mainMenu.settingsButton",
-            "text": "Settings"
+            "text": "Einstellungen"
         },
         {
             "id": "mainMenu.creditsButton",
-            "text": "Credits"
+            "text": "Kredite"
         },
         {
             "id": "mainMenu.quitButton",
-            "text": "Quit"
+            "text": "Spiel Schliesen"
         },
         {
             "id": "subMenu.closeButton",
-            "text": "Close"
+            "text": "Schliesen"
         },
         {
             "id": "settingsMenu.graphicsTab",
-            "text": "Graphics"
+            "text": "Grafik"
         },
         {
             "id": "settingsMenu.audioAndLanguageTab",
-            "text": "Audio / Language"
+            "text": "Audio / Sprache"
         },
         {
             "id": "settingsMenu.controlsTab",
-            "text": "Controls"
+            "text": "Steuerung"
         },
         {
             "id": "settingsMenu.graphics.aspectRatio",
-            "text": "Aspect Ratio"
+            "text": "Aspekt Ratio"
         },
         {
             "id": "settingsMenu.graphics.resolution",
-            "text": "Resolution"
+            "text": "Auflösung"
         },
         {
             "id": "settingsMenu.graphics.fullScreen",
-            "text": "Full Screen"
+            "text": "Vollbild"
         },
         {
             "id": "settingsMenu.graphics.vSync",
@@ -58,51 +58,51 @@
         },
         {
             "id": "settingsMenu.graphics.terrainQuality",
-            "text": "Terrain Quality"
+            "text": "Landschafts Qualität"
         },
         {
             "id": "settingsMenu.graphics.shadowQuality",
-            "text": "Shadow Quality"
+            "text": "Schatten Qualität"
         },
         {
             "id": "settingsMenu.audioAndLanguage.language",
-            "text": "Language"
+            "text": "Sprache"
         },
         {
             "id": "settingsMenu.audioAndLanguage.translationNote",
-            "text": "Please note that these translations are a work-in-progress community effort."
+            "text": "Diese Übersetzungen sind noch nicht fertig. Es ist eine gemeinschaftliche Anstrengung."
         },
         {
             "id": "settingsMenu.audioAndLanguage.masterVolume",
-            "text": "Master Volume"
+            "text": "Gesamt-Lautstärke"
         },
         {
             "id": "settingsMenu.audioAndLanguage.musicVolume",
-            "text": "Music Volume"
+            "text": "Musik Lautstärke"
         },
         {
             "id": "settingsMenu.audioAndLanguage.sfxVolume",
-            "text": "SFX Volume"
+            "text": "SFX Lautstärke"
         },
         {
             "id": "settingsMenu.controls.resetButton",
-            "text": "Reset"
+            "text": "Zurücksetzen"
         },
         {
             "id": "settingsMenu.controls.playerControls",
-            "text": "Player Controls"
+            "text": "Spieler Steuerungen"
         },
         {
             "id": "settingsMenu.controls.turn",
-            "text": "Turn"
+            "text": "Drehen"
         },
         {
             "id": "settingsMenu.controls.elevation",
-            "text": "Elevation"
+            "text": "Höhe"
         },
         {
             "id": "settingsMenu.controls.speed",
-            "text": "Speed"
+            "text": "Geschwindigkeit"
         },
         {
             "id": "settingsMenu.controls.boost",
@@ -110,71 +110,71 @@
         },
         {
             "id": "settingsMenu.controls.dropPackage",
-            "text": "Drop Package"
+            "text": "Paket liefern"
         },
         {
             "id": "settingsMenu.controls.cameraControls",
-            "text": "Camera Controls"
+            "text": "Kamera Steuerungen"
         },
         {
             "id": "settingsMenu.controls.forwardView",
-            "text": "Forward View"
+            "text": "Vorwärtsansicht"
         },
         {
             "id": "settingsMenu.controls.behindView",
-            "text": "Behind View"
+            "text": "Rückansicht"
         },
         {
             "id": "settingsMenu.controls.topView",
-            "text": "Top View"
+            "text": "Flugzeug-Ansicht"
         },
         {
             "id": "settingsMenu.controls.extraControls",
-            "text": "Extra Controls"
+            "text": "Extra Steuerungen"
         },
         {
             "id": "settingsMenu.controls.makeDayTime",
-            "text": "Make Day-time"
+            "text": "Setze zu Tag"
         },
         {
             "id": "settingsMenu.controls.makeNightTime",
-            "text": "Make Night-time"
+            "text": "Setze zu Nacht"
         },
         {
             "id": "settingsMenu.controls.uiControls",
-            "text": "UI Controls"
+            "text": "UI Steuerungen"
         },
         {
             "id": "settingsMenu.controls.toggleMap",
-            "text": "Map"
+            "text": "Karte"
         },
         {
             "id": "settingsMenu.controls.togglePause",
-            "text": "Pause"
+            "text": "Pausieren"
         },
         {
             "id": "settingsMenu.applyButton",
-            "text": "Apply"
+            "text": "Speichern"
         },
         {
             "id": "settingsMenu.exitNote",
-            "text": "Note: closing without applying will revert your changes."
+            "text": "Beachte: Schließen ohne Speichern verwirft deine Änderungen."
         },
         {
             "id": "pauseMenu.pausedTitle",
-            "text": "PAUSED"
+            "text": "PAUSIERT"
         },
         {
             "id": "pauseMenu.resumeButton",
-            "text": "Resume"
+            "text": "Fortsetzen"
         },
         {
             "id": "pauseMenu.statsButton",
-            "text": "Stats"
+            "text": "Statistiken"
         },
         {
             "id": "pauseMenu.quitButton",
-            "text": "Quit"
+            "text": "Zurück"
         }
     ]
 }
