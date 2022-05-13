@@ -47,13 +47,22 @@ public class CreditsMenu : Menu
 		AddLine(CreateHyperlink("Astronexus", starDataLink) + " star data.");
 		AddLineBreak();
 
-		AddLine(SetColour("Thanks to the following artists for the music (from Artlist):", Color.white));
+		AddLine(SetColour("Thanks to the following artists for the music (from Artlist and SoundStripe):", Color.white));
 		AddLine("Veaceslav Draganov");
 		AddLine("Gray North");
 		AddLine("Jan Baars");
 		AddLine("The Stolen Orchestra");
 		AddLineBreak();
-		AddText(SetColour("A special thanks to everyone who has shared their ideas and feedback on the game.", Color.white));
+
+		AddText(SetColour("A huge thanks to the following people for contributing various bug fixes, features, and translations to the project on GitHub:", Color.white));
+		AddLineBreak();
+
+		string[] contributorNames = { "Fsioni", "Agentew04", "Maltejur", "StuSerious", "Pattrigue", "EvilSouls", "MillersMan", "Tposejank" };
+		for (int i = 0; i < contributorNames.Length; i++)
+		{
+			bool isLast = i == contributorNames.Length - 1;
+			AddText(contributorNames[i] + (isLast ? "." : ", "));
+		}
 	}
 
 	string CreateHyperlink(string displayText, string link)
