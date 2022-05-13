@@ -9,6 +9,7 @@ public class Compass : MonoBehaviour
 	public Transform player;
 	public RectTransform dial;
 	public RectTransform headingUI;
+	public RectTransform[] directionLabels;
 
 	public CoordinateDegrees northMagneticPole;
 
@@ -43,6 +44,10 @@ public class Compass : MonoBehaviour
 				headingUI.eulerAngles = Vector3.forward * 180;
 				dial.eulerAngles = Vector3.forward * (angle + 180);
 			}
+		}
+
+		for (int i = 0; i < directionLabels.Length; i ++) {
+			directionLabels[i].eulerAngles = Vector3.zero;
 		}
 	}
 

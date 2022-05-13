@@ -126,7 +126,7 @@ Material:
     - _CityLightAmbient: {r: 0.4433962, g: 0.312395, b: 0.19032574, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelCol: {r: 0.122790255, g: 0.09371662, b: 0.24528301, a: 0}
+    - _FresnelCol: {r: 0.14901961, g: 0.039215688, b: 0.078431375, a: 0}
     - _NightLightAmbient: {r: 0.41509432, g: 0.24430688, b: 0.08419366, a: 0}
     - _ShadowEdgeCol: {r: 0.254717, g: 0.03245007, b: 0.0084104715, a: 1}
     - _ShadowInnerCol: {r: 0, g: 0, b: 0, a: 1}
