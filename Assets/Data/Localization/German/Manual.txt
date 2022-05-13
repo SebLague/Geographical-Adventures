@@ -2,7 +2,7 @@
 
 Oben auf deinem Bildschirm werden drei Standorte angezeigt, an denen jeweils ein Heißluftballon zu finden ist. Fliege dein Flugzeug in einen der Heißluftballons, um ein Paket abzuholen.
 
-Nachdem ein Paket abgeholt wurde, ändert sich der Standort oben auf deinem Bildschirm zu einem Lieferort. Fliege über die Stadt (oder deine beste Vermutung wo sie ist) und lasse das Paket fallen. Du wirst, je nachdem wie weit das Paket von dem vorgesehenen Ziel entfernt ist, Boost Punkte erhalten. Boost Punkte ermöglichen dir, für eine begrenzte Zeit schneller zu fliegen.
+Nachdem ein Paket abgeholt wurde, ändert sich der Standort oben auf deinem Bildschirm zu einem Lieferort. Fliege über die Stadt (oder deine beste Vermutung wo sie ist) und lasse das Paket fallen. Du wirst, je nachdem wie weit das Paket von dem vorgesehenen Ziel entfernt ist, Boost-Punkte erhalten. Boost-Punkte ermöglichen dir, für eine begrenzte Zeit schneller zu fliegen.
 
 Du kannst die Pakete in beliebiger Reihenfolge abholen und liefern. Es können auch mehrere Pakete abgeholt werden, bevor eines davon zugestellt wurde (In diesem Fall wird die Liefer-Packet-Taste automatisch das Paket auswählen, welches in dem Moment am nähesten zu seinem vorgesehenen Ziel ist).
 
