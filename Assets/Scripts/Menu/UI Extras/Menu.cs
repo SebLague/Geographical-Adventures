@@ -10,8 +10,7 @@ public class Menu : MonoBehaviour
 	public GameObject menuHolder;
 	public Button closeButton;
 	public SubMenu[] subMenus;
-	public AudioSource planeAudio;
-
+    
 	protected virtual void Awake()
 	{
 		if (closeButton != null)
@@ -44,7 +43,6 @@ public class Menu : MonoBehaviour
 		{
 			menuHolder.SetActive(true);
 			OnMenuOpened();
-			planeAudio.Pause();
 		}
 	}
 	[NaughtyAttributes.Button()]
@@ -55,7 +53,6 @@ public class Menu : MonoBehaviour
 			menuClosedEvent?.Invoke();
 			menuHolder.SetActive(false);
 			OnMenuClosed();
-			planeAudio.Play();
 		}
 	}
 
