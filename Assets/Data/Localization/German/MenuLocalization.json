@@ -134,11 +134,11 @@
         },
         {
             "id": "settingsMenu.controls.makeDayTime",
-            "text": "Mach es Tag"
+            "text": "Auf Tageszeit wechseln"
         },
         {
             "id": "settingsMenu.controls.makeNightTime",
-            "text": "Mach es Nacht"
+            "text": "Auf Nachtzeit wechseln"
         },
         {
             "id": "settingsMenu.controls.uiControls",
