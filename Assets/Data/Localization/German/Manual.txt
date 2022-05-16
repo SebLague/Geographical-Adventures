@@ -1,9 +1,9 @@
-<color=#FFFFFF>Hallo! In diesem kleinem Spiel ist dein Ziel, um die Welt zu fliegen und Pakete abzuholen, um sie dann zu dem korrekten Land zu liefern.</color>
+<color=#FFFFFF>Hallo! In diesem kleinem Spiel ist es dein Ziel, um die Welt zu fliegen und Pakete abzuholen und sie dann zu dem korrekten Ziel zu liefern.</color>
 
-Oben auf deinem Bildschirm werden drei Standorte angezeigt, die jeweils ein Heißluftballon haben. Fliege dein Flugzeug in eins der Heißluftballons, um ein Paket abzuholen.
+Oben auf deinem Bildschirm werden drei Standorte angezeigt, an denen jeweils ein Heißluftballon zu finden ist. Fliege dein Flugzeug in einen der Heißluftballons, um ein Paket abzuholen.
 
-Nachdem ein paket abgeholt wurde, ändert sich der Standort oben auf deinem Bildschirm zu einem Lieferort. Fliege über die Stadt (oder deine beste Vermutung wo sie ist) und lasse das Paket fallen. Du wirst Boost Punkte bekommen, je nachdem wie weit das Paket von dem beabsichtigten Ziel weg ist. Boost Punkte ermöglichen dir, für eine begrenzte Zeit schneller zu fliegen.
+Nachdem ein Paket abgeholt wurde, ändert sich der Standort oben auf deinem Bildschirm zu einem Lieferort. Fliege über die Stadt (oder deine beste Vermutung wo sie ist) und lasse das Paket fallen. Du wirst, je nachdem wie weit das Paket von dem vorgesehenen Ziel entfernt ist, Boost-Punkte erhalten. Boost-Punkte ermöglichen dir, für eine begrenzte Zeit schneller zu fliegen.
 
-Du kannst die Pakete in welch immer Reihenfolge du möchtest abholen und liefern. Es gibt auch die Möglichkeit, mehrere Pakete auf einmal zu haben. (In diesem Fall wird die Liefer-Packet-Taste automatisch das Paket selektieren, welches am nächsten zu dem beabsichtigten Ort ist).
+Du kannst die Pakete in beliebiger Reihenfolge abholen und liefern. Es können auch mehrere Pakete abgeholt werden, bevor eines davon zugestellt wurde (In diesem Fall wird die Liefer-Packet-Taste automatisch das Paket auswählen, welches in dem Moment am nähesten zu seinem vorgesehenen Ziel ist).
 
-<color=#888888>Du kannst eine liste von den Steuerungen in den Einstellungen finden.</color>
+<color=#888888>Du kannst eine Liste der Steuerungselemente in den Einstellungen finden.</color>

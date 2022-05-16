@@ -2,7 +2,7 @@
     "entries": [
         {
             "id": "mainMenu.subtitle",
-            "text": "(Unter Konstruktion)"
+            "text": "(Entwicklungsversion)"
         },
         {
             "id": "mainMenu.playButton",
@@ -18,11 +18,11 @@
         },
         {
             "id": "mainMenu.creditsButton",
-            "text": "Kredite"
+            "text": "Credits"
         },
         {
             "id": "mainMenu.quitButton",
-            "text": "Spiel Schliesen"
+            "text": "Spiel Verlassen"
         },
         {
             "id": "subMenu.closeButton",
@@ -42,7 +42,7 @@
         },
         {
             "id": "settingsMenu.graphics.aspectRatio",
-            "text": "Aspekt Ratio"
+            "text": "Seitenverhältnisse"
         },
         {
             "id": "settingsMenu.graphics.resolution",
@@ -58,11 +58,11 @@
         },
         {
             "id": "settingsMenu.graphics.terrainQuality",
-            "text": "Landschafts Qualität"
+            "text": "Landschaftsqualität"
         },
         {
             "id": "settingsMenu.graphics.shadowQuality",
-            "text": "Schatten Qualität"
+            "text": "Schattenqualität"
         },
         {
             "id": "settingsMenu.audioAndLanguage.language",
@@ -70,15 +70,15 @@
         },
         {
             "id": "settingsMenu.audioAndLanguage.translationNote",
-            "text": "Diese Übersetzungen sind noch nicht fertig. Es ist eine gemeinschaftliche Anstrengung."
+            "text": "Bei diesen Übersetzungen handelt es sich um eine Gemeinschaftsarbeit, die noch nicht abgeschlossen ist."
         },
         {
             "id": "settingsMenu.audioAndLanguage.masterVolume",
-            "text": "Gesamt-Lautstärke"
+            "text": "Gesamtlautstärke"
         },
         {
             "id": "settingsMenu.audioAndLanguage.musicVolume",
-            "text": "Musik Lautstärke"
+            "text": "Musiklautstärke"
         },
         {
             "id": "settingsMenu.audioAndLanguage.sfxVolume",
@@ -126,19 +126,19 @@
         },
         {
             "id": "settingsMenu.controls.topView",
-            "text": "Flugzeug-Ansicht"
+            "text": "Draufsicht"
         },
         {
             "id": "settingsMenu.controls.extraControls",
-            "text": "Extra Steuerungen"
+            "text": "Weitere Steuerungen"
         },
         {
             "id": "settingsMenu.controls.makeDayTime",
-            "text": "Setze zu Tag"
+            "text": "Auf Tageszeit wechseln"
         },
         {
             "id": "settingsMenu.controls.makeNightTime",
-            "text": "Setze zu Nacht"
+            "text": "Auf Nachtzeit wechseln"
         },
         {
             "id": "settingsMenu.controls.uiControls",
