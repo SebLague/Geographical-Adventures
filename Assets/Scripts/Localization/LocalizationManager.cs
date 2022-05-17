@@ -115,6 +115,14 @@ namespace GeoGame.Localization
 			return missing;
 		}
 
+		public static bool IsRightToLeftWritingSystem
+		{
+			get
+			{
+				return Instance.ActiveLanguage.rightToLeftWritingSystem;
+			}
+		}
+
 		public int GetIndexFromID(string languageID)
 		{
 			int languageIndex = -1;

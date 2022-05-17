@@ -8,6 +8,7 @@ namespace GeoGame.Localization
 	{
 		public string languageDisplayName;
 		public string languageID;
+		public bool rightToLeftWritingSystem;
 		[Header("Data")]
 		public TextAsset[] localizedStringGroups;
 		public LocalizedTextChunk[] localizedTextChunks;

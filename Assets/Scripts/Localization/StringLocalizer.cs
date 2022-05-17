@@ -23,6 +23,7 @@ namespace GeoGame.Localization
 		{
 			currentValue = LocalizationManager.Localize(id);
 			textElement.text = currentValue;
+			textElement.isRightToLeftText = LocalizationManager.IsRightToLeftWritingSystem;
 
 			if (controlRectTransformWidth)
 			{
