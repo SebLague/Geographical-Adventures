@@ -10,8 +10,7 @@ public class Menu : MonoBehaviour
 	public GameObject menuHolder;
 	public Button closeButton;
 	public SubMenu[] subMenus;
-
-
+    
 	protected virtual void Awake()
 	{
 		if (closeButton != null)
@@ -59,12 +58,12 @@ public class Menu : MonoBehaviour
 
 	protected virtual void OnMenuOpened()
 	{
-
-	}
+		
+    }
 
 	protected virtual void OnMenuClosed()
 	{
-
+		
 	}
 
 	protected virtual void OnSubMenuOpened()

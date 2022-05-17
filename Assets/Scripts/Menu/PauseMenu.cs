@@ -5,7 +5,8 @@ public class PauseMenu : Menu
 {
 
 	public Button quitButton;
-
+	public AudioSource planeAudio;
+    
 	void Start()
 	{
 		quitButton.onClick.AddListener(GameController.ExitToMainMenu);
@@ -29,12 +30,14 @@ public class PauseMenu : Menu
 	{
 		base.OnMenuOpened();
 		GameController.SetPauseState(true);
+		planeAudio.Pause();
 	}
 
 	protected override void OnMenuClosed()
 	{
 		base.OnMenuClosed();
 		GameController.SetPauseState(false);
+		planeAudio.Play();
 	}
 
 }
