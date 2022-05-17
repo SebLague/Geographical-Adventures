@@ -6,6 +6,7 @@ using TMPro;
 
 public class CreditsMenu : Menu
 {
+	public TextAsset contributersFile;
 	public TMP_Text text;
 	public Color linkCol;
 	public Color linkHoverCol;
@@ -57,11 +58,12 @@ public class CreditsMenu : Menu
 		AddText(SetColour("A huge thanks to the following people for contributing various bug fixes, features, and translations to the project on GitHub:", Color.white));
 		AddLineBreak();
 
-		string[] contributorNames = { "Fsioni", "Agentew04", "Maltejur", "StuSerious", "Pattrigue", "EvilSouls", "MillersMan", "Tposejank" };
+		string[] contributorNames = contributersFile.text.Split(',');
 		for (int i = 0; i < contributorNames.Length; i++)
 		{
 			bool isLast = i == contributorNames.Length - 1;
-			AddText(contributorNames[i] + (isLast ? "." : ", "));
+			string contributorName = contributorNames[i].Trim();
+			AddText(contributorName + (isLast ? "." : ", "));
 		}
 	}
 
