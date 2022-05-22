@@ -60,8 +60,8 @@ namespace GeoGame.Quest
 			basketRenderer.sharedMaterial.SetVector(firePosShaderID, fireLightSource.position);
 
 			spawnT += Time.deltaTime * spawnSpeed;
-			currentAnchorPos = Vector3.Lerp(startPos, targetAnchorPos, Maths.Ease.Cubic.InOut(spawnT));
-			transform.localScale = Vector3.one * Maths.Ease.Cubic.InOut(spawnT);
+			currentAnchorPos = Vector3.Lerp(startPos, targetAnchorPos, Seb.Ease.Cubic.InOut(spawnT));
+			transform.localScale = Vector3.one * Seb.Ease.Cubic.InOut(spawnT);
 			float bobOffset = Mathf.Sin((Time.time + bobTimeOffset) * bobSpeed) * bobAmplitude;
 			transform.position = currentAnchorPos + transform.up * bobOffset;
 
@@ -96,7 +96,7 @@ namespace GeoGame.Quest
 			Vector3 interactionSphereCentre = transform.TransformPoint(interactionSphere.center);
 			float playerInteractionRadius = 0.5f;
 
-			if (Maths.Sphere.OverlapsSphere(interactionSphereCentre, interactionSphere.radius, player.position, playerInteractionRadius))
+			if (Seb.Maths.SphereOverlapsSphere(interactionSphereCentre, interactionSphere.radius, player.position, playerInteractionRadius))
 			{
 				interactionComplete = true;
 				OnPlayerCollide();

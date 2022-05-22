@@ -36,7 +36,7 @@ public class MTest : MonoBehaviour
 		List<int> tris = new List<int>();
 
 		Vector3 dir = (pointB - pointA).normalized;
-		(Vector3 axisA, Vector3 axisB) = Maths.Vector.CreateOrthonormalVectors(dir);
+		(Vector3 axisA, Vector3 axisB) = Seb.Maths.CreateOrthonormalVectors(dir);
 
 		Vector3[] centres = new Vector3[2 + endCapResolution];
 		centres[0] = pointA;

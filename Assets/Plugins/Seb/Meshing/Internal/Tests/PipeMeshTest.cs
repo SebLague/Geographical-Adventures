@@ -15,7 +15,7 @@ namespace Seb.Meshing.Tests
 
 		void Update()
 		{
-			Vector3[] points = Seb.Helpers.TransformHelper.GetAllChildPositions(transform);
+			Vector3[] points = Seb.TransformHelper.GetAllChildPositions(transform);
 			MeshFilter filter = GetComponent<MeshFilter>();
 
 			SimpleMeshData meshData = PipeMeshGenerator.GenerateMesh(points, closed, radius: radius, resolution: resolution);

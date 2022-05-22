@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Seb.Helpers
+namespace Seb
 {
 	public enum Space2D { xy, xz, yz }
 

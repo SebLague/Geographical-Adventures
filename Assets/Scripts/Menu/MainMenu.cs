@@ -70,7 +70,7 @@ public class MainMenu : Menu
 		while (t < 1)
 		{
 			t += Time.unscaledDeltaTime * 1.5f;
-			blurEffect.blurRadius = Mathf.Lerp(startBlur, 0, Maths.Ease.Quadratic.Out(t));
+			blurEffect.blurRadius = Mathf.Lerp(startBlur, 0, Seb.Ease.Quadratic.Out(t));
 			yield return null;
 		}
 		blurEffect.enabled = false;

@@ -13,9 +13,6 @@ public static class ComputeHelper
 	public const FilterMode defaultFilterMode = FilterMode.Bilinear;
 	public const GraphicsFormat defaultGraphicsFormat = GraphicsFormat.R32G32B32A32_SFloat;
 
-
-
-	static ComputeShader normalizeTextureCompute;
 	static ComputeShader clearTextureCompute;
 	static ComputeShader swizzleTextureCompute;
 	static ComputeShader copy3DCompute;
@@ -325,29 +322,6 @@ public static class ComputeHelper
 		clearTextureCompute.SetInt("height", source.height);
 		clearTextureCompute.SetTexture(0, "Source", source);
 		Dispatch(clearTextureCompute, source.width, source.height, 1, 0);
-	}
-
-	/// Work in progress, currently only works with one channel and very slow
-	public static void NormalizeRenderTexture(RenderTexture source)
-	{
-		LoadComputeShader(ref normalizeTextureCompute, "NormalizeTexture");
-
-		normalizeTextureCompute.SetInt("width", source.width);
-		normalizeTextureCompute.SetInt("height", source.height);
-		normalizeTextureCompute.SetTexture(0, "Source", source);
-		normalizeTextureCompute.SetTexture(1, "Source", source);
-
-		ComputeBuffer minMaxBuffer = CreateAndSetBuffer<int>(new int[] { int.MaxValue, 0 }, normalizeTextureCompute, "minMaxBuffer", 0);
-		normalizeTextureCompute.SetBuffer(1, "minMaxBuffer", minMaxBuffer);
-
-		Dispatch(normalizeTextureCompute, source.width, source.height, 1, 0);
-		Dispatch(normalizeTextureCompute, source.width, source.height, 1, 1);
-
-		//int[] data = new int[2];
-		//minMaxBuffer.GetData(data);
-		//Debug.Log(data[0] + "   " + data[1]);
-
-		Release(minMaxBuffer);
 	}
 
 	public static RenderTexture BicubicUpscale(RenderTexture original, int sizeMultiplier = 2)

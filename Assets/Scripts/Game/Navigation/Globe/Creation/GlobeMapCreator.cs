@@ -143,7 +143,7 @@ public class GlobeMapCreator : Generator
 			Vector2 p = spherePoints2D[i].ToVector2();
 			if (bounds2D.Contains(p))
 			{
-				if (Maths.Polygon.ContainsPoint(p, originalOutline))
+				if (Seb.Maths.PolygonContainsPoint(p, originalOutline))
 				{
 					innerPoints.Add(spherePoints2D[i]);
 				}
@@ -155,7 +155,7 @@ public class GlobeMapCreator : Generator
 
 		if (processedPolygon.paths[0].NumPoints > 3)
 		{
-			float area = Maths.Polygon.Area(processedPolygon.Outline.GetPointsAsVector2());
+			float area = Seb.Maths.PolygonArea(processedPolygon.Outline.GetPointsAsVector2());
 			float elevationMultiplier = Mathf.Lerp(0.05f, 1, area / tinyAreaThreshold);
 			elevation *= elevationMultiplier;
 

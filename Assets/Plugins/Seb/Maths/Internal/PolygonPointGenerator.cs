@@ -28,7 +28,7 @@ namespace Seb.MathsHelper
 				Vector2 a = vertices[triangles[i]];
 				Vector2 b = vertices[triangles[i + 1]];
 				Vector2 c = vertices[triangles[i + 2]];
-				float area = Maths.Triangle.Area(a, b, c);
+				float area = Maths.SignedTriangleArea2D(a, b, c);
 				areaSum += area;
 
 				int triIndex = i / 3;
@@ -68,7 +68,7 @@ namespace Seb.MathsHelper
 			Vector2 a = vertices[triangles[triIndex * 3]];
 			Vector2 b = vertices[triangles[triIndex * 3 + 1]];
 			Vector2 c = vertices[triangles[triIndex * 3 + 2]];
-			return Maths.Triangle.RandomPointInside(a, b, c, prng);
+			return Maths.RandomPointInTriangle(a, b, c, prng);
 		}
 
 		int Search(float[] values, float searchValue)

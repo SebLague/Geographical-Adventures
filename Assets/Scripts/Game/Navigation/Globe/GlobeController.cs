@@ -229,7 +229,7 @@ public class GlobeController : MonoBehaviour
 
 		for (int i = 0; i < countryHighlightStates.Length; i++)
 		{
-			float easedT = Maths.Ease.Quadratic.In(countryHighlightStates[i]);
+			float easedT = Seb.Ease.Quadratic.In(countryHighlightStates[i]);
 			countryMaterials[i].color = Color.Lerp(mapLoader.countryColours[i].colour, highlightCol, easedT);
 			if (easedT > mostHighlightedValue)
 			{

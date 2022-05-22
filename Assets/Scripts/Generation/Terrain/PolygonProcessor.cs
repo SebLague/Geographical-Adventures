@@ -319,8 +319,8 @@ namespace TerrainGeneration
 		{
 			Vector3 spherePos = GeoMaths.CoordinateToPoint(coord);
 			// Rotate sphere so that country is centered at equator
-			Vector3 rotatedSpherePos = Maths.Rotation.RotateAroundAxis(spherePos, Vector3.up, centre.longitude);
-			rotatedSpherePos = Maths.Rotation.RotateAroundAxis(rotatedSpherePos, Vector3.right, -centre.latitude);
+			Vector3 rotatedSpherePos = Seb.Maths.RotateAroundAxis(spherePos, Vector3.up, centre.longitude);
+			rotatedSpherePos = Seb.Maths.RotateAroundAxis(rotatedSpherePos, Vector3.right, -centre.latitude);
 
 			return GeoMaths.PointToCoordinate(rotatedSpherePos);
 		}

@@ -36,7 +36,7 @@ namespace GeoGame.Quest
 		void Update()
 		{
 			t+=Time.deltaTime;
-			transform.localScale = Vector3.one * Maths.Ease.Cubic.InOut(t);
+			transform.localScale = Vector3.one * Seb.Ease.Cubic.InOut(t);
 			if (updateRotationContinuously)
 			{
 				//UpdateRotation(Camera.main.transform.position);

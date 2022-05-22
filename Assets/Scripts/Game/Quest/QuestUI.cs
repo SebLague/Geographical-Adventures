@@ -23,7 +23,7 @@ namespace GeoGame.Quest
 
 		void Awake()
 		{
-			Seb.Helpers.TransformHelper.DestroyAllChildren(countryTargetsRect.transform);
+			Seb.TransformHelper.DestroyAllChildren(countryTargetsRect.transform);
 			countryTargets = new TargetUI[QuestSystem.numActiveQuests];
 
 			for (int i = 0; i < countryTargets.Length; i++)
@@ -117,7 +117,7 @@ namespace GeoGame.Quest
 					animTimes[i] += Time.deltaTime;
 					done &= animTimes[i] >= 1;
 
-					targets[i].localPosition = Vector3.Lerp(startPoints[i], endPoints[i], Maths.Ease.Cubic.Out(animTimes[i]));
+					targets[i].localPosition = Vector3.Lerp(startPoints[i], endPoints[i], Seb.Ease.Cubic.Out(animTimes[i]));
 
 				}
 				if (GameController.IsState(GameState.ViewingMap))
@@ -172,7 +172,7 @@ namespace GeoGame.Quest
 			while (t < 1)
 			{
 				t += Time.deltaTime / durationDisappear;
-				oldRect.localPosition = new Vector2(oldRect.localPosition.x, 0 + Maths.Ease.Cubic.In(t) * oldRect.sizeDelta.y);
+				oldRect.localPosition = new Vector2(oldRect.localPosition.x, 0 + Seb.Ease.Cubic.In(t) * oldRect.sizeDelta.y);
 				if (GameController.IsState(GameState.ViewingMap))
 				{
 					yield return new WaitWhile(() => GameController.IsState(GameState.ViewingMap));
@@ -193,7 +193,7 @@ namespace GeoGame.Quest
 						//countryTargets[i].RectTransform.localPosition = Vector2.Lerp(originalPos[i], targetPos[i], Maths.Ease.Cubic.InOut(t));
 					}
 				}
-				countryTargets[index].RectTransform.localPosition = Vector2.Lerp(newTargetStartPos, targetPos[index], Maths.Ease.Cubic.Out(t));
+				countryTargets[index].RectTransform.localPosition = Vector2.Lerp(newTargetStartPos, targetPos[index], Seb.Ease.Cubic.Out(t));
 				if (GameController.IsState(GameState.ViewingMap))
 				{
 					yield return new WaitWhile(() => GameController.IsState(GameState.ViewingMap));
@@ -223,7 +223,7 @@ namespace GeoGame.Quest
 				{
 					if (i != dontAnimateIndex)
 					{
-						countryTargets[i].RectTransform.localPosition = Vector2.Lerp(originalPos[i], targetLocalPositions[i], Maths.Ease.Cubic.InOut(t));
+						countryTargets[i].RectTransform.localPosition = Vector2.Lerp(originalPos[i], targetLocalPositions[i], Seb.Ease.Cubic.InOut(t));
 					}
 				}
 				yield return null;

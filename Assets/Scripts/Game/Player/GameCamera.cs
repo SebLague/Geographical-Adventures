@@ -95,7 +95,7 @@ public class GameCamera : MonoBehaviour
 				{
 					// If started playing, transition from menu cam to forward cam
 					menuToGameViewTransitionT += Time.deltaTime * 1f;
-					view = ViewSettings.Lerp(menuView, lookingAheadView, Maths.Ease.Quadratic.Out(menuToGameViewTransitionT));
+					view = ViewSettings.Lerp(menuView, lookingAheadView, Seb.Ease.Quadratic.Out(menuToGameViewTransitionT));
 					if (menuToGameViewTransitionT > 1)
 					{
 						activeView = ViewMode.LookingForward;

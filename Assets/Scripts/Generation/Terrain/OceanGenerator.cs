@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Seb.Meshing;
-using Seb.Helpers;
+using Seb;
 
 namespace TerrainGeneration
 {
@@ -151,8 +151,8 @@ namespace TerrainGeneration
 				}
 
 				// Add
-				ArrayHelper.AppendArray(ref points, coastPoints3D);
-				ArrayHelper.AppendArray(ref points2D, coastPoints2D);
+				Seb.ArrayHelper.AppendArray(ref points, coastPoints3D);
+				Seb.ArrayHelper.AppendArray(ref points2D, coastPoints2D);
 			}
 
 

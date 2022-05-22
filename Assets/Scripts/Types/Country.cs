@@ -60,7 +60,7 @@ public class Country
 			scores[i] = -penalty;
 		}
 
-		Maths.Sorting.SortByScores(rankedNames, scores);
+		Seb.Sorting.SortByScores(rankedNames, scores);
 		if (debug)
 		{
 			for (int i = 0; i < rankedNames.Length; i++)

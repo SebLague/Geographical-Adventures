@@ -33,10 +33,10 @@ public class Music : MonoBehaviour
 
 	void Init()
 	{
-		playOrder = Seb.Helpers.ArrayHelper.CreateIndexArray(tracks.Length);
+		playOrder = Seb.ArrayHelper.CreateIndexArray(tracks.Length);
 		if (shuffleTracksOnStart)
 		{
-			Maths.Sorting.ShuffleArray(playOrder, new System.Random());
+			Seb.ArrayHelper.ShuffleArray(playOrder, new System.Random());
 		}
 		nextTrackIndex = 0;
 	}

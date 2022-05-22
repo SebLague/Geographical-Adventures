@@ -47,7 +47,7 @@ public class MessageUI : MonoBehaviour
 		while (t < 1)
 		{
 			t += Time.deltaTime / appearDuration;
-			float easedT = Maths.Ease.Cubic.InOut(t);
+			float easedT = Seb.Ease.Cubic.InOut(t);
 			message.text.rectTransform.localPosition = Vector3.up * Mathf.Lerp(startY, endY, easedT);
 			message.text.color = new Color(textCol.r, textCol.g, textCol.b, easedT);
 			yield return null;

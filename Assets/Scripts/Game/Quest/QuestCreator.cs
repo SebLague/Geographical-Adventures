@@ -129,7 +129,7 @@ namespace GeoGame.Quest
 
 		Location PickRandomLocation()
 		{
-			int index = Maths.Random.WeightedRandomIndex(prng, allLocationWeights);
+			int index = Seb.Maths.WeightedRandomIndex(prng, allLocationWeights);
 			for (int i = 0; i < allLocationWeights.Length; i++)
 			{
 				//Debug.Log(allLocationWeights[i]);

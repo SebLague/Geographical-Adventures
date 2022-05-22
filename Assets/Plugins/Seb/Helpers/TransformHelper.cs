@@ -1,11 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Seb.Helpers
+namespace Seb
 {
 	public static class TransformHelper
 	{
+
+		/// <summary>
+		/// Returns an array of the parent's direct children.
+		/// Does not include the childrens' children (and so on).
+		/// </summary>
+		public static Transform[] GetChildren(Transform parent)
+		{
+			Transform[] children = new Transform[parent.childCount];
+			for (int i = 0; i < children.Length; i++)
+			{
+				children[i] = parent.GetChild(i);
+			}
+
+			return children;
+		}
 
 		/// <summary> Convert array of transforms into an array of their positions </summary>
 		public static Vector3[] GetTransformPositions(Transform[] transforms)
@@ -59,8 +72,10 @@ namespace Seb.Helpers
 			return positions;
 		}
 
-		/// <summary> Destroys all children of the given parent transform. Works in edit mode as well (use with caution). </summary>
-		public static void DestroyAllChildren(Transform parent)
+		/// <summary>
+		/// Destroys all children of the given parent transform.
+		/// </summary>
+		public static void DestroyAllChildren(Transform parent, bool allowInEditMode = false)
 		{
 			for (int i = parent.childCount - 1; i >= 0; i--)
 			{
@@ -68,7 +83,7 @@ namespace Seb.Helpers
 				{
 					GameObject.Destroy(parent.GetChild(i).gameObject);
 				}
-				else
+				else if (allowInEditMode)
 				{
 					GameObject.DestroyImmediate(parent.GetChild(i).gameObject);
 				}

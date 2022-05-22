@@ -7,7 +7,7 @@ public static class ResolutionSettingsHelper
 
 	public static Vector2Int GetRatio(int width, int height)
 	{
-		int gcd = Maths.Other.GreatestCommonDivisor(width, height);
+		int gcd = Seb.Maths.GreatestCommonDivisor(width, height);
 		int aspectW = width / gcd;
 		int aspectH = height / gcd;
 		Vector2Int aspect = new Vector2Int(aspectW, aspectH);

@@ -200,7 +200,7 @@ namespace Seb.MathsHelper.Triangulation
 					}
 					// if there is a point inside triangle, this invalidates the current bridge node on hull.
 
-					if (Maths.Triangle.Contains(holeData.bridgePoint, rayIntersectPoint, initialBridgeNodeOnHull.Value.position, nodePotentiallyInTriangle.Value.position))
+					if (Maths.TriangleContainsPoint(holeData.bridgePoint, rayIntersectPoint, initialBridgeNodeOnHull.Value.position, nodePotentiallyInTriangle.Value.position))
 					{
 						// Duplicate points occur at hole and hull bridge points.
 						bool isDuplicatePoint = validBridgeNodeOnHull.Value.position == nodePotentiallyInTriangle.Value.position;
@@ -262,7 +262,7 @@ namespace Seb.MathsHelper.Triangulation
 					Vertex vertexToCheck = vertexNode.Value;
 					if (vertexToCheck.index != v0.index && vertexToCheck.index != v1.index && vertexToCheck.index != v2.index) // dont check verts that make up triangle
 					{
-						if (Maths.Triangle.Contains(v0.position, v1.position, v2.position, vertexToCheck.position))
+						if (Maths.TriangleContainsPoint(v0.position, v1.position, v2.position, vertexToCheck.position))
 						{
 							return true;
 						}
@@ -278,7 +278,7 @@ namespace Seb.MathsHelper.Triangulation
 		// v1 is considered a convex vertex if v0-v1-v2 are wound in a counter-clockwise order.
 		static bool IsConvex(Vector2 v0, Vector2 v1, Vector2 v2)
 		{
-			return !Maths.Triangle.IsClockwise(v0, v1, v2);
+			return !Maths.TriangleIsClockwise(v0, v1, v2);
 		}
 
 		public struct HoleData

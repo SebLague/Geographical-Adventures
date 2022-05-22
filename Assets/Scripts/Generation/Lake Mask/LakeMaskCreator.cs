@@ -16,7 +16,7 @@ public class LakeMaskCreator : MonoBehaviour
 			Vector2[] points = p.Outline.GetPointsAsVector2(false);
 			int[] tris = TerrainGeneration.Triangulator.Triangulate(points, null);
 
-			Vector3[] verts = Seb.Helpers.VectorHelper.To3DArray(points);
+			Vector3[] verts = Seb.VectorHelper.To3DArray(points);
 			var meshData = new Seb.Meshing.SimpleMeshData(verts, tris);
 			Seb.Meshing.MeshHelper.CreateRendererObject("Lake", meshData);
 		}
