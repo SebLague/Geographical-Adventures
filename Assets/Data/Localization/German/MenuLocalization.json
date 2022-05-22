@@ -22,11 +22,11 @@
         },
         {
             "id": "mainMenu.quitButton",
-            "text": "Spiel Verlassen"
+            "text": "Spiel verlassen"
         },
         {
             "id": "subMenu.closeButton",
-            "text": "Schliesen"
+            "text": "Schliessen"
         },
         {
             "id": "settingsMenu.graphicsTab",
@@ -122,11 +122,11 @@
         },
         {
             "id": "settingsMenu.controls.behindView",
-            "text": "Rückansicht"
+            "text": "Ansicht von Hinten"
         },
         {
             "id": "settingsMenu.controls.topView",
-            "text": "Draufsicht"
+            "text": "Ansicht von Oben"
         },
         {
             "id": "settingsMenu.controls.extraControls",
