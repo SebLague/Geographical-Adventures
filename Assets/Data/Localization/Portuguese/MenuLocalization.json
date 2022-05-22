@@ -78,7 +78,7 @@
         },
         {
             "id": "settingsMenu.audioAndLanguage.musicVolume",
-            "text": "Volum da Música"
+            "text": "Volume da Música"
         },
         {
             "id": "settingsMenu.audioAndLanguage.sfxVolume",
@@ -86,71 +86,71 @@
         },
         {
             "id": "settingsMenu.controls.resetButton",
-            "text": "Reset"
+            "text": "Redefinir"
         },
         {
             "id": "settingsMenu.controls.playerControls",
-            "text": "Player Controls"
+            "text": "Controles do jogador"
         },
         {
             "id": "settingsMenu.controls.turn",
-            "text": "Turn"
+            "text": "Virar"
         },
         {
             "id": "settingsMenu.controls.elevation",
-            "text": "Elevation"
+            "text": "Elevação"
         },
         {
             "id": "settingsMenu.controls.speed",
-            "text": "Speed"
+            "text": "Velocidade"
         },
         {
             "id": "settingsMenu.controls.boost",
-            "text": "Boost"
+            "text": "Turbo"
         },
         {
             "id": "settingsMenu.controls.dropPackage",
-            "text": "Drop Package"
+            "text": "Largar pacote"
         },
         {
             "id": "settingsMenu.controls.cameraControls",
-            "text": "Camera Controls"
+            "text": "Controles da câmera"
         },
         {
             "id": "settingsMenu.controls.forwardView",
-            "text": "Forward View"
+            "text": "Visão frontal"
         },
         {
             "id": "settingsMenu.controls.behindView",
-            "text": "Behind View"
+            "text": "Visão traseira"
         },
         {
             "id": "settingsMenu.controls.topView",
-            "text": "Top View"
+            "text": "Vista do topo"
         },
         {
             "id": "settingsMenu.controls.extraControls",
-            "text": "Extra Controls"
+            "text": "Controles Extra"
         },
         {
             "id": "settingsMenu.controls.makeDayTime",
-            "text": "Make Day-time"
+            "text": "Deixar de dia"
         },
         {
             "id": "settingsMenu.controls.makeNightTime",
-            "text": "Make Night-time"
+            "text": "Deixar de noite"
         },
         {
             "id": "settingsMenu.controls.uiControls",
-            "text": "UI Controls"
+            "text": "Controles da Interface do Usuário"
         },
         {
             "id": "settingsMenu.controls.toggleMap",
-            "text": "Map"
+            "text": "Mapa"
         },
         {
             "id": "settingsMenu.controls.togglePause",
-            "text": "Pause"
+            "text": "Pausar"
         },
         {
             "id": "settingsMenu.applyButton",
