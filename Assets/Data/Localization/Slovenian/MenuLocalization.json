@@ -1,0 +1,180 @@
+{
+    "entries": [
+        {
+            "id": "mainMenu.subtitle",
+            "text": "(v izgradnji)"
+        },
+        {
+            "id": "mainMenu.playButton",
+            "text": "Igraj"
+        },
+        {
+            "id": "mainMenu.manualButton",
+            "text": "Priročnik"
+        },
+        {
+            "id": "mainMenu.settingsButton",
+            "text": "Nastavitve"
+        },
+        {
+            "id": "mainMenu.creditsButton",
+            "text": "Krediti"
+        },
+        {
+            "id": "mainMenu.quitButton",
+            "text": "Izhod"
+        },
+        {
+            "id": "subMenu.closeButton",
+            "text": "Zapri"
+        },
+        {
+            "id": "settingsMenu.graphicsTab",
+            "text": "Grafike"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguageTab",
+            "text": "Zvok / jezik"
+        },
+        {
+            "id": "settingsMenu.controlsTab",
+            "text": "Kontrole"
+        },
+        {
+            "id": "settingsMenu.graphics.aspectRatio",
+            "text": "Razmerje stranic"
+        },
+        {
+            "id": "settingsMenu.graphics.resolution",
+            "text": "Ločljivost"
+        },
+        {
+            "id": "settingsMenu.graphics.fullScreen",
+            "text": "Celozaslonski način"
+        },
+        {
+            "id": "settingsMenu.graphics.vSync",
+            "text": "VSync"
+        },
+        {
+            "id": "settingsMenu.graphics.terrainQuality",
+            "text": "Kakovost terena"
+        },
+        {
+            "id": "settingsMenu.graphics.shadowQuality",
+            "text": "Kakovost senc"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.language",
+            "text": "Jezik"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.translationNote",
+            "text": "Prosimo upoštevajte, da so ti prevodi delo skupnosti v teku. "
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.masterVolume",
+            "text": "Glavna glasnost"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.musicVolume",
+            "text": "Glasnost glasbe"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.sfxVolume",
+            "text": "SFX glasnost"
+        },
+        {
+            "id": "settingsMenu.controls.resetButton",
+            "text": "Ponastavi"
+        },
+        {
+            "id": "settingsMenu.controls.playerControls",
+            "text": "Igralčeve kontrole"
+        },
+        {
+            "id": "settingsMenu.controls.turn",
+            "text": "Obrat"
+        },
+        {
+            "id": "settingsMenu.controls.elevation",
+            "text": "Nadmorska višina"
+        },
+        {
+            "id": "settingsMenu.controls.speed",
+            "text": "Hitrost"
+        },
+        {
+            "id": "settingsMenu.controls.boost",
+            "text": "Pospešek"
+        },
+        {
+            "id": "settingsMenu.controls.dropPackage",
+            "text": "Odvrzi paket"
+        },
+        {
+            "id": "settingsMenu.controls.cameraControls",
+            "text": "Kontrole kamere"
+        },
+        {
+            "id": "settingsMenu.controls.forwardView",
+            "text": "Pogled naprej"
+        },
+        {
+            "id": "settingsMenu.controls.behindView",
+            "text": "Pogled zadaj"
+        },
+        {
+            "id": "settingsMenu.controls.topView",
+            "text": "Pogled od zgoraj"
+        },
+        {
+            "id": "settingsMenu.controls.extraControls",
+            "text": "Dodatne kontrole"
+        },
+        {
+            "id": "settingsMenu.controls.makeDayTime",
+            "text": "Naredi dnevni čas"
+        },
+        {
+            "id": "settingsMenu.controls.makeNightTime",
+            "text": "Naradi nočni čas"
+        },
+        {
+            "id": "settingsMenu.controls.uiControls",
+            "text": "Kontrole grafičnega vmesnika"
+        },
+        {
+            "id": "settingsMenu.controls.toggleMap",
+            "text": "Zemljevid"
+        },
+        {
+            "id": "settingsMenu.controls.togglePause",
+            "text": "Pavza"
+        },
+        {
+            "id": "settingsMenu.applyButton",
+            "text": "Shrani"
+        },
+        {
+            "id": "settingsMenu.exitNote",
+            "text": "Opomba: če zaprete brez shranjevanja, bodo vaše spremembe razveljavljene."
+        },
+        {
+            "id": "pauseMenu.pausedTitle",
+            "text": "PAVZA"
+        },
+        {
+            "id": "pauseMenu.resumeButton",
+            "text": "Nadaljuj"
+        },
+        {
+            "id": "pauseMenu.statsButton",
+            "text": "Statistika"
+        },
+        {
+            "id": "pauseMenu.quitButton",
+            "text": "Izhod"
+        }
+    ]
+}
