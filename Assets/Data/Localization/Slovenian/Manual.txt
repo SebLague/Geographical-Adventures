@@ -4,7 +4,7 @@ Na vrhu zaslona so označene tri lokacije. Na vsaki lokaciji najdete toplozračn
 
 Ko je paket prevzet, se njegova lokacija na vrhu zaslona spremeni v lokacijo za dostavo. Poletite v mesto (ali po vaši oceni, kje je) in tam odložite paket. Nagrajeni boste s pospeškom glede na to, kako daleč paket pristane od načrtovanega cilja. Pospešek vam omogoča izjemno hitro letenje za omejen čas.
 
-You can collect and deliver the packages in whatever order you like, and you can also pick up multiple packages before deliverying any of them (note that in this case, the drop package button will automatically select the package that's currently closest to its destination).
+Pakete lahko pobirate in dostavljate v poljubnem zaporedju in lahko poberete več paketov preden katerega izmed njih sploh dostavite (upoštevajte, da bo v tem primeru gumb za izpustitev paketa avtomatsko izbral paket, ki je trenutno najbližji svojemu cilju).
 
 <color=#888888>Seznam kontrol lahko najdete v meniju z nastavitvami.
 Upam, da boste v igri uživali!</color>
