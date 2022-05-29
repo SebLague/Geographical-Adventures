@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   languageDisplayName: Slovenian
   languageID: slovenian
+  rightToLeftWritingSystem: 0
   localizedStringGroups:
   - {fileID: 4900000, guid: becc4ce49ff8413c91d03c327048ab04, type: 3}
   - {fileID: 4900000, guid: b5e604dc7ca846cdaeb7afb308ab86c4, type: 3}
   localizedTextChunks:
   - id: mainMenu.manualText
-    file: {fileID: 4900000, guid: 3b234d4ef2d7deb4d832eafa289da567, type: 3}
+    file: {fileID: 4900000, guid: e38bc0c91beceae44a23aaeb7004825b, type: 3}
