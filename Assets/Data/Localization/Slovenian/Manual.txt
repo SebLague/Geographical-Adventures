@@ -1,0 +1,10 @@
+<color=#FFFFFF>Pozdravljeni! V tej majhni igri je vaš cilj preprosto samo leteti okoli sveta, pobirati pakete in jih med potjo dostavljati v različna mesta.</color>
+
+Na vrhu zaslona so označene tri lokacije. Na vsaki lokaciji najdete toplozračni balon s paketom, ki le čaka na to, da ga poberete. Preletite s svojim letalom skozi balone, da poberete pakete.
+
+Ko je paket prevzet, se njegova lokacija na vrhu zaslona spremeni v lokacijo za dostavo. Poletite v mesto (ali po vaši oceni, kje je) in tam odložite paket. Nagrajeni boste s pospeškom glede na to, kako daleč paket pristane od načrtovanega cilja. Pospešek vam omogoča izjemno hitro letenje za omejen čas.
+
+Pakete lahko pobirate in dostavljate v poljubnem zaporedju in lahko poberete več paketov preden katerega izmed njih sploh dostavite (upoštevajte, da bo v tem primeru gumb za izpustitev paketa avtomatsko izbral paket, ki je trenutno najbližji svojemu cilju).
+
+<color=#888888>Seznam kontrol lahko najdete v meniju z nastavitvami.
+Upam, da boste v igri uživali!</color>
