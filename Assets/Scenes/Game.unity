@@ -11931,7 +11931,8 @@ MonoBehaviour:
     Stolen Orchestra\n\n<color=#FFFFFF>A huge thanks to the following people for
     contributing various bug fixes, features, and translations to the project on
     GitHub:</color>\nFar\xE8s SIONI, Agentew04, Maltejur, StuSerious, Pattrigue,
-    EvilSouls, MillersMan, Tposejank, Racooder, jancborchardt, davidemarcoli."
+    EvilSouls, MillersMan, Tposejank, Racooder, jancborchardt, davidemarcoli,
+    Triogap."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17478,6 +17479,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d5ddfc112497af245957b38a461fac69, type: 2}
   - {fileID: 11400000, guid: e6ef73e5262dc7c42b3bbfb784759555, type: 2}
   - {fileID: 11400000, guid: 8e8d5edbb9341784999a4d6d6f6a3f87, type: 2}
+  - {fileID: 11400000, guid: 3bc09c4c266b22b43a56170325b187ab, type: 2}
   defaultLanguage: {fileID: 11400000, guid: 3bc09c4c266b22b43a56170325b187ab, type: 2}
 --- !u!4 &1568930012
 Transform:

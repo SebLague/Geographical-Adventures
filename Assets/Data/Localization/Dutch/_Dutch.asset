@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c11dd3d25848ea45b8432cae9e718ce, type: 3}
+  m_Name: _Dutch
+  m_EditorClassIdentifier: 
+  languageDisplayName: Dutch
+  languageID: dutch
+  localizedStringGroups:
+  - {fileID: 4900000, guid: 253dcb46dd474389894f6f4265119b96, type: 3}
+  - {fileID: 4900000, guid: baa58c45e78d4e76b04666b585dda01e, type: 3}
+  localizedTextChunks:
+  - id: mainMenu.manualText
+    file: {fileID: 4900000, guid: a80a57c61687424b9474c3ce38ccddbe, type: 3}
