@@ -1,0 +1,10 @@
+<color=#FFFFFF>Welkom! Het doel in dit spelletje is gewoon om de wereld rond te vliegen, pakketten op te halen en ze onderweg in verschillende steden af te leveren.</color>
+
+Er zijn drie locaties gemarkeerd aan de bovenkant van het scherm. Op elke locatie staat een heteluchtballon klaar met een pakket dat je kunt ophalen. Vlieg met je vliegtuig door de ballonnen om de pakketten op te halen.
+
+Zodra een pakket is opgehaald, verandert de locatie bovenaan het scherm in een bezorgadres. Vlieg naar die stad (of je beste gok over waar het is) en geef het pakket daar af. Je krijgt Boost op basis van hoe ver het pakket landt van de beoogde bestemming. Met Boost kun je extreem snel vliegen voor een beperkte tijd.
+
+Je kunt de pakketten ophalen en bezorgen in elke gewenste volgorde, en je kunt ook meerdere pakketten ophalen voordat je een van hen bezorgt (houd er rekening mee dat in dit geval de knop Pakket afgeven automatisch het pakket selecteert dat zich momenteel het dichtst bij de bestemming bevindt).
+
+<color=#888888>In het instellingenmenu vindt je .
+Ik hoop dat je zult genieten van het spel!</color>

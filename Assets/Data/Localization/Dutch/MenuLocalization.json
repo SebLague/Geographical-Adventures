@@ -1,0 +1,180 @@
+{
+    "entries": [
+        {
+            "id": "mainMenu.subtitle",
+            "text": "(in ontwikkeling)"
+        },
+        {
+            "id": "mainMenu.playButton",
+            "text": "Spelen"
+        },
+        {
+            "id": "mainMenu.manualButton",
+            "text": "Handleiding"
+        },
+        {
+            "id": "mainMenu.settingsButton",
+            "text": "Instellingen"
+        },
+        {
+            "id": "mainMenu.creditsButton",
+            "text": "Credits"
+        },
+        {
+            "id": "mainMenu.quitButton",
+            "text": "Afsluiten"
+        },
+        {
+            "id": "subMenu.closeButton",
+            "text": "Sluiten"
+        },
+        {
+            "id": "settingsMenu.graphicsTab",
+            "text": "Beeld"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguageTab",
+            "text": "Geluid / taal"
+        },
+        {
+            "id": "settingsMenu.controlsTab",
+            "text": "Bediening"
+        },
+        {
+            "id": "settingsMenu.graphics.aspectRatio",
+            "text": "Aspect ratio"
+        },
+        {
+            "id": "settingsMenu.graphics.resolution",
+            "text": "Resolutie"
+        },
+        {
+            "id": "settingsMenu.graphics.fullScreen",
+            "text": "Volledig scherm"
+        },
+        {
+            "id": "settingsMenu.graphics.vSync",
+            "text": "V-sync"
+        },
+        {
+            "id": "settingsMenu.graphics.terrainQuality",
+            "text": "Terreinkwaliteit"
+        },
+        {
+            "id": "settingsMenu.graphics.shadowQuality",
+            "text": "Schaduwkwaliteit"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.language",
+            "text": "Taal"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.translationNote",
+            "text": "Houd er rekening mee dat deze vertalingen een work-in-progress gemeenschapsinspanning zijn."
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.masterVolume",
+            "text": "Hoofdvolume"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.musicVolume",
+            "text": "Muziekvolume"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.sfxVolume",
+            "text": "Effectenvolume"
+        },
+        {
+            "id": "settingsMenu.controls.resetButton",
+            "text": "Herstel"
+        },
+        {
+            "id": "settingsMenu.controls.playerControls",
+            "text": "Vliegtuigbesturing"
+        },
+        {
+            "id": "settingsMenu.controls.turn",
+            "text": "Draai"
+        },
+        {
+            "id": "settingsMenu.controls.elevation",
+            "text": "Hoogte"
+        },
+        {
+            "id": "settingsMenu.controls.speed",
+            "text": "Snelheid"
+        },
+        {
+            "id": "settingsMenu.controls.boost",
+            "text": "Boost"
+        },
+        {
+            "id": "settingsMenu.controls.dropPackage",
+            "text": "Pakket bezorgen"
+        },
+        {
+            "id": "settingsMenu.controls.cameraControls",
+            "text": "Camerabediening"
+        },
+        {
+            "id": "settingsMenu.controls.forwardView",
+            "text": "Vooruit"
+        },
+        {
+            "id": "settingsMenu.controls.behindView",
+            "text": "Achteruit"
+        },
+        {
+            "id": "settingsMenu.controls.topView",
+            "text": "Boven"
+        },
+        {
+            "id": "settingsMenu.controls.extraControls",
+            "text": "Extra bediening"
+        },
+        {
+            "id": "settingsMenu.controls.makeDayTime",
+            "text": "Dag maken"
+        },
+        {
+            "id": "settingsMenu.controls.makeNightTime",
+            "text": "Nacht maken"
+        },
+        {
+            "id": "settingsMenu.controls.uiControls",
+            "text": "UI bediening"
+        },
+        {
+            "id": "settingsMenu.controls.toggleMap",
+            "text": "Kaart"
+        },
+        {
+            "id": "settingsMenu.controls.togglePause",
+            "text": "Pauze"
+        },
+        {
+            "id": "settingsMenu.applyButton",
+            "text": "Opslaan"
+        },
+        {
+            "id": "settingsMenu.exitNote",
+            "text": "Let op: Als je sluit zonder op te slaan, worden uw wijzigingen ongedaan gemaakt."
+        },
+        {
+            "id": "pauseMenu.pausedTitle",
+            "text": "GEPAUZEERD"
+        },
+        {
+            "id": "pauseMenu.resumeButton",
+            "text": "Hervatten"
+        },
+        {
+            "id": "pauseMenu.statsButton",
+            "text": "Scores"
+        },
+        {
+            "id": "pauseMenu.quitButton",
+            "text": "Afsluiten"
+        }
+    ]
+}
