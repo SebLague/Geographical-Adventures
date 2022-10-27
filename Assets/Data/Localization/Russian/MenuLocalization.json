@@ -1,0 +1,180 @@
+{
+    "entries": [
+        {
+            "id": "mainMenu.subtitle",
+            "text": "(в работе)"
+        },
+        {
+            "id": "mainMenu.playButton",
+            "text": "Играть"
+        },
+        {
+            "id": "mainMenu.manualButton",
+            "text": "Инструкция"
+        },
+        {
+            "id": "mainMenu.settingsButton",
+            "text": "Настройки"
+        },
+        {
+            "id": "mainMenu.creditsButton",
+            "text": "Титры"
+        },
+        {
+            "id": "mainMenu.quitButton",
+            "text": "Выйти"
+        },
+        {
+            "id": "subMenu.closeButton",
+            "text": "Закрыть"
+        },
+        {
+            "id": "settingsMenu.graphicsTab",
+            "text": "Графика"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguageTab",
+            "text": "Звук / Язык"
+        },
+        {
+            "id": "settingsMenu.controlsTab",
+            "text": "Управление"
+        },
+        {
+            "id": "settingsMenu.graphics.aspectRatio",
+            "text": "Соотношение сторон"
+        },
+        {
+            "id": "settingsMenu.graphics.resolution",
+            "text": "Разрешение"
+        },
+        {
+            "id": "settingsMenu.graphics.fullScreen",
+            "text": "Полноэкранный режим"
+        },
+        {
+            "id": "settingsMenu.graphics.vSync",
+            "text": "VSync"
+        },
+        {
+            "id": "settingsMenu.graphics.terrainQuality",
+            "text": "Качество ландшафта"
+        },
+        {
+            "id": "settingsMenu.graphics.shadowQuality",
+            "text": "Качество теней"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.language",
+            "text": "Язык"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.translationNote",
+            "text": "Обратите внимание, что переводы являются незавершенными усилиями сообщества."
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.masterVolume",
+            "text": "Общая громкость"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.musicVolume",
+            "text": "Громкость музыки"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.sfxVolume",
+            "text": "Громкость эффектов"
+        },
+        {
+            "id": "settingsMenu.controls.resetButton",
+            "text": "Сбросить"
+        },
+        {
+            "id": "settingsMenu.controls.playerControls",
+            "text": "Управление игрока"
+        },
+        {
+            "id": "settingsMenu.controls.turn",
+            "text": "Повернуть"
+        },
+        {
+            "id": "settingsMenu.controls.elevation",
+            "text": "Высота"
+        },
+        {
+            "id": "settingsMenu.controls.speed",
+            "text": "Скорость"
+        },
+        {
+            "id": "settingsMenu.controls.boost",
+            "text": "Ускорение"
+        },
+        {
+            "id": "settingsMenu.controls.dropPackage",
+            "text": "Сбросить посылку"
+        },
+        {
+            "id": "settingsMenu.controls.cameraControls",
+            "text": "Управление камеры"
+        },
+        {
+            "id": "settingsMenu.controls.forwardView",
+            "text": "Смотреть вперед"
+        },
+        {
+            "id": "settingsMenu.controls.behindView",
+            "text": "Смотреть назад"
+        },
+        {
+            "id": "settingsMenu.controls.topView",
+            "text": "Вид сверху"
+        },
+        {
+            "id": "settingsMenu.controls.extraControls",
+            "text": "Дополнительные настройки"
+        },
+        {
+            "id": "settingsMenu.controls.makeDayTime",
+            "text": "Сделать день"
+        },
+        {
+            "id": "settingsMenu.controls.makeNightTime",
+            "text": "Сделать ночь"
+        },
+        {
+            "id": "settingsMenu.controls.uiControls",
+            "text": "Управление интерфейса"
+        },
+        {
+            "id": "settingsMenu.controls.toggleMap",
+            "text": "Карта"
+        },
+        {
+            "id": "settingsMenu.controls.togglePause",
+            "text": "Пауза"
+        },
+        {
+            "id": "settingsMenu.applyButton",
+            "text": "Применить"
+        },
+        {
+            "id": "settingsMenu.exitNote",
+            "text": "Примечание: закрытие без применения сбросит ваши изменения."
+        },
+        {
+            "id": "pauseMenu.pausedTitle",
+            "text": "ПАУЗА"
+        },
+        {
+            "id": "pauseMenu.resumeButton",
+            "text": "Продолжить"
+        },
+        {
+            "id": "pauseMenu.statsButton",
+            "text": "Статистика"
+        },
+        {
+            "id": "pauseMenu.quitButton",
+            "text": "Выйти"
+        }
+    ]
+}
