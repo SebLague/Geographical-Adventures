@@ -3,38 +3,41 @@ using UnityEngine.UI;
 
 public class PauseMenu : Menu
 {
+    public Button quitButton;
+    [SerializeField] PlayerAudio playerAudio;
 
-	public Button quitButton;
+    void Start()
+    {
+        quitButton.onClick.AddListener(GameController.ExitToMainMenu);
+    }
 
-	void Start()
-	{
-		quitButton.onClick.AddListener(GameController.ExitToMainMenu);
-	}
+    public void TogglePauseMenu()
+    {
+        if (IsOpen)
+        {
+            CloseMenu();
+        }
+        else
+        {
+            OpenMenu();
+        }
+    }
+    protected override void OnMenuOpened()
+    {
+        base.OnMenuOpened();
+        ToggleSound(false);
+        GameController.SetPauseState(true);
+    }
 
+    protected override void OnMenuClosed()
+    {
+        base.OnMenuClosed();
+        ToggleSound(true);
+        GameController.SetPauseState(false);
+    }
 
-	public void TogglePauseMenu()
-	{
-		if (IsOpen)
-		{
-			CloseMenu();
-		}
-		else
-		{
-			OpenMenu();
-		}
-	}
-
-
-	protected override void OnMenuOpened()
-	{
-		base.OnMenuOpened();
-		GameController.SetPauseState(true);
-	}
-
-	protected override void OnMenuClosed()
-	{
-		base.OnMenuClosed();
-		GameController.SetPauseState(false);
-	}
-
+    private void ToggleSound(bool toggleSound)
+    {
+        playerAudio.gameObject.SetActive(toggleSound);
+    }
 }
