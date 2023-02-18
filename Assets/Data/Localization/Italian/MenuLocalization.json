@@ -2,15 +2,15 @@
     "entries": [
         {
             "id": "mainMenu.subtitle",
-            "text": "(under construction)"
+            "text": "(In Costruzione)"
         },
         {
             "id": "mainMenu.playButton",
-            "text": "Gioca"
+            "text": "Gioca!"
         },
         {
             "id": "mainMenu.manualButton",
-            "text": "Manuale"
+            "text": "Guida "
         },
         {
             "id": "mainMenu.settingsButton",
@@ -18,7 +18,7 @@
         },
         {
             "id": "mainMenu.creditsButton",
-            "text": "Crediti"
+            "text": "Ringraziamenti"
         },
         {
             "id": "mainMenu.quitButton",
@@ -30,7 +30,7 @@
         },
         {
             "id": "settingsMenu.graphicsTab",
-            "text": "Grafiche"
+            "text": "Grafica"
         },
         {
             "id": "settingsMenu.audioAndLanguageTab",
@@ -90,67 +90,67 @@
         },
         {
             "id": "settingsMenu.controls.playerControls",
-            "text": "Player Controls"
+            "text": "Controlli Aeroplano"
         },
         {
             "id": "settingsMenu.controls.turn",
-            "text": "Turn"
+            "text": "Sterzo"
         },
         {
             "id": "settingsMenu.controls.elevation",
-            "text": "Elevation"
+            "text": "Altitudine"
         },
         {
             "id": "settingsMenu.controls.speed",
-            "text": "Speed"
+            "text": "Velocità"
         },
         {
             "id": "settingsMenu.controls.boost",
-            "text": "Boost"
+            "text": "Turbo"
         },
         {
             "id": "settingsMenu.controls.dropPackage",
-            "text": "Drop Package"
+            "text": "Rilascia Pacco"
         },
         {
             "id": "settingsMenu.controls.cameraControls",
-            "text": "Camera Controls"
+            "text": "Controlli Telecamera"
         },
         {
             "id": "settingsMenu.controls.forwardView",
-            "text": "Forward View"
+            "text": "Visione Frontale"
         },
         {
             "id": "settingsMenu.controls.behindView",
-            "text": "Behind View"
+            "text": "Visione Posteriore"
         },
         {
             "id": "settingsMenu.controls.topView",
-            "text": "Top View"
+            "text": "Visione dall'Alto"
         },
         {
             "id": "settingsMenu.controls.extraControls",
-            "text": "Extra Controls"
+            "text": "Altri Comandi"
         },
         {
             "id": "settingsMenu.controls.makeDayTime",
-            "text": "Make Day-time"
+            "text": "Cambia in Giorno"
         },
         {
             "id": "settingsMenu.controls.makeNightTime",
-            "text": "Make Night-time"
+            "text": "Cambia in Notte"
         },
         {
             "id": "settingsMenu.controls.uiControls",
-            "text": "UI Controls"
+            "text": "Controlli UI"
         },
         {
             "id": "settingsMenu.controls.toggleMap",
-            "text": "Map"
+            "text": "Mappa"
         },
         {
             "id": "settingsMenu.controls.togglePause",
-            "text": "Pause"
+            "text": "Pausa"
         },
         {
             "id": "settingsMenu.applyButton",
