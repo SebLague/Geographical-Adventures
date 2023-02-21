@@ -1,0 +1,10 @@
+<color=#FFFFFF>Czeœæ! W tej ma³ej grze Twoim celem jest po prostu latanie po ca³ym œwiecie, zbieranie paczek i dostarczanie ich do ró¿nych miast w miarê up³ywu czasu.</color>
+
+U góry ekranu znajduj¹ siê trzy lokalizacje. W ka¿dej lokalizacji znajdziesz balon na gor¹ce powietrze z paczk¹ do zebrania. Przeleæeæ samolotem przez balony, aby zebraæ paczki.
+
+Po odebraniu paczki lokalizacja u góry ekranu zmieni siê na docelowe miasto. Leæ do tego miasta (lub w kierunku, w którym, wed³ug Ciebie) i zrzuæ tam paczkê. Zostaniesz nagrodzony Boostem, którego wartoœæ zale¿y od tego, jak daleko wyl¹duje paczka od miejsca docelowego. Boost pozwala lataæ wyj¹tkowo szybko przez okreœlony czas.
+
+Mo¿esz zbieraæ i dostarczaæ paczki w dowolnej kolejnoœci, a tak¿e mo¿esz odebraæ wiele paczek przed dostarczeniem którejkolwiek z nich (pamiêtaj, ¿e w tym przypadku przycisk upuszczania paczki automatycznie wybierze t¹, która jest najbli¿sza docelowemu miejscu dostarczenia).
+
+<color=#888888>W menu Ustawienia mo¿na znaleŸæ listê elementów steruj¹cych.
+Mam nadziejê, ¿e spodoba ci siê gra!</color>
