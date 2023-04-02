@@ -175,6 +175,10 @@
         {
             "id": "pauseMenu.quitButton",
             "text": "Afsluiten"
+        },
+        {
+            "id": "gameplay.missionCollect",
+            "text": "Je hebt een pakket opgehaald! Het is gemarkeerd voor levering aan {0} , {1}!"
         }
     ]
 }

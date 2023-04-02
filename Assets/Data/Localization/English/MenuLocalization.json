@@ -175,6 +175,10 @@
         {
             "id": "pauseMenu.quitButton",
             "text": "Quit"
+        },
+        {
+            "id": "gameplay.missionCollect",
+            "text": "You collected a package! It's marked for delivery to  {0} , {1}!"
         }
     ]
 }

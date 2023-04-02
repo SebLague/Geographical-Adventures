@@ -175,6 +175,10 @@
         {
             "id": "pauseMenu.quitButton",
             "text": "Sair"
+        },
+        {
+            "id": "gameplay.missionCollect",
+            "text": "Você coletou um pacote! Está marcada para entrega em {0} , {1}!"
         }
     ]
 }
