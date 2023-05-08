@@ -94,7 +94,7 @@
         },
         {
             "id": "settingsMenu.controls.turn",
-            "text": "поворот"
+            "text": "Поворот"
         },
         {
             "id": "settingsMenu.controls.elevation",
@@ -162,7 +162,7 @@
         },
         {
             "id": "pauseMenu.pausedTitle",
-            "text": "ПАУЗА"
+            "text": "Пауза"
         },
         {
             "id": "pauseMenu.resumeButton",
