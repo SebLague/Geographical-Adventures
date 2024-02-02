@@ -1,0 +1,180 @@
+{
+    "entries": [
+        {
+            "id": "mainMenu.subtitle",
+            "text": "(у розробці)"
+        },
+        {
+            "id": "mainMenu.playButton",
+            "text": "Грати"
+        },
+        {
+            "id": "mainMenu.manualButton",
+            "text": "Інструкція"
+        },
+        {
+            "id": "mainMenu.settingsButton",
+            "text": "Налаштування"
+        },
+        {
+            "id": "mainMenu.creditsButton",
+            "text": "Титри"
+        },
+        {
+            "id": "mainMenu.quitButton",
+            "text": "Вийти"
+        },
+        {
+            "id": "subMenu.closeButton",
+            "text": "Закрити"
+        },
+        {
+            "id": "settingsMenu.graphicsTab",
+            "text": "Графіка"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguageTab",
+            "text": "Звук / Мова"
+        },
+        {
+            "id": "settingsMenu.controlsTab",
+            "text": "Керування"
+        },
+        {
+            "id": "settingsMenu.graphics.aspectRatio",
+            "text": "Співвідношення сторін"
+        },
+        {
+            "id": "settingsMenu.graphics.resolution",
+            "text": "Роздільна здатність"
+        },
+        {
+            "id": "settingsMenu.graphics.fullScreen",
+            "text": "Повноекранний режим"
+        },
+        {
+            "id": "settingsMenu.graphics.vSync",
+            "text": "Вертикальна синхронізація"
+        },
+        {
+            "id": "settingsMenu.graphics.terrainQuality",
+            "text": "Якість місцевості"
+        },
+        {
+            "id": "settingsMenu.graphics.shadowQuality",
+            "text": "Якість тіней"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.language",
+            "text": "Мова"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.translationNote",
+            "text": "Зауважте, що ці переклади є результатом роботи спільноти."
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.masterVolume",
+            "text": "Загальна гучність"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.musicVolume",
+            "text": "Гучність музики"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.sfxVolume",
+            "text": "Гучність SFX"
+        },
+        {
+            "id": "settingsMenu.controls.resetButton",
+            "text": "Скинути"
+        },
+        {
+            "id": "settingsMenu.controls.playerControls",
+            "text": "Керування гравцем"
+        },
+        {
+            "id": "settingsMenu.controls.turn",
+            "text": "Поворот"
+        },
+        {
+            "id": "settingsMenu.controls.elevation",
+            "text": "Висота"
+        },
+        {
+            "id": "settingsMenu.controls.speed",
+            "text": "Швидкість"
+        },
+        {
+            "id": "settingsMenu.controls.boost",
+            "text": "Прискорення"
+        },
+        {
+            "id": "settingsMenu.controls.dropPackage",
+            "text": "Скинути пакунок"
+        },
+        {
+            "id": "settingsMenu.controls.cameraControls",
+            "text": "Керування камерою"
+        },
+        {
+            "id": "settingsMenu.controls.forwardView",
+            "text": "Вид спереду"
+        },
+        {
+            "id": "settingsMenu.controls.behindView",
+            "text": "Вид позаду"
+        },
+        {
+            "id": "settingsMenu.controls.topView",
+            "text": "Вид зверху"
+        },
+        {
+            "id": "settingsMenu.controls.extraControls",
+            "text": "Додаткове керування"
+        },
+        {
+            "id": "settingsMenu.controls.makeDayTime",
+            "text": "Встановити день"
+        },
+        {
+            "id": "settingsMenu.controls.makeNightTime",
+            "text": "Встановити ніч"
+        },
+        {
+            "id": "settingsMenu.controls.uiControls",
+            "text": "Керування інтерфейсом"
+        },
+        {
+            "id": "settingsMenu.controls.toggleMap",
+            "text": "Мапа"
+        },
+        {
+            "id": "settingsMenu.controls.togglePause",
+            "text": "Пауза"
+        },
+        {
+            "id": "settingsMenu.applyButton",
+            "text": "Застосувати"
+        },
+        {
+            "id": "settingsMenu.exitNote",
+            "text": "Примітка: закриття без застосування скасує ваші зміни."
+        },
+        {
+            "id": "pauseMenu.pausedTitle",
+            "text": "Пауза"
+        },
+        {
+            "id": "pauseMenu.resumeButton",
+            "text": "Продовжити"
+        },
+        {
+            "id": "pauseMenu.statsButton",
+            "text": "Статистика"
+        },
+        {
+            "id": "pauseMenu.quitButton",
+            "text": "Вийти"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: vi10sfrmz8ofguok3pzmfq0gni9z6txk, type: 3}
+  m_Name: _Ukranian
+  m_EditorClassIdentifier: 
+  languageDisplayName: Ukranian
+  languageID: ukranian
+  localizedStringGroups:
+  - {fileID: 4900000, guid: h7uoc7fbkla340dmn0pm5ou3cnlnn1cu, type: 3}
+  - {fileID: 4900000, guid: lrcen5bjzx4csp1pq85d99s36ardkck0, type: 3}
+  localizedTextChunks:
+  - id: mainMenu.manualText
+    file: {fileID: 4900000, guid: mnk19vg3ujmy72xwtk6t94c40fszku89, type: 3}

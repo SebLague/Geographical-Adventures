@@ -1,0 +1,968 @@
+{
+    "entries": [
+        {
+            "id": "countryCode3.ATC",
+            "text": "Острови Ашмор і Картьє"
+        },
+        {
+            "id": "countryCode3.AFG",
+            "text": "Афганістан"
+        },
+        {
+            "id": "countryCode3.ALD",
+            "text": "Аландські остров"
+        },
+        {
+            "id": "countryCode3.ALB",
+            "text": "Албанія"
+        },
+        {
+            "id": "countryCode3.DZA",
+            "text": "Алжир"
+        },
+        {
+            "id": "countryCode3.ASM",
+            "text": "Американське Самоа"
+        },
+        {
+            "id": "countryCode3.AND",
+            "text": "Андорра"
+        },
+        {
+            "id": "countryCode3.AGO",
+            "text": "Ангола"
+        },
+        {
+            "id": "countryCode3.AIA",
+            "text": "Анґілья"
+        },
+        {
+            "id": "countryCode3.ATA",
+            "text": "Антарктида"
+        },
+        {
+            "id": "countryCode3.ATG",
+            "text": "Антиґуа і Барбуда"
+        },
+        {
+            "id": "countryCode3.ARG",
+            "text": "Аргентина"
+        },
+        {
+            "id": "countryCode3.ARM",
+            "text": "Арменія"
+        },
+        {
+            "id": "countryCode3.ABW",
+            "text": "Аруба"
+        },
+        {
+            "id": "countryCode3.AUS",
+            "text": "Австралія"
+        },
+        {
+            "id": "countryCode3.AUT",
+            "text": "Австрія"
+        },
+        {
+            "id": "countryCode3.AZE",
+            "text": "Азербайджан"
+        },
+        {
+            "id": "countryCode3.BHS",
+            "text": "Багамські острови"
+        },
+        {
+            "id": "countryCode3.BHR",
+            "text": "Бахрейн"
+        },
+        {
+            "id": "countryCode3.BGD",
+            "text": "Бангладеш"
+        },
+        {
+            "id": "countryCode3.BRB",
+            "text": "Барбадос"
+        },
+        {
+            "id": "countryCode3.BLR",
+            "text": "Білорусь"
+        },
+        {
+            "id": "countryCode3.BEL",
+            "text": "Бельгія"
+        },
+        {
+            "id": "countryCode3.BLZ",
+            "text": "Беліз"
+        },
+        {
+            "id": "countryCode3.BEN",
+            "text": "Бенін"
+        },
+        {
+            "id": "countryCode3.BMU",
+            "text": "Бермудські Острови"
+        },
+        {
+            "id": "countryCode3.BTN",
+            "text": "Бутан"
+        },
+        {
+            "id": "countryCode3.BOL",
+            "text": "Болівія"
+        },
+        {
+            "id": "countryCode3.BIH",
+            "text": "Боснія і Герцеґовина"
+        },
+        {
+            "id": "countryCode3.BWA",
+            "text": "Ботсвана"
+        },
+        {
+            "id": "countryCode3.BRA",
+            "text": "Бразилія"
+        },
+        {
+            "id": "countryCode3.VGB",
+            "text": "Британські Віргінські Острови"
+        },
+        {
+            "id": "countryCode3.BRN",
+            "text": "Бруней"
+        },
+        {
+            "id": "countryCode3.BGR",
+            "text": "Болгарія"
+        },
+        {
+            "id": "countryCode3.BFA",
+            "text": "Буркіна-Фасо"
+        },
+        {
+            "id": "countryCode3.BDI",
+            "text": "Бурунді"
+        },
+        {
+            "id": "countryCode3.CAF",
+            "text": "Центральноафриканська Республіка"
+        },
+        {
+            "id": "countryCode3.CPV",
+            "text": "Кабо-Верде"
+        },
+        {
+            "id": "countryCode3.KHM",
+            "text": "Камбоджа"
+        },
+        {
+            "id": "countryCode3.CMR",
+            "text": "Камерун"
+        },
+        {
+            "id": "countryCode3.CAN",
+            "text": "Канада"
+        },
+        {
+            "id": "countryCode3.CYM",
+            "text": "Кайманові Острови"
+        },
+        {
+            "id": "countryCode3.TCD",
+            "text": "Чад"
+        },
+        {
+            "id": "countryCode3.CHL",
+            "text": "Чилі"
+        },
+        {
+            "id": "countryCode3.CHN",
+            "text": "Китай"
+        },
+        {
+            "id": "countryCode3.COL",
+            "text": "Колумбія"
+        },
+        {
+            "id": "countryCode3.COM",
+            "text": "Коморські Острови"
+        },
+        {
+            "id": "countryCode3.COG",
+            "text": "Конґо"
+        },
+        {
+            "id": "countryCode3.COK",
+            "text": "Острови Кука"
+        },
+        {
+            "id": "countryCode3.CRI",
+            "text": "Коста-Ріка"
+        },
+        {
+            "id": "countryCode3.CIV",
+            "text": "Кот-д'Івуар"
+        },
+        {
+            "id": "countryCode3.HRV",
+            "text": "Хорватія"
+        },
+        {
+            "id": "countryCode3.CUB",
+            "text": "Куба"
+        },
+        {
+            "id": "countryCode3.CUW",
+            "text": "Кюрасао"
+        },
+        {
+            "id": "countryCode3.CYP",
+            "text": "Кіпр"
+        },
+        {
+            "id": "countryCode3.CZE",
+            "text": "Чехія"
+        },
+        {
+            "id": "countryCode3.COD",
+            "text": "Демократична Республіка Конґо"
+        },
+        {
+            "id": "countryCode3.DNK",
+            "text": "Данія"
+        },
+        {
+            "id": "countryCode3.DJI",
+            "text": "Джибуті"
+        },
+        {
+            "id": "countryCode3.DMA",
+            "text": "Домініка"
+        },
+        {
+            "id": "countryCode3.DOM",
+            "text": "Домініканська Республіка"
+        },
+        {
+            "id": "countryCode3.ECU",
+            "text": "Еквадор"
+        },
+        {
+            "id": "countryCode3.EGY",
+            "text": "Єгипет"
+        },
+        {
+            "id": "countryCode3.SLV",
+            "text": "Сальвадор"
+        },
+        {
+            "id": "countryCode3.GNQ",
+            "text": "Екваторіальна Ґвінея"
+        },
+        {
+            "id": "countryCode3.ERI",
+            "text": "Ерітрея"
+        },
+        {
+            "id": "countryCode3.EST",
+            "text": "Естонія"
+        },
+        {
+            "id": "countryCode3.SWZ",
+            "text": "Есватіні"
+        },
+        {
+            "id": "countryCode3.ETH",
+            "text": "Ефіопія"
+        },
+        {
+            "id": "countryCode3.FRO",
+            "text": "Фарерські острови"
+        },
+        {
+            "id": "countryCode3.FLK",
+            "text": "Фолклендські острови"
+        },
+        {
+            "id": "countryCode3.FJI",
+            "text": "Фіджі"
+        },
+        {
+            "id": "countryCode3.FIN",
+            "text": "Фінляндія"
+        },
+        {
+            "id": "countryCode3.ATF",
+            "text": "Французькі Південні Території"
+        },
+        {
+            "id": "countryCode3.FRA",
+            "text": "Франція"
+        },
+        {
+            "id": "countryCode3.PYF",
+            "text": "Французька Полінезія"
+        },
+        {
+            "id": "countryCode3.GAB",
+            "text": "Габон"
+        },
+        {
+            "id": "countryCode3.GMB",
+            "text": "Ґамбія"
+        },
+        {
+            "id": "countryCode3.GEO",
+            "text": "Сакартве́ло"
+        },
+        {
+            "id": "countryCode3.DEU",
+            "text": "Німеччина"
+        },
+        {
+            "id": "countryCode3.GHA",
+            "text": "Гана"
+        },
+        {
+            "id": "countryCode3.GRC",
+            "text": "Греція"
+        },
+        {
+            "id": "countryCode3.GRL",
+            "text": "Ґренландія"
+        },
+        {
+            "id": "countryCode3.GRD",
+            "text": "Гренада"
+        },
+        {
+            "id": "countryCode3.GUM",
+            "text": "Ґуам"
+        },
+        {
+            "id": "countryCode3.GTM",
+            "text": "Гватемала"
+        },
+        {
+            "id": "countryCode3.GGY",
+            "text": "Гернсі"
+        },
+        {
+            "id": "countryCode3.GIN",
+            "text": "Ґвінея"
+        },
+        {
+            "id": "countryCode3.GNB",
+            "text": "Ґвінея-Бісау"
+        },
+        {
+            "id": "countryCode3.GUY",
+            "text": "Гаяна"
+        },
+        {
+            "id": "countryCode3.HMD",
+            "text": "Острови Херд і Макдональд"
+        },
+        {
+            "id": "countryCode3.HTI",
+            "text": "Гаїті"
+        },
+        {
+            "id": "countryCode3.HND",
+            "text": "Гондурас"
+        },
+        {
+            "id": "countryCode3.HKG",
+            "text": "Гонконг"
+        },
+        {
+            "id": "countryCode3.HUN",
+            "text": "Угорщина"
+        },
+        {
+            "id": "countryCode3.IOT",
+            "text": "Британська Територія в Індійському Океані"
+        },
+        {
+            "id": "countryCode3.ISL",
+            "text": "Ісландія"
+        },
+        {
+            "id": "countryCode3.IND",
+            "text": "Індія"
+        },
+        {
+            "id": "countryCode3.IOA",
+            "text": "Території Індійського океану"
+        },
+        {
+            "id": "countryCode3.IDN",
+            "text": "Індонезія"
+        },
+        {
+            "id": "countryCode3.IRN",
+            "text": "Іран"
+        },
+        {
+            "id": "countryCode3.IRQ",
+            "text": "Ірак"
+        },
+        {
+            "id": "countryCode3.IRL",
+            "text": "Ірландія"
+        },
+        {
+            "id": "countryCode3.IMN",
+            "text": "Острів Мен"
+        },
+        {
+            "id": "countryCode3.ISR",
+            "text": "Ізраїль"
+        },
+        {
+            "id": "countryCode3.ITA",
+            "text": "Італія"
+        },
+        {
+            "id": "countryCode3.JAM",
+            "text": "Ямайка"
+        },
+        {
+            "id": "countryCode3.JPN",
+            "text": "Японія"
+        },
+        {
+            "id": "countryCode3.JEY",
+            "text": "Джерсі"
+        },
+        {
+            "id": "countryCode3.JOR",
+            "text": "Йорданія"
+        },
+        {
+            "id": "countryCode3.KAS",
+            "text": "Кашмір"
+        },
+        {
+            "id": "countryCode3.KAZ",
+            "text": "Казахстан"
+        },
+        {
+            "id": "countryCode3.KEN",
+            "text": "Кенія"
+        },
+        {
+            "id": "countryCode3.KIR",
+            "text": "Кірібаті"
+        },
+        {
+            "id": "countryCode3.KOS",
+            "text": "Косово"
+        },
+        {
+            "id": "countryCode3.KWT",
+            "text": "Кувейт "
+        },
+        {
+            "id": "countryCode3.KGZ",
+            "text": "Киргизстан"
+        },
+        {
+            "id": "countryCode3.LAO",
+            "text": "Лаос"
+        },
+        {
+            "id": "countryCode3.LVA",
+            "text": "Латвія"
+        },
+        {
+            "id": "countryCode3.LBN",
+            "text": "Ліван"
+        },
+        {
+            "id": "countryCode3.LSO",
+            "text": "Лесото"
+        },
+        {
+            "id": "countryCode3.LBR",
+            "text": "Ліберія"
+        },
+        {
+            "id": "countryCode3.LBY",
+            "text": "Лівія"
+        },
+        {
+            "id": "countryCode3.LIE",
+            "text": "Ліхтенштейн"
+        },
+        {
+            "id": "countryCode3.LTU",
+            "text": "Литва"
+        },
+        {
+            "id": "countryCode3.LUX",
+            "text": "Люксембург"
+        },
+        {
+            "id": "countryCode3.MAC",
+            "text": "Макао"
+        },
+        {
+            "id": "countryCode3.MKD",
+            "text": "Македонія"
+        },
+        {
+            "id": "countryCode3.MDG",
+            "text": "Мадагаскар"
+        },
+        {
+            "id": "countryCode3.MWI",
+            "text": "Малаві"
+        },
+        {
+            "id": "countryCode3.MYS",
+            "text": "Малайзія"
+        },
+        {
+            "id": "countryCode3.MDV",
+            "text": "Мальдіви"
+        },
+        {
+            "id": "countryCode3.MLI",
+            "text": "Малі"
+        },
+        {
+            "id": "countryCode3.MLT",
+            "text": "Мальта"
+        },
+        {
+            "id": "countryCode3.MHL",
+            "text": "Маршаллові острови"
+        },
+        {
+            "id": "countryCode3.MRT",
+            "text": "Маврітанія"
+        },
+        {
+            "id": "countryCode3.MUS",
+            "text": "Маврікій "
+        },
+        {
+            "id": "countryCode3.MEX",
+            "text": "Мексика"
+        },
+        {
+            "id": "countryCode3.FSM",
+            "text": "Мікронезія"
+        },
+        {
+            "id": "countryCode3.MDA",
+            "text": "Молдова"
+        },
+        {
+            "id": "countryCode3.MCO",
+            "text": "Монако"
+        },
+        {
+            "id": "countryCode3.MNG",
+            "text": "Монголія"
+        },
+        {
+            "id": "countryCode3.MNE",
+            "text": "Чорногорія"
+        },
+        {
+            "id": "countryCode3.MSR",
+            "text": "Монтсеррат"
+        },
+        {
+            "id": "countryCode3.MAR",
+            "text": "Марокко"
+        },
+        {
+            "id": "countryCode3.MOZ",
+            "text": "Мозамбік"
+        },
+        {
+            "id": "countryCode3.MMR",
+            "text": "М’янма"
+        },
+        {
+            "id": "countryCode3.MNP",
+            "text": "Північні Маріанські острови"
+        },
+        {
+            "id": "countryCode3.NAM",
+            "text": "Намібія"
+        },
+        {
+            "id": "countryCode3.NRU",
+            "text": "Науру"
+        },
+        {
+            "id": "countryCode3.NPL",
+            "text": "Непал"
+        },
+        {
+            "id": "countryCode3.NLD",
+            "text": "Нідерланди"
+        },
+        {
+            "id": "countryCode3.NCL",
+            "text": "Нова Каледонія"
+        },
+        {
+            "id": "countryCode3.NZL",
+            "text": "Нова Зеландія"
+        },
+        {
+            "id": "countryCode3.NIC",
+            "text": "Нікараґуа"
+        },
+        {
+            "id": "countryCode3.NER",
+            "text": "Нігер"
+        },
+        {
+            "id": "countryCode3.NGA",
+            "text": "Нігерія"
+        },
+        {
+            "id": "countryCode3.NIU",
+            "text": "Ніуе"
+        },
+        {
+            "id": "countryCode3.NFK",
+            "text": "Острів Норфолк"
+        },
+        {
+            "id": "countryCode3.PRK",
+            "text": "Північна Корея"
+        },
+        {
+            "id": "countryCode3.CYN",
+            "text": "Північний Кіпр"
+        },
+        {
+            "id": "countryCode3.NOR",
+            "text": "Норвеґія"
+        },
+        {
+            "id": "countryCode3.OMN",
+            "text": "Оман"
+        },
+        {
+            "id": "countryCode3.PAK",
+            "text": "Пакистан"
+        },
+        {
+            "id": "countryCode3.PLW",
+            "text": "Палау"
+        },
+        {
+            "id": "countryCode3.PSX",
+            "text": "Палестина"
+        },
+        {
+            "id": "countryCode3.PAN",
+            "text": "Панама"
+        },
+        {
+            "id": "countryCode3.PNG",
+            "text": "Папуа-Нова Гвінея"
+        },
+        {
+            "id": "countryCode3.PRY",
+            "text": "Парагвай"
+        },
+        {
+            "id": "countryCode3.PER",
+            "text": "Перу"
+        },
+        {
+            "id": "countryCode3.PHL",
+            "text": "Філіппіни "
+        },
+        {
+            "id": "countryCode3.PCN",
+            "text": "Острови Піткерн"
+        },
+        {
+            "id": "countryCode3.POL",
+            "text": "Польща"
+        },
+        {
+            "id": "countryCode3.PRT",
+            "text": "Портуґалія"
+        },
+        {
+            "id": "countryCode3.PRI",
+            "text": "Пуерто-Ріко"
+        },
+        {
+            "id": "countryCode3.QAT",
+            "text": "Катар"
+        },
+        {
+            "id": "countryCode3.ROU",
+            "text": "Румунія"
+        },
+        {
+            "id": "countryCode3.RUS",
+            "text": "Росія"
+        },
+        {
+            "id": "countryCode3.RWA",
+            "text": "Руанда"
+        },
+        {
+            "id": "countryCode3.SGS",
+            "text": "Південна Джорджія та Південні Сандвічеві Острови"
+        },
+        {
+            "id": "countryCode3.STP",
+            "text": "Сан-Томе і Прінсіпі "
+        },
+        {
+            "id": "countryCode3.SHN",
+            "text": "Острів Святої Олени"
+        },
+        {
+            "id": "countryCode3.LCA",
+            "text": "Сент-Люсія"
+        },
+        {
+            "id": "countryCode3.WSM",
+            "text": "Самоа"
+        },
+        {
+            "id": "countryCode3.SMR",
+            "text": "Сан-Маріно"
+        },
+        {
+            "id": "countryCode3.SAU",
+            "text": "Саудівська Аравія"
+        },
+        {
+            "id": "countryCode3.SEN",
+            "text": "Сенеґал"
+        },
+        {
+            "id": "countryCode3.SRB",
+            "text": "Сербія"
+        },
+        {
+            "id": "countryCode3.SYC",
+            "text": "Сейшельські Острови"
+        },
+        {
+            "id": "countryCode3.SLE",
+            "text": "Сьєрра-Леоне"
+        },
+        {
+            "id": "countryCode3.SGP",
+            "text": "Сінгапур"
+        },
+        {
+            "id": "countryCode3.SXM",
+            "text": "Сінт-Мартен"
+        },
+        {
+            "id": "countryCode3.SVK",
+            "text": "Словаччина"
+        },
+        {
+            "id": "countryCode3.SVN",
+            "text": "Словенія"
+        },
+        {
+            "id": "countryCode3.SLB",
+            "text": "Соломонові острови"
+        },
+        {
+            "id": "countryCode3.SOM",
+            "text": "Сомалі"
+        },
+        {
+            "id": "countryCode3.SOL",
+            "text": "Сомаліленд "
+        },
+        {
+            "id": "countryCode3.ZAF",
+            "text": "Південна Африка"
+        },
+        {
+            "id": "countryCode3.KOR",
+            "text": "Південна Корея"
+        },
+        {
+            "id": "countryCode3.SSD",
+            "text": "Південний Судан
+        },
+        {
+            "id": "countryCode3.ESP",
+            "text": "Іспанія"
+        },
+        {
+            "id": "countryCode3.LKA",
+            "text": "Шрі-Ланка"
+        },
+        {
+            "id": "countryCode3.SPM",
+            "text": "Сен-П'єр і Мікелон"
+        },
+        {
+            "id": "countryCode3.VCT",
+            "text": "Сент-Вінсент і Ґренадіни"
+        },
+        {
+            "id": "countryCode3.KNA",
+            "text": "Сент-Кітс і Невіс"
+        },
+        {
+            "id": "countryCode3.BLM",
+            "text": "Сен-Бартельмі"
+        },
+        {
+            "id": "countryCode3.MAF",
+            "text": "Сен-Мартен"
+        },
+        {
+            "id": "countryCode3.SDN",
+            "text": "Судан"
+        },
+        {
+            "id": "countryCode3.SUR",
+            "text": "Сурінам"
+        },
+        {
+            "id": "countryCode3.SWE",
+            "text": "Швеція"
+        },
+        {
+            "id": "countryCode3.CHE",
+            "text": "Швейцарія"
+        },
+        {
+            "id": "countryCode3.SYR",
+            "text": "Сирія"
+        },
+        {
+            "id": "countryCode3.TCA",
+            "text": "Острови Теркс і Кайкос"
+        },
+        {
+            "id": "countryCode3.TWN",
+            "text": "Тайвань"
+        },
+        {
+            "id": "countryCode3.TJK",
+            "text": "Таджикістан"
+        },
+        {
+            "id": "countryCode3.TZA",
+            "text": "Танзанія"
+        },
+        {
+            "id": "countryCode3.THA",
+            "text": "Таїланд"
+        },
+        {
+            "id": "countryCode3.TLS",
+            "text": "Східний Тімор"
+        },
+        {
+            "id": "countryCode3.TGO",
+            "text": "Тоґо"
+        },
+        {
+            "id": "countryCode3.TON",
+            "text": "Тонґа"
+        },
+        {
+            "id": "countryCode3.TTO",
+            "text": "Трінідад і Тобаґо"
+        },
+        {
+            "id": "countryCode3.TUN",
+            "text": "Туніс"
+        },
+        {
+            "id": "countryCode3.TUR",
+            "text": "Турція"
+        },
+        {
+            "id": "countryCode3.TKM",
+            "text": "Туркменістан"
+        },
+        {
+            "id": "countryCode3.ARE",
+            "text": "Об'єднані Арабські Емірати"
+        },
+        {
+            "id": "countryCode3.VIR",
+            "text": "Вірґінські Острови"
+        },
+        {
+            "id": "countryCode3.UGA",
+            "text": "Уґанда"
+        },
+        {
+            "id": "countryCode3.UKR",
+            "text": "Україна"
+        },
+        {
+            "id": "countryCode3.GBR",
+            "text": "Велика Британія"
+        },
+        {
+            "id": "countryCode3.USA",
+            "text": "Сполучені Штати Америки"
+        },
+        {
+            "id": "countryCode3.URY",
+            "text": "Уруґвай"
+        },
+        {
+            "id": "countryCode3.UZB",
+            "text": "Узбекистан "
+        },
+        {
+            "id": "countryCode3.VUT",
+            "text": "Вануату"
+        },
+        {
+            "id": "countryCode3.VAT",
+            "text": "Ватикан"
+        },
+        {
+            "id": "countryCode3.VEN",
+            "text": "Венесуела"
+        },
+        {
+            "id": "countryCode3.VNM",
+            "text": "В'єтнам"
+        },
+        {
+            "id": "countryCode3.WLF",
+            "text": "Уолліс і Футуна"
+        },
+        {
+            "id": "countryCode3.SAH",
+            "text": "Західна Сахара"
+        },
+        {
+            "id": "countryCode3.YEM",
+            "text": "Ємен"
+        },
+        {
+            "id": "countryCode3.ZMB",
+            "text": "Замбія"
+        },
+        {
+            "id": "countryCode3.ZWE",
+            "text": "Зімбабве"
+        }
+    ]
+}
