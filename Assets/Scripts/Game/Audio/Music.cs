@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Music : MonoBehaviour
 {
@@ -33,27 +33,36 @@ public class Music : MonoBehaviour
 
 	void Init()
 	{
-		playOrder = Seb.ArrayHelper.CreateIndexArray(tracks.Length);
+		tracks = tracks.Where(track => track != null).ToArray();
 		if (shuffleTracksOnStart)
 		{
-			Seb.ArrayHelper.ShuffleArray(playOrder, new System.Random());
+			Seb.ArrayHelper.ShuffleArray(tracks, new System.Random());
 		}
 		nextTrackIndex = 0;
+		if (tracks.Length == 0) {
+			Destroy(gameObject);
+		}
 	}
 
 	void Update()
 	{
 		if (Time.time > nextTrackStartTime)
 		{
-			if (tracks[nextTrackIndex] != null)
-			{
-				source.Stop();
-				source.clip = tracks[nextTrackIndex];
-				source.Play();
-				nextTrackStartTime = Time.time + source.clip.length;
-				nextTrackIndex = (nextTrackIndex + 1) % tracks.Length;
-			}
+			StartCoroutine(PlayNextTrack());
 		}
+	}
+
+	IEnumerator PlayNextTrack()
+	{
+		if (tracks[nextTrackIndex] != null)
+		{
+			source.Stop();
+			source.clip = tracks[nextTrackIndex];
+			source.Play();
+			nextTrackStartTime = Time.time + source.clip.length;
+			nextTrackIndex = (nextTrackIndex + 1) % tracks.Length;
+		}
+		yield return null;
 	}
 
 	[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
