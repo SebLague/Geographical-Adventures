@@ -1,0 +1,180 @@
+{
+    "entries": [
+        {
+            "id": "mainMenu.subtitle",
+            "text": "(under construction)"
+        },
+        {
+            "id": "mainMenu.playButton",
+            "text": "Graj"
+        },
+        {
+            "id": "mainMenu.manualButton",
+            "text": "Instrukcja"
+        },
+        {
+            "id": "mainMenu.settingsButton",
+            "text": "Ustawienia"
+        },
+        {
+            "id": "mainMenu.creditsButton",
+            "text": "Credits"
+        },
+        {
+            "id": "mainMenu.quitButton",
+            "text": "Wyjście"
+        },
+        {
+            "id": "subMenu.closeButton",
+            "text": "Zamknij"
+        },
+        {
+            "id": "settingsMenu.graphicsTab",
+            "text": "Grafika"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguageTab",
+            "text": "Dźwięk / Język"
+        },
+        {
+            "id": "settingsMenu.controlsTab",
+            "text": "Elementy sterujące"
+        },
+        {
+            "id": "settingsMenu.graphics.aspectRatio",
+            "text": "Aspect Ratio"
+        },
+        {
+            "id": "settingsMenu.graphics.resolution",
+            "text": "Rozdzielczość"
+        },
+        {
+            "id": "settingsMenu.graphics.fullScreen",
+            "text": "Pełny ekran"
+        },
+        {
+            "id": "settingsMenu.graphics.vSync",
+            "text": "VSync"
+        },
+        {
+            "id": "settingsMenu.graphics.terrainQuality",
+            "text": "Jakość terenu"
+        },
+        {
+            "id": "settingsMenu.graphics.shadowQuality",
+            "text": "Jakość cieni"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.language",
+            "text": "Język"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.translationNote",
+            "text": "Należy pamiętać, że te tłumaczenia są w toku dzięki społeczności gry."
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.masterVolume",
+            "text": "Głośność"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.musicVolume",
+            "text": "Głośność muzyki"
+        },
+        {
+            "id": "settingsMenu.audioAndLanguage.sfxVolume",
+            "text": "Głośność efektów dźwiękowych"
+        },
+        {
+            "id": "settingsMenu.controls.resetButton",
+            "text": "Reset"
+        },
+        {
+            "id": "settingsMenu.controls.playerControls",
+            "text": "Sterowanie gracza"
+        },
+        {
+            "id": "settingsMenu.controls.turn",
+            "text": "Skręt"
+        },
+        {
+            "id": "settingsMenu.controls.elevation",
+            "text": "Wysokość"
+        },
+        {
+            "id": "settingsMenu.controls.speed",
+            "text": "Prędkość"
+        },
+        {
+            "id": "settingsMenu.controls.boost",
+            "text": "Boost"
+        },
+        {
+            "id": "settingsMenu.controls.dropPackage",
+            "text": "Upuść paczkę"
+        },
+        {
+            "id": "settingsMenu.controls.cameraControls",
+            "text": "Sterowanie kamerą"
+        },
+        {
+            "id": "settingsMenu.controls.forwardView",
+            "text": "Widok do przodu"
+        },
+        {
+            "id": "settingsMenu.controls.behindView",
+            "text": "Widok do tyłu"
+        },
+        {
+            "id": "settingsMenu.controls.topView",
+            "text": "Widok z góry"
+        },
+        {
+            "id": "settingsMenu.controls.extraControls",
+            "text": "Sterowanie dodatkowe"
+        },
+        {
+            "id": "settingsMenu.controls.makeDayTime",
+            "text": "Ustaw dzień"
+        },
+        {
+            "id": "settingsMenu.controls.makeNightTime",
+            "text": "Ustaw noc"
+        },
+        {
+            "id": "settingsMenu.controls.uiControls",
+            "text": "Sterowanie UI"
+        },
+        {
+            "id": "settingsMenu.controls.toggleMap",
+            "text": "Mapa"
+        },
+        {
+            "id": "settingsMenu.controls.togglePause",
+            "text": "Pauza"
+        },
+        {
+            "id": "settingsMenu.applyButton",
+            "text": "Zastosuj"
+        },
+        {
+            "id": "settingsMenu.exitNote",
+            "text": "Note: closing without applying will revert your changes."
+        },
+        {
+            "id": "pauseMenu.pausedTitle",
+            "text": "PAUZA"
+        },
+        {
+            "id": "pauseMenu.resumeButton",
+            "text": "Wznów"
+        },
+        {
+            "id": "pauseMenu.statsButton",
+            "text": "Statystyki"
+        },
+        {
+            "id": "pauseMenu.quitButton",
+            "text": "Wyjście"
+        }
+    ]
+}

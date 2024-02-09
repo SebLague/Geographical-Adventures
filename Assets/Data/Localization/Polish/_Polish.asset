@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c11dd3d25848ea45b8432cae9e718ce, type: 3}
+  m_Name: _Polish
+  m_EditorClassIdentifier: 
+  languageDisplayName: Polski
+  languageID: polish
+  rightToLeftWritingSystem: 0
+  localizedStringGroups:
+  - {fileID: 4900000, guid: a0b9fa88738895c48bac4696d94c2d5f, type: 3}
+  - {fileID: 4900000, guid: efa0c1f029f069d40a42b0a34f635601, type: 3}
+  localizedTextChunks:
+  - id: mainMenu.manualText
+    file: {fileID: 4900000, guid: 51d55ec0ed41fa1478825f7216edcd3b, type: 3}
