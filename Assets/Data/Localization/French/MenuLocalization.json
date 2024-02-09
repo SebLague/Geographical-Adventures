@@ -175,6 +175,10 @@
         {
             "id": "pauseMenu.quitButton",
             "text": "Quitter"
+        },
+        {
+            "id": "gameplay.missionCollect",
+            "text": "Vous avez ramassé un colis ! Il est marqué pour la livraison en {0} , {1}!"
         }
     ]
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GeoGame.Localization;
 using UnityEngine;
 
 namespace GeoGame.Quest
@@ -298,9 +299,12 @@ namespace GeoGame.Quest
 			Quest quest = activeQuests[questIndex];
 			quest.hasPickedUp = true;
 			questUI.SetTarget(questIndex, quest.deliverLocation, isPickup: false, animate: true);
+			
+			/// Localization message  :" You collected a package! It's marked for delivery to "  with localize id = "gameplay.missionCollect
+			string countryName = quest.deliverLocation.country.alpha3Code;
+			string message = string.Format(LocalizationManager.Localize("gameplay.missionCollect"), quest.deliverLocation.city.name, LocalizationManager.Localize("countryCode3."+countryName) );
 
-			string countryName = quest.deliverLocation.GetCountryDisplayName();
-			string message = $"You collected a package! It's marked for delivery to {quest.deliverLocation.city.name}, {countryName}";
+			// old state:  string message = $"You collected a package! It's marked for delivery to {quest.deliverLocation.city.name}, {countryName}";
 			messageUI.ShowMessage(message, pickupMessageDuration);
 			Debug.Log(message);
 			//questUI.SetTarget(questIndex, quest.deliverCountry, quest.deliverCity, isPickup: false);

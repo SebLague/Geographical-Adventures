@@ -1,184 +1,186 @@
 {
     "entries": [
+        
         {
             "id": "mainMenu.subtitle",
-            "text": "(en desarrollo)"
+            "text": "Bu Bir Açık Kaynak Projedir ve Geliştirilmeye Devam Etmektedir"
         },
         {
             "id": "mainMenu.playButton",
-            "text": "Jugar"
+            "text": "Oyna"
         },
         {
             "id": "mainMenu.manualButton",
-            "text": "Manual"
+            "text": "Bilgilendirme"
         },
         {
             "id": "mainMenu.settingsButton",
-            "text": "Configuración"
+            "text": "Ayarlar"
         },
         {
             "id": "mainMenu.creditsButton",
-            "text": "Créditos"
+            "text": "Emektarlar"
         },
         {
             "id": "mainMenu.quitButton",
-            "text": "Salir"
+            "text": "Çıkış"
         },
         {
             "id": "subMenu.closeButton",
-            "text": "Cerrar"
+            "text": "Kapat"
         },
         {
             "id": "settingsMenu.graphicsTab",
-            "text": "Gráficos"
+            "text": "Grafikler"
         },
         {
             "id": "settingsMenu.audioAndLanguageTab",
-            "text": "Sonido e idioma"
+            "text": "Ses ve dil"
         },
         {
             "id": "settingsMenu.controlsTab",
-            "text": "Controles"
+            "text": "Kontroller"
         },
         {
             "id": "settingsMenu.graphics.aspectRatio",
-            "text": "Relación de aspecto"
+            "text": "En boy oranı"
         },
         {
             "id": "settingsMenu.graphics.resolution",
-            "text": "Resolución del juego"
+            "text": "Çözünürlük"
         },
         {
             "id": "settingsMenu.graphics.fullScreen",
-            "text": "Pantalla completa"
+            "text": "Tam ekran"
         },
         {
             "id": "settingsMenu.graphics.vSync",
-            "text": "VSync"
+            "text": "Vsync"
         },
         {
             "id": "settingsMenu.graphics.terrainQuality",
-            "text": "Calidad del terreno"
+            "text": "Arazi kalitesi"
         },
         {
             "id": "settingsMenu.graphics.shadowQuality",
-            "text": "Calidad de sombras"
+            "text": "Gölge kalitesi"
         },
         {
             "id": "settingsMenu.audioAndLanguage.language",
-            "text": "Idioma"
+            "text": "Dil"
         },
         {
             "id": "settingsMenu.audioAndLanguage.translationNote",
-            "text": "Por favor toma en cuenta que las traducciones son hechas por la comunidad."
+            "text": "Bu Çevirilerin devam eden bir topluluk Çabası olduğunu lütfen unutmayın."
         },
         {
             "id": "settingsMenu.audioAndLanguage.masterVolume",
-            "text": "Volumen"
+            "text": "Ana ses"
         },
         {
             "id": "settingsMenu.audioAndLanguage.musicVolume",
-            "text": "Volumen de música"
+            "text": "Müzik sesi"
         },
         {
             "id": "settingsMenu.audioAndLanguage.sfxVolume",
-            "text": "Volumém de sonidos"
+            "text": "SFX hacmi"
         },
         {
             "id": "settingsMenu.controls.resetButton",
-            "text": "Restablecer"
+            "text": "Sıfırla"
         },
         {
             "id": "settingsMenu.controls.playerControls",
-            "text": "Controles"
+            "text": "Oyuncu Kontrolleri"
         },
         {
             "id": "settingsMenu.controls.turn",
-            "text": "Girar"
+            "text": "Dönüş"
         },
         {
             "id": "settingsMenu.controls.elevation",
-            "text": "Elevar"
+            "text": "Yükseklik"
         },
         {
             "id": "settingsMenu.controls.speed",
-            "text": "Velocidad"
+            "text": "Hız"
         },
         {
             "id": "settingsMenu.controls.boost",
-            "text": "Boost"
+            "text": "Artırma"
         },
         {
             "id": "settingsMenu.controls.dropPackage",
-            "text": "Soltar paquete"
+            "text": "Drop paketi"
         },
         {
             "id": "settingsMenu.controls.cameraControls",
-            "text": "Controles de cámara"
+            "text": "Kamera Kontrolleri"
         },
         {
             "id": "settingsMenu.controls.forwardView",
-            "text": "Camará hacia adelante"
+            "text": "İleriye Bakış"
         },
         {
             "id": "settingsMenu.controls.behindView",
-            "text": "Cámara hacia atrás"
+            "text": "Arkadan Bakış"
         },
         {
             "id": "settingsMenu.controls.topView",
-            "text": "Vista desde arriba"
+            "text": "Üstten Bakış"
         },
         {
             "id": "settingsMenu.controls.extraControls",
-            "text": "Controles extra"
+            "text": "Ekstra kontroller"
         },
         {
             "id": "settingsMenu.controls.makeDayTime",
-            "text": "Cambiar a día"
+            "text": "Gündüz yapmak"
         },
         {
             "id": "settingsMenu.controls.makeNightTime",
-            "text": "Cambiar a noche"
+            "text": "Gece Yap"
         },
         {
             "id": "settingsMenu.controls.uiControls",
-            "text": "Controles del menú"
+            "text": "UI kontrolleri"
         },
         {
             "id": "settingsMenu.controls.toggleMap",
-            "text": "Mapa"
+            "text": "Harita"
         },
         {
             "id": "settingsMenu.controls.togglePause",
-            "text": "Pausa"
+            "text": "Duraklat"
         },
         {
             "id": "settingsMenu.applyButton",
-            "text": "Aplicar"
+            "text": "Uygula"
         },
         {
             "id": "settingsMenu.exitNote",
-            "text": "Nota: cerrar sin aplicar los cambios no afectará tu configuración"
+            "text": "Not: Yaptığınız değişikliklerin Uygulama buttonu basmadan  kaparsanız değişikliklerinizi kaydedilmez."
         },
         {
             "id": "pauseMenu.pausedTitle",
-            "text": "EN PAUSA"
+            "text": "Durak"
         },
         {
             "id": "pauseMenu.resumeButton",
-            "text": "Reanudar"
+            "text": "Devam"
         },
         {
             "id": "pauseMenu.statsButton",
-            "text": "Estatísticas"
+            "text": "İstatistikler"
         },
         {
             "id": "pauseMenu.quitButton",
-            "text": "Salir"
+            "text": "Çıkış"
         },
         {
             "id": "gameplay.missionCollect",
-            "text": "¡Has recogido un paquete! Está marcado para la entrega a {0} , {1}!"
+            "text": "Paketleri toplandı! Teslimat  {1}' ülkesinin {0} şehrine yapmalısın!"
         }
+        
     ]
 }

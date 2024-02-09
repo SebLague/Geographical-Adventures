@@ -175,6 +175,10 @@
         {
             "id": "pauseMenu.quitButton",
             "text": "Esci"
+        },
+        {
+            "id": "gameplay.missionCollect",
+            "text": "Hai preso un pacco! I è contrassegnato per la consegna a {0} , {1}!"
         }
     ]
 }

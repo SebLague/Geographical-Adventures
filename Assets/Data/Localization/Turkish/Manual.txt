@@ -1,0 +1,10 @@
+<color=#FFFFFF>Merhaba! Bu küçük oyunda amacınız basitçe dünya çapında uçmak, paketleri almak ve giderken onları çeşitli şehirlere teslim etmektir.</color>
+
+Ekranın üst kısmında işaretlenmiş üç konum vardır. Her yerde, toplamanız için bir paketle bekleyen bir sıcak hava balonu bulacaksınız. Paketleri toplamak için uçağınızı balonların arasından uçurun.
+
+Bir paket alındığında, ekranın üst kısmındaki konumu bir teslimat adresi olarak değişecektir. O şehre uçun (veya nerede olduğuna dair en iyi tahmininizi yapın) ve paketi oraya bırakın. Paketin amaçlanan varış noktasından ne kadar uzağa indiğine bağlı olarak Takviye ile ödüllendirileceksiniz. Boost, sınırlı bir süre için son derece hızlı uçmanızı sağlar.
+
+Paketleri istediğiniz sırayla toplayıp teslim edebilirsiniz ve herhangi birini teslim etmeden önce birden fazla paketi teslim alabilirsiniz (bu durumda, paketi bırak düğmesinin otomatik olarak hedefine en yakın paketi seçeceğini unutmayın).
+
+<color=#888888>Ayarlar menüsünde kontrollerin bir listesini bulabilirsiniz.
+Umarım oyundan hoşlanırsınız!</color>

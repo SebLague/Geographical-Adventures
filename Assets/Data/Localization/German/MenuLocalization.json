@@ -175,6 +175,10 @@
         {
             "id": "pauseMenu.quitButton",
             "text": "Zurück"
+        },
+        {
+            "id": "gameplay.missionCollect",
+            "text": "Du hast ein Paket! I ist für die Lieferung nach  {0} , {1} gekennzeichnet!"
         }
     ]
 }

@@ -175,6 +175,10 @@
         {
             "id": "pauseMenu.quitButton",
             "text": "Izhod"
+        },
+        {
+            "id": "gameplay.missionCollect",
+            "text": "Zbrali ste paket! Označeno je za dostavo v {0} , {1}!"
         }
     ]
 }
