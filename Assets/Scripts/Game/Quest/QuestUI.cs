@@ -23,6 +23,9 @@ namespace GeoGame.Quest
 
 		void Awake()
 		{
+			timer.rectTransform.localScale = Vector3.zero;
+			transform.localScale = Vector3.zero;
+
 			Seb.TransformHelper.DestroyAllChildren(countryTargetsRect.transform);
 			countryTargets = new TargetUI[QuestSystem.numActiveQuests];
 
@@ -87,6 +90,7 @@ namespace GeoGame.Quest
 		// Animate the first targets 
 		public void AnimateFirstSet()
 		{
+			gameObject.SetActive(true);
 			activeAnimation = StartCoroutine(AnimateFirst());
 		}
 
