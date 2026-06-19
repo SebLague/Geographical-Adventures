@@ -1,11 +1,35 @@
-# Geographical Adventures
-A little work-in-progress geography game about delivering packages to different countries around the world. </br>
-Made in the Unity game engine.
+# Planetary Explorer & Interaction Controller
 
-You can try playing the game in its current state [here.](https://sebastian.itch.io/geographical-adventures)
-![Image](https://raw.githubusercontent.com/SebLague/Images/master/Geographical%20Adventures.jpg)
-![Image](https://raw.githubusercontent.com/SebLague/Images/master/Geographical%20Adventures%202.jpg)
-# Development Videos
-[Episode 01: I Tried Creating a Game Using Real-World Geographic Data](https://youtu.be/sLqXFF8mlEU) </br>
-[Episode 02: Trying to Improve My Geography Game with More Real-World Data](https://youtu.be/UXD97l7ZT0w) </br>
-[Episode 03: Polishing and Releasing My Little Geography Game](https://www.youtube.com/watch?v=pNp4ug5F6To)
+This is a transformed version of Sebastian Lague's Geographical Adventures project, converting it from an airplane-based delivery simulator into a **third-person planetary exploration game**.
+
+## Features Implemented
+* **Spherical Locomotion**: A physics-aligned, surface-aware character controller that allows smooth movement across the globe, traversing both the equator and poles without gimbal-lock or rotation suddenness.
+* **Planetary Camera System**: A custom third-person orbit camera system using SmoothDamp interpolation for stability at the poles. Supports drag controls for free look.
+* **Artifact Interaction System**: A reusable framework supporting artifact pickup, socket attachment, weight-based speed reduction, dropping, and terrain surface normal alignment.
+* **Complete UI/UX Redesign**: A futuristic dark HUD showing current region/country, precise coordinates (Lat/Lon), dynamic compass, and status of carried artifacts.
+* **Architecture Integrity**: Clean separation of concerns using ScriptableObjects, interfaces, and decoupling techniques.
+
+---
+
+## Setup & Run Instructions
+1. Open Unity Hub and add the project folder.
+2. Ensure you are using **Unity 2021.3 LTS** or newer.
+3. Open the main scene located at `Assets/Scenes/Game.unity`.
+4. Press **Play** in the Unity Editor to test.
+
+## Controls
+* **W, A, S, D / Arrow Keys**: Move the character relative to the camera direction.
+* **Mouse Drag (Left/Right Click)**: Orbit the camera around the character.
+* **Space / Drop Action**: Drop quest delivery packages.
+* **E**: Interact with objects (Pick up / Drop artifacts).
+* **Esc**: Pause Menu.
+* **M**: Map View.
+
+---
+
+## Architecture Overview
+* **Player.cs**: Manages spherical third-person movement, state, and interaction handling.
+* **GameCamera.cs**: Smoothly orbits and follows the player.
+* **Artifact.cs & ArtifactData.cs**: Define interaction physics and ScriptableObject architecture.
+* **PlanetaryHUD.cs**: Implements the Futuristic Surveyor UI overlay.
+* **PlanetaryExplorerSetup.cs**: Procedurally instantiates the HUD and spawns test artifacts in the world.

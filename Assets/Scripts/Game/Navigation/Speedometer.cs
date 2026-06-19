@@ -20,6 +20,7 @@ public class Speedometer : MonoBehaviour
 
 	void Start()
 	{
+		transform.localScale = Vector3.zero;
 		boostIndicatorTransform = boostIndicator.GetComponent<RectTransform>();
 	}
 

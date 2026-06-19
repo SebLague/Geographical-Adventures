@@ -26,6 +26,7 @@ public class MessageUI : MonoBehaviour
 		messageTextInstance.text = messageText;
 		Message message = new Message() { text = messageTextInstance, active = true, visibleDuration = duration };
 		activeMessage = message;
+		gameObject.SetActive(true);
 		StartCoroutine(AnimateMessage(activeMessage));
 	}
 
